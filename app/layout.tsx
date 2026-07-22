@@ -21,8 +21,8 @@ const siteUrl = 'https://mamonudzimisie.com';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Mamo, nudzi mi się! — książeczki aktywnościowe dla dzieci',
-    template: '%s | Mamo, nudzi mi się!',
+    default: 'Książeczki aktywnościowe dla dzieci',
+    template: '%s | Książeczki aktywnościowe dla dzieci',
   },
   description:
     'Wykreślanki, labirynty i kolorowanki, które naprawdę zajmą dziecko. Książeczki aktywnościowe dopasowane do wieku, dostępne na Amazon.',
@@ -37,14 +37,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'pl_PL',
     url: siteUrl,
-    siteName: 'Mamo, nudzi mi się!',
-    title: 'Mamo, nudzi mi się! — książeczki aktywnościowe dla dzieci',
+    siteName: 'Książeczki aktywnościowe dla dzieci',
+    title: 'Książeczki aktywnościowe dla dzieci',
     description:
       'Wykreślanki, labirynty i kolorowanki, które naprawdę zajmą dziecko — bez ekranu.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mamo, nudzi mi się! — książeczki aktywnościowe dla dzieci',
+    title: 'Książeczki aktywnościowe dla dzieci',
     description:
       'Wykreślanki, labirynty i kolorowanki, które naprawdę zajmą dziecko — bez ekranu.',
   },

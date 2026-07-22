@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
         <div className="flex flex-col gap-6 sm:flex-row sm:justify-between">
           <div>
-            <p className="font-display text-lg font-700 text-navy">Mamo, nudzi mi się!</p>
+            <p className="font-display text-lg font-700 text-navy">Książeczki aktywnościowe</p>
             <p className="mt-2 max-w-sm text-sm text-ink/70">
               Książeczki aktywnościowe, które naprawdę zajmują dzieci — bez ekranu, za to
               z kredką w ręku.
@@ -29,7 +29,7 @@ export default function Footer() {
           dokonanych za pośrednictwem linków na tej stronie. Nie wpływa to na cenę, jaką płacisz.
         </p>
         <p className="mt-3 text-xs text-ink/50">
-          © {new Date().getFullYear()} Mamo, nudzi mi się! Wszystkie prawa zastrzeżone.
+          © {new Date().getFullYear()} Książeczki aktywnościowe. Wszystkie prawa zastrzeżone.
         </p>
       </div>
     </footer>

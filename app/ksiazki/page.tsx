@@ -6,7 +6,7 @@ import { books } from '@/data/books';
 export const metadata: Metadata = {
   title: 'Katalog książek',
   description:
-    'Wszystkie książeczki aktywnościowe „Mamo, nudzi mi się!” w jednym miejscu. Filtruj po wieku dziecka i kategorii: wykreślanki, labirynty, kolorowanki.',
+    'Wszystkie nasze książeczki aktywnościowe w jednym miejscu. Filtruj po wieku dziecka i kategorii: wykreślanki, labirynty, kolorowanki.',
 };
 
 export default function KsiazkiPage() {

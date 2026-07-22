@@ -1,8 +1,7 @@
-# Mamo, nudzi mi się!
+# Książeczki aktywnościowe
 
-Strona internetowa marki „Mamo, nudzi mi się!” — promuje serię książeczek
-aktywnościowych dla dzieci (wykreślanki, labirynty, kolorowanki) i linkuje do
-nich na Amazon.
+Strona internetowa promująca serię książeczek aktywnościowych dla dzieci
+(wykreślanki, labirynty, kolorowanki) i linkująca do nich na Amazon.
 
 Ten README jest napisany z myślą o osobie **bez doświadczenia technicznego** —
 krok po kroku, bez skrótów myślowych.

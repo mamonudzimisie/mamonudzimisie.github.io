@@ -12,7 +12,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-4xl text-center">
           <div className="speech-bubble mx-auto mb-8 inline-block max-w-xl bg-white px-6 py-4 shadow-cover sm:px-8 sm:py-6">
             <p className="font-display text-2xl font-700 text-ink sm:text-3xl">
-              „Mamo, nudzi mi się!”
+              „Mamooo, nudzi mi się!”
             </p>
           </div>
           <h1 className="font-display text-3xl font-800 leading-tight text-navy sm:text-5xl">

@@ -39,7 +39,7 @@ export default function BookPage({ params }: { params: { slug: string } }) {
     image: `https://mamonudzimisie.com${book.coverImage}`,
     brand: {
       '@type': 'Brand',
-      name: 'Mamo, nudzi mi się!',
+      name: 'Książeczki aktywnościowe',
     },
     ...(book.comingSoon
       ? {}

@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'O nas',
   description:
-    'Poznaj markę „Mamo, nudzi mi się!” — historię i podejście do tworzenia książeczek aktywnościowych dla dzieci.',
+    'Poznaj naszą historię i podejście do tworzenia książeczek aktywnościowych dla dzieci.',
 };
 
 export default function ONasPage() {
@@ -13,7 +13,7 @@ export default function ONasPage() {
         <h1 className="font-display text-3xl font-800 text-navy sm:text-4xl">O nas</h1>
         <div className="mt-6 space-y-4 leading-relaxed text-ink/80">
           <p>
-            „Mamo, nudzi mi się!” to zdanie, które słyszy chyba każdy rodzic — zwykle w
+            „Mamooo, nudzi mi się!” to zdanie, które słyszy chyba każdy rodzic — zwykle w
             najmniej odpowiednim momencie. My usłyszeliśmy je wystarczająco wiele razy,
             żeby postanowić coś z tym zrobić.
           </p>
