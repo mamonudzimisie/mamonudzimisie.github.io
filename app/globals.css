@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #fbf3e3;
+  color: #2e2a26;
+}
+
+.notebook-grid {
+  background-image: linear-gradient(#00000012 1px, transparent 1px),
+    linear-gradient(90deg, #00000012 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.speech-bubble {
+  position: relative;
+  border-radius: 1.75rem;
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  left: 2.5rem;
+  bottom: -1.1rem;
+  width: 2rem;
+  height: 2rem;
+  background: inherit;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
