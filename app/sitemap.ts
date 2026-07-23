@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { books } from '@/data/books';
 
-const siteUrl = 'https://mamonudzimisie.com';
+const siteUrl = 'https://zalkabooks.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = ['', '/ksiazki', '/o-nas', '/blog', '/blog/zabawy-bez-ekranu-dla-5-latka'].map(

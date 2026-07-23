@@ -16,7 +16,7 @@ const nunito = Nunito({
   variable: '--font-body',
 });
 
-const siteUrl = 'https://mamonudzimisie.com';
+const siteUrl = 'https://zalkabooks.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

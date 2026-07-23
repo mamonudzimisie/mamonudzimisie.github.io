@@ -36,7 +36,7 @@ export default function BookPage({ params }: { params: { slug: string } }) {
     '@type': 'Product',
     name: book.title,
     description: book.description,
-    image: `https://mamonudzimisie.com${book.coverImage}`,
+    image: `https://zalkabooks.com${book.coverImage}`,
     brand: {
       '@type': 'Brand',
       name: 'Książeczki aktywnościowe',
