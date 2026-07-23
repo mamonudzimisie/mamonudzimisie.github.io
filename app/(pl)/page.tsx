@@ -1,8 +1,19 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import BookCard from '@/components/BookCard';
 import AgeGroupLinks from '@/components/AgeGroupLinks';
 import { getFeaturedBooks } from '@/data/books';
+import { SITE_URL } from '@/lib/site';
+
+export const metadata: Metadata = {
+  alternates: {
+    languages: {
+      pl: SITE_URL,
+      de: `${SITE_URL}/de`,
+    },
+  },
+};
 
 function IconPencil() {
   return (

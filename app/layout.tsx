@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import { Baloo_2, Nunito } from 'next/font/google';
 import './globals.css';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import { SITE_URL } from '@/lib/site';
 
 const baloo = Baloo_2({
   subsets: ['latin-ext'],
@@ -16,10 +15,8 @@ const nunito = Nunito({
   variable: '--font-body',
 });
 
-const siteUrl = 'https://zalkabooks.com';
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Książeczki aktywnościowe dla dzieci',
     template: '%s | Książeczki aktywnościowe dla dzieci',
@@ -36,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'pl_PL',
-    url: siteUrl,
+    url: SITE_URL,
     siteName: 'Książeczki aktywnościowe dla dzieci',
     title: 'Książeczki aktywnościowe dla dzieci',
     description:
@@ -58,9 +55,7 @@ export default function RootLayout({
   return (
     <html lang="pl" className={`${baloo.variable} ${nunito.variable}`}>
       <body className="font-body flex min-h-screen flex-col bg-paper text-ink">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   );

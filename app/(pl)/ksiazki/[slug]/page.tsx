@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { books, getBookBySlug, CATEGORY_LABELS } from '@/data/books';
+import { SITE_URL } from '@/lib/site';
 
 export function generateStaticParams() {
   return books.map((book) => ({ slug: book.slug }));
@@ -36,7 +37,7 @@ export default function BookPage({ params }: { params: { slug: string } }) {
     '@type': 'Product',
     name: book.title,
     description: book.description,
-    image: `https://zalkabooks.com${book.coverImage}`,
+    image: `${SITE_URL}${book.coverImage}`,
     brand: {
       '@type': 'Brand',
       name: 'Książeczki aktywnościowe',
