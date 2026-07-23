@@ -46,8 +46,7 @@ export const books: Book[] = [
       'Tematy bliskie dzieciom (zwierzęta, rodzina, kolory)',
     ],
     coverImage: '/covers/znajdz-slowko-5-6.png',
-    // TODO: wstaw prawdziwy link do produktu na Amazon, gdy książka będzie opublikowana
-    amazonUrl: 'https://www.amazon.pl/dp/XXXXXXXXXX',
+    amazonUrl: 'https://amzn.eu/d/0coMqTkj',
     featured: true,
   },
   {
@@ -65,8 +64,7 @@ export const books: Book[] = [
       'Tematy bliskie dzieciom (zwierzęta, rodzina, kolory)',
     ],
     coverImage: '/covers/znajdz-slowko-6-7.png',
-    // TODO: wstaw prawdziwy link do produktu na Amazon, gdy książka będzie opublikowana
-    amazonUrl: 'https://www.amazon.pl/dp/XXXXXXXXXX',
+    amazonUrl: 'https://amzn.eu/d/07BBUa1X',
     featured: true,
   },
   {
@@ -84,8 +82,7 @@ export const books: Book[] = [
       'Tematy bliskie dzieciom (zwierzęta, rodzina, kolory)',
     ],
     coverImage: '/covers/znajdz-slowko-7-9.png',
-    // TODO: wstaw prawdziwy link do produktu na Amazon, gdy książka będzie opublikowana
-    amazonUrl: 'https://www.amazon.pl/dp/XXXXXXXXXX',
+    amazonUrl: 'https://amzn.eu/d/0dJNgtH1',
     featured: true,
   },
   {
@@ -103,8 +100,7 @@ export const books: Book[] = [
       'Tematy bliskie dzieciom (zwierzęta, rodzina, kolory)',
     ],
     coverImage: '/covers/znajdz-slowko-10.png',
-    // TODO: wstaw prawdziwy link do produktu na Amazon, gdy książka będzie opublikowana
-    amazonUrl: 'https://www.amazon.pl/dp/XXXXXXXXXX',
+    amazonUrl: 'https://amzn.eu/d/07eXC8JG',
     featured: true,
   },
   {
