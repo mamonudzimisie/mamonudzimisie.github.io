@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import BookCard from '@/components/BookCard';
 import AgeGroupLinks from '@/components/AgeGroupLinks';
@@ -47,46 +48,46 @@ export default function HomePage() {
   return (
     <>
       <section className="notebook-grid relative overflow-hidden border-b border-ink/10 px-4 py-16 sm:px-6 sm:py-24">
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="speech-bubble mx-auto mb-8 inline-block max-w-xl bg-white px-6 py-4 shadow-cover sm:px-8 sm:py-6">
-            <p className="font-display text-2xl font-700 text-ink sm:text-3xl">
-              „Mamooo, nudzi mi się!”
-            </p>
-          </div>
-          <h1 className="font-display text-3xl font-800 leading-tight text-navy sm:text-5xl">
-            I bardzo dobrze.
-          </h1>
+        <div className="mx-auto grid max-w-5xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          <div className="text-center lg:text-left">
+            <span className="speech-bubble inline-block bg-white px-4 py-2 shadow-cover">
+              <span className="font-display text-base font-700 text-ink sm:text-lg">
+                „Mamo, jeszcze jedną stronę!”
+              </span>
+            </span>
 
-          <div className="mx-auto mt-6 max-w-xl space-y-5 text-base leading-relaxed text-ink/80 sm:text-lg">
-            <p>
-              <strong className="font-bold text-ink">
-                Nuda jest potrzebna.
-              </strong>{" "}
-              To właśnie wtedy pojawia się przestrzeń na wyobraźnię,
-              własne pomysły i kreatywność.
-            </p>
+            <h1 className="mt-6 font-display text-3xl font-800 leading-tight text-navy sm:text-5xl">
+              Zdanie, które usłyszysz
+              <br />
+              zamiast „nudzi mi się”
+            </h1>
 
-            <p>
-              Jako mama chciałam wykorzystać takie chwile jeszcze lepiej —
-              zamienić je w zabawę, która przy okazji wspiera rozwój dziecka.
+            <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-ink/80 sm:text-lg lg:mx-0">
+              Wykreślanki, labirynty i zagadki, które naprawdę wciągają.
+              Bez ekranu — za to z ołówkiem w ręku.
             </p>
 
-            <p>
-              <strong className="font-bold text-ink">
-                Bez ekranu i nadmiaru bodźców.
-              </strong>{" "}
-              Za to z ołówkiem w ręku, ciekawością i radością
-              z samodzielnego odkrywania.
-            </p>
+            <div className="mt-8 flex justify-center lg:justify-start">
+              <Link
+                href="/ksiazki"
+                className="rounded-full bg-orange px-8 py-3 text-base font-bold text-white shadow-cover transition hover:bg-orange/90"
+              >
+                Zobacz książeczki
+              </Link>
+            </div>
           </div>
 
-          <div className="mt-8 flex justify-center">
-            <Link
-              href="/ksiazki"
-              className="rounded-full bg-orange px-8 py-3 text-base font-bold text-white shadow-cover transition hover:bg-orange/90"
-            >
-              Zobacz książeczki
-            </Link>
+          <div className="mx-auto w-full max-w-xs lg:mx-0 lg:max-w-sm">
+            <div className="rotate-2 rounded-2xl bg-white p-3 shadow-cover transition hover:rotate-0">
+              <Image
+                src="/covers/znajdz-slowko-5-6.png"
+                alt="Okładka książeczki Znajdź słówko!"
+                width={600}
+                height={800}
+                priority
+                className="w-full rounded-xl"
+              />
+            </div>
           </div>
         </div>
       </section>
