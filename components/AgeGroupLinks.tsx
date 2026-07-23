@@ -14,16 +14,34 @@ const groups = [
     color: 'bg-orange-light text-orange',
   },
   {
-    age: '7+',
-    label: 'Prawdziwe zadania',
+    age: '6–7 lat',
+    label: 'Przed szkołą',
+    description: 'Dłuższe słowa i trudniejsze zadania — utrwalają czytanie tuż przed startem szkoły.',
+    color: 'bg-navy-light text-navy',
+  },
+  {
+    age: '7–9 lat',
+    label: 'Prawdziwe wyzwania',
+    description: 'Dłuższe słowa i trudniejsze zadania dla dzieci, które już czytają płynnie.',
+    color: 'bg-green-light text-green',
+  },
+  {
+    age: '10+',
+    label: 'Dla starszych',
     description: 'Więcej liczb, więcej logiki — dla dzieci, które lubią się mierzyć z wyzwaniem.',
+    color: 'bg-orange-light text-orange',
+  },
+  {
+    age: '13+',
+    label: 'Nastoletnie wyzwania',
+    description: 'Trudniejsze łamigłówki i dłuższa koncentracja — dla nastolatków.',
     color: 'bg-navy-light text-navy',
   },
 ];
 
 export default function AgeGroupLinks() {
   return (
-    <div className="grid gap-6 sm:grid-cols-3">
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {groups.map((group) => (
         <Link
           key={group.age}
