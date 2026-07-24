@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
 const LOCALES = [
-  { code: 'pl', flag: '🇵🇱', label: 'Polski', href: '/' },
-  { code: 'de', flag: '🇩🇪', label: 'Deutsch', href: '/de' },
+  { code: 'pl', short: 'PL', flag: '🇵🇱', label: 'Polski', href: '/' },
+  { code: 'de', short: 'DE', flag: '🇩🇪', label: 'Deutsch', href: '/de' },
 ];
 
 export default function LanguageSwitcher({ current }: { current: string }) {
@@ -33,24 +33,36 @@ export default function LanguageSwitcher({ current }: { current: string }) {
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={`Zmień język (obecnie ${currentLocale.label})`}
-        className="flex items-center justify-center rounded-full border border-ink/10 px-2 py-1 text-lg leading-none hover:border-orange"
+        className="flex items-center gap-1 whitespace-nowrap rounded-full border border-ink/15 px-3 py-1.5 text-sm font-semibold text-ink/80 transition hover:border-orange hover:text-orange"
       >
-        <span aria-hidden="true">{currentLocale.flag}</span>
+        <span>{currentLocale.short}</span>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={`h-3.5 w-3.5 transition-transform ${open ? 'rotate-180' : ''}`}
+          aria-hidden="true"
+        >
+          <path d="M6 9l6 6 6-6" />
+        </svg>
       </button>
       {open && others.length > 0 && (
         <ul
           role="listbox"
-          className="absolute right-0 top-full z-10 mt-2 overflow-hidden rounded-lg border border-ink/10 bg-paper shadow-md"
+          className="absolute right-0 top-full z-10 mt-2 min-w-[6rem] overflow-hidden rounded-lg border border-ink/10 bg-paper shadow-md"
         >
           {others.map((l) => (
             <li key={l.code}>
               <Link
                 href={l.href}
                 onClick={() => setOpen(false)}
-                aria-label={l.label}
-                className="flex items-center justify-center px-3 py-2 text-lg hover:bg-ink/5"
+                className="flex items-center gap-2 px-3 py-2 text-sm font-semibold text-ink/80 hover:bg-ink/5"
               >
                 <span aria-hidden="true">{l.flag}</span>
+                <span>{l.short}</span>
               </Link>
             </li>
           ))}
