@@ -32,15 +32,15 @@ body {
 @keyframes bubble-pop {
   0% {
     opacity: 0;
-    transform: scale(0.6) translateY(8px);
+    transform: scale(0.6) translateY(8px) rotate(var(--bubble-rotate, 0deg));
   }
   70% {
     opacity: 1;
-    transform: scale(1.06) translateY(0);
+    transform: scale(1.06) translateY(0) rotate(var(--bubble-rotate, 0deg));
   }
   100% {
     opacity: 1;
-    transform: scale(1) translateY(0);
+    transform: scale(1) translateY(0) rotate(var(--bubble-rotate, 0deg));
   }
 }
 
@@ -65,7 +65,12 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-bubble-pop,
+  .animate-bubble-pop {
+    animation: none;
+    opacity: 1;
+    transform: rotate(var(--bubble-rotate, 0deg));
+  }
+
   .animate-fade-up {
     animation: none;
     opacity: 1;

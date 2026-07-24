@@ -31,6 +31,11 @@ const config: Config = {
         display: ['var(--font-display)'],
         body: ['var(--font-body)'],
       },
+      fontWeight: {
+        600: '600',
+        700: '700',
+        800: '800',
+      },
       backgroundImage: {
         grid: 'linear-gradient(#00000012 1px, transparent 1px), linear-gradient(90deg, #00000012 1px, transparent 1px)',
       },

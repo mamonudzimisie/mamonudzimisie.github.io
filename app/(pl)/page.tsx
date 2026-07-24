@@ -81,6 +81,15 @@ function DoodleSwirl({ className }: { className?: string }) {
   );
 }
 
+function DoodleLoop({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M14 5c-4-1.5-9 1-9 6s5 6.5 8 4-1-7-5-5" />
+      <path d="M5 15l-1.5 3.5M5 15l3.5.5" />
+    </svg>
+  );
+}
+
 function SquiggleUnderline({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 200 14" fill="none" preserveAspectRatio="none" className={className}>
@@ -160,14 +169,17 @@ export default function HomePage() {
           <div className="text-center lg:text-left">
             <span className="relative inline-block">
               <DoodleSparkle className="absolute -left-5 -top-5 h-6 w-6 text-orange/70" />
-              <span className="speech-bubble animate-bubble-pop inline-block bg-white px-4 py-2 shadow-cover">
+              <span
+                className="speech-bubble animate-bubble-pop inline-block bg-white px-4 py-2 shadow-cover"
+                style={{ ['--bubble-rotate' as string]: '-2deg' }}
+              >
                 <span className="font-display text-base font-700 text-ink sm:text-lg">
                   „Mamo, jeszcze jedną stronę!”
                 </span>
               </span>
             </span>
 
-            <h1 className="animate-fade-up mt-6 font-display text-3xl font-800 leading-tight text-navy sm:text-5xl [animation-delay:150ms]">
+            <h1 className="animate-fade-up mt-10 font-display text-3xl font-800 leading-tight text-navy sm:text-5xl [animation-delay:150ms]">
               Zdanie, które usłyszysz
               <br />
               zamiast
@@ -183,7 +195,7 @@ export default function HomePage() {
               Bez ekranu — za to z ołówkiem w ręku.
             </p>
 
-            <div className="animate-fade-up mt-8 flex flex-col items-center gap-3 lg:items-start [animation-delay:300ms]">
+            <div className="animate-fade-up relative mt-8 flex flex-col items-center gap-3 lg:items-start [animation-delay:300ms]">
               <Link
                 href="/ksiazki"
                 className="inline-flex items-center gap-2 rounded-full bg-orange px-8 py-3 text-base font-bold text-white shadow-cover transition hover:bg-orange/90"
@@ -191,13 +203,16 @@ export default function HomePage() {
                 Zobacz książeczki
                 <span aria-hidden="true">→</span>
               </Link>
-              <Link
-                href="/ksiazki"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-ink/70 underline decoration-dotted decoration-ink/40 underline-offset-4 hover:text-orange"
-              >
-                <IconEye className="h-4 w-4" />
-                Zajrzyj do środka przed zakupem
-              </Link>
+              <span className="relative inline-block">
+                <Link
+                  href="/ksiazki"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-ink/70 underline decoration-dotted decoration-ink/40 underline-offset-4 hover:text-orange"
+                >
+                  <IconEye className="h-4 w-4" />
+                  Zajrzyj do środka przed zakupem
+                </Link>
+                <DoodleLoop className="pointer-events-none absolute -right-8 top-1 hidden h-6 w-6 text-orange/60 sm:block" />
+              </span>
             </div>
           </div>
 

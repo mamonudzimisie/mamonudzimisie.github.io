@@ -1,9 +1,14 @@
+import Image from 'next/image';
+
 export default function FooterDe() {
   return (
     <footer className="border-t border-ink/10 bg-paper-dark">
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
         <div>
-          <p className="font-display text-lg font-700 text-navy">Beschäftigungsbücher</p>
+          <div className="flex items-center gap-2">
+            <Image src="/logo.png" alt="" width={32} height={32} className="h-8 w-8 shrink-0" />
+            <p className="font-display text-lg font-700 text-navy">Beschäftigungsbücher</p>
+          </div>
           <p className="mt-2 max-w-sm text-sm text-ink/70">
             Beschäftigungsbücher, die Kinder wirklich fesseln — ganz ohne Bildschirm,
             dafür mit Stift in der Hand.

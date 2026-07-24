@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -6,7 +7,10 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
         <div className="flex flex-col gap-6 sm:flex-row sm:justify-between">
           <div>
-            <p className="font-display text-lg font-700 text-navy">Książeczki aktywnościowe</p>
+            <div className="flex items-center gap-2">
+              <Image src="/logo.png" alt="" width={32} height={32} className="h-8 w-8 shrink-0" />
+              <p className="font-display text-lg font-700 text-navy">Książeczki aktywnościowe</p>
+            </div>
             <p className="mt-2 max-w-sm text-sm text-ink/70">
               Książeczki aktywnościowe, które naprawdę zajmują dzieci — bez ekranu, za to
               z kredką w ręku.

@@ -1,29 +1,13 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import LanguageSwitcher from './LanguageSwitcher';
-
-function LogoMark() {
-  return (
-    <svg viewBox="0 0 32 32" fill="none" className="h-8 w-8 shrink-0 -rotate-6 text-orange">
-      <path
-        d="M8 24l1.5-6L20 7.5 24.5 12 14 22.5 8 24z"
-        fill="currentColor"
-        fillOpacity="0.15"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path d="M18.5 9.5L22 13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-    </svg>
-  );
-}
 
 export default function Header() {
   return (
     <header className="relative z-50 bg-paper/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2 whitespace-nowrap">
-          <LogoMark />
+          <Image src="/logo.png" alt="" width={40} height={40} className="h-9 w-9 shrink-0 sm:h-10 sm:w-10" priority />
           <span className="font-display leading-tight text-navy">
             <span className="block text-lg font-800 sm:text-xl">Książeczki</span>
             <span className="block text-xs font-600 text-navy/70 sm:text-sm">aktywnościowe</span>
