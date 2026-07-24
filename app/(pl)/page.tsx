@@ -81,15 +81,6 @@ function DoodleSwirl({ className }: { className?: string }) {
   );
 }
 
-function DoodleLoop({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M14 5c-4-1.5-9 1-9 6s5 6.5 8 4-1-7-5-5" />
-      <path d="M5 15l-1.5 3.5M5 15l3.5.5" />
-    </svg>
-  );
-}
-
 function SquiggleUnderline({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 200 14" fill="none" preserveAspectRatio="none" className={className}>
@@ -211,7 +202,13 @@ export default function HomePage() {
                   <IconEye className="h-4 w-4" />
                   Zajrzyj do środka przed zakupem
                 </Link>
-                <DoodleLoop className="pointer-events-none absolute -right-8 top-1 hidden h-6 w-6 text-orange/60 sm:block" />
+                <Image
+                  src="/doodles/loop.png"
+                  alt=""
+                  width={120}
+                  height={80}
+                  className="pointer-events-none absolute -right-14 -top-1 hidden h-8 w-12 sm:block"
+                />
               </span>
             </div>
           </div>
