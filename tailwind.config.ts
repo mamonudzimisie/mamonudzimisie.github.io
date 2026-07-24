@@ -39,6 +39,7 @@ const config: Config = {
       },
       boxShadow: {
         cover: '0 18px 35px -12px rgba(46, 42, 38, 0.35)',
+        'cover-lg': '0 40px 70px -20px rgba(46, 42, 38, 0.28)',
       },
     },
   },

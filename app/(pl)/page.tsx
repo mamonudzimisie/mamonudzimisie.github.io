@@ -53,6 +53,14 @@ function IconBackpack() {
   );
 }
 
+function DoodleStar({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M12 2l2.2 6.6H21l-5.4 4 2.1 6.6L12 15.2l-5.7 4.2 2.1-6.6L3 8.6h6.8L12 2z" />
+    </svg>
+  );
+}
+
 export default function HomePage() {
   const featuredBooks = getFeaturedBooks();
 
@@ -78,7 +86,7 @@ export default function HomePage() {
               Bez ekranu — za to z ołówkiem w ręku.
             </p>
 
-            <div className="animate-fade-up mt-8 flex justify-center lg:justify-start [animation-delay:350ms]">
+            <div className="animate-fade-up mt-8 flex justify-center lg:justify-start [animation-delay:300ms]">
               <Link
                 href="/ksiazki"
                 className="rounded-full bg-orange px-8 py-3 text-base font-bold text-white shadow-cover transition hover:bg-orange/90"
@@ -88,8 +96,16 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="mx-auto w-full max-w-xs lg:mx-0 lg:max-w-sm">
-            <div className="rotate-2 rounded-2xl bg-white p-3 shadow-cover transition hover:rotate-0">
+          <div className="relative mx-auto w-full max-w-xs lg:mx-0 lg:max-w-sm">
+            <DoodleStar className="absolute -left-6 -top-6 hidden h-6 w-6 rotate-[-15deg] text-orange/70 sm:block" />
+
+            {/* miękki cień na "podłodze" */}
+            <div className="absolute inset-x-8 -bottom-3 h-8 rounded-full bg-ink/15 blur-2xl" aria-hidden="true" />
+
+            {/* kartka pod spodem */}
+            <div className="absolute inset-0 top-4 rotate-[3deg] rounded-2xl bg-white/90 shadow-cover" aria-hidden="true" />
+
+            <div className="relative -rotate-2 rounded-2xl bg-white p-3 shadow-cover-lg transition hover:rotate-0">
               <Image
                 src="/covers/znajdz-slowko-5-6.png"
                 alt="Okładka książeczki Znajdź słówko!"
