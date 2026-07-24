@@ -61,24 +61,24 @@ export default function HomePage() {
       <section className="notebook-grid relative overflow-hidden border-b border-ink/10 px-4 py-16 sm:px-6 sm:py-24">
         <div className="mx-auto grid max-w-5xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <div className="text-center lg:text-left">
-            <span className="speech-bubble inline-block bg-white px-4 py-2 shadow-cover">
+            <span className="speech-bubble animate-bubble-pop inline-block bg-white px-4 py-2 shadow-cover">
               <span className="font-display text-base font-700 text-ink sm:text-lg">
                 „Mamo, jeszcze jedną stronę!”
               </span>
             </span>
 
-            <h1 className="mt-6 font-display text-3xl font-800 leading-tight text-navy sm:text-5xl">
+            <h1 className="animate-fade-up mt-6 font-display text-3xl font-800 leading-tight text-navy sm:text-5xl [animation-delay:150ms]">
               Zdanie, które usłyszysz
               <br />
               zamiast „nudzi mi się”
             </h1>
 
-            <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-ink/80 sm:text-lg lg:mx-0">
+            <p className="animate-fade-up mx-auto mt-5 max-w-md text-base leading-relaxed text-ink/80 sm:text-lg lg:mx-0 [animation-delay:250ms]">
               Wykreślanki, labirynty i zagadki, które naprawdę wciągają.
               Bez ekranu — za to z ołówkiem w ręku.
             </p>
 
-            <div className="mt-8 flex justify-center lg:justify-start">
+            <div className="animate-fade-up mt-8 flex justify-center lg:justify-start [animation-delay:350ms]">
               <Link
                 href="/ksiazki"
                 className="rounded-full bg-orange px-8 py-3 text-base font-bold text-white shadow-cover transition hover:bg-orange/90"
