@@ -113,46 +113,6 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
   },
-  {
-    slug: 'labirynt-dla-odkrywcow',
-    title: 'Labirynt dla odkrywców',
-    subtitle: 'Podróż przez krainę wyobraźni',
-    ageRange: '5–6 lat',
-    category: 'labirynty',
-    description:
-      'Labirynty, które rosną razem z dzieckiem — od prostych ścieżek po prawdziwe łamigłówki wymagające skupienia. Idealne na dłuższą chwilę ciszy przy stole.',
-    features: [
-      '60 labiryntów o rosnącej trudności',
-      'Rozwija koncentrację i cierpliwość',
-      'Kolorowe ilustracje do podpowiedzi',
-    ],
-    coverImage: '/covers/placeholder-coming-soon.jpg',
-    amazonUrl: 'https://www.amazon.pl/dp/XXXXXXXXXX',
-    featured: false,
-    comingSoon: true,
-    formatInches: '8,5 × 11 cala',
-    pageCount: 128,
-  },
-  {
-    slug: 'kolorowanka-male-zwierzaki',
-    title: 'Małe zwierzaki',
-    subtitle: 'Kolorowanka dla najmłodszych',
-    ageRange: '3–4 lata',
-    category: 'kolorowanki',
-    description:
-      'Grube linie, proste kształty i sympatyczne zwierzaki — pierwsza kolorowanka, z którą poradzi sobie nawet trzylatek uzbrojony w kredkę i dobre chęci.',
-    features: [
-      'Proste, grube kontury',
-      'Bezpieczne dla najmłodszych rączek',
-      'Jedna ilustracja na stronę',
-    ],
-    coverImage: '/covers/placeholder-coming-soon.jpg',
-    amazonUrl: 'https://www.amazon.pl/dp/XXXXXXXXXX',
-    featured: false,
-    comingSoon: true,
-    formatInches: '8,5 × 11 cala',
-    pageCount: 128,
-  },
 ];
 
 export function getBookBySlug(slug: string): Book | undefined {
