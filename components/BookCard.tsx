@@ -41,7 +41,7 @@ export default function BookCard({ book }: { book: Book }) {
               rel="noopener noreferrer sponsored"
               className="ml-auto rounded-full bg-orange px-4 py-2 text-sm font-bold text-white transition hover:bg-orange/90"
             >
-              Zobacz na Amazon
+              Kup na Amazon
             </a>
           )}
         </div>

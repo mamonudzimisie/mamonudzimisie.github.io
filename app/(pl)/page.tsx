@@ -95,15 +95,6 @@ function SquiggleUnderline({ className }: { className?: string }) {
   );
 }
 
-function IconEye({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" />
-      <circle cx="12" cy="12" r="3" />
-    </svg>
-  );
-}
-
 function IconSmiley({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -195,13 +186,9 @@ export default function HomePage() {
                 <span aria-hidden="true">→</span>
               </Link>
               <span className="relative inline-block">
-                <Link
-                  href="/ksiazki"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-ink/70 underline decoration-dotted decoration-ink/40 underline-offset-4 hover:text-orange"
-                >
-                  <IconEye className="h-4 w-4" />
-                  Zajrzyj do środka przed zakupem
-                </Link>
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-ink/70">
+                  Wybierz według wieku i poziomu trudności
+                </span>
                 <Image
                   src="/doodles/loop.png"
                   alt=""

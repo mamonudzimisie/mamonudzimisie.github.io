@@ -17,6 +17,8 @@ export type Book = {
   amazonUrl: string;
   featured: boolean;
   comingSoon?: boolean;
+  formatInches: string; // np. '8,5 × 11 cala'
+  pageCount: number;
 };
 
 // Kategorie do filtrowania w katalogu — etykiety po polsku.
@@ -48,6 +50,8 @@ export const books: Book[] = [
     coverImage: '/covers/znajdz-slowko-5-6.png',
     amazonUrl: 'https://amzn.eu/d/0coMqTkj',
     featured: true,
+    formatInches: '8,5 × 11 cala',
+    pageCount: 128,
   },
   {
     slug: 'znajdz-slowko-poziom-latwy-6-7',
@@ -66,6 +70,8 @@ export const books: Book[] = [
     coverImage: '/covers/znajdz-slowko-6-7.png',
     amazonUrl: 'https://amzn.eu/d/07BBUa1X',
     featured: true,
+    formatInches: '8,5 × 11 cala',
+    pageCount: 128,
   },
   {
     slug: 'znajdz-slowko-poziom-sredni-7-9',
@@ -84,6 +90,8 @@ export const books: Book[] = [
     coverImage: '/covers/znajdz-slowko-7-9.png',
     amazonUrl: 'https://amzn.eu/d/0dJNgtH1',
     featured: true,
+    formatInches: '8,5 × 11 cala',
+    pageCount: 128,
   },
   {
     slug: 'znajdz-slowko-poziom-trudny-10',
@@ -102,6 +110,8 @@ export const books: Book[] = [
     coverImage: '/covers/znajdz-slowko-10.png',
     amazonUrl: 'https://amzn.eu/d/07eXC8JG',
     featured: true,
+    formatInches: '8,5 × 11 cala',
+    pageCount: 128,
   },
   {
     slug: 'labirynt-dla-odkrywcow',
@@ -120,6 +130,8 @@ export const books: Book[] = [
     amazonUrl: 'https://www.amazon.pl/dp/XXXXXXXXXX',
     featured: false,
     comingSoon: true,
+    formatInches: '8,5 × 11 cala',
+    pageCount: 128,
   },
   {
     slug: 'kolorowanka-male-zwierzaki',
@@ -138,6 +150,8 @@ export const books: Book[] = [
     amazonUrl: 'https://www.amazon.pl/dp/XXXXXXXXXX',
     featured: false,
     comingSoon: true,
+    formatInches: '8,5 × 11 cala',
+    pageCount: 128,
   },
 ];
 
