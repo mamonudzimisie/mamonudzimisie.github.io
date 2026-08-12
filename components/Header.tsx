@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import LanguageSwitcher from './LanguageSwitcher';
 
@@ -6,11 +5,15 @@ export default function Header() {
   return (
     <header className="relative z-50 bg-paper/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-2 whitespace-nowrap">
-          <Image src="/logo.png" alt="" width={40} height={40} className="h-9 w-9 shrink-0 sm:h-10 sm:w-10" priority />
-          <span className="font-display leading-tight text-navy">
-            <span className="block text-lg font-800 sm:text-xl">Książeczki</span>
-            <span className="block text-xs font-600 text-navy/70 sm:text-sm">aktywnościowe</span>
+        <Link href="/" className="flex items-center whitespace-nowrap" aria-label="ZALKA BOOKS">
+          <span className="font-display leading-none text-navy">
+            <span className="flex items-baseline gap-1 text-xl font-800 tracking-tight sm:text-2xl">
+              ZALKA
+              <span className="text-orange">.</span>
+            </span>
+            <span className="mt-0.5 block text-[0.6rem] font-700 uppercase tracking-[0.4em] text-orange sm:text-xs">
+              Books
+            </span>
           </span>
         </Link>
         <nav className="flex items-center gap-3 text-sm font-semibold sm:gap-6 sm:text-base">

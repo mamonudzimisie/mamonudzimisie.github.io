@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -7,9 +6,16 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
         <div className="flex flex-col gap-6 sm:flex-row sm:justify-between">
           <div>
-            <div className="flex items-center gap-2">
-              <Image src="/logo.png" alt="" width={32} height={32} className="h-8 w-8 shrink-0" />
-              <p className="font-display text-lg font-700 text-navy">Książeczki aktywnościowe</p>
+            <div className="flex items-center">
+              <p className="font-display leading-none text-navy">
+                <span className="flex items-baseline gap-1 text-lg font-800 tracking-tight">
+                  ZALKA
+                  <span className="text-orange">.</span>
+                </span>
+                <span className="mt-0.5 block text-[0.55rem] font-700 uppercase tracking-[0.4em] text-orange">
+                  Books
+                </span>
+              </p>
             </div>
             <p className="mt-2 max-w-sm text-sm text-ink/70">
               Książeczki aktywnościowe, które naprawdę zajmują dzieci — bez ekranu, za to
@@ -33,7 +39,7 @@ export default function Footer() {
           dokonanych za pośrednictwem linków na tej stronie. Nie wpływa to na cenę, jaką płacisz.
         </p>
         <p className="mt-3 text-xs text-ink/50">
-          © {new Date().getFullYear()} Książeczki aktywnościowe. Wszystkie prawa zastrzeżone.
+          © {new Date().getFullYear()} ZALKA BOOKS. Wszystkie prawa zastrzeżone.
         </p>
       </div>
     </footer>

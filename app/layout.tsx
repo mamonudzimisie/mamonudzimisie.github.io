@@ -18,8 +18,8 @@ const nunito = Nunito({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Książeczki aktywnościowe dla dzieci',
-    template: '%s | Książeczki aktywnościowe dla dzieci',
+    default: 'ZALKA BOOKS — książeczki aktywnościowe dla dzieci',
+    template: '%s | ZALKA BOOKS',
   },
   description:
     'Wykreślanki, labirynty i kolorowanki, które naprawdę zajmą dziecko. Książeczki aktywnościowe dopasowane do wieku, dostępne na Amazon.',
@@ -34,14 +34,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'pl_PL',
     url: SITE_URL,
-    siteName: 'Książeczki aktywnościowe dla dzieci',
-    title: 'Książeczki aktywnościowe dla dzieci',
+    siteName: 'ZALKA BOOKS',
+    title: 'ZALKA BOOKS — książeczki aktywnościowe dla dzieci',
     description:
       'Wykreślanki, labirynty i kolorowanki, które naprawdę zajmą dziecko — bez ekranu.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Książeczki aktywnościowe dla dzieci',
+    title: 'ZALKA BOOKS — książeczki aktywnościowe dla dzieci',
     description:
       'Wykreślanki, labirynty i kolorowanki, które naprawdę zajmą dziecko — bez ekranu.',
   },

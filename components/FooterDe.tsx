@@ -1,13 +1,18 @@
-import Image from 'next/image';
-
 export default function FooterDe() {
   return (
     <footer className="border-t border-ink/10 bg-paper-dark">
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
         <div>
-          <div className="flex items-center gap-2">
-            <Image src="/logo.png" alt="" width={32} height={32} className="h-8 w-8 shrink-0" />
-            <p className="font-display text-lg font-700 text-navy">Beschäftigungsbücher</p>
+          <div className="flex items-center">
+            <p className="font-display leading-none text-navy">
+              <span className="flex items-baseline gap-1 text-lg font-800 tracking-tight">
+                ZALKA
+                <span className="text-orange">.</span>
+              </span>
+              <span className="mt-0.5 block text-[0.55rem] font-700 uppercase tracking-[0.4em] text-orange">
+                Books
+              </span>
+            </p>
           </div>
           <p className="mt-2 max-w-sm text-sm text-ink/70">
             Beschäftigungsbücher, die Kinder wirklich fesseln — ganz ohne Bildschirm,
@@ -19,7 +24,7 @@ export default function FooterDe() {
           dieser Seite getätigt werden. Der Preis, den du zahlst, ändert sich dadurch nicht.
         </p>
         <p className="mt-3 text-xs text-ink/50">
-          © {new Date().getFullYear()} Beschäftigungsbücher. Alle Rechte vorbehalten.
+          © {new Date().getFullYear()} ZALKA BOOKS. Alle Rechte vorbehalten.
         </p>
       </div>
     </footer>

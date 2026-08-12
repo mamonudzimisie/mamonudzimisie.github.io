@@ -50,7 +50,7 @@ export default function BookPage({ params }: { params: { slug: string } }) {
     image: `${SITE_URL}${book.coverImage}`,
     brand: {
       '@type': 'Brand',
-      name: 'Książeczki aktywnościowe',
+      name: 'ZALKA BOOKS',
     },
     ...(book.comingSoon
       ? {}
