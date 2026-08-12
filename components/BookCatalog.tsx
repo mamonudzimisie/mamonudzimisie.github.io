@@ -3,26 +3,58 @@
 import { useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import BookCard from '@/components/BookCard';
-import { AGE_GROUPS, CATEGORY_LABELS, type Book, type BookCategory } from '@/data/books';
+import {
+  AGE_GROUPS,
+  AUDIENCE_LABELS,
+  CATEGORY_LABELS,
+  type Book,
+  type BookAudience,
+  type BookCategory,
+} from '@/data/books';
 
 export default function BookCatalog({ books }: { books: Book[] }) {
   const searchParams = useSearchParams();
   const initialAge = searchParams.get('wiek') ?? '';
+  const initialAudience = (searchParams.get('grupa') as BookAudience | null) ?? '';
 
   const [selectedAge, setSelectedAge] = useState<string>(initialAge);
+  const [selectedAudience, setSelectedAudience] = useState<BookAudience | ''>(initialAudience);
   const [selectedCategory, setSelectedCategory] = useState<BookCategory | ''>('');
 
   const filteredBooks = useMemo(() => {
     return books.filter((book) => {
       const ageMatch = selectedAge === '' || book.ageRange === selectedAge;
+      const audienceMatch = selectedAudience === '' || book.audience === selectedAudience;
       const categoryMatch = selectedCategory === '' || book.category === selectedCategory;
-      return ageMatch && categoryMatch;
+      return ageMatch && audienceMatch && categoryMatch;
     });
-  }, [books, selectedAge, selectedCategory]);
+  }, [books, selectedAge, selectedAudience, selectedCategory]);
 
   return (
     <div>
       <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-sm font-semibold text-ink/70">Dla kogo:</span>
+          <button
+            onClick={() => setSelectedAudience('')}
+            className={`rounded-full px-3 py-1 text-sm font-semibold transition ${
+              selectedAudience === '' ? 'bg-navy text-white' : 'bg-white/60 text-ink/70'
+            }`}
+          >
+            Wszystkie
+          </button>
+          {(Object.keys(AUDIENCE_LABELS) as BookAudience[]).map((audience) => (
+            <button
+              key={audience}
+              onClick={() => setSelectedAudience(audience)}
+              className={`rounded-full px-3 py-1 text-sm font-semibold transition ${
+                selectedAudience === audience ? 'bg-navy text-white' : 'bg-white/60 text-ink/70'
+              }`}
+            >
+              {AUDIENCE_LABELS[audience]}
+            </button>
+          ))}
+        </div>
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-sm font-semibold text-ink/70">Wiek:</span>
           <button

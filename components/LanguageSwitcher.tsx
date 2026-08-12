@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
 const LOCALES = [
-  { code: 'pl', short: 'PL', flag: '🇵🇱', label: 'Polski', href: '/' },
+  { code: 'pl', short: 'PL', flag: '🇵🇱', label: 'Polski', href: '/pl' },
   { code: 'de', short: 'DE', flag: '🇩🇪', label: 'Deutsch', href: '/de' },
 ];
 

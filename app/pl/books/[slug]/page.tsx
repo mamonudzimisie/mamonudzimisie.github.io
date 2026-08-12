@@ -161,7 +161,7 @@ export default function BookPage({ params }: { params: { slug: string } }) {
           </div>
 
           <Link
-            href="/ksiazki"
+            href="/pl/books"
             className="mt-8 inline-block text-sm font-semibold text-navy underline underline-offset-4 hover:text-orange"
           >
             ← Wróć do katalogu

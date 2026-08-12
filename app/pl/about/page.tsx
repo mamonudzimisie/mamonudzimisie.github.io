@@ -32,7 +32,7 @@ export default function ONasPage() {
           <p>
             Wszystkie nasze książeczki znajdziesz na Amazon — zapraszamy do{' '}
             <a
-              href="/ksiazki"
+              href="/pl/books"
               className="font-semibold text-navy underline underline-offset-4 hover:text-orange"
             >
               katalogu

@@ -8,7 +8,7 @@ export default function NotFound() {
         Chyba ta strona się gdzieś zgubiła — może w labiryncie?
       </p>
       <Link
-        href="/"
+        href="/pl"
         className="mt-8 rounded-full bg-orange px-6 py-3 text-sm font-bold text-white shadow-cover hover:bg-orange/90"
       >
         Wróć na stronę główną

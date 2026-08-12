@@ -5,7 +5,7 @@ import type { Book } from '@/data/books';
 export default function BookCard({ book }: { book: Book }) {
   return (
     <div className="flex flex-col overflow-hidden rounded-2xl border border-ink/10 bg-white/60 transition hover:-translate-y-1 hover:shadow-cover">
-      <Link href={`/ksiazki/${book.slug}`} className="relative block bg-paper-dark p-6">
+      <Link href={`/pl/books/${book.slug}`} className="relative block bg-paper-dark p-6">
         <span className="absolute left-4 top-4 z-10 rounded-full bg-navy px-3 py-1 text-xs font-bold text-white">
           {book.ageRange}
         </span>
@@ -29,7 +29,7 @@ export default function BookCard({ book }: { book: Book }) {
         <p className="text-sm text-ink/70">{book.subtitle}</p>
         <div className="mt-auto flex items-center gap-3 pt-4">
           <Link
-            href={`/ksiazki/${book.slug}`}
+            href={`/pl/books/${book.slug}`}
             className="text-sm font-semibold text-navy underline underline-offset-4 hover:text-orange"
           >
             Zobacz szczegóły

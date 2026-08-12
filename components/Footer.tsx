@@ -23,13 +23,13 @@ export default function Footer() {
             </p>
           </div>
           <nav className="flex flex-col gap-2 text-sm font-semibold sm:items-end">
-            <Link href="/ksiazki" className="hover:text-orange">
+            <Link href="/pl/books" className="hover:text-orange">
               Katalog książek
             </Link>
-            <Link href="/o-nas" className="hover:text-orange">
+            <Link href="/pl/about" className="hover:text-orange">
               O nas
             </Link>
-            <Link href="/blog" className="hover:text-orange">
+            <Link href="/pl/blog" className="hover:text-orange">
               Blog
             </Link>
           </nav>

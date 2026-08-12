@@ -5,12 +5,15 @@ export type BookCategory =
   | 'laczenie-kropek'
   | 'inne';
 
+export type BookAudience = 'dzieci' | 'dorosli' | 'duzy-druk';
+
 export type Book = {
   slug: string; // np. "znajdz-slowko-poziom-latwy"
   title: string; // "Znajdź słówko!"
   subtitle: string; // "Poziom najłatwiejszy"
   ageRange: string; // "5–6 lat"
   category: BookCategory;
+  audience: BookAudience;
   description: string;
   features: string[]; // np. ["100 wykreślanek", "Duża czcionka", ...]
   coverImage: string; // ścieżka w /public/covers/
@@ -30,6 +33,13 @@ export const CATEGORY_LABELS: Record<BookCategory, string> = {
   inne: 'Inne',
 };
 
+// Grupy odbiorców do filtrowania w katalogu — etykiety po polsku.
+export const AUDIENCE_LABELS: Record<BookAudience, string> = {
+  dzieci: 'Dla dzieci',
+  dorosli: 'Dla dorosłych',
+  'duzy-druk': 'Duży druk',
+};
+
 export const AGE_GROUPS = ['3–4 lata', '5–6 lat', '6–7 lat', '7–9 lat', '10+', '13+'] as const;
 
 export const books: Book[] = [
@@ -39,6 +49,7 @@ export const books: Book[] = [
     subtitle: 'Poziom najłatwiejszy',
     ageRange: '5–6 lat',
     category: 'wykreslanki',
+    audience: 'dzieci',
     description:
       'Pierwsza wykreślanka, która nie zniechęca. Duże litery, znajome słowa i tyle satysfakcji, ile potrzeba, żeby dziecko samo poprosiło o kolejną stronę. Świetny sposób, żeby oswoić literki, zanim zacznie się prawdziwa nauka czytania.',
     features: [
@@ -59,6 +70,7 @@ export const books: Book[] = [
     subtitle: 'Poziom łatwy',
     ageRange: '6–7 lat',
     category: 'wykreslanki',
+    audience: 'dzieci',
     description:
       'Kolejna dawka wykreślanek na dobry start — znajome słowa i przejrzysty układ, który nie zniechęca. Świetna, żeby utrwalić czytanie tuż przed startem szkoły.',
     features: [
@@ -79,6 +91,7 @@ export const books: Book[] = [
     subtitle: 'Poziom średni',
     ageRange: '7–9 lat',
     category: 'wykreslanki',
+    audience: 'dzieci',
     description:
       'Dłuższe i trudniejsze słowa dla dziecka, które już czyta płynnie i szuka prawdziwego wyzwania. Więcej liter do przeszukania, więcej satysfakcji, gdy słówko w końcu się znajdzie.',
     features: [
@@ -99,6 +112,7 @@ export const books: Book[] = [
     subtitle: 'Poziom trudny',
     ageRange: '10+',
     category: 'wykreslanki',
+    audience: 'dzieci',
     description:
       'Prawdziwe wyzwanie dla wprawnych czytelników — długie słowa, gęsta plansza i satysfakcja, która przychodzi dopiero po chwili skupienia. Dla dzieci, które lubią się mierzyć z trudniejszym zadaniem.',
     features: [

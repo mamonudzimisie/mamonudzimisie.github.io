@@ -17,6 +17,9 @@ export default function HeaderDe() {
           </span>
         </Link>
         <nav className="flex items-center gap-4 text-sm font-semibold sm:gap-6 sm:text-base">
+          <Link href="/de/books" className="whitespace-nowrap hover:text-orange">
+            Bücher
+          </Link>
           <LanguageSwitcher current="de" />
         </nav>
       </div>

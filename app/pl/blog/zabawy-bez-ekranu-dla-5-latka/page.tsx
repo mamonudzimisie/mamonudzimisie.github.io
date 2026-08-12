@@ -12,7 +12,7 @@ export default function BlogPost() {
     <article className="px-4 py-16 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-2xl">
         <Link
-          href="/blog"
+          href="/pl/blog"
           className="text-sm font-semibold text-navy underline underline-offset-4 hover:text-orange"
         >
           ← Wróć do bloga

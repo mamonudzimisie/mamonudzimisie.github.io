@@ -45,7 +45,7 @@ export default function AgeGroupLinks() {
       {groups.map((group) => (
         <Link
           key={group.age}
-          href={`/ksiazki?wiek=${encodeURIComponent(group.age)}`}
+          href={`/pl/books?wiek=${encodeURIComponent(group.age)}`}
           className="group flex flex-col rounded-2xl border border-ink/10 bg-white/60 p-6 transition hover:-translate-y-1 hover:shadow-cover"
         >
           <span

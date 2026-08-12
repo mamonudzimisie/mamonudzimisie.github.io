@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
+import AudienceLinksDe from '@/components/AudienceLinksDe';
 import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   alternates: {
     languages: {
-      pl: SITE_URL,
+      pl: `${SITE_URL}/pl`,
       de: `${SITE_URL}/de`,
     },
   },
@@ -34,6 +35,17 @@ export default function HomePageDe() {
             Wortsuchrätsel, Labyrinthe und Rätsel, die Kinder wirklich fesseln.
             Ganz ohne Bildschirm — dafür mit Stift in der Hand.
           </p>
+        </div>
+      </section>
+
+      <section className="relative px-4 py-16 sm:px-6 sm:py-20">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-center font-display text-2xl font-700 text-navy sm:text-3xl">
+            Wähle etwas für dich
+          </h2>
+          <div className="mt-10">
+            <AudienceLinksDe />
+          </div>
         </div>
       </section>
 

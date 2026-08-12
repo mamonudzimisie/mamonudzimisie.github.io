@@ -3,13 +3,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import BookCard from '@/components/BookCard';
 import AgeGroupLinks from '@/components/AgeGroupLinks';
+import AudienceLinks from '@/components/AudienceLinks';
 import { getFeaturedBooks } from '@/data/books';
 import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   alternates: {
     languages: {
-      pl: SITE_URL,
+      pl: `${SITE_URL}/pl`,
       de: `${SITE_URL}/de`,
     },
   },
@@ -179,7 +180,7 @@ export default function HomePage() {
 
             <div className="animate-fade-up relative mt-8 flex flex-col items-center gap-3 lg:items-start [animation-delay:300ms]">
               <Link
-                href="/ksiazki"
+                href="/pl/books"
                 className="inline-flex items-center gap-2 rounded-full bg-orange px-8 py-3 text-base font-bold text-white shadow-cover transition hover:bg-orange/90"
               >
                 Zobacz książeczki
@@ -221,6 +222,17 @@ export default function HomePage() {
                 className="w-full rounded-xl"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative px-4 py-16 sm:px-6 sm:py-20">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-center font-display text-2xl font-700 text-navy sm:text-3xl">
+            Wybierz coś dla siebie
+          </h2>
+          <div className="mt-10">
+            <AudienceLinks />
           </div>
         </div>
       </section>
