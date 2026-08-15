@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import BookCard from '@/components/BookCard';
-import AgeGroupLinks from '@/components/AgeGroupLinks';
 import AudienceLinks from '@/components/AudienceLinks';
 import { getFeaturedBooks } from '@/data/books';
 import { SITE_URL } from '@/lib/site';
@@ -251,33 +250,6 @@ export default function HomePage() {
           </div>
         </section>
       )}
-
-      <section className="relative px-4 py-16 sm:px-6 sm:py-20">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="text-center font-display text-2xl font-700 text-navy sm:text-3xl">
-            Dla kogo?
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-center text-sm text-ink/70">
-            Wybierz wiek dziecka, a pokażemy Ci dopasowane książeczki.
-          </p>
-          <div className="mt-10">
-            <AgeGroupLinks />
-          </div>
-        </div>
-
-        {/* falista krawędź — przejście w białą sekcję poniżej */}
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 1440 60"
-          preserveAspectRatio="none"
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-10 w-full text-white sm:h-14"
-        >
-          <path
-            d="M0 30c120 20 240 20 360 0s240-20 360 0 240 20 360 0 240-20 360 0v30H0V30z"
-            fill="currentColor"
-          />
-        </svg>
-      </section>
 
       <section className="relative bg-white px-4 py-16 sm:px-6 sm:py-20">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[280px_1fr] lg:items-start lg:gap-16">
