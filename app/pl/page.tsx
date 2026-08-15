@@ -149,32 +149,26 @@ export default function HomePage() {
 
         <div className="relative mx-auto grid max-w-5xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <div className="text-center lg:text-left">
-            <span className="relative inline-block">
+            <span className="relative inline-block animate-fade-up">
               <DoodleSparkle className="absolute -left-5 -top-5 h-6 w-6 text-orange/70" />
-              <span
-                className="speech-bubble animate-bubble-pop inline-block bg-white px-4 py-2 shadow-cover"
-                style={{ ['--bubble-rotate' as string]: '-2deg' }}
-              >
-                <span className="font-display text-base font-700 text-ink sm:text-lg">
-                  „Mamo, jeszcze jedną stronę!”
-                </span>
+              <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-700 text-ink/70 shadow-cover">
+                Dla dzieci i dorosłych
               </span>
             </span>
 
-            <h1 className="animate-fade-up mt-10 font-display text-3xl font-800 leading-tight text-navy sm:text-5xl [animation-delay:150ms]">
-              Zdanie, które usłyszysz
+            <h1 className="animate-fade-up mt-6 font-display text-3xl font-800 leading-tight text-navy sm:text-5xl [animation-delay:150ms]">
+              Łamigłówki, które wciągają
               <br />
-              zamiast
-              <br />
+              w{' '}
               <span className="relative inline-block text-orange">
-                „nudzi mi się”
+                każdym wieku
                 <SquiggleUnderline className="absolute -bottom-2 left-0 h-3 w-full text-orange" />
               </span>
             </h1>
 
             <p className="animate-fade-up mx-auto mt-6 max-w-md text-base leading-relaxed text-ink/80 sm:text-lg lg:mx-0 [animation-delay:250ms]">
-              Wykreślanki, labirynty i zagadki, które naprawdę wciągają.
-              Bez ekranu — za to z ołówkiem w ręku.
+              Zagadki, które trenują głowę i dają oddech od ekranu — dla każdego,
+              kto lubi wyzwania.
             </p>
 
             <div className="animate-fade-up relative mt-8 flex flex-col items-center gap-3 lg:items-start [animation-delay:300ms]">
@@ -182,12 +176,12 @@ export default function HomePage() {
                 href="/pl/books"
                 className="inline-flex items-center gap-2 rounded-full bg-orange px-8 py-3 text-base font-bold text-white shadow-cover transition hover:bg-orange/90"
               >
-                Zobacz książeczki
+                Zobacz książki
                 <span aria-hidden="true">→</span>
               </Link>
               <span className="relative inline-block">
                 <span className="inline-flex items-center gap-2 text-sm font-semibold text-ink/70">
-                  Wybierz według wieku i poziomu trudności
+                  Znajdź coś dla siebie
                 </span>
                 <Image
                   src="/doodles/loop.png"
@@ -208,10 +202,29 @@ export default function HomePage() {
             {/* miękki cień na "podłodze" */}
             <div className="absolute inset-x-8 -bottom-3 h-8 rounded-full bg-ink/15 blur-2xl" aria-hidden="true" />
 
-            {/* kartka wystająca spod spodu, prawy dolny róg */}
-            <div className="absolute -bottom-3 -right-3 top-3 left-3 rotate-[4deg] rounded-2xl bg-white/90 shadow-cover" aria-hidden="true" />
+            {/* okładka w tle po lewej, dla dorosłych/trudniejszy poziom */}
+            <div className="absolute -left-10 top-10 z-0 w-[58%] -rotate-[16deg] rounded-2xl bg-white p-2 shadow-cover sm:-left-14">
+              <Image
+                src="/covers/znajdz-slowko-10.png"
+                alt="Okładka łamigłówki, poziom trudny"
+                width={600}
+                height={800}
+                className="w-full rounded-xl"
+              />
+            </div>
 
-            <div className="relative -rotate-2 rounded-2xl bg-white p-3 shadow-cover-lg transition hover:rotate-0">
+            {/* okładka w tle po prawej, starsze dzieci */}
+            <div className="absolute -right-8 top-4 z-0 w-[54%] rotate-[18deg] rounded-2xl bg-white p-2 shadow-cover sm:-right-12">
+              <Image
+                src="/covers/znajdz-slowko-7-9.png"
+                alt="Okładka książeczki dla starszych dzieci"
+                width={600}
+                height={800}
+                className="w-full rounded-xl"
+              />
+            </div>
+
+            <div className="relative z-10 mx-auto w-[62%] -rotate-2 rounded-2xl bg-white p-3 shadow-cover-lg transition hover:rotate-0">
               <Image
                 src="/covers/znajdz-slowko-5-6.png"
                 alt="Okładka książeczki Znajdź słówko!"

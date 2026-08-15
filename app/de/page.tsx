@@ -16,24 +16,17 @@ export default function HomePageDe() {
     <>
       <section className="notebook-grid relative overflow-hidden border-b border-ink/10 px-4 py-16 sm:px-6 sm:py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <span
-            className="speech-bubble animate-bubble-pop inline-block bg-white px-4 py-2 shadow-cover"
-            style={{ ['--bubble-rotate' as string]: '-2deg' }}
-          >
-            <span className="font-display text-base font-700 text-ink sm:text-lg">
-              „Mama, noch eine Seite!“
-            </span>
+          <span className="animate-fade-up inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-700 text-ink/70 shadow-cover">
+            Für Kinder und Erwachsene
           </span>
 
-          <h1 className="animate-fade-up mt-10 font-display text-3xl font-800 leading-tight text-navy sm:text-5xl [animation-delay:150ms]">
-            Der Satz, den du hörst
-            <br />
-            statt „mir ist langweilig“
+          <h1 className="animate-fade-up mt-6 font-display text-3xl font-800 leading-tight text-navy sm:text-5xl [animation-delay:150ms]">
+            Rätsel, die in jedem Alter fesseln
           </h1>
 
           <p className="animate-fade-up mx-auto mt-5 max-w-xl text-base leading-relaxed text-ink/80 sm:text-lg [animation-delay:250ms]">
-            Wortsuchrätsel, Labyrinthe und Rätsel, die Kinder wirklich fesseln.
-            Ganz ohne Bildschirm — dafür mit Stift in der Hand.
+            Rätsel, die den Kopf trainieren und für eine Pause vom Bildschirm sorgen —
+            für alle, die Herausforderungen lieben.
           </p>
         </div>
       </section>
