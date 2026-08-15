@@ -127,6 +127,27 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
   },
+  {
+    slug: 'znajdz-slowko-poziom-ekspert-13',
+    title: 'Znajdź słówko!',
+    subtitle: 'Poziom ekspert',
+    ageRange: '13+',
+    category: 'wykreslanki',
+    audience: 'dzieci',
+    description:
+      'Najtrudniejszy poziom w serii — gęste plansze, długie słowa i zadania, przy których trzeba się naprawdę skupić. Dla nastolatków i wszystkich, którzy szukają wykreślanki stawiającej prawdziwy opór.',
+    features: [
+      '100 wykreślanek',
+      'Najwyższy poziom trudności w serii',
+      'Gęste plansze i długie słowa',
+      'Trening koncentracji i cierpliwości',
+    ],
+    coverImage: '/covers/znajdz-slowko-13.png',
+    amazonUrl: 'https://amzn.eu/d/07es8Itl',
+    featured: true,
+    formatInches: '8,5 × 11 cala',
+    pageCount: 128,
+  },
 ];
 
 export function getBookBySlug(slug: string): Book | undefined {
