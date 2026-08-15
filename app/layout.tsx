@@ -18,32 +18,33 @@ const nunito = Nunito({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'ZALKA BOOKS — książeczki aktywnościowe dla dzieci',
+    default: 'ZALKA BOOKS — książki z łamigłówkami dla dzieci i dorosłych',
     template: '%s | ZALKA BOOKS',
   },
   description:
-    'Wykreślanki, labirynty i kolorowanki, które naprawdę zajmą dziecko. Książeczki aktywnościowe dopasowane do wieku, dostępne na Amazon.',
+    'Wykreślanki, labirynty i zagadki logiczne dla dzieci i dorosłych. Trening koncentracji i chwila wyciszenia bez ekranu — dostępne na Amazon.',
   keywords: [
-    'książeczki aktywnościowe',
+    'książki z łamigłówkami',
+    'łamigłówki dla dorosłych',
     'wykreślanki dla dzieci',
-    'kolorowanki',
+    'zagadki logiczne',
+    'łamigłówki duży druk',
     'zabawy bez ekranu',
-    'książeczki dla dzieci Amazon',
   ],
   openGraph: {
     type: 'website',
     locale: 'pl_PL',
     url: SITE_URL,
     siteName: 'ZALKA BOOKS',
-    title: 'ZALKA BOOKS — książeczki aktywnościowe dla dzieci',
+    title: 'ZALKA BOOKS — książki z łamigłówkami dla dzieci i dorosłych',
     description:
-      'Wykreślanki, labirynty i kolorowanki, które naprawdę zajmą dziecko — bez ekranu.',
+      'Wykreślanki, labirynty i zagadki logiczne, które naprawdę wciągają — bez ekranu.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ZALKA BOOKS — książeczki aktywnościowe dla dzieci',
+    title: 'ZALKA BOOKS — książki z łamigłówkami dla dzieci i dorosłych',
     description:
-      'Wykreślanki, labirynty i kolorowanki, które naprawdę zajmą dziecko — bez ekranu.',
+      'Wykreślanki, labirynty i zagadki logiczne, które naprawdę wciągają — bez ekranu.',
   },
 };
 

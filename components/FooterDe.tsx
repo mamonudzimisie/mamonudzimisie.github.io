@@ -15,8 +15,8 @@ export default function FooterDe() {
             </p>
           </div>
           <p className="mt-2 max-w-sm text-sm text-ink/70">
-            Beschäftigungsbücher, die Kinder wirklich fesseln — ganz ohne Bildschirm,
-            dafür mit Stift in der Hand.
+            Rätselbücher für Kinder und Erwachsene — Konzentrationstraining,
+            eine ruhige Auszeit und jede Menge Spaß.
           </p>
         </div>
         <p className="mt-8 border-t border-ink/10 pt-6 text-xs leading-relaxed text-ink/60">

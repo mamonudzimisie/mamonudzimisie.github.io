@@ -44,7 +44,7 @@ export default function BookCatalog({ books }: { books: Book[] }) {
 
   return (
     <div>
-      <div className="rounded-2xl border border-orange/20 bg-orange-light p-4 sm:p-5">
+      <div className="rounded-2xl border border-ink/10 bg-paper-dark p-4 sm:p-5">
         <span className="text-xs font-bold uppercase tracking-wide text-navy/70">Dla kogo:</span>
         <div className="mt-3 flex flex-wrap items-center gap-2.5">
           <button

@@ -6,7 +6,7 @@ import { books } from '@/data/books';
 export const metadata: Metadata = {
   title: 'Katalog książek',
   description:
-    'Wszystkie nasze książeczki aktywnościowe w jednym miejscu. Filtruj po wieku dziecka i kategorii: wykreślanki, labirynty, kolorowanki.',
+    'Wszystkie nasze książki z łamigłówkami w jednym miejscu. Filtruj według grupy, kategorii i poziomu trudności.',
 };
 
 export default function KsiazkiPage() {
@@ -17,7 +17,7 @@ export default function KsiazkiPage() {
           Katalog książek
         </h1>
         <p className="mt-3 max-w-2xl text-ink/70">
-          Wybierz wiek dziecka i kategorię, a znajdziemy Ci coś w sam raz.
+          Wybierz grupę, kategorię i poziom trudności, a znajdziemy Ci coś w sam raz.
         </p>
         <div className="mt-10">
           <Suspense fallback={null}>

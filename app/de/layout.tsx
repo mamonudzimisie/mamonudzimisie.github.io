@@ -7,26 +7,26 @@ const siteUrl = `${SITE_URL}/de`;
 
 export const metadata: Metadata = {
   title: {
-    default: 'Beschäftigungsbücher für Kinder',
-    template: '%s | Beschäftigungsbücher für Kinder',
-    absolute: 'Beschäftigungsbücher für Kinder',
+    default: 'Rätselbücher für Kinder und Erwachsene',
+    template: '%s | Rätselbücher für Kinder und Erwachsene',
+    absolute: 'Rätselbücher für Kinder und Erwachsene',
   },
   description:
-    'Wortsuchrätsel, Labyrinthe und Malbücher, die Kinder wirklich beschäftigen. Altersgerechte Beschäftigungsbücher, erhältlich bei Amazon.',
+    'Wortsuchrätsel, Labyrinthe und Logikrätsel für Kinder und Erwachsene. Konzentration trainieren und abschalten — ganz ohne Bildschirm, erhältlich bei Amazon.',
   openGraph: {
     type: 'website',
     locale: 'de_DE',
     url: siteUrl,
-    siteName: 'Beschäftigungsbücher für Kinder',
-    title: 'Beschäftigungsbücher für Kinder',
+    siteName: 'Rätselbücher für Kinder und Erwachsene',
+    title: 'Rätselbücher für Kinder und Erwachsene',
     description:
-      'Wortsuchrätsel, Labyrinthe und Malbücher, die Kinder wirklich beschäftigen — ganz ohne Bildschirm.',
+      'Wortsuchrätsel, Labyrinthe und Logikrätsel, die wirklich fesseln — ganz ohne Bildschirm.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Beschäftigungsbücher für Kinder',
+    title: 'Rätselbücher für Kinder und Erwachsene',
     description:
-      'Wortsuchrätsel, Labyrinthe und Malbücher, die Kinder wirklich beschäftigen — ganz ohne Bildschirm.',
+      'Wortsuchrätsel, Labyrinthe und Logikrätsel, die wirklich fesseln — ganz ohne Bildschirm.',
   },
 };
 

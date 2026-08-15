@@ -18,8 +18,8 @@ export default function Footer() {
               </p>
             </div>
             <p className="mt-2 max-w-sm text-sm text-ink/70">
-              Książeczki aktywnościowe, które naprawdę zajmują dzieci — bez ekranu, za to
-              z kredką w ręku.
+              Książki z łamigłówkami dla dzieci i dorosłych — trening koncentracji,
+              chwila wyciszenia i dobra zabawa.
             </p>
           </div>
           <nav className="flex flex-col gap-2 text-sm font-semibold sm:items-end">

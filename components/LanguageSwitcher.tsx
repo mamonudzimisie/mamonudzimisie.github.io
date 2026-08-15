@@ -8,6 +8,11 @@ const LOCALES = [
   { code: 'de', short: 'DE', flag: '🇩🇪', label: 'Deutsch', href: '/de' },
 ];
 
+const SWITCH_LABEL: Record<string, (language: string) => string> = {
+  pl: (language) => `Zmień język (obecnie ${language})`,
+  de: (language) => `Sprache wechseln (aktuell ${language})`,
+};
+
 export default function LanguageSwitcher({ current }: { current: string }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -32,9 +37,10 @@ export default function LanguageSwitcher({ current }: { current: string }) {
         onClick={() => setOpen((o) => !o)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        aria-label={`Zmień język (obecnie ${currentLocale.label})`}
+        aria-label={(SWITCH_LABEL[current] ?? SWITCH_LABEL.pl)(currentLocale.label)}
         className="flex items-center gap-1 whitespace-nowrap rounded-full border border-ink/15 px-3 py-1.5 text-sm font-semibold text-ink/80 transition hover:border-orange hover:text-orange"
       >
+        <span aria-hidden="true">{currentLocale.flag}</span>
         <span>{currentLocale.short}</span>
         <svg
           viewBox="0 0 24 24"

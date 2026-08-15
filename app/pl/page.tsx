@@ -114,6 +114,14 @@ function IconBrain({ className }: { className?: string }) {
   );
 }
 
+function IconMoon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className ?? 'h-6 w-6'}>
+      <path d="M20 14.5A8.5 8.5 0 019.5 4a8.5 8.5 0 1010.5 10.5z" />
+    </svg>
+  );
+}
+
 function IconShield({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -271,10 +279,11 @@ export default function HomePage() {
               <span aria-hidden="true">🙂</span>
             </div>
             <h2 className="mt-4 font-display text-2xl font-700 leading-snug text-navy sm:text-3xl">
-              Dlaczego dzieci to kochają,
-              <br />a rodzice mają{' '}
+              Dlaczego Twój mózg
+              <br />
+              lubi{' '}
               <span className="relative inline-block">
-                chwilę spokoju?
+                łamigłówki?
                 <SquiggleUnderline className="absolute -bottom-2 left-0 h-2.5 w-full text-green" />
               </span>
             </h2>
@@ -285,36 +294,36 @@ export default function HomePage() {
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-yellow-100 text-yellow-600">
                 <IconPencil />
               </div>
-              <h3 className="mt-3 font-display text-base font-700 text-navy">Rozwija koncentrację</h3>
+              <h3 className="mt-3 font-display text-base font-700 text-navy">Lepsza koncentracja</h3>
               <p className="mt-1 text-sm leading-relaxed text-ink/70">
-                Zadania angażują i uczą cierpliwości.
+                Regularne rozwiązywanie łamigłówek poprawia zdolność skupienia.
               </p>
             </div>
             <div>
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-light text-green">
                 <IconBrain />
               </div>
-              <h3 className="mt-3 font-display text-base font-700 text-navy">Ćwiczy logiczne myślenie</h3>
+              <h3 className="mt-3 font-display text-base font-700 text-navy">Sprawność umysłu</h3>
               <p className="mt-1 text-sm leading-relaxed text-ink/70">
-                Łamigłówki wspierają rozwój każdego dnia.
+                Łamigłówki ćwiczą pamięć, logiczne myślenie i pomagają utrzymać umysł w formie.
               </p>
             </div>
             <div>
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-sky-100 text-sky-600">
-                <IconHeart />
+                <IconMoon />
               </div>
-              <h3 className="mt-3 font-display text-base font-700 text-navy">Daje satysfakcję</h3>
+              <h3 className="mt-3 font-display text-base font-700 text-navy">Wyciszenie</h3>
               <p className="mt-1 text-sm leading-relaxed text-ink/70">
-                Dziecko chce robić kolejne strony.
+                Skupienie na jednym zadaniu wycisza i pozwala odpocząć od nadmiaru bodźców.
               </p>
             </div>
             <div>
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-rose-100 text-rose-500">
-                <IconShield />
+                <IconHeart />
               </div>
-              <h3 className="mt-3 font-display text-base font-700 text-navy">Bez ekranów</h3>
+              <h3 className="mt-3 font-display text-base font-700 text-navy">Rozrywka</h3>
               <p className="mt-1 text-sm leading-relaxed text-ink/70">
-                Zdrowa alternatywa, która naprawdę działa.
+                Świetna zabawa w podróży, w deszczowy wieczór albo w przerwie w ciągu dnia.
               </p>
             </div>
           </div>
