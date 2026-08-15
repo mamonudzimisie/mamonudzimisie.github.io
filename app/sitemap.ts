@@ -7,8 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/pl',
     '/pl/books',
     '/pl/about',
-    '/pl/blog',
-    '/pl/blog/zabawy-bez-ekranu-dla-5-latka',
     '/de',
     '/de/books',
   ].map((route) => ({

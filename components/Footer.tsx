@@ -29,9 +29,6 @@ export default function Footer() {
             <Link href="/pl/about" className="hover:text-orange">
               O nas
             </Link>
-            <Link href="/pl/blog" className="hover:text-orange">
-              Blog
-            </Link>
           </nav>
         </div>
         <p className="mt-8 border-t border-ink/10 pt-6 text-xs leading-relaxed text-ink/60">
