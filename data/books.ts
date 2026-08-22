@@ -40,7 +40,15 @@ export const AUDIENCE_LABELS: Record<BookAudience, string> = {
   'duzy-druk': 'Duży druk',
 };
 
-export const AGE_GROUPS = ['3–4 lata', '5–6 lat', '6–7 lat', '7–9 lat', '10+', '13+'] as const;
+export const AGE_GROUPS = [
+  '3–4 lata',
+  '5–6 lat',
+  '6–7 lat',
+  '7–9 lat',
+  '10+',
+  '13+',
+  'Dorośli',
+] as const;
 
 export const books: Book[] = [
   {
@@ -147,6 +155,27 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
+  },
+  {
+    slug: 'zdobywca-szczytow',
+    title: 'Zdobywca Szczytów',
+    subtitle: '75 wykreślanek z nazwami szczytów odznak turystycznych Polski i okolic',
+    ageRange: 'Dorośli',
+    category: 'wykreslanki',
+    audience: 'dorosli',
+    description:
+      'Korona Gór Polski, Diadem Polskich Gór, Korona Beskidu Żywieckiego, Korona Gór Stołowych — w Polsce nie brakuje górskich wyzwań. A co, gdyby tym razem zdobywać szczyty z ołówkiem w dłoni? To 75 wykreślanek pełnych nazw szczytów związanych z polskimi odznakami turystycznymi, a w każdej czeka nowy zestaw nazw do odnalezienia. Dla tych, którzy kochają góry, zdobywają odznaki i planują kolejne wyprawy — i świetny prezent dla każdego miłośnika gór.',
+    features: [
+      '75 wykreślanek z nazwami szczytów górskich odznak',
+      'Ponad 1500 nazw do znalezienia',
+      'Rozwiązania na końcu książki',
+      'Dla miłośników gór i zdobywców odznak turystycznych',
+    ],
+    coverImage: '/covers/zdobywca-szczytow.png',
+    amazonUrl: 'https://amzn.eu/d/03CTNBDE',
+    featured: true,
+    formatInches: '8,5 × 11 cala',
+    pageCount: 100,
   },
 ];
 

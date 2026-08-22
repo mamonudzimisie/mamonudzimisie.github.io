@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import type { Book } from '@/data/books';
+import { CATEGORY_LABELS, type Book } from '@/data/books';
 
 export default function BookCard({ book }: { book: Book }) {
   return (
@@ -26,7 +26,11 @@ export default function BookCard({ book }: { book: Book }) {
       </Link>
       <div className="flex flex-1 flex-col gap-2 p-5">
         <h3 className="font-display text-xl font-700 text-navy">{book.title}</h3>
-        <p className="text-sm text-ink/70">{book.subtitle}</p>
+        <p className="text-sm text-ink/70">
+          <span className="font-semibold">{CATEGORY_LABELS[book.category]}</span>
+          {' · '}
+          {book.subtitle}
+        </p>
         <div className="mt-auto flex items-center gap-3 pt-4">
           <Link
             href={`/pl/books/${book.slug}`}

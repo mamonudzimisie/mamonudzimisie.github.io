@@ -22,6 +22,15 @@ export default function BookCatalog({ books }: { books: Book[] }) {
   const [selectedCategory, setSelectedCategory] = useState<BookCategory | ''>('');
   const showAgeFilter = selectedAudience === 'dzieci';
 
+  const availableAges = useMemo(() => {
+    const present = new Set(
+      books
+        .filter((book) => selectedAudience === '' || book.audience === selectedAudience)
+        .map((book) => book.ageRange),
+    );
+    return AGE_GROUPS.filter((age) => present.has(age));
+  }, [books, selectedAudience]);
+
   const availableCategories = useMemo(() => {
     const present = new Set(
       books
@@ -103,7 +112,7 @@ export default function BookCatalog({ books }: { books: Book[] }) {
             >
               Wszystkie
             </button>
-            {AGE_GROUPS.map((age) => (
+            {availableAges.map((age) => (
               <button
                 key={age}
                 onClick={() => setSelectedAge(age)}
