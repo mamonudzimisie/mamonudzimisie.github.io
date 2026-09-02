@@ -205,12 +205,12 @@ export const books: Book[] = [
     audience: 'dzieci',
     lang: 'de',
     description:
-      'Das erste Wortsuchrätsel, das nicht entmutigt. Große Buchstaben, vertraute Wörter und genau so viel Erfolgserlebnis, dass Kinder von sich aus die nächste Seite verlangen. Zu jedem Rätsel gehört ein Bild zum Ausmalen — so wird aus der Suche nach Buchstaben eine ruhige Beschäftigung für zwischendurch.',
+      'Das erste Wortsuchrätsel, das nicht entmutigt. Große Buchstaben, vertraute Wörter und genau so viel Erfolgserlebnis, dass Kinder von sich aus die nächste Seite verlangen. 60 Rätsel und dazu 12 Bilder zum Ausmalen — nach der Suche nach Buchstaben kommt die Pause mit den Buntstiften.',
     features: [
-      '100 Wortsuchrätsel',
+      '60 Wortsuchrätsel',
+      '12 Bilder zum Ausmalen',
       'Lesenlernen mit Spaß',
       'Große Buchstaben',
-      'Mit Bildern zum Ausmalen',
     ],
     coverImage: '/covers/meine-ersten-wortsuchratsel-stufe-1.png',
     amazonUrl: 'https://amzn.eu/d/06ffGySu',
@@ -227,12 +227,12 @@ export const books: Book[] = [
     audience: 'dzieci',
     lang: 'de',
     description:
-      'Die nächste Portion Wortsuchrätsel für einen guten Start — vertraute Wörter und ein übersichtliches Raster, das Lust auf mehr macht. Ideal, um das Lesen kurz vor der Einschulung zu festigen, mit einem Ausmalbild nach jedem gelösten Rätsel.',
+      'Die nächste Portion Wortsuchrätsel für einen guten Start — vertraute Wörter und ein übersichtliches Raster, das Lust auf mehr macht. Ideal, um das Lesen kurz vor der Einschulung zu festigen: 60 Rätsel und 12 Bilder zum Ausmalen als Belohnung zwischendurch.',
     features: [
-      '100 Wortsuchrätsel',
+      '60 Wortsuchrätsel',
+      '12 Bilder zum Ausmalen',
       'Festigt das Lesen vor der Einschulung',
       'Große Buchstaben',
-      'Mit Bildern zum Ausmalen',
     ],
     coverImage: '/covers/meine-ersten-wortsuchratsel-stufe-2.png',
     amazonUrl: 'https://amzn.eu/d/0cmPID9O',
