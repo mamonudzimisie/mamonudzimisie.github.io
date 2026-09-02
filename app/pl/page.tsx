@@ -213,7 +213,7 @@ export default function HomePage() {
             {/* okładka w tle po lewej, dla dorosłych/trudniejszy poziom */}
             <div className="absolute -left-10 top-10 z-0 w-[58%] -rotate-[16deg] rounded-2xl bg-white p-2 shadow-cover sm:-left-14">
               <Image
-                src="/covers/znajdz-slowko-10.png"
+                src="/covers/znajdz-slowko-poziom-trudny-10.png"
                 alt="Okładka łamigłówki, poziom trudny"
                 width={600}
                 height={800}
@@ -224,7 +224,7 @@ export default function HomePage() {
             {/* okładka w tle po prawej, starsze dzieci */}
             <div className="absolute -right-8 top-4 z-0 w-[54%] rotate-[18deg] rounded-2xl bg-white p-2 shadow-cover sm:-right-12">
               <Image
-                src="/covers/znajdz-slowko-7-9.png"
+                src="/covers/znajdz-slowko-poziom-sredni-7-9.png"
                 alt="Okładka książeczki dla starszych dzieci"
                 width={600}
                 height={800}
@@ -234,7 +234,7 @@ export default function HomePage() {
 
             <div className="relative z-10 mx-auto w-[62%] -rotate-2 rounded-2xl bg-white p-3 shadow-cover-lg transition hover:rotate-0">
               <Image
-                src="/covers/znajdz-slowko-5-6.png"
+                src="/covers/znajdz-slowko-poziom-latwy.png"
                 alt="Okładka książeczki Znajdź słówko!"
                 width={600}
                 height={800}

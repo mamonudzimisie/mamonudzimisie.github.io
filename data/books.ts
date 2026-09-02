@@ -20,7 +20,7 @@ export type Book = {
   lang: BookLang; // język treści książki
   description: string;
   features: string[]; // np. ["100 wykreślanek", "Duża czcionka", ...]
-  coverImage: string; // ścieżka w /public/covers/
+  coverImage: string; // /public/covers/<slug>.png — nazwa pliku równa slugowi
   amazonUrl: string;
   featured: boolean;
   comingSoon?: boolean;
@@ -80,7 +80,7 @@ export const books: Book[] = [
       'Duże litery',
       'Tematy bliskie dzieciom (zwierzęta, rodzina, kolory)',
     ],
-    coverImage: '/covers/znajdz-slowko-5-6.png',
+    coverImage: '/covers/znajdz-slowko-poziom-latwy.png',
     amazonUrl: 'https://amzn.eu/d/0coMqTkj',
     featured: true,
     formatInches: '8,5 × 11 cala',
@@ -102,7 +102,7 @@ export const books: Book[] = [
       'Przejrzysty, czytelny układ',
       'Tematy bliskie dzieciom (zwierzęta, rodzina, kolory)',
     ],
-    coverImage: '/covers/znajdz-slowko-6-7.png',
+    coverImage: '/covers/znajdz-slowko-poziom-latwy-6-7.png',
     amazonUrl: 'https://amzn.eu/d/07BBUa1X',
     featured: true,
     formatInches: '8,5 × 11 cala',
@@ -124,7 +124,7 @@ export const books: Book[] = [
       'Rozwija koncentrację i spostrzegawczość',
       'Tematy bliskie dzieciom (zwierzęta, rodzina, kolory)',
     ],
-    coverImage: '/covers/znajdz-slowko-7-9.png',
+    coverImage: '/covers/znajdz-slowko-poziom-sredni-7-9.png',
     amazonUrl: 'https://amzn.eu/d/0dJNgtH1',
     featured: true,
     formatInches: '8,5 × 11 cala',
@@ -146,7 +146,7 @@ export const books: Book[] = [
       'Rozwija koncentrację i cierpliwość',
       'Tematy bliskie dzieciom (zwierzęta, rodzina, kolory)',
     ],
-    coverImage: '/covers/znajdz-slowko-10.png',
+    coverImage: '/covers/znajdz-slowko-poziom-trudny-10.png',
     amazonUrl: 'https://amzn.eu/d/07eXC8JG',
     featured: true,
     formatInches: '8,5 × 11 cala',
@@ -168,7 +168,7 @@ export const books: Book[] = [
       'Gęste plansze i długie słowa',
       'Trening koncentracji i cierpliwości',
     ],
-    coverImage: '/covers/znajdz-slowko-13.png',
+    coverImage: '/covers/znajdz-slowko-poziom-ekspert-13.png',
     amazonUrl: 'https://amzn.eu/d/07es8Itl',
     featured: true,
     formatInches: '8,5 × 11 cala',
