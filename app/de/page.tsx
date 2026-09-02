@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
 import AudienceLinksDe from '@/components/AudienceLinksDe';
 import BookCard from '@/components/BookCard';
 import { getFeaturedBooks } from '@/data/books';
@@ -47,6 +49,55 @@ function IconHeart() {
   );
 }
 
+function DoodleStar({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M12 2l2.2 6.6H21l-5.4 4 2.1 6.6L12 15.2l-5.7 4.2 2.1-6.6L3 8.6h6.8L12 2z" />
+    </svg>
+  );
+}
+
+function DoodleSparkle({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className={className}>
+      <path d="M12 2v5M12 17v5M2 12h5M17 12h5M5 5l3.5 3.5M15.5 15.5L19 19M19 5l-3.5 3.5M8.5 15.5L5 19" />
+    </svg>
+  );
+}
+
+function DoodleHeart({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M12 20s-7-4.4-9.5-9C0.8 7.4 2.6 4 6 4c2 0 3.5 1.2 4 2.5.5-1.3 2-2.5 4-2.5 3.4 0 5.2 3.4 3.5 7-2.5 4.6-9.5 9-9.5 9z" />
+    </svg>
+  );
+}
+
+function DoodleDashedCircle({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeDasharray="3 4" className={className}>
+      <circle cx="12" cy="12" r="9" />
+    </svg>
+  );
+}
+
+function DoodlePencilSmall({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M4 20l1-4.5L15.5 5 19 8.5 8.5 19 4 20z" />
+      <path d="M13 7l3.5 3.5" />
+    </svg>
+  );
+}
+
+function DoodleSwirl({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className={className}>
+      <path d="M4 8c2-4 8-4 9 0s-3 6-6 4 1-7 5-6 6 5 3 8" />
+    </svg>
+  );
+}
+
 function SquiggleUnderline({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 200 14" fill="none" preserveAspectRatio="none" className={className}>
@@ -66,20 +117,102 @@ export default function HomePageDe() {
 
   return (
     <>
-      <section className="notebook-grid relative overflow-hidden border-b border-ink/10 px-4 py-16 sm:px-6 sm:py-24">
-        <div className="mx-auto max-w-4xl text-center">
-          <span className="animate-fade-up inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-700 text-ink/70 shadow-cover">
-            Für Kinder und Erwachsene
-          </span>
+      <section className="notebook-grid relative overflow-hidden px-4 py-16 sm:px-6 sm:py-24">
+        {/* rozproszone, wyciszone doodle w tle */}
+        <DoodleHeart className="pointer-events-none absolute right-[8%] top-[14%] hidden h-8 w-8 rotate-[8deg] text-orange/25 lg:block" />
+        <DoodleDashedCircle className="pointer-events-none absolute left-[42%] top-[38%] hidden h-16 w-16 text-green/25 lg:block" />
+        <DoodlePencilSmall className="pointer-events-none absolute bottom-[16%] right-[6%] hidden h-10 w-10 rotate-[25deg] text-navy/20 lg:block" />
+        <DoodleSwirl className="pointer-events-none absolute bottom-[22%] left-[46%] hidden h-9 w-9 text-green/20 lg:block" />
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute right-[4%] top-[4%] hidden font-display text-6xl font-800 text-navy/10 lg:block"
+        >
+          B
+        </span>
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-[8%] left-[38%] hidden font-display text-5xl font-800 text-orange/10 lg:block"
+        >
+          R
+        </span>
 
-          <h1 className="animate-fade-up mt-6 font-display text-3xl font-800 leading-tight text-navy sm:text-5xl [animation-delay:150ms]">
-            Rätsel, die in jedem Alter fesseln
-          </h1>
+        <div className="relative mx-auto grid max-w-5xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          <div className="text-center lg:text-left">
+            <span className="relative inline-block animate-fade-up">
+              <DoodleSparkle className="absolute -left-5 -top-5 h-6 w-6 text-orange/70" />
+              <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-700 text-ink/70 shadow-cover">
+                Für Kinder und Erwachsene
+              </span>
+            </span>
 
-          <p className="animate-fade-up mx-auto mt-5 max-w-xl text-base leading-relaxed text-ink/80 sm:text-lg [animation-delay:250ms]">
-            Rätsel, die den Kopf trainieren und für eine Pause vom Bildschirm sorgen —
-            für alle, die Herausforderungen lieben.
-          </p>
+            <h1 className="animate-fade-up mt-6 font-display text-3xl font-800 leading-tight text-navy sm:text-5xl [animation-delay:150ms]">
+              Rätsel, die fesseln
+              <br />
+              in{' '}
+              <span className="relative inline-block text-orange">
+                jedem Alter
+                <SquiggleUnderline className="absolute -bottom-2 left-0 h-3 w-full text-orange" />
+              </span>
+            </h1>
+
+            <p className="animate-fade-up mx-auto mt-6 max-w-md text-base leading-relaxed text-ink/80 sm:text-lg lg:mx-0 [animation-delay:250ms]">
+              Rätsel, die den Kopf trainieren und für eine Pause vom Bildschirm sorgen —
+              für alle, die Herausforderungen lieben.
+            </p>
+
+            <div className="animate-fade-up relative mt-8 flex flex-col items-center gap-3 lg:items-start [animation-delay:300ms]">
+              <Link
+                href="/de/books"
+                className="inline-flex items-center gap-2 rounded-full bg-orange px-8 py-3 text-base font-bold text-white shadow-cover transition hover:bg-orange/90"
+              >
+                Bücher ansehen
+                <span aria-hidden="true">→</span>
+              </Link>
+              <span className="relative inline-block">
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-ink/70">
+                  Finde etwas für dich
+                </span>
+                <Image
+                  src="/doodles/loop.png"
+                  alt=""
+                  width={120}
+                  height={80}
+                  className="pointer-events-none absolute -right-14 -top-1 hidden h-8 w-12 sm:block"
+                />
+              </span>
+            </div>
+          </div>
+
+          {/* Tylko dwie okładki — tyle mamy niemieckich tytułów. */}
+          <div className="relative mx-auto w-full max-w-xs lg:mx-0 lg:max-w-sm">
+            <DoodleStar className="absolute -left-6 -top-6 hidden h-6 w-6 rotate-[-15deg] text-orange/70 sm:block" />
+            <DoodleStar className="absolute -bottom-2 -left-8 hidden h-4 w-4 rotate-[10deg] text-orange/50 sm:block" />
+            <DoodleSparkle className="absolute -right-7 top-8 hidden h-7 w-7 text-yellow-500/60 sm:block" />
+
+            {/* miękki cień na „podłodze" */}
+            <div className="absolute inset-x-8 -bottom-3 h-8 rounded-full bg-ink/15 blur-2xl" aria-hidden="true" />
+
+            <div className="absolute -left-8 top-8 z-0 w-[60%] -rotate-[14deg] rounded-2xl bg-white p-2 shadow-cover sm:-left-12">
+              <Image
+                src="/covers/meine-ersten-wortsuchratsel-stufe-2.png"
+                alt="Buchcover Meine ersten Wortsuchrätsel, Stufe 2"
+                width={600}
+                height={800}
+                className="w-full rounded-xl"
+              />
+            </div>
+
+            <div className="relative z-10 ml-auto mr-0 w-[66%] rotate-[5deg] rounded-2xl bg-white p-3 shadow-cover-lg transition hover:rotate-0 sm:mr-2">
+              <Image
+                src="/covers/meine-ersten-wortsuchratsel-stufe-1.png"
+                alt="Buchcover Meine ersten Wortsuchrätsel, Stufe 1"
+                width={600}
+                height={800}
+                priority
+                className="w-full rounded-xl"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
