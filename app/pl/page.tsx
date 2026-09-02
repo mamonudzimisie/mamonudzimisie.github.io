@@ -132,7 +132,7 @@ function IconShield({ className }: { className?: string }) {
 }
 
 export default function HomePage() {
-  const featuredBooks = getFeaturedBooks();
+  const featuredBooks = getFeaturedBooks('pl');
 
   return (
     <>

@@ -214,7 +214,7 @@ export const books: Book[] = [
     ],
     coverImage: '/covers/meine-ersten-wortsuchratsel-stufe-1.png',
     amazonUrl: 'https://amzn.eu/d/06ffGySu',
-    featured: false,
+    featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 108,
   },
@@ -236,7 +236,7 @@ export const books: Book[] = [
     ],
     coverImage: '/covers/meine-ersten-wortsuchratsel-stufe-2.png',
     amazonUrl: 'https://amzn.eu/d/0cmPID9O',
-    featured: false,
+    featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 108,
   },
@@ -249,6 +249,10 @@ export function getBookBySlug(slug: string): Book | undefined {
 // Sekcja „Wyróżnione książki” na stronie głównej mieści dwa rzędy po trzy kafelki.
 export const FEATURED_LIMIT = 6;
 
-export function getFeaturedBooks(): Book[] {
-  return books.filter((book) => book.featured).slice(0, FEATURED_LIMIT);
+// Każda wersja językowa strony głównej poleca własne tytuły — inaczej polska
+// strona główna pokazywałaby niemieckie książki i odwrotnie.
+export function getFeaturedBooks(lang: BookLang): Book[] {
+  return books
+    .filter((book) => book.featured && book.lang === lang)
+    .slice(0, FEATURED_LIMIT);
 }

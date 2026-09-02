@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import AudienceLinksDe from '@/components/AudienceLinksDe';
+import BookCard from '@/components/BookCard';
+import { getFeaturedBooks } from '@/data/books';
 import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -60,6 +62,8 @@ function SquiggleUnderline({ className }: { className?: string }) {
 }
 
 export default function HomePageDe() {
+  const featuredBooks = getFeaturedBooks('de');
+
   return (
     <>
       <section className="notebook-grid relative overflow-hidden border-b border-ink/10 px-4 py-16 sm:px-6 sm:py-24">
@@ -90,17 +94,20 @@ export default function HomePageDe() {
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6 sm:py-20">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-2xl font-700 text-navy sm:text-3xl">
-            Bald verfügbar
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ink/80">
-            Wir arbeiten gerade an unseren ersten Rätselbüchern für den
-            deutschen Markt. Schau bald wieder vorbei!
-          </p>
-        </div>
-      </section>
+      {featuredBooks.length > 0 && (
+        <section className="border-y border-ink/10 bg-paper-dark px-4 py-16 sm:px-6 sm:py-20">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="text-center font-display text-2xl font-700 text-navy sm:text-3xl">
+              Empfohlene Bücher
+            </h2>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {featuredBooks.map((book) => (
+                <BookCard key={book.slug} book={book} siteLang="de" />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="relative bg-white px-4 py-16 sm:px-6 sm:py-20">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[280px_1fr] lg:items-start lg:gap-16">
