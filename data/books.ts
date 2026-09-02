@@ -216,7 +216,7 @@ export const books: Book[] = [
     amazonUrl: 'https://amzn.eu/d/06ffGySu',
     featured: false,
     formatInches: '8,5 × 11 cala',
-    pageCount: 128,
+    pageCount: 108,
   },
   {
     slug: 'meine-ersten-wortsuchratsel-stufe-2',
@@ -238,7 +238,7 @@ export const books: Book[] = [
     amazonUrl: 'https://amzn.eu/d/0cmPID9O',
     featured: false,
     formatInches: '8,5 × 11 cala',
-    pageCount: 128,
+    pageCount: 108,
   },
 ];
 
