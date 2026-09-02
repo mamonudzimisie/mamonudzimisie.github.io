@@ -196,6 +196,52 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 100,
   },
+  {
+    slug: 'meine-ersten-wortsuchratsel-stufe-1',
+    title: 'Meine ersten Wortsuchrätsel',
+    subtitle: 'Stufe 1: 5–6 Jahre',
+    ageRange: '5–6 lat',
+    category: 'wykreslanki',
+    audience: 'dzieci',
+    lang: 'de',
+    description:
+      'Das erste Wortsuchrätsel, das nicht entmutigt. Große Buchstaben, vertraute Wörter und genau so viel Erfolgserlebnis, dass Kinder von sich aus die nächste Seite verlangen. Zu jedem Rätsel gehört ein Bild zum Ausmalen — so wird aus der Suche nach Buchstaben eine ruhige Beschäftigung für zwischendurch.',
+    features: [
+      '100 Wortsuchrätsel',
+      'Lesenlernen mit Spaß',
+      'Große Buchstaben',
+      'Mit Bildern zum Ausmalen',
+    ],
+    coverImage: '/covers/meine-ersten-wortsuchratsel-stufe-1.png',
+    amazonUrl: '',
+    featured: false,
+    comingSoon: true,
+    formatInches: '8,5 × 11 cala',
+    pageCount: 128,
+  },
+  {
+    slug: 'meine-ersten-wortsuchratsel-stufe-2',
+    title: 'Meine ersten Wortsuchrätsel',
+    subtitle: 'Stufe 2: 6–7 Jahre',
+    ageRange: '6–7 lat',
+    category: 'wykreslanki',
+    audience: 'dzieci',
+    lang: 'de',
+    description:
+      'Die nächste Portion Wortsuchrätsel für einen guten Start — vertraute Wörter und ein übersichtliches Raster, das Lust auf mehr macht. Ideal, um das Lesen kurz vor der Einschulung zu festigen, mit einem Ausmalbild nach jedem gelösten Rätsel.',
+    features: [
+      '100 Wortsuchrätsel',
+      'Festigt das Lesen vor der Einschulung',
+      'Große Buchstaben',
+      'Mit Bildern zum Ausmalen',
+    ],
+    coverImage: '/covers/meine-ersten-wortsuchratsel-stufe-2.png',
+    amazonUrl: '',
+    featured: false,
+    comingSoon: true,
+    formatInches: '8,5 × 11 cala',
+    pageCount: 128,
+  },
 ];
 
 export function getBookBySlug(slug: string): Book | undefined {
