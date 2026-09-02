@@ -5,7 +5,7 @@ import { books, getBookBySlug } from '@/data/books';
 import { canonicalBookHref, shouldIndexDetail } from '@/lib/catalog-i18n';
 import { SITE_URL } from '@/lib/site';
 
-const SECTION = 'pl' as const;
+const SECTION = 'de' as const;
 
 // Każda książka ma stronę w obu sekcjach, żeby interfejs nie zmieniał języka
 // pod użytkownikiem. Do indeksu trafia tylko wersja zgodna z językiem książki

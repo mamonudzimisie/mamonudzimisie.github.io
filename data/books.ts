@@ -7,6 +7,9 @@ export type BookCategory =
 
 export type BookAudience = 'dzieci' | 'dorosli' | 'duzy-druk';
 
+// Język, w którym napisana jest książka (treść zagadek, nie strona sklepu).
+export type BookLang = 'pl' | 'de' | 'en';
+
 export type Book = {
   slug: string; // np. "znajdz-slowko-poziom-latwy"
   title: string; // "Znajdź słówko!"
@@ -14,6 +17,7 @@ export type Book = {
   ageRange: string; // "5–6 lat"
   category: BookCategory;
   audience: BookAudience;
+  lang: BookLang; // język treści książki
   description: string;
   features: string[]; // np. ["100 wykreślanek", "Duża czcionka", ...]
   coverImage: string; // ścieżka w /public/covers/
@@ -40,6 +44,15 @@ export const AUDIENCE_LABELS: Record<BookAudience, string> = {
   'duzy-druk': 'Duży druk',
 };
 
+// Kolejność języków w subtelnym filtrze katalogu.
+export const BOOK_LANGS: BookLang[] = ['pl', 'de', 'en'];
+
+export const LANG_LABELS: Record<BookLang, string> = {
+  pl: 'PL',
+  de: 'DE',
+  en: 'EN',
+};
+
 export const AGE_GROUPS = [
   '3–4 lata',
   '5–6 lat',
@@ -58,6 +71,7 @@ export const books: Book[] = [
     ageRange: '5–6 lat',
     category: 'wykreslanki',
     audience: 'dzieci',
+    lang: 'pl',
     description:
       'Pierwsza wykreślanka, która nie zniechęca. Duże litery, znajome słowa i tyle satysfakcji, ile potrzeba, żeby dziecko samo poprosiło o kolejną stronę. Świetny sposób, żeby oswoić literki, zanim zacznie się prawdziwa nauka czytania.',
     features: [
@@ -79,6 +93,7 @@ export const books: Book[] = [
     ageRange: '6–7 lat',
     category: 'wykreslanki',
     audience: 'dzieci',
+    lang: 'pl',
     description:
       'Kolejna dawka wykreślanek na dobry start — znajome słowa i przejrzysty układ, który nie zniechęca. Świetna, żeby utrwalić czytanie tuż przed startem szkoły.',
     features: [
@@ -100,6 +115,7 @@ export const books: Book[] = [
     ageRange: '7–9 lat',
     category: 'wykreslanki',
     audience: 'dzieci',
+    lang: 'pl',
     description:
       'Dłuższe i trudniejsze słowa dla dziecka, które już czyta płynnie i szuka prawdziwego wyzwania. Więcej liter do przeszukania, więcej satysfakcji, gdy słówko w końcu się znajdzie.',
     features: [
@@ -121,6 +137,7 @@ export const books: Book[] = [
     ageRange: '10+',
     category: 'wykreslanki',
     audience: 'dzieci',
+    lang: 'pl',
     description:
       'Prawdziwe wyzwanie dla wprawnych czytelników — długie słowa, gęsta plansza i satysfakcja, która przychodzi dopiero po chwili skupienia. Dla dzieci, które lubią się mierzyć z trudniejszym zadaniem.',
     features: [
@@ -142,6 +159,7 @@ export const books: Book[] = [
     ageRange: '13+',
     category: 'wykreslanki',
     audience: 'dzieci',
+    lang: 'pl',
     description:
       'Najtrudniejszy poziom w serii — gęste plansze, długie słowa i zadania, przy których trzeba się naprawdę skupić. Dla nastolatków i wszystkich, którzy szukają wykreślanki stawiającej prawdziwy opór.',
     features: [
@@ -163,6 +181,7 @@ export const books: Book[] = [
     ageRange: 'Dorośli',
     category: 'wykreslanki',
     audience: 'dorosli',
+    lang: 'pl',
     description:
       'Korona Gór Polski, Diadem Polskich Gór, Korona Beskidu Żywieckiego, Korona Gór Stołowych — w Polsce nie brakuje górskich wyzwań. A co, gdyby tym razem zdobywać szczyty z ołówkiem w dłoni? To 75 wykreślanek pełnych nazw szczytów związanych z polskimi odznakami turystycznymi, a w każdej czeka nowy zestaw nazw do odnalezienia. Dla tych, którzy kochają góry, zdobywają odznaki i planują kolejne wyprawy — i świetny prezent dla każdego miłośnika gór.',
     features: [
@@ -183,6 +202,9 @@ export function getBookBySlug(slug: string): Book | undefined {
   return books.find((book) => book.slug === slug);
 }
 
+// Sekcja „Wyróżnione książki” na stronie głównej mieści dwa rzędy po trzy kafelki.
+export const FEATURED_LIMIT = 6;
+
 export function getFeaturedBooks(): Book[] {
-  return books.filter((book) => book.featured);
+  return books.filter((book) => book.featured).slice(0, FEATURED_LIMIT);
 }
