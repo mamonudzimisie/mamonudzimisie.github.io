@@ -1,5 +1,6 @@
 export type BookCategory =
   | 'wykreslanki'
+  | 'sudoku'
   | 'labirynty'
   | 'kolorowanki'
   | 'laczenie-kropek'
@@ -31,6 +32,7 @@ export type Book = {
 // Kategorie do filtrowania w katalogu — etykiety po polsku.
 export const CATEGORY_LABELS: Record<BookCategory, string> = {
   wykreslanki: 'Wykreślanki',
+  sudoku: 'Sudoku',
   labirynty: 'Labirynty',
   kolorowanki: 'Kolorowanki',
   'laczenie-kropek': 'Łączenie kropek',
@@ -195,6 +197,29 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 100,
+  },
+  {
+    slug: 'sudoku-duzym-drukiem-100',
+    title: 'Sudoku dużym drukiem',
+    subtitle: '120 łamigłówek, poziom łatwy–średni',
+    ageRange: 'Dorośli',
+    category: 'sudoku',
+    audience: 'duzy-druk',
+    lang: 'pl',
+    description:
+      '120 łamigłówek sudoku wydrukowanych naprawdę dużą czcionką. Dwie zagadki na stronę, wyraźne kratki i mnóstwo miejsca na notatki. Ta książka powstała z myślą o osobach, które lubią codzienną porcję logicznego myślenia, ale mają dość drobnego druku w klasycznych wydaniach — tu możesz skupić się na zadaniu, nie nadwyrężając oczu. Rozwiązywanie sudoku to spokojne ćwiczenie koncentracji i pamięci, świetna alternatywa dla telewizora czy telefonu. Idealny prezent dla mamy, taty, babci lub dziadka — na urodziny, święta albo bez okazji.',
+    features: [
+      '120 unikalnych sudoku (poziom łatwy i średni)',
+      'Powiększona czcionka i duże kratki — wygodne przy słabszym wzroku',
+      'Krótka instrukcja dla początkujących',
+      'Komplet rozwiązań na końcu książki',
+    ],
+    coverImage: '/covers/sudoku-duzym-drukiem-100.png',
+    amazonUrl: 'https://amzn.eu/d/01Wm4XgX',
+    featured: false,
+    formatInches: '8,5 × 11 cala',
+    // TODO: sprawdzić liczbę stron.
+    pageCount: 128,
   },
   {
     slug: 'meine-ersten-wortsuchratsel-stufe-1',

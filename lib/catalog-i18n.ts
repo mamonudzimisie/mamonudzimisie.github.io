@@ -110,6 +110,7 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
     },
     categoryLabels: {
       wykreslanki: 'Wortsuchrätsel',
+      sudoku: 'Sudoku',
       labirynty: 'Labyrinthe',
       kolorowanki: 'Malbücher',
       'laczenie-kropek': 'Punkte verbinden',
