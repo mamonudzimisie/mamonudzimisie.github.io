@@ -218,8 +218,29 @@ export const books: Book[] = [
     amazonUrl: 'https://amzn.eu/d/01Wm4XgX',
     featured: false,
     formatInches: '8,5 × 11 cala',
-    // TODO: sprawdzić liczbę stron.
-    pageCount: 128,
+    pageCount: 96,
+  },
+  {
+    slug: 'sudoku-300-zagadek-200',
+    title: 'Sudoku',
+    subtitle: '300 zagadek od łatwych do bardzo trudnych',
+    ageRange: 'Dorośli',
+    category: 'sudoku',
+    audience: 'dorosli',
+    lang: 'pl',
+    description:
+      'Jedna plansza, dziewięć cyfr i chwila tylko dla siebie. Ten tom zawiera 300 zagadek sudoku ułożonych od najłatwiejszych do najtrudniejszych — zaczniesz od prostych, a skończysz na takich, przy których posiedzisz znacznie dłużej. Każda zagadka ma dokładnie jedno rozwiązanie i da się ją rozwiązać samą logiką, bez zgadywania. Świetnie sprawdza się w podróży, przy porannej kawie, w poczekalni albo wieczorem zamiast ekranu. Dobry pomysł na prezent dla kogoś, kto lubi łamigłówki — i dla siebie.',
+    features: [
+      '300 sudoku w czterech poziomach: łatwy, średni, trudny i bardzo trudny',
+      'Wstęp z metodami rozwiązywania — od podstaw po X-Wing, Swordfish i XY-Wing',
+      'Wszystkie rozwiązania na końcu książki',
+      'Czytelne plansze z pogrubionymi liniami bloków 3×3',
+    ],
+    coverImage: '/covers/sudoku-300-zagadek-200.png',
+    amazonUrl: 'https://amzn.eu/d/08vEb3Mk',
+    featured: false,
+    formatInches: '8,5 × 11 cala',
+    pageCount: 132,
   },
   {
     slug: 'meine-ersten-wortsuchratsel-stufe-1',
