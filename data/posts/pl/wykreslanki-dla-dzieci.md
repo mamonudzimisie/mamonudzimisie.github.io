@@ -47,7 +47,6 @@ Właśnie z myślą o tym przygotowaliśmy serię **Znajdź słówko!**. To wykr
 
 {{ksiazki znajdz-slowko-poziom-latwy znajdz-slowko-poziom-latwy-6-7 znajdz-slowko-poziom-sredni-7-9 znajdz-slowko-poziom-trudny-10 znajdz-slowko-poziom-ekspert-13}}
 
----
 
 ## Najczęstsze pytania
 
@@ -62,5 +61,9 @@ Tak. To łagodny sposób na ćwiczenie czytania i pisowni po polsku, który dzie
 
 ### Gdzie kupić wykreślanki po polsku, mieszkając poza Polską?
 
-Książki z serii „Znajdź słówko!” są drukowane na żądanie przez Amazon, więc można je zamówić w każdym kraju, gdzie funkcjonuje sklep Amazon.
-Wyszukaj książeczek na swoim lokalnym Amazonie wpisując nazwę serii „Znajdź słówko!”.
+Nasze książki są dostępne we wszystkich sklepach Amazona — między innymi
+w Niemczech, Wielkiej Brytanii, Francji, Hiszpanii, Włoszech, Holandii,
+Szwecji, USA, Kanadzie i Australii.
+
+Wejdź na swój lokalny Amazon i wpisz w wyszukiwarkę nazwę serii:
+„Znajdź słówko!”. 
