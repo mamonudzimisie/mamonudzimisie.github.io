@@ -3,8 +3,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 import BookCard from '@/components/BookCard';
 import AudienceLinks from '@/components/AudienceLinks';
-import { getFeaturedBooks } from '@/data/books';
+import HeroFan from '@/components/HeroFan';
+import { getBookBySlug, getFeaturedBooks } from '@/data/books';
 import { SITE_URL } from '@/lib/site';
+
+// Kolejność w wachlarzu: pierwsza z przodu, druga po prawej, ostatnia po lewej.
+const HERO_SLUGS = [
+  'znajdz-slowko-poziom-latwy',
+  'sudoku-300-zagadek-200',
+  'znajdz-slowko-poziom-latwy-6-7',
+  'znajdz-slowko-poziom-sredni-7-9',
+  'znajdz-slowko-poziom-trudny-10',
+  'zdobywca-szczytow',
+];
 
 export const metadata: Metadata = {
   alternates: {
@@ -133,6 +144,10 @@ function IconShield({ className }: { className?: string }) {
 
 export default function HomePage() {
   const featuredBooks = getFeaturedBooks('pl');
+  const heroBooks = HERO_SLUGS.flatMap((slug) => {
+    const book = getBookBySlug(slug);
+    return book ? [{ slug, title: book.title, subtitle: book.subtitle, coverImage: book.coverImage }] : [];
+  });
 
   return (
     <>
@@ -210,38 +225,7 @@ export default function HomePage() {
             {/* miękki cień na "podłodze" */}
             <div className="absolute inset-x-8 -bottom-3 h-8 rounded-full bg-ink/15 blur-2xl" aria-hidden="true" />
 
-            {/* okładka w tle po lewej, dla dorosłych */}
-            <div className="absolute -left-10 top-10 z-0 w-[58%] -rotate-[16deg] rounded-2xl bg-white p-2 shadow-cover sm:-left-14">
-              <Image
-                src="/covers/zdobywca-szczytow.png"
-                alt="Okładka książki Zdobywca Szczytów"
-                width={600}
-                height={800}
-                className="w-full rounded-xl"
-              />
-            </div>
-
-            {/* okładka w tle po prawej, sudoku */}
-            <div className="absolute -right-8 top-4 z-0 w-[54%] rotate-[18deg] rounded-2xl bg-white p-2 shadow-cover sm:-right-12">
-              <Image
-                src="/covers/sudoku-300-zagadek-200.png"
-                alt="Okładka książki Sudoku — 300 zagadek"
-                width={600}
-                height={800}
-                className="w-full rounded-xl"
-              />
-            </div>
-
-            <div className="relative z-10 mx-auto w-[62%] -rotate-2 rounded-2xl bg-white p-3 shadow-cover-lg transition hover:rotate-0">
-              <Image
-                src="/covers/znajdz-slowko-poziom-latwy.png"
-                alt="Okładka książeczki Znajdź słówko!"
-                width={600}
-                height={800}
-                priority
-                className="w-full rounded-xl"
-              />
-            </div>
+            <HeroFan books={heroBooks} />
           </div>
         </div>
       </section>
