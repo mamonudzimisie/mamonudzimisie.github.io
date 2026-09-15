@@ -55,8 +55,10 @@ function renderBookCards(slugs: string[], lang: PostLang): string {
 }
 
 function renderMarkdown(content: string, lang: PostLang): string {
-  const withBooks = content.replace(/^\{\{ksiazki\s+([^}]+)\}\}\s*$/gm, (_, slugs: string) =>
-    renderBookCards(slugs.trim().split(/\s+/), lang),
+  // [ \t]* zamiast \s* — \s zjadałoby puste linie po znaczniku i następny
+  // nagłówek przyklejałby się do bloku HTML (Markdown by go nie rozpoznał).
+  const withBooks = content.replace(/^\{\{ksiazki[ \t]+([^}\n]+)\}\}[ \t]*$/gm, (_, slugs: string) =>
+    `\n${renderBookCards(slugs.trim().split(/\s+/), lang)}\n`,
   );
   return marked.parse(withBooks) as string;
 }
