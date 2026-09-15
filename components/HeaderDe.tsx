@@ -17,6 +17,9 @@ export default function HeaderDe() {
           </span>
         </Link>
         <nav className="flex items-center gap-4 text-sm font-semibold sm:gap-6 sm:text-base">
+          <Link href="/de/blog" className="whitespace-nowrap hover:text-orange">
+            Blog
+          </Link>
           <Link
             href="/de/books"
             className="inline-flex whitespace-nowrap rounded-full bg-orange px-5 py-2 text-sm font-bold text-white shadow-cover transition hover:bg-orange/90"

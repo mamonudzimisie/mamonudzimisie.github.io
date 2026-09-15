@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { books } from '@/data/books';
+import { getAllPosts } from '@/data/posts';
 import { canonicalBookHref } from '@/lib/catalog-i18n';
 import { SITE_URL } from '@/lib/site';
 
@@ -10,6 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/pl/about',
     '/de',
     '/de/books',
+    '/pl/blog',
+    '/de/blog',
   ].map((route) => ({
     url: `${SITE_URL}${route}`,
     lastModified: new Date(),
@@ -21,5 +24,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
   }));
 
-  return [...staticRoutes, ...bookRoutes];
+  const postRoutes = getAllPosts().map((post) => ({
+    url: `${SITE_URL}/${post.lang}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+  }));
+
+  return [...staticRoutes, ...bookRoutes, ...postRoutes];
 }
