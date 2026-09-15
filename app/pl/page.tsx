@@ -210,22 +210,22 @@ export default function HomePage() {
             {/* miękki cień na "podłodze" */}
             <div className="absolute inset-x-8 -bottom-3 h-8 rounded-full bg-ink/15 blur-2xl" aria-hidden="true" />
 
-            {/* okładka w tle po lewej, dla dorosłych/trudniejszy poziom */}
+            {/* okładka w tle po lewej, dla dorosłych */}
             <div className="absolute -left-10 top-10 z-0 w-[58%] -rotate-[16deg] rounded-2xl bg-white p-2 shadow-cover sm:-left-14">
               <Image
-                src="/covers/znajdz-slowko-poziom-trudny-10.png"
-                alt="Okładka łamigłówki, poziom trudny"
+                src="/covers/zdobywca-szczytow.png"
+                alt="Okładka książki Zdobywca Szczytów"
                 width={600}
                 height={800}
                 className="w-full rounded-xl"
               />
             </div>
 
-            {/* okładka w tle po prawej, starsze dzieci */}
+            {/* okładka w tle po prawej, sudoku */}
             <div className="absolute -right-8 top-4 z-0 w-[54%] rotate-[18deg] rounded-2xl bg-white p-2 shadow-cover sm:-right-12">
               <Image
-                src="/covers/znajdz-slowko-poziom-sredni-7-9.png"
-                alt="Okładka książeczki dla starszych dzieci"
+                src="/covers/sudoku-300-zagadek-200.png"
+                alt="Okładka książki Sudoku — 300 zagadek"
                 width={600}
                 height={800}
                 className="w-full rounded-xl"
