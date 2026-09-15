@@ -13,6 +13,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/de/books',
     '/pl/blog',
     '/de/blog',
+    '/en',
+    '/en/books',
+    '/en/blog',
   ].map((route) => ({
     url: `${SITE_URL}${route}`,
     lastModified: new Date(),

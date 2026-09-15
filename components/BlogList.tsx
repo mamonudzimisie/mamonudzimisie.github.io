@@ -4,6 +4,7 @@ import { getPosts, type PostLang } from '@/data/posts';
 const TEXT = {
   pl: { heading: 'Blog', empty: 'Wkrótce pojawią się tu pierwsze wpisy.', more: 'Czytaj dalej →', locale: 'pl-PL' },
   de: { heading: 'Blog', empty: 'Die ersten Beiträge folgen bald.', more: 'Weiterlesen →', locale: 'de-DE' },
+  en: { heading: 'Blog', empty: 'Our first posts are coming soon.', more: 'Read more →', locale: 'en-GB' },
 };
 
 export function formatPostDate(date: string, lang: PostLang) {

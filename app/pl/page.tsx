@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     languages: {
       pl: `${SITE_URL}/pl`,
       de: `${SITE_URL}/de`,
+      en: `${SITE_URL}/en`,
     },
   },
 };

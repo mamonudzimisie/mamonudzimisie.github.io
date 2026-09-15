@@ -6,11 +6,13 @@ import { useEffect, useRef, useState } from 'react';
 const LOCALES = [
   { code: 'pl', short: 'PL', flag: '🇵🇱', label: 'Polski', href: '/pl' },
   { code: 'de', short: 'DE', flag: '🇩🇪', label: 'Deutsch', href: '/de' },
+  { code: 'en', short: 'EN', flag: '🇬🇧', label: 'English', href: '/en' },
 ];
 
 const SWITCH_LABEL: Record<string, (language: string) => string> = {
   pl: (language) => `Zmień język (obecnie ${language})`,
   de: (language) => `Sprache wechseln (aktuell ${language})`,
+  en: (language) => `Change language (currently ${language})`,
 };
 
 export default function LanguageSwitcher({ current }: { current: string }) {

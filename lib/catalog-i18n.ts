@@ -9,7 +9,7 @@ import {
 
 // Języki, w których istnieje wersja strony (a więc i tłumaczenia interfejsu
 // katalogu). Książki mogą być w szerszym zbiorze języków — patrz BOOK_LANGS.
-export type SiteLang = 'pl' | 'de';
+export type SiteLang = 'pl' | 'de' | 'en';
 
 type AgeGroup = (typeof AGE_GROUPS)[number];
 
@@ -146,13 +146,67 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
         `Hinweis: Dieses Buch ist auf ${langName} — Rätsel und Anleitungen im Inneren sind nicht auf Deutsch.`,
     },
   },
+  en: {
+    audienceHeading: 'For whom:',
+    all: 'All',
+    age: 'Age:',
+    category: 'Category:',
+    bookLanguage: 'Book language:',
+    empty: "We don't have any books in this category yet — check back soon!",
+    ageLabels: {
+      '3–4 lata': '3–4 years',
+      '5–6 lat': '5–6 years',
+      '6–7 lat': '6–7 years',
+      '7–9 lat': '7–9 years',
+      '10+': '10+',
+      '13+': '13+',
+      'Dorośli': 'Adults',
+    },
+    categoryLabels: {
+      wykreslanki: 'Word search',
+      sudoku: 'Sudoku',
+      labirynty: 'Mazes',
+      kolorowanki: 'Colouring books',
+      'laczenie-kropek': 'Dot to dot',
+      inne: 'Other',
+    },
+    audienceLabels: {
+      dzieci: 'For kids',
+      dorosli: 'For adults',
+      'duzy-druk': 'Large print',
+    },
+    langNames: {
+      pl: 'Polish',
+      de: 'German',
+      en: 'English',
+    },
+    card: {
+      coverAlt: (title) => `Book cover: ${title}`,
+      comingSoon: 'Soon',
+      details: 'See details',
+      buy: 'Buy on Amazon',
+    },
+    detail: {
+      language: 'Language',
+      format: 'Format',
+      formatNote: 'US Letter, close to A4',
+      volume: 'Length',
+      pages: (count) => `${count} pages`,
+      binding: 'Paperback',
+      comingSoon: 'This book is coming soon',
+      lookInside: 'Look inside',
+      backToCatalog: '← Back to all books',
+      foreignLanguageNote: (langName) =>
+        `Note: this book is in ${langName} — the puzzles and instructions inside are not in English.`,
+    },
+  },
 };
 
 // Sekcje, w których istnieją strony szczegółów książek. Każda książka ma
 // stronę w obu sekcjach — interfejs nigdy nie „przeskakuje" na inny język niż
 // ten, w którym użytkownik przegląda katalog. Za duplikaty w wyszukiwarce
 // odpowiada canonicalSection() + noindex, patrz shouldIndexDetail().
-const DETAIL_SECTIONS: SiteLang[] = ['pl', 'de'];
+const DETAIL_SECTIONS: SiteLang[] = ['pl', 'de', 'en'];
 const FALLBACK_SECTION: SiteLang = 'pl';
 
 // Link ze strony w danej sekcji prowadzi do szczegółów w tej samej sekcji.

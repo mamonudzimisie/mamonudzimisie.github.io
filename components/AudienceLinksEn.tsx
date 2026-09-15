@@ -40,34 +40,34 @@ const groups: {
 }[] = [
   {
     audience: 'dzieci',
-    label: 'Für Kinder',
-    description: 'Rätsel und Knobelaufgaben, altersgerecht ausgewählt — spielerisch lernen und die Konzentration stärken.',
+    label: 'For kids',
+    description: 'Puzzles and brain teasers matched to your child’s age — a fun way to learn and build focus.',
     Icon: IconKid,
     color: 'bg-green-light text-green',
   },
   {
     audience: 'dorosli',
-    label: 'Für Erwachsene',
-    description: 'Logik- und Zahlenrätsel für Erwachsene. Von entspannter Ablenkung bis zur echten Denksportaufgabe.',
+    label: 'For adults',
+    description: 'Logic and number puzzles for adults. From a relaxing distraction to a real mental challenge.',
     Icon: IconAdult,
     color: 'bg-orange-light text-orange',
   },
   {
     audience: 'duzy-druk',
-    label: 'Großdruck',
-    description: 'Angenehme, gut lesbare Schrift — für alle, denen kleingedruckter Text Mühe bereitet.',
+    label: 'Large print',
+    description: 'Comfortable, easy-to-read type — for anyone who struggles with small print.',
     Icon: IconLargePrint,
     color: 'bg-navy-light text-navy',
   },
 ];
 
-export default function AudienceLinksDe() {
+export default function AudienceLinksEn() {
   return (
     <div className="grid gap-6 sm:grid-cols-3">
       {groups.map((group) => (
         <Link
           key={group.audience}
-          href={`/de/books?grupa=${encodeURIComponent(group.audience)}`}
+          href={`/en/books?grupa=${encodeURIComponent(group.audience)}`}
           className="group flex flex-col items-center rounded-2xl border border-ink/10 bg-white/60 p-6 text-center transition hover:-translate-y-1 hover:shadow-cover"
         >
           <span
@@ -79,7 +79,7 @@ export default function AudienceLinksDe() {
           <h3 className="font-display text-lg font-700 text-navy">{group.label}</h3>
           <p className="mt-2 text-sm text-ink/70">{group.description}</p>
           <span className="mt-4 text-sm font-semibold text-navy group-hover:text-orange">
-            Bücher ansehen →
+            Browse books →
           </span>
         </Link>
       ))}

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Post } from '@/data/posts';
 import { formatPostDate } from './BlogList';
 
-const BACK = { pl: '← Wszystkie wpisy', de: '← Alle Beiträge' };
+const BACK = { pl: '← Wszystkie wpisy', de: '← Alle Beiträge', en: '← All posts' };
 
 export default function BlogPost({ post }: { post: Post }) {
   return (

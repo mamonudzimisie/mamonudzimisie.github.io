@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import { marked } from 'marked';
 import { getBookBySlug } from '@/data/books';
 
-export type PostLang = 'pl' | 'de';
+export type PostLang = 'pl' | 'de' | 'en';
 
 export type Post = {
   slug: string;
@@ -22,6 +22,7 @@ const POSTS_DIR = path.join(process.cwd(), 'data', 'posts');
 const BOOK_LABELS = {
   pl: { details: 'Zobacz książkę', amazon: 'Kup na Amazon' },
   de: { details: 'Zum Buch', amazon: 'Bei Amazon kaufen' },
+  en: { details: 'See the book', amazon: 'Buy on Amazon' },
 };
 
 function escapeHtml(text: string): string {
@@ -100,7 +101,7 @@ export function getPostParams(lang: PostLang): { slug: string }[] {
 }
 
 export function getAllPosts(): Post[] {
-  return [...getPosts('pl'), ...getPosts('de')];
+  return [...getPosts('pl'), ...getPosts('de'), ...getPosts('en')];
 }
 
 export function getPost(lang: PostLang, slug: string): Post | undefined {

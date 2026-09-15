@@ -31,8 +31,13 @@ export default function BookCatalog({
   const [selectedAge, setSelectedAge] = useState<string>(initialAge);
   const [selectedAudience, setSelectedAudience] = useState<BookAudience | ''>(initialAudience);
   const [selectedCategory, setSelectedCategory] = useState<BookCategory | ''>('');
-  // Domyślnie pokazujemy tylko książki w języku danej wersji strony.
-  const [selectedLangs, setSelectedLangs] = useState<BookLang[]>([siteLang]);
+  // Domyślnie pokazujemy tylko książki w języku danej wersji strony. Jeśli
+  // w tym języku nie ma jeszcze żadnej (np. wersja EN), pokazujemy wszystkie.
+  const [selectedLangs, setSelectedLangs] = useState<BookLang[]>(() =>
+    books.some((book) => book.lang === siteLang)
+      ? [siteLang]
+      : BOOK_LANGS.filter((lang) => books.some((book) => book.lang === lang)),
+  );
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const langMenuRef = useRef<HTMLDivElement>(null);
   const showAgeFilter = selectedAudience === 'dzieci';

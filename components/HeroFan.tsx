@@ -8,7 +8,45 @@ export type HeroFanBook = {
   slug: string;
   title: string;
   subtitle: string;
-  coverImage: string;};
+  coverImage: string;
+};
+
+type FanLang = 'pl' | 'en';
+
+const LABELS: Record<
+  FanLang,
+  {
+    carousel: string;
+    region: string;
+    cover: (label: string) => string;
+    open: (label: string) => string;
+    show: (label: string) => string;
+    dot: (n: number, count: number, title: string) => string;
+    prev: string;
+    next: string;
+  }
+> = {
+  pl: {
+    carousel: 'karuzela',
+    region: 'Polecane książki',
+    cover: (label) => `Okładka: ${label}`,
+    open: (label) => `Zobacz książkę: ${label}`,
+    show: (label) => `Pokaż: ${label}`,
+    dot: (n, count, title) => `Pokaż książkę ${n} z ${count}: ${title}`,
+    prev: 'Poprzednia książka',
+    next: 'Następna książka',
+  },
+  en: {
+    carousel: 'carousel',
+    region: 'Featured books',
+    cover: (label) => `Cover: ${label}`,
+    open: (label) => `See book: ${label}`,
+    show: (label) => `Show: ${label}`,
+    dot: (n, count, title) => `Show book ${n} of ${count}: ${title}`,
+    prev: 'Previous book',
+    next: 'Next book',
+  },
+};
 
 // Pozycje w wachlarzu względem okładki z przodu: 0 = przód, 1 = prawa, -1 = lewa.
 // Pozostałe okładki czekają schowane za przednią.
@@ -19,10 +57,11 @@ const POSITIONS: Record<string, { transform: string; z: number; opacity: number 
   hidden: { transform: 'translateX(-50%) scale(0.7)', z: 0, opacity: 0 },
 };
 
-export default function HeroFan({ books }: { books: HeroFanBook[] }) {
+export default function HeroFan({ books, lang = 'pl' }: { books: HeroFanBook[]; lang?: FanLang }) {
   const [front, setFront] = useState(0);
   const touchX = useRef<number | null>(null);
   const count = books.length;
+  const t = LABELS[lang];
 
   const go = (step: number) => setFront((i) => (i + step + count) % count);
 
@@ -37,8 +76,8 @@ export default function HeroFan({ books }: { books: HeroFanBook[] }) {
     <div
       className="relative"
       role="region"
-      aria-roledescription="karuzela"
-      aria-label="Polecane książki"
+      aria-roledescription={t.carousel}
+      aria-label={t.region}
       tabIndex={0}
       onKeyDown={(e) => {
         if (e.key === 'ArrowRight') go(1);
@@ -65,7 +104,7 @@ export default function HeroFan({ books }: { books: HeroFanBook[] }) {
         const cover = (
           <Image
             src={book.coverImage}
-            alt={isFront ? `Okładka: ${label}` : ''}
+            alt={isFront ? t.cover(label) : ''}
             width={600}
             height={800}
             priority={index === 0}
@@ -88,7 +127,7 @@ export default function HeroFan({ books }: { books: HeroFanBook[] }) {
             aria-hidden={!isFront}
           >
             {isFront ? (
-              <Link href={`/pl/books/${book.slug}`} aria-label={`Zobacz książkę: ${label}`}>
+              <Link href={`/${lang}/books/${book.slug}`} aria-label={t.open(label)}>
                 {cover}
               </Link>
             ) : (
@@ -97,7 +136,7 @@ export default function HeroFan({ books }: { books: HeroFanBook[] }) {
                 tabIndex={-1}
                 onClick={() => go(d)}
                 className="block w-full cursor-pointer"
-                aria-label={`Pokaż: ${label}`}
+                aria-label={t.show(label)}
               >
                 {cover}
               </button>
@@ -110,7 +149,7 @@ export default function HeroFan({ books }: { books: HeroFanBook[] }) {
         <button
           type="button"
           onClick={() => go(-1)}
-          aria-label="Poprzednia książka"
+          aria-label={t.prev}
           className="flex h-7 w-7 items-center justify-center rounded-full text-ink/35 transition hover:text-orange"
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5" aria-hidden="true">
@@ -123,7 +162,7 @@ export default function HeroFan({ books }: { books: HeroFanBook[] }) {
               key={book.slug}
               type="button"
               onClick={() => setFront(index)}
-              aria-label={`Pokaż książkę ${index + 1} z ${count}: ${book.title}`}
+              aria-label={t.dot(index + 1, count, book.title)}
               aria-current={index === front}
               className={`h-2 rounded-full transition-all duration-300 ${
                 index === front ? 'w-5 bg-orange' : 'w-2 bg-ink/20 hover:bg-ink/40'
@@ -134,7 +173,7 @@ export default function HeroFan({ books }: { books: HeroFanBook[] }) {
         <button
           type="button"
           onClick={() => go(1)}
-          aria-label="Następna książka"
+          aria-label={t.next}
           className="flex h-7 w-7 items-center justify-center rounded-full text-ink/35 transition hover:text-orange"
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5" aria-hidden="true">
