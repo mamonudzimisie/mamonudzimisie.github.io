@@ -11,7 +11,7 @@ export type HeroFanBook = {
   coverImage: string;
 };
 
-type FanLang = 'pl' | 'en';
+type FanLang = 'pl' | 'de' | 'en';
 
 const LABELS: Record<
   FanLang,
@@ -35,6 +35,16 @@ const LABELS: Record<
     dot: (n, count, title) => `Pokaż książkę ${n} z ${count}: ${title}`,
     prev: 'Poprzednia książka',
     next: 'Następna książka',
+  },
+  de: {
+    carousel: 'Karussell',
+    region: 'Empfohlene Bücher',
+    cover: (label) => `Buchcover: ${label}`,
+    open: (label) => `Buch ansehen: ${label}`,
+    show: (label) => `Anzeigen: ${label}`,
+    dot: (n, count, title) => `Buch ${n} von ${count} anzeigen: ${title}`,
+    prev: 'Vorheriges Buch',
+    next: 'Nächstes Buch',
   },
   en: {
     carousel: 'carousel',

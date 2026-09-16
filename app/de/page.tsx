@@ -3,8 +3,21 @@ import Image from 'next/image';
 import Link from 'next/link';
 import AudienceLinksDe from '@/components/AudienceLinksDe';
 import BookCard from '@/components/BookCard';
-import { getFeaturedBooks } from '@/data/books';
+import HeroFan from '@/components/HeroFan';
+import { getBookBySlug, getFeaturedBooks } from '@/data/books';
 import { SITE_URL } from '@/lib/site';
+
+// Kolejność w wachlarzu: pierwsza z przodu, druga po prawej, ostatnia po lewej.
+// Zaczynamy od tytułów niemieckich, dalej reszta oferty — karty i strony
+// książek i tak oznaczają język treści.
+const HERO_SLUGS = [
+  'meine-ersten-wortsuchratsel-stufe-1',
+  'meine-ersten-wortsuchratsel-stufe-2',
+  'sudoku-300-zagadek-200',
+  'znajdz-slowko-poziom-latwy',
+  'sudoku-duzym-drukiem-100',
+  'zdobywca-szczytow',
+];
 
 export const metadata: Metadata = {
   alternates: {
@@ -115,6 +128,10 @@ function SquiggleUnderline({ className }: { className?: string }) {
 
 export default function HomePageDe() {
   const featuredBooks = getFeaturedBooks('de');
+  const heroBooks = HERO_SLUGS.flatMap((slug) => {
+    const book = getBookBySlug(slug);
+    return book ? [{ slug, title: book.title, subtitle: book.subtitle, coverImage: book.coverImage }] : [];
+  });
 
   return (
     <>
@@ -184,7 +201,6 @@ export default function HomePageDe() {
             </div>
           </div>
 
-          {/* Tylko dwie okładki — tyle mamy niemieckich tytułów. */}
           <div className="relative mx-auto w-full max-w-xs lg:mx-0 lg:max-w-sm">
             <DoodleStar className="absolute -left-6 -top-6 hidden h-6 w-6 rotate-[-15deg] text-orange/70 sm:block" />
             <DoodleStar className="absolute -bottom-2 -left-8 hidden h-4 w-4 rotate-[10deg] text-orange/50 sm:block" />
@@ -193,26 +209,7 @@ export default function HomePageDe() {
             {/* miękki cień na „podłodze" */}
             <div className="absolute inset-x-8 -bottom-3 h-8 rounded-full bg-ink/15 blur-2xl" aria-hidden="true" />
 
-            <div className="absolute -left-8 top-8 z-0 w-[60%] -rotate-[14deg] rounded-2xl bg-white p-2 shadow-cover sm:-left-12">
-              <Image
-                src="/covers/meine-ersten-wortsuchratsel-stufe-2.png"
-                alt="Buchcover Meine ersten Wortsuchrätsel, Stufe 2"
-                width={600}
-                height={800}
-                className="w-full rounded-xl"
-              />
-            </div>
-
-            <div className="relative z-10 ml-auto mr-0 w-[66%] rotate-[5deg] rounded-2xl bg-white p-3 shadow-cover-lg transition hover:rotate-0 sm:mr-2">
-              <Image
-                src="/covers/meine-ersten-wortsuchratsel-stufe-1.png"
-                alt="Buchcover Meine ersten Wortsuchrätsel, Stufe 1"
-                width={600}
-                height={800}
-                priority
-                className="w-full rounded-xl"
-              />
-            </div>
+            <HeroFan lang="de" books={heroBooks} />
           </div>
         </div>
       </section>
