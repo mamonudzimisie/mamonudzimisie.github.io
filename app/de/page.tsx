@@ -191,7 +191,7 @@ export default function HomePageDe() {
                   Finde etwas für dich
                 </span>
                 <Image
-                  src="/doodles/loop.png"
+                  src="/doodles/loop.webp"
                   alt=""
                   width={120}
                   height={80}

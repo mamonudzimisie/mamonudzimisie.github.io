@@ -21,7 +21,7 @@ export type Book = {
   lang: BookLang; // język treści książki
   description: string;
   features: string[]; // np. ["100 wykreślanek", "Duża czcionka", ...]
-  coverImage: string; // /public/covers/<slug>.png — nazwa pliku równa slugowi
+  coverImage: string; // /public/covers/<slug>.webp — nazwa pliku równa slugowi
   amazonUrl: string;
   featured: boolean;
   comingSoon?: boolean;
@@ -82,7 +82,7 @@ export const books: Book[] = [
       'Duże litery',
       'Tematy bliskie dzieciom (zwierzęta, rodzina, kolory)',
     ],
-    coverImage: '/covers/znajdz-slowko-poziom-latwy.png',
+    coverImage: '/covers/znajdz-slowko-poziom-latwy.webp',
     amazonUrl: 'https://amzn.eu/d/0coMqTkj',
     featured: true,
     formatInches: '8,5 × 11 cala',
@@ -104,7 +104,7 @@ export const books: Book[] = [
       'Przejrzysty, czytelny układ',
       'Tematy bliskie dzieciom (zwierzęta, rodzina, kolory)',
     ],
-    coverImage: '/covers/znajdz-slowko-poziom-latwy-6-7.png',
+    coverImage: '/covers/znajdz-slowko-poziom-latwy-6-7.webp',
     amazonUrl: 'https://amzn.eu/d/07BBUa1X',
     featured: true,
     formatInches: '8,5 × 11 cala',
@@ -126,7 +126,7 @@ export const books: Book[] = [
       'Rozwija koncentrację i spostrzegawczość',
       'Tematy bliskie dzieciom (zwierzęta, rodzina, kolory)',
     ],
-    coverImage: '/covers/znajdz-slowko-poziom-sredni-7-9.png',
+    coverImage: '/covers/znajdz-slowko-poziom-sredni-7-9.webp',
     amazonUrl: 'https://amzn.eu/d/0dJNgtH1',
     featured: true,
     formatInches: '8,5 × 11 cala',
@@ -148,7 +148,7 @@ export const books: Book[] = [
       'Rozwija koncentrację i cierpliwość',
       'Tematy bliskie dzieciom (zwierzęta, rodzina, kolory)',
     ],
-    coverImage: '/covers/znajdz-slowko-poziom-trudny-10.png',
+    coverImage: '/covers/znajdz-slowko-poziom-trudny-10.webp',
     amazonUrl: 'https://amzn.eu/d/07eXC8JG',
     featured: true,
     formatInches: '8,5 × 11 cala',
@@ -170,7 +170,7 @@ export const books: Book[] = [
       'Gęste plansze i długie słowa',
       'Trening koncentracji i cierpliwości',
     ],
-    coverImage: '/covers/znajdz-slowko-poziom-ekspert-13.png',
+    coverImage: '/covers/znajdz-slowko-poziom-ekspert-13.webp',
     amazonUrl: 'https://amzn.eu/d/07es8Itl',
     featured: false,
     formatInches: '8,5 × 11 cala',
@@ -192,7 +192,7 @@ export const books: Book[] = [
       'Rozwiązania na końcu książki',
       'Dla miłośników gór i zdobywców odznak turystycznych',
     ],
-    coverImage: '/covers/zdobywca-szczytow.png',
+    coverImage: '/covers/zdobywca-szczytow.webp',
     amazonUrl: 'https://amzn.eu/d/03CTNBDE',
     featured: true,
     formatInches: '8,5 × 11 cala',
@@ -214,7 +214,7 @@ export const books: Book[] = [
       'Krótka instrukcja dla początkujących',
       'Komplet rozwiązań na końcu książki',
     ],
-    coverImage: '/covers/sudoku-duzym-drukiem-100.png',
+    coverImage: '/covers/sudoku-duzym-drukiem-100.webp',
     amazonUrl: 'https://amzn.eu/d/01Wm4XgX',
     featured: false,
     formatInches: '8,5 × 11 cala',
@@ -236,7 +236,7 @@ export const books: Book[] = [
       'Wszystkie rozwiązania na końcu książki',
       'Czytelne plansze z pogrubionymi liniami bloków 3×3',
     ],
-    coverImage: '/covers/sudoku-300-zagadek-200.png',
+    coverImage: '/covers/sudoku-300-zagadek-200.webp',
     amazonUrl: 'https://amzn.eu/d/08vEb3Mk',
     featured: true,
     formatInches: '8,5 × 11 cala',
@@ -258,7 +258,7 @@ export const books: Book[] = [
       'Lesenlernen mit Spaß',
       'Große Buchstaben',
     ],
-    coverImage: '/covers/meine-ersten-wortsuchratsel-stufe-1.png',
+    coverImage: '/covers/meine-ersten-wortsuchratsel-stufe-1.webp',
     amazonUrl: 'https://amzn.eu/d/06ffGySu',
     featured: true,
     formatInches: '8,5 × 11 cala',
@@ -280,7 +280,7 @@ export const books: Book[] = [
       'Festigt das Lesen vor der Einschulung',
       'Große Buchstaben',
     ],
-    coverImage: '/covers/meine-ersten-wortsuchratsel-stufe-2.png',
+    coverImage: '/covers/meine-ersten-wortsuchratsel-stufe-2.webp',
     amazonUrl: 'https://amzn.eu/d/0cmPID9O',
     featured: true,
     formatInches: '8,5 × 11 cala',
