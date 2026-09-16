@@ -76,6 +76,33 @@ body {
     opacity: 1;
     transform: none;
   }
+
+  .animate-cover-shine {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* Odblask przesuwający się po przedniej okładce w wachlarzu (HeroFan). */
+@keyframes cover-shine {
+  from {
+    opacity: 0.55;
+    transform: translateX(-120%) skewX(-12deg);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(120%) skewX(-12deg);
+  }
+}
+
+.animate-cover-shine {
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.72) 50%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  animation: cover-shine 0.75s ease-out both;
 }
 
 .book-cover-frame {

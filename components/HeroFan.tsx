@@ -57,8 +57,13 @@ const POSITIONS: Record<string, { transform: string; z: number; opacity: number 
   hidden: { transform: 'translateX(-50%) scale(0.7)', z: 0, opacity: 0 },
 };
 
+// Lekkie „odbicie” na końcu ruchu — okładka dochodzi na miejsce jak trzymana w ręce.
+const SPRING = 'cubic-bezier(0.34, 1.3, 0.64, 1)';
+const MAX_TILT = 6; // stopnie
+
 export default function HeroFan({ books, lang = 'pl' }: { books: HeroFanBook[]; lang?: FanLang }) {
   const [front, setFront] = useState(0);
+  const [tilt, setTilt] = useState(0);
   const touchX = useRef<number | null>(null);
   const count = books.length;
   const t = LABELS[lang];
@@ -83,6 +88,13 @@ export default function HeroFan({ books, lang = 'pl' }: { books: HeroFanBook[]; 
         if (e.key === 'ArrowRight') go(1);
         if (e.key === 'ArrowLeft') go(-1);
       }}
+      // Przechył za kursorem — tylko myszka, dotyk zostawiamy w spokoju.
+      onMouseMove={(e) => {
+        const box = e.currentTarget.getBoundingClientRect();
+        const x = (e.clientX - box.left) / box.width; // 0 = lewa krawędź, 1 = prawa
+        setTilt((x - 0.5) * 2 * MAX_TILT);
+      }}
+      onMouseLeave={() => setTilt(0)}
       onTouchStart={(e) => {
         touchX.current = e.touches[0].clientX;
       }}
@@ -115,13 +127,16 @@ export default function HeroFan({ books, lang = 'pl' }: { books: HeroFanBook[]; 
         return (
           <div
             key={book.slug}
-            className={`absolute left-1/2 top-0 w-[62%] rounded-2xl bg-white shadow-cover transition-all duration-500 ease-out motion-reduce:transition-none ${
-              isFront ? 'p-3 shadow-cover-lg' : 'p-2'
+            className={`absolute left-1/2 top-0 w-[62%] rounded-2xl bg-white shadow-cover transition-all duration-[600ms] motion-reduce:transition-none ${
+              isFront ? 'p-3 shadow-cover-lg' : 'p-2 blur-[0.5px]'
             }`}
             style={{
-              transform: pos.transform,
+              transform: isFront
+                ? `translateX(-50%) rotate(${-2 + tilt}deg) scale(1)`
+                : pos.transform,
               zIndex: pos.z,
-              opacity: pos.opacity,
+              opacity: pos.opacity === 0 ? 0 : isFront ? 1 : 0.96,
+              transitionTimingFunction: SPRING,
               pointerEvents: pos.opacity === 0 ? 'none' : undefined,
             }}
             aria-hidden={!isFront}
@@ -129,6 +144,12 @@ export default function HeroFan({ books, lang = 'pl' }: { books: HeroFanBook[]; 
             {isFront ? (
               <Link href={`/${lang}/books/${book.slug}`} aria-label={t.open(label)}>
                 {cover}
+                {/* Błysk po zmianie książki — key wymusza animację od nowa. */}
+                <span
+                  key={front}
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-3 animate-cover-shine overflow-hidden rounded-xl motion-reduce:hidden"
+                />
               </Link>
             ) : (
               <button
