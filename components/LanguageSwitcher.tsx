@@ -66,7 +66,16 @@ export default function LanguageSwitcher({ current }: { current: string }) {
             <li key={l.code}>
               <Link
                 href={l.href}
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  // Zapamiętany wybór ma pierwszeństwo przed językiem przeglądarki
+                  // przy następnym wejściu na adres główny (patrz app/page.tsx).
+                  try {
+                    localStorage.setItem('lang', l.code);
+                  } catch {
+                    // tryb prywatny / zablokowane dane strony — trudno
+                  }
+                  setOpen(false);
+                }}
                 className="flex items-center gap-2 px-3 py-2 text-sm font-semibold text-ink/80 hover:bg-ink/5"
               >
                 <span aria-hidden="true">{l.flag}</span>
