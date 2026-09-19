@@ -175,7 +175,7 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
       </div>
 
       {book.forWhom && (
-        <div className="mx-auto mt-14 max-w-5xl rounded-lg bg-white/[0.32] px-6 py-8 sm:px-10">
+        <div className="mx-auto mt-14 max-w-5xl border-t border-navy/[0.08] pt-10">
           <h2 className="font-display text-2xl font-800 text-navy">{t.detail.forWhom}</h2>
           <div lang={book.lang} className="mt-4 max-w-3xl space-y-3 leading-relaxed text-ink/80">
             {book.forWhom.paragraphs.map((paragraph) => (
