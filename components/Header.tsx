@@ -23,6 +23,9 @@ export default function Header() {
           <Link href="/pl/blog" className="whitespace-nowrap hover:text-orange">
             Blog
           </Link>
+          <Link href="/pl/materialy" className="hidden whitespace-nowrap hover:text-orange md:inline">
+            Do pobrania
+          </Link>
           <Link
             href="/pl/books"
             className="inline-flex whitespace-nowrap rounded-full bg-orange px-5 py-2 text-sm font-bold text-white shadow-cover transition hover:bg-orange/90"

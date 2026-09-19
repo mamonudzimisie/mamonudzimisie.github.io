@@ -123,7 +123,7 @@ export const books: Book[] = [
     audience: 'dzieci',
     lang: 'pl',
     description:
-      'Pierwsze wykreślanki, które dziecko rozwiąże samo. Słowa ukryte są tak, jak czytamy: od lewej do prawej i z góry na dół. Szukanie wyrazów staje się więc naturalnym treningiem czytania, a nie źródłem frustracji.',
+      'Pierwsze wykreślanki, które dziecko rozwiąże samo. Słowa ukryte są tak, jak czytamy: od lewej do prawej i z góry na dół, a tylko jeden wyraz na planszy biegnie po skosie w dół. Szukanie wyrazów staje się więc naturalnym treningiem czytania, a nie źródłem frustracji.',
     features: [
       '100 plansz, na każdej 7 słów do znalezienia',
       'Proste, znajome wyrazy i tematy lubiane przez dzieci',
@@ -150,7 +150,7 @@ export const books: Book[] = [
     seo: {
       title: 'Znajdź słówko! Wykreślanki dla dzieci 6–7 lat',
       description:
-        '100 wykreślanek dla dzieci 6–7 lat. Proste słowa ukryte poziomo i pionowo – trening czytania bez frustracji. Rozwiązania w środku. Zobacz przykładowe strony.',
+        '100 wykreślanek dla dzieci 6–7 lat. Proste słowa, tylko jedno na planszy po skosie – trening czytania bez frustracji. Z rozwiązaniami. Zobacz przykładowe strony.',
       keywords: [
         'wykreślanki dla dzieci',
         'nauka czytania',

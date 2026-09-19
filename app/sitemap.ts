@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/pl',
     '/pl/books',
     '/pl/about',
+    '/pl/materialy',
     '/de',
     '/de/books',
     '/pl/blog',

@@ -26,6 +26,9 @@ export default function Footer() {
             <Link href="/pl/books" className="hover:text-orange">
               Katalog książek
             </Link>
+            <Link href="/pl/materialy" className="hover:text-orange">
+              Materiały do pobrania
+            </Link>
             <Link href="/pl/about" className="hover:text-orange">
               O nas
             </Link>
