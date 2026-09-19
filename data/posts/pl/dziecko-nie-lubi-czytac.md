@@ -1,14 +1,12 @@
 ---
 title: Jak pomóc dziecku, które nie lubi czytać – 5 zabaw z literami
-excerpt: Pięć prostych zabaw, dzięki którym czytanie przestaje być przykrym obowiązkiem, a staje się grą.
+excerpt: Pięć prostych zabaw, dzięki którym czytanie przestaje być przykrym obowiązkiem, a staje się zabawą.
 date: 2026-09-19
 ---
 
-> „Nie chcę czytać!” – jeśli słyszysz to przy każdej próbie otwarcia książki, nie tylko Ty to znasz. Dobra wiadomość: niechęć do czytania rzadko oznacza niechęć do liter. Zwykle to niechęć do wysiłku, który kończy się porażką.
+Dziecko, które dopiero składa litery w słowa, pracuje naprawdę ciężko. Każdy wyraz to kilka sekund skupienia, a pełne zdanie może wyglądać jak góra nie do zdobycia. Nic dziwnego, że wiele dzieci czytać nie chce, lub reaguje złością na oczekiwania rodzica.
 
-Dziecko, które dopiero składa litery w słowa, pracuje naprawdę ciężko. Każdy wyraz to kilka sekund skupienia, a cała strona tekstu może wyglądać jak góra nie do zdobycia. Nic dziwnego, że woli uciec do zabawek.
-
-Zamiast namawiać do „jeszcze jednej strony”, warto na chwilę zmienić zasady: niech czytanie będzie krótkie, konkretne i zakończone sukcesem. Oto pięć zabaw, które to umożliwiają.
+Zamiast namawiać do wysiłku, który dziecku może wydawać się nudny, warto na chwilę zmienić zasady: niech czytanie będzie krótkie, konkretne i zakończone sukcesem. Oto pięć zabaw, które to umożliwiają.
 
 ### 1. Łowcy liter na spacerze
 
@@ -42,15 +40,15 @@ Dziecko przestaje być egzaminowane, a staje się pomocnikiem. Przy okazji słys
 
 ## Kilka zasad, które pomagają przy każdej zabawie
 
-- **Krótko i często.** Pięć minut dziennie da więcej niż godzina raz w tygodniu – i nie zdąży się znudzić.
+- **Krótko i często.** Pięć minut dziennie da więcej niż godzina raz w tygodniu.
 - **Kończ na sukcesie.** Przerwij zabawę, zanim dziecko się zmęczy, najlepiej zaraz po udanym zadaniu.
-- **Chwal wysiłek, nie tempo.** „Ale się naszukałeś/naszukałaś!” działa lepiej niż „Szybciej!”.
-- **Nie poprawiaj każdego błędu.** Jeśli sens się zgadza, czasem lepiej przemilczeć drobną pomyłkę.
+- **Chwal wysiłek, nie tempo.** „Ale się naszukałeś/naszukałaś!” to wystarczająca pochwała.
+- **Nie poprawiaj każdego błędu.** Dziecko jeszcze ma czas na pomyłki.
 - **Pozwól wybierać.** Temat, kolor kredki, kolejność zadań – im więcej decyzji ma dziecko, tym chętniej współpracuje.
 
 ## Wykreślanki „Znajdź słówko!” na pierwsze kroki w czytaniu
 
-Z myślą o dzieciach, które dopiero oswajają się z czytaniem, przygotowaliśmy dwa pierwsze poziomy serii **Znajdź słówko!**. Duża czcionka, znajome słowa i ukrywanie wyrazów w kierunku czytania (na poziomie 5–6 lat wyłącznie poziomo i pionowo, na poziomie 6–7 lat dochodzi jedno słowo po skosie) sprawiają, że dziecko może rozwiązywać je samo – i samo chce więcej.
+Z myślą o dzieciach, które dopiero oswajają się z czytaniem, przygotowaliśmy dwa pierwsze poziomy serii **Znajdź słówko!**. Duża czcionka, znajome słowa ukryte w kierunku czytania (na poziomie 5–6 lat wyłącznie poziomo i pionowo, na poziomie 6–7 lat dochodzi jedno słowo po skosie) sprawiają, że dziecko może rozwiązywać je samo – i samo chce więcej.
 
 {{ksiazki znajdz-slowko-poziom-latwy znajdz-slowko-poziom-latwy-6-7}}
 
@@ -58,7 +56,7 @@ Z myślą o dzieciach, które dopiero oswajają się z czytaniem, przygotowaliś
 
 ### Moje dziecko ma 6 lat i nie chce czytać. Czy to powód do niepokoju?
 
-Tempo nauki czytania bywa bardzo różne i niechęć w tym wieku zdarza się często. Jeśli jednak dziecko wyraźnie myli litery, szybko się męczy przy czytaniu albo niechęć utrzymuje się długo mimo zabaw, warto porozmawiać z nauczycielem lub specjalistą, np. logopedą czy pedagogiem.
+Tempo nauki czytania bywa bardzo różne i niechęć w tym wieku zdarza się często. Jeśli jednak dziecko wyraźnie myli litery, szybko się męczy przy czytaniu albo niechęć utrzymuje się długo mimo zabaw, warto porozmawiać ze specjalistą: pedagogiem, logopedą i okulistą.
 
 ### Ile czasu dziennie poświęcać na takie zabawy?
 

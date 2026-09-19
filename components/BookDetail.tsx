@@ -123,16 +123,17 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
               <dd className="mt-[6px] text-[18px] font-bold text-navy">
                 {t.detail.pages(book.pageCount)}
               </dd>
-              <p className="mt-[5px] text-[12.5px] text-ink/[0.58]">
-                {t.detail.binding}
-                {book.isbn && <> · ISBN {book.isbn}</>}
-              </p>
+              <p className="mt-[5px] text-[12.5px] text-ink/[0.58]">{t.detail.binding}</p>
             </div>
             <span
               aria-hidden="true"
               className="pointer-events-none absolute left-1/2 top-1/2 hidden h-[60%] w-px -translate-x-1/2 -translate-y-1/2 bg-navy/[0.08] sm:block"
             />
           </dl>
+
+          {book.isbn && (
+            <p className="mt-3 text-[12.5px] text-ink/[0.55]">ISBN {book.isbn}</p>
+          )}
 
           <div className="mt-8">
             {book.comingSoon ? (
