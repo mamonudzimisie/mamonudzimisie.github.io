@@ -107,6 +107,11 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
     samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/znajdz-slowko-poziom-latwy/${n}.webp`),
+    seo: {
+      title: 'Znajdź słówko! Wykreślanki dla dzieci 5–6 lat',
+      description:
+        '100 pierwszych wykreślanek dla dzieci 5–6 lat. Duże litery i znajome słowa – oswajanie literek przez zabawę, jeszcze przed nauką czytania. Zobacz przykładowe strony.',
+    },
   },
   {
     slug: 'znajdz-slowko-poziom-latwy-6-7',
@@ -177,6 +182,11 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
     samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/znajdz-slowko-poziom-sredni-7-9/${n}.webp`),
+    seo: {
+      title: 'Znajdź słówko! Wykreślanki dla dzieci 7–9 lat',
+      description:
+        '100 wykreślanek dla dzieci 7–9 lat, które czytają już płynnie. Dłuższe słowa i większe plansze – trening koncentracji i spostrzegawczości. Zobacz przykładowe strony.',
+    },
   },
   {
     slug: 'znajdz-slowko-poziom-trudny-10',
@@ -200,6 +210,11 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
     samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/znajdz-slowko-poziom-trudny-10/${n}.webp`),
+    seo: {
+      title: 'Znajdź słówko! Trudne wykreślanki dla dzieci 10+',
+      description:
+        '100 trudnych wykreślanek dla dzieci od 10 lat. Długie słowa i gęste plansze – wyzwanie dla wprawnych czytelników, które uczy skupienia. Zobacz przykładowe strony.',
+    },
   },
   {
     slug: 'znajdz-slowko-poziom-ekspert-13',
@@ -223,6 +238,11 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
     samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/znajdz-slowko-poziom-ekspert-13/${n}.webp`),
+    seo: {
+      title: 'Znajdź słówko! Wykreślanki dla nastolatków 13+',
+      description:
+        '100 najtrudniejszych wykreślanek w serii – dla nastolatków i dorosłych. Gęste plansze, długie słowa i prawdziwy trening koncentracji. Zobacz przykładowe strony.',
+    },
   },
   {
     slug: 'zdobywca-szczytow',
@@ -245,6 +265,11 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 100,
+    seo: {
+      title: 'Zdobywca Szczytów – wykreślanki o polskich górach',
+      description:
+        '75 wykreślanek z nazwami szczytów z Korony Gór Polski, Diademu i innych odznak turystycznych. Ponad 1500 nazw. Prezent dla miłośnika gór.',
+    },
   },
   {
     slug: 'sudoku-duzym-drukiem-100',
@@ -267,6 +292,11 @@ export const books: Book[] = [
     featured: false,
     formatInches: '8,5 × 11 cala',
     pageCount: 96,
+    seo: {
+      title: 'Sudoku dużym drukiem – 120 łamigłówek dla seniorów',
+      description:
+        '120 sudoku dużą czcionką, poziom łatwy i średni. Wyraźne kratki, instrukcja dla początkujących i rozwiązania. Prezent dla babci, dziadka lub rodzica.',
+    },
   },
   {
     slug: 'sudoku-300-zagadek-200',
@@ -289,6 +319,11 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 132,
+    seo: {
+      title: 'Sudoku – 300 zagadek od łatwych do bardzo trudnych',
+      description:
+        '300 sudoku w czterech poziomach trudności, każde z jednym rozwiązaniem. Wstęp z technikami od podstaw po X-Wing i Swordfish. Rozwiązania w środku.',
+    },
   },
   {
     slug: 'meine-ersten-wortsuchratsel-stufe-1',
@@ -312,6 +347,11 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 108,
     samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/meine-ersten-wortsuchratsel-stufe-1/${n}.webp`),
+    seo: {
+      title: 'Wortsuchrätsel für Kinder ab 5 Jahren – Stufe 1',
+      description:
+        '60 einfache Wortsuchrätsel für Kinder von 5–6 Jahren, dazu 12 Ausmalbilder. Große Buchstaben und vertraute Wörter – Lesenlernen mit Spaß. Blick ins Buch.',
+    },
   },
   {
     slug: 'meine-ersten-wortsuchratsel-stufe-2',
@@ -335,6 +375,11 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 108,
     samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/meine-ersten-wortsuchratsel-stufe-2/${n}.webp`),
+    seo: {
+      title: 'Wortsuchrätsel für Kinder ab 6 Jahren – Stufe 2',
+      description:
+        '60 Wortsuchrätsel für Kinder von 6–7 Jahren, dazu 12 Ausmalbilder. Festigt das Lesen vor und nach der Einschulung. Mit Lösungen. Blick ins Buch.',
+    },
   },
 ];
 

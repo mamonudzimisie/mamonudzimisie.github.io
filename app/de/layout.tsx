@@ -7,9 +7,9 @@ const siteUrl = `${SITE_URL}/de`;
 
 export const metadata: Metadata = {
   title: {
-    default: 'Rätselbücher für Kinder und Erwachsene',
-    template: '%s | Rätselbücher für Kinder und Erwachsene',
-    absolute: 'Rätselbücher für Kinder und Erwachsene',
+    default: 'ZALKA BOOKS — Rätselbücher für Kinder und Erwachsene',
+    template: '%s | ZALKA BOOKS',
+    absolute: 'ZALKA BOOKS — Rätselbücher für Kinder und Erwachsene',
   },
   description:
     'Wortsuchrätsel, Labyrinthe und Logikrätsel für Kinder und Erwachsene. Konzentration trainieren und abschalten — ganz ohne Bildschirm, erhältlich bei Amazon.',
@@ -17,14 +17,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'de_DE',
     url: siteUrl,
-    siteName: 'Rätselbücher für Kinder und Erwachsene',
-    title: 'Rätselbücher für Kinder und Erwachsene',
+    siteName: 'ZALKA BOOKS',
+    title: 'ZALKA BOOKS — Rätselbücher für Kinder und Erwachsene',
     description:
       'Wortsuchrätsel, Labyrinthe und Logikrätsel, die wirklich fesseln — ganz ohne Bildschirm.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rätselbücher für Kinder und Erwachsene',
+    title: 'ZALKA BOOKS — Rätselbücher für Kinder und Erwachsene',
     description:
       'Wortsuchrätsel, Labyrinthe und Logikrätsel, die wirklich fesseln — ganz ohne Bildschirm.',
   },
