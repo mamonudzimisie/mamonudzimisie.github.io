@@ -39,7 +39,14 @@ export type CatalogStrings = {
     binding: string;
     comingSoon: string;
     lookInside: string;
+    samplePage: (n: number, total: number) => string;
+    sampleClose: string;
+    samplePrev: string;
+    sampleNext: string;
     backToCatalog: string;
+    forWhom: string;
+    easierLevel: string;
+    harderLevel: string;
     foreignLanguageNote: (langName: string) => string;
   };
 };
@@ -87,7 +94,14 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       binding: 'Miękka oprawa',
       comingSoon: 'Ta książka wkrótce się pojawi',
       lookInside: 'Zajrzyj do środka',
+      samplePage: (n, total) => `Strona ${n} z ${total}`,
+      sampleClose: 'Zamknij',
+      samplePrev: 'Poprzednia strona',
+      sampleNext: 'Następna strona',
       backToCatalog: '← Wróć do katalogu',
+      forWhom: 'Dla kogo jest ta książka?',
+      easierLevel: 'Łatwiejszy poziom',
+      harderLevel: 'Trudniejszy poziom',
       foreignLanguageNote: (langName) =>
         `Uwaga: ta książka jest w języku ${langName} — zagadki i instrukcje w środku nie są po polsku.`,
     },
@@ -141,7 +155,14 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       binding: 'Softcover',
       comingSoon: 'Dieses Buch erscheint bald',
       lookInside: 'Blick ins Buch',
+      samplePage: (n, total) => `Seite ${n} von ${total}`,
+      sampleClose: 'Schließen',
+      samplePrev: 'Vorherige Seite',
+      sampleNext: 'Nächste Seite',
       backToCatalog: '← Zurück zum Katalog',
+      forWhom: 'Für wen ist dieses Buch?',
+      easierLevel: 'Leichtere Stufe',
+      harderLevel: 'Schwierigere Stufe',
       foreignLanguageNote: (langName) =>
         `Hinweis: Dieses Buch ist auf ${langName} — Rätsel und Anleitungen im Inneren sind nicht auf Deutsch.`,
     },
@@ -195,7 +216,14 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       binding: 'Paperback',
       comingSoon: 'This book is coming soon',
       lookInside: 'Look inside',
+      samplePage: (n, total) => `Page ${n} of ${total}`,
+      sampleClose: 'Close',
+      samplePrev: 'Previous page',
+      sampleNext: 'Next page',
       backToCatalog: '← Back to all books',
+      forWhom: 'Who is this book for?',
+      easierLevel: 'Easier level',
+      harderLevel: 'Harder level',
       foreignLanguageNote: (langName) =>
         `Note: this book is in ${langName} — the puzzles and instructions inside are not in English.`,
     },

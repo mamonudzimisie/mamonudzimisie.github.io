@@ -1,20 +1,23 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { LANG_LABELS, type Book } from '@/data/books';
+import { LANG_LABELS, getBookBySlug, type Book } from '@/data/books';
 import { CATALOG_STRINGS, type SiteLang } from '@/lib/catalog-i18n';
 import { SITE_URL } from '@/lib/site';
-
-function IconEye({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" />
-      <circle cx="12" cy="12" r="3" />
-    </svg>
-  );
-}
+import SamplePreview, { IconEye } from '@/components/SamplePreview';
 
 export default function BookDetail({ book, siteLang }: { book: Book; siteLang: SiteLang }) {
   const t = CATALOG_STRINGS[siteLang];
+  const levelLinks = book.forWhom
+    ? (
+        [
+          [book.forWhom.easier, t.detail.easierLevel],
+          [book.forWhom.harder, t.detail.harderLevel],
+        ] as const
+      ).flatMap(([slug, label]) => {
+        const other = slug ? getBookBySlug(slug) : undefined;
+        return other ? [{ book: other, label }] : [];
+      })
+    : [];
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -140,15 +143,24 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
                 >
                   {t.card.buy}
                 </a>
-                <a
-                  href={book.amazonUrl}
-                  target="_blank"
-                  rel="noopener noreferrer sponsored"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-ink/70 underline decoration-dotted decoration-ink/40 underline-offset-4 hover:text-orange"
-                >
-                  <IconEye className="h-4 w-4" />
-                  {t.detail.lookInside}
-                </a>
+                {book.samplePages?.length ? (
+                  <SamplePreview
+                    pages={book.samplePages}
+                    bookTitle={book.title}
+                    amazonUrl={book.amazonUrl}
+                    siteLang={siteLang}
+                  />
+                ) : (
+                  <a
+                    href={book.amazonUrl}
+                    target="_blank"
+                    rel="noopener noreferrer sponsored"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-ink/70 underline decoration-dotted decoration-ink/40 underline-offset-4 hover:text-orange"
+                  >
+                    <IconEye className="h-4 w-4" />
+                    {t.detail.lookInside}
+                  </a>
+                )}
               </div>
             )}
           </div>
@@ -161,6 +173,49 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
           </Link>
         </div>
       </div>
+
+      {book.forWhom && (
+        <div className="mx-auto mt-14 max-w-5xl rounded-lg bg-white/[0.32] px-6 py-8 sm:px-10">
+          <h2 className="font-display text-2xl font-800 text-navy">{t.detail.forWhom}</h2>
+          <div lang={book.lang} className="mt-4 max-w-3xl space-y-3 leading-relaxed text-ink/80">
+            {book.forWhom.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+          {levelLinks.length > 0 && (
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {levelLinks.map(({ book: other, label }) => (
+                <Link
+                  key={other.slug}
+                  href={`/${siteLang}/books/${other.slug}`}
+                  className="group flex items-center gap-4 rounded-md bg-white/70 p-3 transition hover:bg-white"
+                >
+                  <div className="relative aspect-[3/4] w-16 shrink-0 overflow-hidden rounded border-2 border-white shadow-cover">
+                    <Image
+                      src={other.coverImage}
+                      alt={t.card.coverAlt(other.title)}
+                      fill
+                      unoptimized
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.04em] text-navy/[0.62]">
+                      {label}
+                    </p>
+                    <p lang={other.lang} className="mt-1 font-bold text-navy group-hover:text-orange">
+                      {other.title} — {other.subtitle}
+                    </p>
+                    <p className="text-sm text-ink/70">
+                      {t.ageLabels[other.ageRange as keyof typeof t.ageLabels] ?? other.ageRange}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
     </section>
   );
 }

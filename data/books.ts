@@ -29,6 +29,16 @@ export type Book = {
   comingSoon?: boolean;
   formatInches: string; // np. '8,5 × 11 cala'
   pageCount: number;
+  // Przykładowe strony do podglądu „Zajrzyj do środka” (WebP w /public/samples/<slug>/).
+  // Bez tego pola przycisk prowadzi na Amazon.
+  samplePages?: string[];
+  // Sekcja „Dla kogo jest ta książka?” pod głównym blokiem. `easier` / `harder`
+  // to slugi sąsiednich poziomów, pokazywanych jako miniatury z linkami.
+  forWhom?: {
+    paragraphs: string[];
+    easier?: string;
+    harder?: string;
+  };
   // Opcjonalne nadpisania metadanych SEO. Tytuł bez sufiksu „| ZALKA BOOKS” —
   // dokleja go szablon z app/layout.tsx.
   seo?: {
@@ -120,6 +130,17 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
+    samplePages: [1, 2, 3, 4, 5].map(
+      (n) => `/samples/znajdz-slowko-poziom-latwy-6-7/${n}.webp`,
+    ),
+    forWhom: {
+      paragraphs: [
+        'Dla dzieci, które znają już litery i zaczynają składać je w słowa – w zerówce, na wakacjach przed szkołą albo w pierwszej klasie.',
+        'Jeśli dziecko dopiero poznaje alfabet, zacznij od poziomu najłatwiejszego (5–6 lat). Jeśli wykreślanki idą mu gładko, sięgnij po poziom średni (7–9 lat).',
+      ],
+      easier: 'znajdz-slowko-poziom-latwy',
+      harder: 'znajdz-slowko-poziom-sredni-7-9',
+    },
     seo: {
       title: 'Znajdź słówko! Wykreślanki dla dzieci 6–7 lat',
       description:
