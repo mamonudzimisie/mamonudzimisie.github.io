@@ -15,6 +15,8 @@ export type Book = {
   slug: string; // np. "znajdz-slowko-poziom-latwy"
   title: string; // "Znajdź słówko!"
   subtitle: string; // "Poziom najłatwiejszy"
+  // Dłuższy podtytuł tylko na stronie książki; karty i wachlarz używają `subtitle`.
+  detailSubtitle?: string;
   ageRange: string; // "5–6 lat"
   category: BookCategory;
   audience: BookAudience;
@@ -27,6 +29,13 @@ export type Book = {
   comingSoon?: boolean;
   formatInches: string; // np. '8,5 × 11 cala'
   pageCount: number;
+  // Opcjonalne nadpisania metadanych SEO. Tytuł bez sufiksu „| ZALKA BOOKS” —
+  // dokleja go szablon z app/layout.tsx.
+  seo?: {
+    title?: string;
+    description?: string;
+    keywords?: string[];
+  };
 };
 
 // Kategorie do filtrowania w katalogu — etykiety po polsku.
@@ -92,23 +101,37 @@ export const books: Book[] = [
     slug: 'znajdz-slowko-poziom-latwy-6-7',
     title: 'Znajdź słówko!',
     subtitle: 'Poziom łatwy',
+    detailSubtitle: '100 wykreślanek dla dzieci 6–7 lat · Poziom łatwy',
     ageRange: '6–7 lat',
     category: 'wykreslanki',
     audience: 'dzieci',
     lang: 'pl',
     description:
-      'Kolejna dawka wykreślanek na dobry start — znajome słowa i przejrzysty układ, który nie zniechęca. Świetna, żeby utrwalić czytanie tuż przed startem szkoły.',
+      'Pierwsze wykreślanki, które dziecko rozwiąże samo. Słowa ukryte są tak, jak czytamy: od lewej do prawej i z góry na dół. Szukanie wyrazów staje się więc naturalnym treningiem czytania, a nie źródłem frustracji.',
     features: [
-      '100 wykreślanek',
-      'Utrwala naukę czytania',
-      'Przejrzysty, czytelny układ',
-      'Tematy bliskie dzieciom (zwierzęta, rodzina, kolory)',
+      '100 plansz, na każdej 7 słów do znalezienia',
+      'Proste, znajome wyrazy i tematy lubiane przez dzieci',
+      'Duża czcionka',
+      'Rozwiązania na końcu książki',
+      'Duży format zbliżony do A4, 128 stron, miękka oprawa',
     ],
     coverImage: '/covers/znajdz-slowko-poziom-latwy-6-7.webp',
     amazonUrl: 'https://amzn.eu/d/07BBUa1X',
     featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
+    seo: {
+      title: 'Znajdź słówko! Wykreślanki dla dzieci 6–7 lat',
+      description:
+        '100 wykreślanek dla dzieci 6–7 lat. Proste słowa ukryte poziomo i pionowo – trening czytania bez frustracji. Rozwiązania w środku. Zobacz przykładowe strony.',
+      keywords: [
+        'wykreślanki dla dzieci',
+        'nauka czytania',
+        'łamigłówki dla 6 latka',
+        'zerówka',
+        'klasa 1',
+      ],
+    },
   },
   {
     slug: 'znajdz-slowko-poziom-sredni-7-9',

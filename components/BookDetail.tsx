@@ -74,7 +74,7 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
             {book.title}
           </h1>
           <p lang={book.lang} className="mt-1 text-lg text-ink/70">
-            {book.subtitle}
+            {book.detailSubtitle ?? book.subtitle}
           </p>
           <p className="mt-2 text-sm font-semibold text-orange">
             {t.categoryLabels[book.category]}

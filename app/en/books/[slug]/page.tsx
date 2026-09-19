@@ -19,17 +19,25 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   if (!book) {
     return {};
   }
-  const title = `${book.title} — ${book.subtitle}`;
+  const title = book.seo?.title ?? `${book.title} — ${book.subtitle}`;
+  const description = book.seo?.description ?? book.description;
   const indexable = shouldIndexDetail(book, SECTION);
   return {
     title,
-    description: book.description,
+    description,
+    keywords: book.seo?.keywords,
     alternates: { canonical: `${SITE_URL}${canonicalBookHref(book)}` },
     robots: indexable ? undefined : { index: false, follow: true },
     openGraph: {
       title,
-      description: book.description,
+      description,
       images: [{ url: book.coverImage }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [book.coverImage],
     },
   };
 }
