@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Baloo_2, Nunito } from 'next/font/google';
 import './globals.css';
 import { SITE_URL } from '@/lib/site';
@@ -57,6 +58,12 @@ export default function RootLayout({
     <html lang="pl" className={`${baloo.variable} ${nunito.variable}`}>
       <body className="font-body flex min-h-screen flex-col bg-paper text-ink">
         {children}
+        {/* Cloudflare Web Analytics — bez ciasteczek, więc bez zgody na cookies. */}
+        <Script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "c3d8096a90a94d9a99ae3e0dc9ce1429"}'
+        />
       </body>
     </html>
   );

@@ -29,6 +29,7 @@ export type Book = {
   comingSoon?: boolean;
   formatInches: string; // np. '8,5 × 11 cala'
   pageCount: number;
+  isbn?: string; // ISBN wydania drukowanego (ze strony redakcyjnej PDF-a)
   // Przykładowe strony do podglądu „Zajrzyj do środka” (WebP w /public/samples/<slug>/).
   // Bez tego pola przycisk prowadzi na Amazon.
   samplePages?: string[];
@@ -106,6 +107,7 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
+    isbn: '978-83-981441-2-4',
     samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/znajdz-slowko-poziom-latwy/${n}.webp`),
     seo: {
       title: 'Znajdź słówko! Wykreślanki dla dzieci 5–6 lat',
@@ -136,6 +138,7 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
+    isbn: '978-83-981441-0-0',
     samplePages: [1, 2, 3, 4, 5].map(
       (n) => `/samples/znajdz-slowko-poziom-latwy-6-7/${n}.webp`,
     ),
@@ -181,6 +184,7 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
+    isbn: '978-83-981441-1-7',
     samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/znajdz-slowko-poziom-sredni-7-9/${n}.webp`),
     seo: {
       title: 'Znajdź słówko! Wykreślanki dla dzieci 7–9 lat',
@@ -209,6 +213,7 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
+    isbn: '978-83-981441-3-1',
     samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/znajdz-slowko-poziom-trudny-10/${n}.webp`),
     seo: {
       title: 'Znajdź słówko! Trudne wykreślanki dla dzieci 10+',
@@ -237,6 +242,7 @@ export const books: Book[] = [
     featured: false,
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
+    isbn: '978-83-981441-4-8',
     samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/znajdz-slowko-poziom-ekspert-13/${n}.webp`),
     seo: {
       title: 'Znajdź słówko! Wykreślanki dla nastolatków 13+',
@@ -265,6 +271,7 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 100,
+    isbn: '978-83-981441-7-9',
     seo: {
       title: 'Zdobywca Szczytów – wykreślanki o polskich górach',
       description:
@@ -346,6 +353,7 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 108,
+    isbn: '978-83-981441-5-5',
     samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/meine-ersten-wortsuchratsel-stufe-1/${n}.webp`),
     seo: {
       title: 'Wortsuchrätsel für Kinder ab 5 Jahren – Stufe 1',
@@ -374,6 +382,7 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 108,
+    isbn: '978-83-981441-6-2',
     samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/meine-ersten-wortsuchratsel-stufe-2/${n}.webp`),
     seo: {
       title: 'Wortsuchrätsel für Kinder ab 6 Jahren – Stufe 2',

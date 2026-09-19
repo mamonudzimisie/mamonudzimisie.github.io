@@ -21,10 +21,13 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: book.title,
-    description: book.description,
+    '@type': ['Product', 'Book'],
+    name: `${book.title} — ${book.subtitle}`,
+    description: book.seo?.description ?? book.description,
     inLanguage: book.lang,
+    bookFormat: 'https://schema.org/Paperback',
+    numberOfPages: book.pageCount,
+    ...(book.isbn ? { isbn: book.isbn, gtin13: book.isbn.replace(/-/g, '') } : {}),
     image: `${SITE_URL}${book.coverImage}`,
     brand: {
       '@type': 'Brand',
@@ -120,7 +123,10 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
               <dd className="mt-[6px] text-[18px] font-bold text-navy">
                 {t.detail.pages(book.pageCount)}
               </dd>
-              <p className="mt-[5px] text-[12.5px] text-ink/[0.58]">{t.detail.binding}</p>
+              <p className="mt-[5px] text-[12.5px] text-ink/[0.58]">
+                {t.detail.binding}
+                {book.isbn && <> · ISBN {book.isbn}</>}
+              </p>
             </div>
             <span
               aria-hidden="true"
