@@ -311,6 +311,7 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 108,
+    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/meine-ersten-wortsuchratsel-stufe-1/${n}.webp`),
   },
   {
     slug: 'meine-ersten-wortsuchratsel-stufe-2',
@@ -333,6 +334,7 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 108,
+    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/meine-ersten-wortsuchratsel-stufe-2/${n}.webp`),
   },
 ];
 
