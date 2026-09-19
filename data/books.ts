@@ -106,6 +106,7 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
+    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/znajdz-slowko-poziom-latwy/${n}.webp`),
   },
   {
     slug: 'znajdz-slowko-poziom-latwy-6-7',
@@ -175,6 +176,7 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
+    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/znajdz-slowko-poziom-sredni-7-9/${n}.webp`),
   },
   {
     slug: 'znajdz-slowko-poziom-trudny-10',
@@ -197,6 +199,7 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
+    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/znajdz-slowko-poziom-trudny-10/${n}.webp`),
   },
   {
     slug: 'znajdz-slowko-poziom-ekspert-13',
@@ -219,6 +222,7 @@ export const books: Book[] = [
     featured: false,
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
+    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/znajdz-slowko-poziom-ekspert-13/${n}.webp`),
   },
   {
     slug: 'zdobywca-szczytow',
