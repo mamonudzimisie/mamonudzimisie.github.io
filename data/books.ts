@@ -390,6 +390,35 @@ export const books: Book[] = [
         '60 Wortsuchrätsel für Kinder von 6–7 Jahren, dazu 12 Ausmalbilder. Festigt das Lesen vor und nach der Einschulung. Mit Lösungen. Blick ins Buch.',
     },
   },
+  {
+    slug: 'large-print-sudoku-100',
+    title: 'Large Print Sudoku',
+    subtitle: '120 puzzles, easy and medium',
+    ageRange: 'Dorośli',
+    category: 'sudoku',
+    audience: 'duzy-druk',
+    lang: 'en',
+    description:
+      '120 Sudoku puzzles printed in a really large font. Two puzzles per page, clear grids, and plenty of space for notes. This book was created for people who enjoy a daily dose of logical thinking but are tired of the tiny print found in newspaper puzzle books. You’ll start with simple puzzles to warm up, and the difficulty gradually increases, so there’s no frustration and no boredom. Solving Sudoku is a relaxing way to exercise your concentration and memory — a great alternative to watching TV or spending time on your phone. An ideal gift for Mom, Dad, Grandma, or Grandpa — for a birthday, the holidays, or simply as a thoughtful gift for no particular occasion.',
+    features: [
+      '120 unique Sudoku puzzles (easy and medium difficulty)',
+      'Large print and spacious grids, comfortable even for readers with poor eyesight',
+      'A short introduction for those who are just getting started',
+      'Complete solutions at the back of the book',
+    ],
+    coverImage: '/covers/large-print-sudoku-100.webp',
+    amazonUrl: 'https://www.amazon.com/dp/8398299304',
+    featured: true,
+    formatInches: '8.5 × 11 in',
+    pageCount: 96,
+    isbn: '978-83-982993-0-5',
+    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/large-print-sudoku-100/${n}.webp`),
+    seo: {
+      title: 'Large Print Sudoku – 120 Easy and Medium Puzzles for Seniors',
+      description:
+        '120 Sudoku puzzles in a really large font, easy to medium. Two puzzles per page, clear grids, a beginner’s introduction and full solutions. A gift for Grandma or Grandpa.',
+    },
+  },
 ];
 
 export function getBookBySlug(slug: string): Book | undefined {

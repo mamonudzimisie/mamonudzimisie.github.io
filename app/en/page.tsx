@@ -16,14 +16,14 @@ export const metadata: Metadata = {
   },
 };
 
-// Nie mamy jeszcze angielskich tytułów — pokazujemy przekrój polskich
+// Jedyny angielski tytuł idzie na przód, resztę uzupełnia przekrój polskich
 // i niemieckich (karty mają znacznik języka, strona książki — adnotację).
 // Kolejność w wachlarzu: pierwsza z przodu, druga po prawej, ostatnia po lewej.
 const HERO_SLUGS = [
+  'large-print-sudoku-100',
   'sudoku-300-zagadek-200',
   'meine-ersten-wortsuchratsel-stufe-1',
   'znajdz-slowko-poziom-latwy',
-  'sudoku-duzym-drukiem-100',
   'meine-ersten-wortsuchratsel-stufe-2',
   'zdobywca-szczytow',
 ];
