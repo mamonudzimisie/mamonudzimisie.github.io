@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
 import BookCard from '@/components/BookCard';
 import {
   AGE_GROUPS,
@@ -24,12 +23,8 @@ export default function BookCatalog({
   siteLang?: SiteLang;
 }) {
   const t = CATALOG_STRINGS[siteLang];
-  const searchParams = useSearchParams();
-  const initialAge = searchParams.get('wiek') ?? '';
-  const initialAudience = (searchParams.get('grupa') as BookAudience | null) ?? '';
-
-  const [selectedAge, setSelectedAge] = useState<string>(initialAge);
-  const [selectedAudience, setSelectedAudience] = useState<BookAudience | ''>(initialAudience);
+  const [selectedAge, setSelectedAge] = useState<string>('');
+  const [selectedAudience, setSelectedAudience] = useState<BookAudience | ''>('');
   const [selectedCategory, setSelectedCategory] = useState<BookCategory | ''>('');
   // Domyślnie pokazujemy tylko książki w języku danej wersji strony. Jeśli
   // w tym języku nie ma jeszcze żadnej (np. wersja EN), pokazujemy wszystkie.
@@ -41,6 +36,15 @@ export default function BookCatalog({
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const langMenuRef = useRef<HTMLDivElement>(null);
   const showAgeFilter = selectedAudience === 'dzieci';
+
+  // Filtry z adresu (?grupa=, ?wiek=) czytamy dopiero w przeglądarce. Dzięki
+  // temu statyczny HTML zawiera pełną listę książek, widoczną dla robotów —
+  // useSearchParams() wymagałby <Suspense> i eksport zawierałby pusty katalog.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setSelectedAge(params.get('wiek') ?? '');
+    setSelectedAudience((params.get('grupa') as BookAudience | null) ?? '');
+  }, []);
 
   // Zamykamy listę języków kliknięciem obok lub Escape.
   useEffect(() => {

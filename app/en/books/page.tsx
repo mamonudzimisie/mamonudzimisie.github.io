@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import BookCatalog from '@/components/BookCatalog';
 import { books } from '@/data/books';
@@ -20,9 +19,7 @@ export default function BooksEn() {
           German books below.
         </p>
         <div className="mt-10">
-          <Suspense fallback={null}>
-            <BookCatalog books={books} siteLang="en" />
-          </Suspense>
+          <BookCatalog books={books} siteLang="en" />
         </div>
       </div>
     </section>
