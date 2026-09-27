@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { LANG_LABELS, getBookBySlug, type Book } from '@/data/books';
-import { CATALOG_STRINGS, type SiteLang } from '@/lib/catalog-i18n';
+import { CATALOG_STRINGS, canonicalBookHref, type SiteLang } from '@/lib/catalog-i18n';
 import { SITE_URL } from '@/lib/site';
 import SamplePreview, { IconEye } from '@/components/SamplePreview';
 
@@ -19,29 +19,24 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
       })
     : [];
 
+  // Samo Book, bez Product/Offer: Google wymaga w Offer ceny, a ceny na
+  // Amazonie się zmieniają — nieaktualna cena jest gorsza niż jej brak.
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': ['Product', 'Book'],
+    '@type': 'Book',
     name: `${book.title} — ${book.subtitle}`,
     description: book.seo?.description ?? book.description,
+    url: `${SITE_URL}${canonicalBookHref(book)}`,
     inLanguage: book.lang,
     bookFormat: 'https://schema.org/Paperback',
     numberOfPages: book.pageCount,
-    ...(book.isbn ? { isbn: book.isbn, gtin13: book.isbn.replace(/-/g, '') } : {}),
+    ...(book.isbn ? { isbn: book.isbn } : {}),
     image: `${SITE_URL}${book.coverImage}`,
-    brand: {
-      '@type': 'Brand',
+    publisher: {
+      '@type': 'Organization',
       name: 'ZALKA BOOKS',
+      url: SITE_URL,
     },
-    ...(book.comingSoon
-      ? {}
-      : {
-          offers: {
-            '@type': 'Offer',
-            url: book.amazonUrl,
-            availability: 'https://schema.org/InStock',
-          },
-        }),
   };
 
   return (
