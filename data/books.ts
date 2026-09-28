@@ -299,6 +299,7 @@ export const books: Book[] = [
     featured: false,
     formatInches: '8,5 × 11 cala',
     pageCount: 96,
+    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/sudoku-duzym-drukiem-100/${n}.webp`),
     seo: {
       title: 'Sudoku dużym drukiem – 120 łamigłówek dla seniorów',
       description:
