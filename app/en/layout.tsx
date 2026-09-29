@@ -1,9 +1,6 @@
 import type { Metadata } from 'next';
 import HeaderEn from '@/components/HeaderEn';
 import FooterEn from '@/components/FooterEn';
-import { SITE_URL } from '@/lib/site';
-
-const siteUrl = `${SITE_URL}/en`;
 
 export const metadata: Metadata = {
   title: {
@@ -16,15 +13,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_GB',
-    url: siteUrl,
     siteName: 'ZALKA BOOKS',
     title: 'ZALKA BOOKS — puzzle books for kids and adults',
     description: 'Word searches, sudoku and logic puzzles that really draw you in — screen-free.',
+    images: [{ url: '/og/en.jpg', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'ZALKA BOOKS — puzzle books for kids and adults',
     description: 'Word searches, sudoku and logic puzzles that really draw you in — screen-free.',
+    images: ['/og/en.jpg'],
   },
 };
 

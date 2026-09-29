@@ -22,6 +22,8 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const title = book.seo?.title ?? `${book.title} — ${book.subtitle}`;
   const description = book.seo?.description ?? book.description;
   const indexable = shouldIndexDetail(book, SECTION);
+  // Poziomy obrazek 1200×630 ze scripts/make_og.py — pionowa okładka źle się przycina.
+  const ogImage = `/og/books/${book.slug}.jpg`;
   return {
     title,
     description,
@@ -31,13 +33,13 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     openGraph: {
       title,
       description,
-      images: [{ url: book.coverImage }],
+      images: [{ url: ogImage, width: 1200, height: 630 }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: [book.coverImage],
+      images: [ogImage],
     },
   };
 }

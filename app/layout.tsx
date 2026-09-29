@@ -35,17 +35,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'pl_PL',
-    url: SITE_URL,
     siteName: 'ZALKA BOOKS',
     title: 'ZALKA BOOKS — książki z łamigłówkami dla dzieci i dorosłych',
     description:
       'Wykreślanki, labirynty i zagadki logiczne, które naprawdę wciągają — bez ekranu.',
+    images: [{ url: '/og/pl.jpg', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'ZALKA BOOKS — książki z łamigłówkami dla dzieci i dorosłych',
     description:
       'Wykreślanki, labirynty i zagadki logiczne, które naprawdę wciągają — bez ekranu.',
+    images: ['/og/pl.jpg'],
   },
 };
 

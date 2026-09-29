@@ -1,9 +1,6 @@
 import type { Metadata } from 'next';
 import HeaderDe from '@/components/HeaderDe';
 import FooterDe from '@/components/FooterDe';
-import { SITE_URL } from '@/lib/site';
-
-const siteUrl = `${SITE_URL}/de`;
 
 export const metadata: Metadata = {
   title: {
@@ -16,17 +13,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'de_DE',
-    url: siteUrl,
     siteName: 'ZALKA BOOKS',
     title: 'ZALKA BOOKS — Rätselbücher für Kinder und Erwachsene',
     description:
       'Wortsuchrätsel, Labyrinthe und Logikrätsel, die wirklich fesseln — ganz ohne Bildschirm.',
+    images: [{ url: '/og/de.jpg', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'ZALKA BOOKS — Rätselbücher für Kinder und Erwachsene',
     description:
       'Wortsuchrätsel, Labyrinthe und Logikrätsel, die wirklich fesseln — ganz ohne Bildschirm.',
+    images: ['/og/de.jpg'],
   },
 };
 
