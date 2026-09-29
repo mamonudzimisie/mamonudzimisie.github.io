@@ -66,7 +66,7 @@ export default function MaterialyPage() {
                               href={`/pl/books/${book.slug}`}
                               className="font-semibold text-navy underline underline-offset-4 hover:text-orange"
                             >
-                              więcej w książce
+                              książka dla dzieci {variant.level}
                             </Link>
                           </>
                         )}
