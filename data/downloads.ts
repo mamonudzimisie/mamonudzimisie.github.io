@@ -15,6 +15,28 @@ export type Download = {
 
 export const downloads: Download[] = [
   {
+    slug: 'wykreslanki-halloween-5-6-lat',
+    title: 'Wykreślanki na Halloween',
+    level: '5–6 lat',
+    description:
+      '5 plansz na Halloween bez straszenia: dyniowy wieczór, nocne zwierzęta, przebrania, słodki koszyk i zamek czarownicy. Po 6 krótkich słów ukrytych tylko poziomo i pionowo, duże litery i rozwiązania.',
+    pdf: '/materialy/wykreslanki-halloween-5-6-lat.pdf',
+    thumbnail: '/materialy/wykreslanki-halloween-5-6-lat.webp',
+    pages: 8,
+    bookSlug: 'znajdz-slowko-poziom-latwy',
+  },
+  {
+    slug: 'wykreslanki-halloween-6-7-lat',
+    title: 'Wykreślanki na Halloween',
+    level: '6–7 lat',
+    description:
+      '5 plansz na Halloween bez straszenia: dyniowy wieczór, nocne zwierzęta, bal przebierańców, cukierek albo psikus i zamek czarodzieja. Po 7 słów, w tym jedno po skosie, i rozwiązania.',
+    pdf: '/materialy/wykreslanki-halloween-6-7-lat.pdf',
+    thumbnail: '/materialy/wykreslanki-halloween-6-7-lat.webp',
+    pages: 8,
+    bookSlug: 'znajdz-slowko-poziom-latwy-6-7',
+  },
+  {
     slug: 'wykreslanki-jesien-5-6-lat',
     title: 'Wykreślanki na jesień',
     level: '5–6 lat',

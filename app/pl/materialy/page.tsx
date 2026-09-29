@@ -7,7 +7,7 @@ import { SITE_URL } from '@/lib/site';
 
 const TITLE = 'Wykreślanki do druku dla dzieci – materiały do pobrania';
 const DESCRIPTION =
-  'Darmowe wykreślanki do wydrukowania dla dzieci 5–7 lat. Jesienne plansze z rozwiązaniami w PDF – do użytku w domu, przedszkolu i szkole.';
+  'Darmowe wykreślanki do wydrukowania dla dzieci 5–7 lat. Jesienne i halloweenowe plansze z rozwiązaniami w PDF – do użytku w domu, przedszkolu i szkole.';
 
 export const metadata: Metadata = {
   title: TITLE,
