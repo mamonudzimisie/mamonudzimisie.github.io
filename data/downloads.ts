@@ -1,61 +1,71 @@
 // Darmowe materiały do pobrania (dział /pl/materialy).
-// PDF-y i miniatury leżą w /public/materialy/. PDF-y składa skrypt
+// PDF-y leżą w /public/materialy/. Składa je skrypt
 // ~/AmazonKDP/word-search/books/PL/_www/assemble.py.
+//
+// Materiały są pogrupowane w zestawy tematyczne (np. Halloween), a w każdym
+// zestawie są wersje dla różnych grup wiekowych. Kolejność na liście = kolejność
+// na stronie, więc aktualny sezon trzymamy na górze.
 
-export type Download = {
-  slug: string;
-  title: string;
-  level: string;
-  description: string;
+export type DownloadVariant = {
+  level: string; // "5–6 lat"
+  note: string; // krótko, czym różni się ta wersja
   pdf: string;
-  thumbnail: string;
   pages: number;
   bookSlug?: string; // książka z serii, do której prowadzi materiał
 };
 
-export const downloads: Download[] = [
+export type DownloadSet = {
+  slug: string;
+  title: string;
+  description: string;
+  isNew?: boolean;
+  variants: DownloadVariant[];
+};
+
+export const downloadSets: DownloadSet[] = [
   {
-    slug: 'wykreslanki-halloween-5-6-lat',
+    slug: 'wykreslanki-halloween',
     title: 'Wykreślanki na Halloween',
-    level: '5–6 lat',
     description:
-      '5 plansz na Halloween bez straszenia: dyniowy wieczór, nocne zwierzęta, przebrania, słodki koszyk i zamek czarownicy. Po 6 krótkich słów ukrytych tylko poziomo i pionowo, duże litery i rozwiązania.',
-    pdf: '/materialy/wykreslanki-halloween-5-6-lat.pdf',
-    thumbnail: '/materialy/wykreslanki-halloween-5-6-lat.webp',
-    pages: 8,
-    bookSlug: 'znajdz-slowko-poziom-latwy',
+      '5 plansz bez straszenia: dyniowy wieczór, nocne zwierzęta, przebrania, słodycze i czarodziejski zamek. Rozwiązania w zestawie.',
+    isNew: true,
+    variants: [
+      {
+        level: '5–6 lat',
+        note: 'Po 6 krótkich słów, tylko poziomo i pionowo, duże litery',
+        pdf: '/materialy/wykreslanki-halloween-5-6-lat.pdf',
+        pages: 8,
+        bookSlug: 'znajdz-slowko-poziom-latwy',
+      },
+      {
+        level: '6–7 lat',
+        note: 'Po 7 słów, w tym jedno po skosie',
+        pdf: '/materialy/wykreslanki-halloween-6-7-lat.pdf',
+        pages: 8,
+        bookSlug: 'znajdz-slowko-poziom-latwy-6-7',
+      },
+    ],
   },
   {
-    slug: 'wykreslanki-halloween-6-7-lat',
-    title: 'Wykreślanki na Halloween',
-    level: '6–7 lat',
-    description:
-      '5 plansz na Halloween bez straszenia: dyniowy wieczór, nocne zwierzęta, bal przebierańców, cukierek albo psikus i zamek czarodzieja. Po 7 słów, w tym jedno po skosie, i rozwiązania.',
-    pdf: '/materialy/wykreslanki-halloween-6-7-lat.pdf',
-    thumbnail: '/materialy/wykreslanki-halloween-6-7-lat.webp',
-    pages: 8,
-    bookSlug: 'znajdz-slowko-poziom-latwy-6-7',
-  },
-  {
-    slug: 'wykreslanki-jesien-5-6-lat',
+    slug: 'wykreslanki-jesien',
     title: 'Wykreślanki na jesień',
-    level: '5–6 lat',
     description:
-      '5 jesiennych plansz: park, las, pogoda, owoce i ciepłe ubrania. Po 6 krótkich słów ukrytych tylko poziomo i pionowo, duże litery i rozwiązania.',
-    pdf: '/materialy/wykreslanki-jesien-5-6-lat.pdf',
-    thumbnail: '/materialy/wykreslanki-jesien-5-6-lat.webp',
-    pages: 8,
-    bookSlug: 'znajdz-slowko-poziom-latwy',
-  },
-  {
-    slug: 'wykreslanki-jesien-6-7-lat',
-    title: 'Wykreślanki na jesień',
-    level: '6–7 lat',
-    description:
-      '5 jesiennych plansz: park, grzybobranie, deszczowy dzień, zapasy na zimę i odlatujące ptaki. Po 7 słów, w tym jedno po skosie, i rozwiązania.',
-    pdf: '/materialy/wykreslanki-jesien-6-7-lat.pdf',
-    thumbnail: '/materialy/wykreslanki-jesien-6-7-lat.webp',
-    pages: 8,
-    bookSlug: 'znajdz-slowko-poziom-latwy-6-7',
+      '5 jesiennych plansz: park, las, grzyby, deszczowa pogoda, zapasy na zimę i ciepłe ubrania. Rozwiązania w zestawie.',
+    variants: [
+      {
+        level: '5–6 lat',
+        note: 'Po 6 krótkich słów, tylko poziomo i pionowo, duże litery',
+        pdf: '/materialy/wykreslanki-jesien-5-6-lat.pdf',
+        pages: 8,
+        bookSlug: 'znajdz-slowko-poziom-latwy',
+      },
+      {
+        level: '6–7 lat',
+        note: 'Po 7 słów, w tym jedno po skosie',
+        pdf: '/materialy/wykreslanki-jesien-6-7-lat.pdf',
+        pages: 8,
+        bookSlug: 'znajdz-slowko-poziom-latwy-6-7',
+      },
+    ],
   },
 ];

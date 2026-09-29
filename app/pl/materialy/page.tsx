@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
-import { downloads } from '@/data/downloads';
+import { downloadSets } from '@/data/downloads';
 import { getBookBySlug } from '@/data/books';
 import { SITE_URL } from '@/lib/site';
 
@@ -24,7 +23,7 @@ export const metadata: Metadata = {
 export default function MaterialyPage() {
   return (
     <section className="px-4 py-16 sm:px-6 sm:py-20">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-4xl">
         <h1 className="font-display text-3xl font-800 text-navy sm:text-4xl">
           Materiały do pobrania
         </h1>
@@ -34,50 +33,62 @@ export default function MaterialyPage() {
           przedszkola albo całej klasy.
         </p>
 
-        <ul className="mt-10 grid gap-6 sm:grid-cols-2">
-          {downloads.map((item) => {
-            const book = item.bookSlug ? getBookBySlug(item.bookSlug) : undefined;
-            return (
-              <li key={item.slug} className="flex gap-5 rounded-lg bg-white/70 p-5">
-                <a href={item.pdf} download className="shrink-0" tabIndex={-1} aria-hidden="true">
-                  <Image
-                    src={item.thumbnail}
-                    alt=""
-                    width={120}
-                    height={155}
-                    unoptimized
-                    className="w-24 rounded border border-navy/10 bg-white shadow-cover sm:w-28"
-                  />
-                </a>
-                <div className="flex flex-col">
-                  <p className="inline-block self-start rounded-full bg-navy px-3 py-1 text-xs font-bold text-white">
-                    {item.level}
-                  </p>
-                  <h2 className="mt-2 font-display text-xl font-800 text-navy">{item.title}</h2>
-                  <p className="mt-1 text-sm leading-relaxed text-ink/75">{item.description}</p>
-                  <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 pt-4">
-                    <a
-                      href={item.pdf}
-                      download
-                      className="inline-block rounded-full bg-orange px-5 py-2 text-sm font-bold text-white shadow-cover transition hover:bg-orange/90"
+        <div className="mt-10 space-y-6">
+          {downloadSets.map((set) => (
+            <article key={set.slug} className="rounded-lg bg-white/70 p-5 sm:p-6">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                <h2 className="font-display text-2xl font-800 text-navy">{set.title}</h2>
+                {set.isNew && (
+                  <span className="rounded-full bg-orange-light px-3 py-0.5 text-xs font-bold text-orange">
+                    Nowość
+                  </span>
+                )}
+              </div>
+              <p className="mt-1 max-w-2xl text-sm leading-relaxed text-ink/75">{set.description}</p>
+
+              <ul className="mt-4 divide-y divide-navy/10 border-t border-navy/10">
+                {set.variants.map((variant) => {
+                  const book = variant.bookSlug ? getBookBySlug(variant.bookSlug) : undefined;
+                  return (
+                    <li
+                      key={variant.pdf}
+                      className="flex flex-wrap items-center gap-x-4 gap-y-2 py-3"
                     >
-                      Pobierz PDF
-                    </a>
-                    <span className="text-xs text-ink/60">{item.pages} stron</span>
-                    {book && (
-                      <Link
-                        href={`/pl/books/${book.slug}`}
-                        className="text-sm font-semibold text-navy underline underline-offset-4 hover:text-orange"
+                      <span className="w-20 shrink-0 rounded-full bg-navy px-3 py-1 text-center text-xs font-bold text-white">
+                        {variant.level}
+                      </span>
+                      <span className="min-w-0 flex-1 basis-56 text-sm text-ink/80">
+                        {variant.note}
+                        {book && (
+                          <>
+                            {' · '}
+                            <Link
+                              href={`/pl/books/${book.slug}`}
+                              className="font-semibold text-navy underline underline-offset-4 hover:text-orange"
+                            >
+                              więcej w książce
+                            </Link>
+                          </>
+                        )}
+                      </span>
+                      <a
+                        href={variant.pdf}
+                        download
+                        aria-label={`Pobierz PDF: ${set.title}, ${variant.level}`}
+                        className="inline-flex items-baseline gap-2 rounded-full bg-orange px-5 py-2 text-sm font-bold text-white shadow-cover transition hover:bg-orange/90"
                       >
-                        Więcej w książce →
-                      </Link>
-                    )}
-                  </div>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+                        Pobierz PDF
+                        <span className="text-xs font-semibold text-white/80">
+                          {variant.pages} stron
+                        </span>
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
