@@ -123,3 +123,16 @@ body {
       9px 12px 20px rgba(31, 49, 91, 0.09);
   }
 }
+
+/* Strona 404: trzy wersje językowe w jednym pliku, widoczna jest jedna.
+   data-nf ustawia skrypt w components/NotFoundContent.tsx. */
+.nf-de,
+.nf-en,
+html[data-nf] .nf-pl {
+  display: none;
+}
+
+html[data-nf='de'] .nf-de,
+html[data-nf='en'] .nf-en {
+  display: block;
+}
