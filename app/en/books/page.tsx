@@ -15,8 +15,8 @@ export default function BooksEn() {
         <h1 className="font-display text-3xl font-800 text-navy sm:text-4xl">Books</h1>
         <p className="mt-3 max-w-2xl text-ink/70">
           Choose the audience, category and difficulty — we&apos;ll help you find the right
-          one. Our English titles are in the works; for now you&apos;ll find our Polish and
-          German books below.
+          one. Our first English title is out — the rest of the catalog is in Polish and
+          German for now.
         </p>
         <div className="mt-10">
           <BookCatalog books={books} siteLang="en" />

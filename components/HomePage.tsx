@@ -117,7 +117,7 @@ const STRINGS: Record<SiteLang, Strings> = {
     titleAccent: 'any age',
     lead: 'Puzzles that train your brain and give you a break from the screen — for everyone who loves a challenge.',
     cta: 'Browse books',
-    note: 'English titles are on the way — for now our books are in Polish and German.',
+    note: 'Our first English title is out — the rest of our books are in Polish and German for now.',
     benefits: [
       ['Sharpen', 'attention'],
       ['Screen-free', 'relaxation'],
@@ -323,7 +323,7 @@ export default function HomePage({
                   )}
                   {line}
                 </Fragment>
-              ))}
+              ))}{' '}
               <br />
               {t.titlePrefix}{' '}
               <span className="relative inline-block text-orange">
@@ -421,7 +421,7 @@ export default function HomePage({
               <span aria-hidden="true">🙂</span>
             </div>
             <h2 className="mt-4 font-display text-2xl font-700 leading-snug text-navy sm:text-3xl">
-              {t.whyLine}
+              {t.whyLine}{' '}
               <br />
               {t.whyPrefix && `${t.whyPrefix} `}
               <span className="relative inline-block">
