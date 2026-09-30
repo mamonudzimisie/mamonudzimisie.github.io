@@ -1,3 +1,5 @@
+import SocialLinks from './SocialLinks';
+
 export default function FooterEn() {
   return (
     <footer className="border-t border-ink/10 bg-paper-dark">
@@ -18,6 +20,7 @@ export default function FooterEn() {
             Puzzle books for kids and adults — focus training, a calm break
             and plenty of fun.
           </p>
+          <SocialLinks lang="en" className="mt-4" />
         </div>
         <p className="mt-8 border-t border-ink/10 pt-6 text-xs leading-relaxed text-ink/60">
           As an Amazon Associate we earn from qualifying purchases made through links on

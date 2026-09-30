@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SocialLinks from './SocialLinks';
 
 export default function Footer() {
   return (
@@ -21,6 +22,7 @@ export default function Footer() {
               Książki z łamigłówkami dla dzieci i dorosłych — trening koncentracji,
               chwila wyciszenia i dobra zabawa.
             </p>
+            <SocialLinks lang="pl" className="mt-4" />
           </div>
           <nav className="flex flex-col gap-2 text-sm font-semibold sm:items-end">
             <Link href="/pl/books" className="hover:text-orange">

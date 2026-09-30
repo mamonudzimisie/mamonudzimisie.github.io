@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SOCIALS } from '@/components/SocialLinks';
 
 export const metadata: Metadata = {
   title: 'O nas',
@@ -37,6 +38,29 @@ export default function ONasPage() {
             .
           </p>
         </div>
+
+        {SOCIALS.map(({ name, href, handle, Icon }) => (
+          <a
+            key={name}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mt-10 flex items-center gap-4 rounded-3xl bg-rose-100 p-5 transition hover:-translate-y-1 hover:shadow-cover"
+          >
+            <span
+              aria-hidden="true"
+              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-[#E60023]"
+            >
+              <Icon className="h-6 w-6" />
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block font-display text-lg font-700 leading-tight text-navy">
+                Obserwuj nas na {name}!
+              </span>
+              <span className="mt-1 block text-sm text-ink/70 group-hover:text-orange">{handle}</span>
+            </span>
+          </a>
+        ))}
       </div>
     </section>
   );

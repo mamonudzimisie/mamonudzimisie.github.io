@@ -1,3 +1,5 @@
+import SocialLinks from './SocialLinks';
+
 export default function FooterDe() {
   return (
     <footer className="border-t border-ink/10 bg-paper-dark">
@@ -18,6 +20,7 @@ export default function FooterDe() {
             Rätselbücher für Kinder und Erwachsene — Konzentrationstraining,
             eine ruhige Auszeit und jede Menge Spaß.
           </p>
+          <SocialLinks lang="de" className="mt-4" />
         </div>
         <p className="mt-8 border-t border-ink/10 pt-6 text-xs leading-relaxed text-ink/60">
           Als Amazon-Partner verdienen wir an qualifizierten Käufen, die über Links auf
