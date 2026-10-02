@@ -48,6 +48,9 @@ export const metadata: Metadata = {
       'Wykreślanki, labirynty i zagadki logiczne, które naprawdę wciągają — bez ekranu.',
     images: ['/og/pl.jpg'],
   },
+  verification: {
+    other: { 'p:domain_verify': '85027722bfb34c18f439216efac6d570' },
+  },
 };
 
 export default function RootLayout({
