@@ -69,3 +69,25 @@ export const downloadSets: DownloadSet[] = [
     ],
   },
 ];
+
+// Free printables for the English section (/en/free-printables). The sudoku
+// pack is assembled by ~/AmazonKDP/word-search/books/Sudoku/_www/assemble_free_sudoku.py
+// (new puzzles - none of them is in any of the books).
+export const downloadSetsEn: DownloadSet[] = [
+  {
+    slug: 'large-print-sudoku-easy',
+    title: 'Large Print Sudoku',
+    description:
+      '8 sudoku puzzles in the same large print as our books: big grids and big digits, easy to read. Four warm-up puzzles and four easy ones, a short how-to-play guide and full solutions.',
+    isNew: true,
+    variants: [
+      {
+        level: 'Warm-up & Easy',
+        note: 'For beginners: the first four need only one simple method',
+        pdf: '/free-printables/large-print-sudoku-easy.pdf',
+        pages: 9,
+        bookSlug: 'large-print-sudoku-102',
+      },
+    ],
+  },
+];

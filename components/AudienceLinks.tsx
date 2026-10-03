@@ -89,6 +89,7 @@ const AUDIENCES: {
 // Dział z materiałami istnieje tylko w wersjach, które mają tu wpis.
 const DOWNLOADS: Partial<Record<SiteLang, Text & { href: string }>> = {
   pl: { href: '/pl/materialy', label: 'Do pobrania', description: 'Zagadki do wydruku w domu' },
+  en: { href: '/en/free-printables', label: 'Free printables', description: 'Puzzles to print at home' },
 };
 
 export default function AudienceLinks({ lang = 'pl' }: { lang?: SiteLang }) {

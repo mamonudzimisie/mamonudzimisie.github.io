@@ -20,6 +20,9 @@ export default function HeaderEn() {
           <Link href="/en/blog" className="whitespace-nowrap hover:text-orange">
             Blog
           </Link>
+          <Link href="/en/free-printables" className="whitespace-nowrap hover:text-orange">
+            Free printables
+          </Link>
           <Link
             href="/en/books"
             className="inline-flex whitespace-nowrap rounded-full bg-orange px-5 py-2 text-sm font-bold text-white shadow-cover transition hover:bg-orange/90"
