@@ -13,16 +13,17 @@ export const metadata: Metadata = {
   },
 };
 
-// Jedyny angielski tytuł idzie na przód, resztę uzupełnia przekrój polskich
-// i niemieckich (karty mają znacznik języka, strona książki — adnotację).
+// Trzy angielskie tytuły (Large Print Sudoku, Set 100–102) zajmują widoczne
+// miejsca wachlarza, resztę uzupełnia przekrój polskich i niemieckich (karty
+// mają znacznik języka, strona książki — adnotację).
 // Kolejność w wachlarzu: pierwsza z przodu, druga po prawej, ostatnia po lewej.
 const HERO_SLUGS = [
   'large-print-sudoku-100',
+  'large-print-sudoku-101',
   'sudoku-300-zagadek-200',
   'meine-ersten-wortsuchratsel-stufe-1',
   'znajdz-slowko-poziom-latwy',
-  'meine-ersten-wortsuchratsel-stufe-2',
-  'zdobywca-szczytow',
+  'large-print-sudoku-102',
 ];
 
 // Układ i teksty strony głównej: components/HomePage.tsx (wspólne dla PL/DE/EN).

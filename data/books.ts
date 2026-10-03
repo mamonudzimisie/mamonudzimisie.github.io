@@ -408,7 +408,7 @@ export const books: Book[] = [
       'Complete solutions at the back of the book',
     ],
     coverImage: '/covers/large-print-sudoku-100.webp',
-    amazonUrl: 'https://www.amazon.com/dp/8398299304',
+    amazonUrl: 'https://a.co/d/0ckW3d2Q',
     featured: true,
     formatInches: '8.5 × 11 in',
     pageCount: 96,
@@ -418,6 +418,62 @@ export const books: Book[] = [
       title: 'Large Print Sudoku – 120 Easy and Medium Puzzles for Seniors',
       description:
         '120 Sudoku puzzles in a really large font, easy to medium. Two puzzles per page, clear grids, a beginner’s introduction and full solutions. A gift for Grandma or Grandpa.',
+    },
+  },
+  {
+    slug: 'large-print-sudoku-101',
+    title: 'Large Print Sudoku',
+    subtitle: '120 puzzles, hard and very hard',
+    ageRange: 'Dorośli',
+    category: 'sudoku',
+    audience: 'duzy-druk',
+    lang: 'en',
+    description:
+      '120 challenging Sudoku puzzles printed in a really large font. Two puzzles per page, clear grids, and plenty of space for notes. This book is for those who have outgrown easy grids and want a real challenge for the mind — without squinting at tiny print. The puzzles are arranged in two levels, hard and then very hard, and the introduction explains the advanced methods you will need along the way: pairs, X-Wing, Swordfish and XY-Wing.',
+    features: [
+      '120 unique Sudoku puzzles (hard and very hard difficulty)',
+      'Large print and spacious grids — two puzzles per page',
+      'An introduction to advanced methods: pairs, X-Wing, Swordfish, XY-Wing',
+      'Complete solutions at the back of the book',
+    ],
+    coverImage: '/covers/large-print-sudoku-101.webp',
+    amazonUrl: 'https://a.co/d/0ffwaVcr',
+    featured: true,
+    formatInches: '8.5 × 11 in',
+    pageCount: 100,
+    isbn: '978-83-982993-4-3',
+    seo: {
+      title: 'Large Print Sudoku – 120 Hard and Very Hard Puzzles',
+      description:
+        '120 hard and very hard Sudoku puzzles in a really large font. Two puzzles per page, an introduction to advanced methods (X-Wing, Swordfish, XY-Wing) and full solutions.',
+    },
+  },
+  {
+    slug: 'large-print-sudoku-102',
+    title: 'Large Print Sudoku',
+    subtitle: '150 puzzles for beginners, warm-up and easy',
+    ageRange: 'Dorośli',
+    category: 'sudoku',
+    audience: 'duzy-druk',
+    lang: 'en',
+    description:
+      '150 Sudoku puzzles for beginners, printed in a really large font. Two puzzles per page, clear grids, and plenty of space for notes. A gentle start: first a warm-up, where careful looking is enough, then the easy level. The step-by-step introduction shows two simple methods and what to do when you get stuck — a good first Sudoku book, and a calm daily habit for the mind.',
+    features: [
+      '150 unique Sudoku puzzles (warm-up and easy difficulty)',
+      'Large print and spacious grids — two puzzles per page',
+      'A step-by-step guide for beginners',
+      'Complete solutions at the back of the book',
+    ],
+    coverImage: '/covers/large-print-sudoku-102.webp',
+    amazonUrl: 'https://a.co/d/085EeTeZ',
+    featured: true,
+    formatInches: '8.5 × 11 in',
+    pageCount: 122,
+    isbn: '978-83-982993-6-7',
+    seo: {
+      title: 'Large Print Sudoku for Beginners – 150 Warm-up and Easy Puzzles',
+      description:
+        '150 easy Sudoku puzzles for beginners in a really large font. Two puzzles per page, a step-by-step guide and full solutions. A calm first Sudoku book.',
     },
   },
 ];
