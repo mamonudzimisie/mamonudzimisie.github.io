@@ -13,6 +13,8 @@ type IconProps = { className?: string };
 
 type Strings = {
   badge: string;
+  // Opcjonalny okrzyk w osobnej, największej linii nad nagłówkiem.
+  titleShout?: string;
   // Kolejne linie nagłówka przed wyróżnioną końcówką (łamane tylko na dużych ekranach).
   titleLines: string[];
   titlePrefix: string;
@@ -36,10 +38,11 @@ type Strings = {
 const STRINGS: Record<SiteLang, Strings> = {
   pl: {
     badge: 'Dla dzieci i dorosłych',
-    titleLines: ['Łamigłówki, które wciągają'],
-    titlePrefix: 'w',
-    titleAccent: 'każdym wieku',
-    lead: 'Zagadki, które trenują głowę i dają oddech od ekranu — dla każdego, kto lubi wyzwania.',
+    titleShout: 'Uwaga,',
+    titleLines: ['te zagadki'],
+    titlePrefix: '',
+    titleAccent: 'wciągają',
+    lead: 'Przy tym relaksują, ćwiczą umysł i dają chwilę oddechu. Dla małych i dużych!',
     cta: 'Zobacz książki',
     benefits: [
       ['Rozwijają', 'spostrzegawczość'],
@@ -74,10 +77,11 @@ const STRINGS: Record<SiteLang, Strings> = {
   },
   de: {
     badge: 'Für Kinder und Erwachsene',
-    titleLines: ['Rätsel, die fesseln'],
-    titlePrefix: 'in',
-    titleAccent: 'jedem Alter',
-    lead: 'Rätsel, die den Kopf trainieren und für eine Pause vom Bildschirm sorgen — für alle, die Herausforderungen lieben.',
+    titleShout: 'Achtung,',
+    titleLines: ['diese Rätsel'],
+    titlePrefix: '',
+    titleAccent: 'fesseln',
+    lead: 'Dabei entspannen sie, trainieren den Kopf und schenken eine kleine Atempause. Für Groß und Klein!',
     cta: 'Bücher ansehen',
     benefits: [
       ['Schärfen die', 'Aufmerksamkeit'],
@@ -112,10 +116,11 @@ const STRINGS: Record<SiteLang, Strings> = {
   },
   en: {
     badge: 'For kids and adults',
-    titleLines: ['Puzzles that', 'pull you in'],
-    titlePrefix: 'at',
-    titleAccent: 'any age',
-    lead: 'Puzzles that train your brain and give you a break from the screen — for everyone who loves a challenge.',
+    titleShout: 'Warning:',
+    titleLines: ['these puzzles'],
+    titlePrefix: 'are',
+    titleAccent: 'addictive',
+    lead: 'They also help you relax, keep your mind sharp and give you a moment to breathe. For kids and grown-ups alike!',
     cta: 'Browse books',
     note: 'Our first English title is out — the rest of our books are in Polish and German for now.',
     benefits: [
@@ -314,6 +319,9 @@ export default function HomePage({
             </span>
 
             <h1 className="animate-fade-up mt-6 font-display text-4xl font-800 leading-[1.1] text-navy sm:text-5xl lg:text-6xl [animation-delay:150ms]">
+              {t.titleShout && (
+                <span className="block text-6xl sm:text-7xl lg:text-8xl">{t.titleShout}</span>
+              )}
               {t.titleLines.map((line, index) => (
                 <Fragment key={line}>
                   {index > 0 && (
@@ -325,7 +333,7 @@ export default function HomePage({
                 </Fragment>
               ))}{' '}
               <br />
-              {t.titlePrefix}{' '}
+              {t.titlePrefix && <>{t.titlePrefix} </>}
               <span className="relative inline-block text-orange">
                 {t.titleAccent}
                 <SquiggleUnderline className="absolute -bottom-2 left-0 h-3 w-full text-orange" />
