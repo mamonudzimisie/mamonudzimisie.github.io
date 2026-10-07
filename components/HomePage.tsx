@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, type CSSProperties } from 'react';
 import Link from 'next/link';
 import AudienceLinks from '@/components/AudienceLinks';
 import BookCard from '@/components/BookCard';
@@ -19,6 +19,10 @@ type Strings = {
   titleLines: string[];
   titlePrefix: string;
   titleAccent: string;
+  // Litery wyróżnionego słowa wpadają w falkę i wyskakują z powrotem
+  // (raz, po wejściu na stronę). Tylko tam, gdzie krój nie kernuje par liter
+  // tego słowa — rozbite na osobne litery inaczej by się rozjechało.
+  animateAccent?: boolean;
   lead: string;
   cta: string;
   // Opcjonalna adnotacja pod przyciskiem.
@@ -42,6 +46,7 @@ const STRINGS: Record<SiteLang, Strings> = {
     titleLines: ['te zagadki'],
     titlePrefix: '',
     titleAccent: 'wciągają',
+    animateAccent: true,
     lead: 'Przy tym relaksują, ćwiczą umysł i dają chwilę oddechu. Dla małych i dużych!',
     cta: 'Zobacz książki',
     benefits: [
@@ -231,6 +236,30 @@ function DoodleSwirl({ className }: IconProps) {
   );
 }
 
+// Słowo rozbite na litery do animacji „wciągania” (globals.css, .drain-letter).
+// Czytnik ekranu dostaje całe słowo z ukrytej kopii; same litery są dla niego
+// niewidoczne. NFC sklei ewentualne „a + ogonek” w jedno „ą”, żeby ogonek nie
+// trafił do osobnego spanu.
+function DrainWord({ word }: { word: string }) {
+  const letters = Array.from(word.normalize('NFC'));
+  return (
+    <>
+      <span className="sr-only">{word}</span>
+      <span aria-hidden="true">
+        {letters.map((letter, i) => (
+          <span
+            key={i}
+            className="drain-letter"
+            style={{ '--i': i } as CSSProperties}
+          >
+            {letter}
+          </span>
+        ))}
+      </span>
+    </>
+  );
+}
+
 function SquiggleUnderline({ className }: IconProps) {
   return (
     <svg viewBox="0 0 200 14" fill="none" preserveAspectRatio="none" className={className}>
@@ -335,8 +364,12 @@ export default function HomePage({
               <br />
               {t.titlePrefix && <>{t.titlePrefix} </>}
               <span className="relative inline-block text-orange">
-                {t.titleAccent}
-                <SquiggleUnderline className="absolute -bottom-2 left-0 h-3 w-full text-orange" />
+                {t.animateAccent ? <DrainWord word={t.titleAccent} /> : t.titleAccent}
+                <SquiggleUnderline
+                  className={`absolute -bottom-2 left-0 h-3 w-full text-orange${
+                    t.animateAccent ? ' drain-squiggle' : ''
+                  }`}
+                />
               </span>
             </h1>
 
