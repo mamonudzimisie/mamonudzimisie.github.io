@@ -18,11 +18,9 @@ type Strings = {
   // Kolejne linie nagłówka przed wyróżnioną końcówką (łamane tylko na dużych ekranach).
   titleLines: string[];
   titlePrefix: string;
+  // Litery wyróżnionego słowa są wciągane pod falkę i wyskakują z powrotem
+  // (raz, po wejściu na stronę) — we wszystkich językach.
   titleAccent: string;
-  // Litery wyróżnionego słowa wpadają w falkę i wyskakują z powrotem
-  // (raz, po wejściu na stronę). Tylko tam, gdzie krój nie kernuje par liter
-  // tego słowa — rozbite na osobne litery inaczej by się rozjechało.
-  animateAccent?: boolean;
   lead: string;
   cta: string;
   // Opcjonalna adnotacja pod przyciskiem.
@@ -46,7 +44,6 @@ const STRINGS: Record<SiteLang, Strings> = {
     titleLines: ['te zagadki'],
     titlePrefix: '',
     titleAccent: 'wciągają',
-    animateAccent: true,
     lead: 'Przy tym relaksują, ćwiczą umysł i dają chwilę oddechu. Dla małych i dużych!',
     cta: 'Zobacz książki',
     benefits: [
@@ -239,7 +236,9 @@ function DoodleSwirl({ className }: IconProps) {
 // Słowo rozbite na litery do animacji „wciągania” (globals.css, .drain-letter).
 // Czytnik ekranu dostaje całe słowo z ukrytej kopii; same litery są dla niego
 // niewidoczne. NFC sklei ewentualne „a + ogonek” w jedno „ą”, żeby ogonek nie
-// trafił do osobnego spanu.
+// trafił do osobnego spanu. Rozbicie wyłącza kerning między literami: dla
+// „wciągają” Baloo 2 nie ma żadnych par, dla „fesseln”/„addictive” to
+// 0,017/0,005 em (~1 px przy 60 px) — niewidoczne.
 function DrainWord({ word }: { word: string }) {
   const letters = Array.from(word.normalize('NFC'));
   return (
@@ -364,12 +363,8 @@ export default function HomePage({
               <br />
               {t.titlePrefix && <>{t.titlePrefix} </>}
               <span className="relative inline-block text-orange">
-                {t.animateAccent ? <DrainWord word={t.titleAccent} /> : t.titleAccent}
-                <SquiggleUnderline
-                  className={`absolute -bottom-2 left-0 h-3 w-full text-orange${
-                    t.animateAccent ? ' drain-squiggle' : ''
-                  }`}
-                />
+                <DrainWord word={t.titleAccent} />
+                <SquiggleUnderline className="drain-squiggle absolute -bottom-2 left-0 h-3 w-full text-orange" />
               </span>
             </h1>
 

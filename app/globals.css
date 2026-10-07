@@ -83,7 +83,8 @@ body {
   }
 }
 
-/* Hero, strona główna: „wciągają” jak do odkurzacza. Każda litera (po kolei,
+/* Hero, strona główna (wszystkie języki): wyróżnione słowo („wciągają”,
+   „fesseln”, „addictive”) jak do odkurzacza. Każda litera (po kolei,
    co 70 ms) rozciąga się w dół, dwa razy szarpie się i zapiera, po czym
    nagle wpada pod falkę, leży tam chwilę zgnieciona na płasko i dopiero
    sprężyście wyskakuje na swoje miejsce. Raz, od ok. 0,65 s po wejściu (po
