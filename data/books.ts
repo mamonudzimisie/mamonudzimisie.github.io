@@ -392,6 +392,36 @@ export const books: Book[] = [
     },
   },
   {
+    // Wydanie DE tomu 100 — czeka na publikację w KDP. Gdy będzie link:
+    // wpisać amazonUrl, usunąć comingSoon, dodać isbn i samplePages.
+    slug: 'sudoku-grossdruck-100',
+    title: 'Sudoku Großdruck',
+    subtitle: '120 Rätsel, leicht und mittel',
+    ageRange: 'Dorośli',
+    category: 'sudoku',
+    audience: 'duzy-druk',
+    lang: 'de',
+    description:
+      '120 Sudoku-Rätsel, gedruckt in wirklich großer Schrift. Zwei Rätsel pro Seite und große, übersichtliche Felder. Dieses Buch ist für alle, die gern täglich ein wenig logisch denken, aber genug von der winzigen Schrift in Zeitungsrätseln haben. Es beginnt mit leichten Rätseln zum Aufwärmen, danach steigt die Schwierigkeit allmählich – ohne Frust und ohne Langeweile. Sudoku ist eine entspannende Übung für Konzentration und Gedächtnis und eine schöne Alternative zu Fernseher und Handy. Ein ideales Geschenk für Mama, Papa, Oma oder Opa – zum Geburtstag, zu Weihnachten oder einfach so.',
+    features: [
+      '120 Sudoku-Rätsel (leicht und mittel)',
+      'Große Schrift und große Felder – angenehm auch bei schwächerer Sehkraft',
+      'Kurze Anleitung für Einsteiger',
+      'Alle Lösungen am Ende des Buches',
+    ],
+    coverImage: '/covers/sudoku-grossdruck-100.webp',
+    amazonUrl: '',
+    featured: false,
+    comingSoon: true,
+    formatInches: '8,5 × 11 cala',
+    pageCount: 96,
+    seo: {
+      title: 'Sudoku Großdruck – 120 leichte und mittlere Rätsel für Senioren',
+      description:
+        '120 Sudoku-Rätsel in wirklich großer Schrift, leicht bis mittel. Zwei Rätsel pro Seite, große Felder, eine kurze Anleitung und alle Lösungen. Ein Geschenk für Oma und Opa.',
+    },
+  },
+  {
     slug: 'large-print-sudoku-100',
     title: 'Large Print Sudoku',
     subtitle: '120 puzzles, easy and medium',
