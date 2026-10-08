@@ -1,8 +1,9 @@
-import { Fragment, type CSSProperties } from 'react';
+import { Fragment } from 'react';
 import Link from 'next/link';
 import AudienceLinks from '@/components/AudienceLinks';
 import BookCard from '@/components/BookCard';
 import HeroFan from '@/components/HeroFan';
+import VacuumWord from '@/components/VacuumWord';
 import type { Book } from '@/data/books';
 import type { SiteLang } from '@/lib/catalog-i18n';
 
@@ -205,32 +206,6 @@ function DoodleSparkle({ className }: IconProps) {
   );
 }
 
-// Słowo rozbite na litery do animacji „wciągania” (globals.css, .drain-letter).
-// Czytnik ekranu dostaje całe słowo z ukrytej kopii; same litery są dla niego
-// niewidoczne. NFC sklei ewentualne „a + ogonek” w jedno „ą”, żeby ogonek nie
-// trafił do osobnego spanu. Rozbicie wyłącza kerning między literami: dla
-// „wciągają” Baloo 2 nie ma żadnych par, dla „fesseln”/„addictive” to
-// 0,017/0,005 em (~1 px przy 60 px) — niewidoczne.
-function DrainWord({ word }: { word: string }) {
-  const letters = Array.from(word.normalize('NFC'));
-  return (
-    <>
-      <span className="sr-only">{word}</span>
-      <span aria-hidden="true">
-        {letters.map((letter, i) => (
-          <span
-            key={i}
-            className="drain-letter"
-            style={{ '--i': i } as CSSProperties}
-          >
-            {letter}
-          </span>
-        ))}
-      </span>
-    </>
-  );
-}
-
 function SquiggleUnderline({ className }: IconProps) {
   return (
     <svg viewBox="0 0 200 14" fill="none" preserveAspectRatio="none" className={className}>
@@ -300,7 +275,7 @@ export default function HomePage({
               </span>
             </span>
 
-            <h1 className="animate-fade-up mt-6 font-display text-5xl font-800 leading-[1.05] text-navy sm:text-6xl lg:text-7xl [animation-delay:150ms]">
+            <h1 className="animate-fade-up relative z-[35] mt-6 font-display text-5xl font-800 leading-[1.05] text-navy sm:text-6xl lg:text-7xl [animation-delay:150ms]">
               {/* „Uwaga,” to tylko zapowiedź — mniejsza od zdania, które niesie treść. */}
               {t.titleShout && (
                 <span className="mb-1 block text-2xl text-navy/70 sm:text-3xl lg:text-4xl">{t.titleShout}</span>
@@ -318,8 +293,8 @@ export default function HomePage({
               <br />
               {t.titlePrefix && <>{t.titlePrefix} </>}
               <span className="relative inline-block text-orange">
-                <DrainWord word={t.titleAccent} />
-                <SquiggleUnderline className="drain-squiggle absolute -bottom-2 left-0 h-3 w-full text-orange" />
+                <VacuumWord word={t.titleAccent} />
+                <SquiggleUnderline className="vacuum-squiggle absolute -bottom-2 left-0 h-3 w-full text-orange" />
               </span>
             </h1>
 
