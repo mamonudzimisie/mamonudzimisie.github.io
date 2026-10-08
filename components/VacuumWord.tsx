@@ -4,7 +4,7 @@ import { useEffect, useRef, type CSSProperties } from 'react';
 
 // Słowo rozbite na litery do animacji „odkurzacza” (globals.css, .vacuum-letter):
 // każda litera osobno jest porywana do przedniej okładki w wachlarzu
-// (element z data-vacuum-target), a po chwili książka wypluwa ją z powrotem.
+// (element z data-vacuum-target), a po chwili wyskakuje spod falki na miejsce.
 // Wektor lotu (--dx, --dy) liczymy tutaj, bo wachlarz stoi raz po prawej
 // (komputer), raz pod tekstem (telefon). Bez JS litery lecą domyślnie w prawo.
 //

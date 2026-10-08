@@ -102,8 +102,8 @@ body {
    litera osobno (co 120 ms): pochyla się w stronę wachlarza, raz się
    zapiera, po czym zostaje porwana łukiem do przedniej okładki, kręcąc się
    i malejąc do zera. Wachlarz „przełyka” po każdej literze. Po ~2 s
-   książka wypluwa litery z powrotem: lecą na swoje miejsca i lądują
-   z przysiadem. Raz, od ok. 0,65 s po wejściu (po fade-up nagłówka),
+   litery wyłaniają się spod falki jak z ziemi i sprężyście wyskakują na
+   swoje miejsca, lądując z przysiadem. Raz, od ok. 0,65 s po wejściu (po fade-up nagłówka),
    całość ~5,5 s.
 
    Wektor lotu (--dx, --dy) do środka przedniej okładki ustawia VacuumWord;
@@ -130,7 +130,7 @@ body {
   }
 
   .vacuum-gulp {
-    animation: vacuum-gulp 3.4s both;
+    animation: vacuum-gulp 1.2s both;
     animation-delay: 1.95s;
   }
 }
@@ -181,29 +181,39 @@ body {
     opacity: 0;
   }
   /* siedzi w książce */
-  78% {
-    transform: translate(var(--dx), var(--dy)) rotate(var(--spin)) scale(0.06);
+  77% {
+    transform: translate(var(--dx), var(--dy)) rotate(var(--spin)) scale(0.04);
     opacity: 0;
-    animation-timing-function: linear;
+    animation-timing-function: step-end;
   }
-  /* wypluta: wylatuje z okładki… */
-  79% {
-    transform: translate(var(--dx), var(--dy)) rotate(var(--spin)) scale(0.15);
+  /* niewidoczna przeskakuje pod falkę: tam czeka zgnieciona na płasko
+     (przesunięcie liczone od transform-origin 50% 60%) */
+  77.5% {
+    transform: translateY(0.49em) scale(1.18, 0.12);
+    opacity: 0;
+  }
+  /* wyłania się spod falki jak z ziemi… */
+  80% {
+    transform: translateY(0.47em) scale(1.12, 0.18);
     opacity: 1;
-    animation-timing-function: cubic-bezier(0.15, 0.6, 0.35, 1);
+    animation-timing-function: ease-in-out;
   }
-  /* …i łukiem wraca na miejsce, z lekkim przelotem */
+  /* …napina się przed skokiem… */
+  84% {
+    transform: translateY(0.51em) scale(1.22, 0.12);
+    animation-timing-function: cubic-bezier(0.2, 0.9, 0.3, 1.15);
+  }
+  /* …wyskakuje w górę… */
   89% {
-    transform: translate(calc(var(--dx) * -0.03), calc(var(--dy) * -0.03 - 0.12em)) rotate(calc(var(--spin) * -0.04))
-      scale(1.06, 1.1);
+    transform: translateY(-0.22em) scale(0.9, 1.16);
     animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
   }
-  /* ląduje z przysiadem */
-  94% {
+  /* …i ląduje z przysiadem */
+  93.5% {
     transform: translateY(0.03em) scale(1.1, 0.9);
     animation-timing-function: ease-in-out;
   }
-  97.5% {
+  97% {
     transform: translateY(-0.02em) scale(0.98, 1.03);
   }
   100% {
@@ -260,48 +270,27 @@ body {
   }
 }
 
-/* Wachlarz „przełyka” wpadające litery i „kaszle”, kiedy je wypluwa.
+/* Wachlarz „przełyka” wpadające litery.
    Start 1,95 s: wtedy pierwsza litera dolatuje do okładki. */
 @keyframes vacuum-gulp {
   0%,
   100% {
     transform: none;
   }
-  4% {
+  10% {
     transform: scale(1.03);
   }
-  9% {
+  25% {
     transform: scale(0.985);
   }
-  14% {
+  40% {
     transform: scale(1.035);
   }
-  19% {
+  55% {
     transform: scale(0.985);
   }
-  24% {
-    transform: scale(1.03);
-  }
-  30% {
-    transform: none;
-  }
-  66% {
-    transform: none;
-  }
   70% {
-    transform: scale(0.97);
-  }
-  74% {
-    transform: scale(1.04);
-  }
-  80% {
-    transform: scale(0.99);
-  }
-  86% {
-    transform: scale(1.02);
-  }
-  94% {
-    transform: none;
+    transform: scale(1.03);
   }
 }
 
