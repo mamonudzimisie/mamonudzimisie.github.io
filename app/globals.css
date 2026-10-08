@@ -99,12 +99,12 @@ body {
 
 /* Hero, strona główna (wszystkie języki): wyróżnione słowo („wciągają”,
    „fesseln”, „addictive”) wciąga odkurzacz — prosto do książek. Każda
-   litera osobno (co 120 ms): pochyla się w stronę wachlarza, raz się
-   zapiera, po czym zostaje porwana łukiem do przedniej okładki, kręcąc się
-   i malejąc do zera. Wachlarz „przełyka” po każdej literze. Po ~2 s
-   litery wyłaniają się spod falki jak z ziemi i sprężyście wyskakują na
-   swoje miejsca, lądując z przysiadem. Raz, od ok. 0,65 s po wejściu (po fade-up nagłówka),
-   całość ~5,5 s.
+   litera osobno (co 150 ms) najpierw drży i stawia opór (~0,9 s), coraz
+   mocniej przechylona i rozciągnięta w stronę wachlarza, a potem puszcza
+   i zostaje wessana z rosnącą prędkością (~0,25 s) do przedniej okładki.
+   Wachlarz „przełyka” wpadające litery. Po ~2,3 s litery wyłaniają się
+   spod falki jak z ziemi i sprężyście wyskakują na swoje miejsca. Raz,
+   od ok. 0,65 s po wejściu (po fade-up nagłówka), całość ~6 s.
 
    Wektor lotu (--dx, --dy) do środka przedniej okładki ustawia VacuumWord;
    bez JS litery lecą w prawo. Tylko transform i opacity — litery to
@@ -120,7 +120,7 @@ body {
   .vacuum-letter {
     transform-origin: 50% 60%;
     animation: vacuum-letter 4.6s both;
-    animation-delay: calc(650ms + var(--i) * 120ms);
+    animation-delay: calc(650ms + var(--i) * 150ms);
   }
 
   .vacuum-squiggle {
@@ -130,56 +130,76 @@ body {
   }
 
   .vacuum-gulp {
-    animation: vacuum-gulp 1.2s both;
-    animation-delay: 1.95s;
+    animation: vacuum-gulp 1.5s both;
+    animation-delay: 1.8s;
   }
 }
 
 @keyframes vacuum-letter {
   0% {
     transform: none;
-    animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    animation-timing-function: ease-in-out;
   }
-  /* czuje ciąg: pochyla się w stronę książek */
+  /* czuje ciąg: drży, zapiera się i coraz mocniej przechyla w stronę książek */
+  2% {
+    transform: translate(calc(var(--dx) * 0.004 + 0.04em), calc(var(--dy) * 0.004)) rotate(4deg) scale(1.04, 0.97);
+    animation-timing-function: ease-in-out;
+  }
+  4% {
+    transform: translate(calc(var(--dx) * -0.002 - 0.04em), calc(var(--dy) * -0.002)) rotate(-4deg) scale(0.98, 1.03);
+    animation-timing-function: ease-in-out;
+  }
   6% {
-    transform: translate(calc(var(--dx) * 0.02), calc(var(--dy) * 0.02)) rotate(calc(var(--spin) * 0.03))
-      scale(1.08, 0.94);
-    animation-timing-function: cubic-bezier(0.3, 0, 0.3, 1);
+    transform: translate(calc(var(--dx) * 0.008 + 0.05em), calc(var(--dy) * 0.008)) rotate(5deg) scale(1.07, 0.95);
+    animation-timing-function: ease-in-out;
   }
-  /* zapiera się */
+  8% {
+    transform: translate(calc(var(--dx) * 0 - 0.05em), calc(var(--dy) * 0)) rotate(-5deg) scale(0.99, 1.02);
+    animation-timing-function: ease-in-out;
+  }
   10% {
-    transform: translate(calc(var(--dx) * -0.012), calc(var(--dy) * -0.012)) rotate(calc(var(--spin) * -0.02))
-      scale(0.95, 1.06);
-    animation-timing-function: cubic-bezier(0.5, 0, 0.9, 1);
+    transform: translate(calc(var(--dx) * 0.013 + 0.06em), calc(var(--dy) * 0.013)) rotate(6deg) scale(1.1, 0.93);
+    animation-timing-function: ease-in-out;
   }
-  /* ciąg wygrywa: rozciąga się w stronę okładki */
-  15% {
-    transform: translate(calc(var(--dx) * 0.05), calc(var(--dy) * 0.05)) rotate(calc(var(--spin) * 0.06))
-      scale(1.18, 0.86);
-    animation-timing-function: cubic-bezier(0.55, 0, 0.8, 0.4);
+  12% {
+    transform: translate(calc(var(--dx) * 0.004 - 0.06em), calc(var(--dy) * 0.004)) rotate(-6deg) scale(1.02, 1);
+    animation-timing-function: ease-in-out;
   }
-  /* porwana: leci łukiem i kręci się */
-  21% {
-    transform: translate(calc(var(--dx) * 0.3), calc(var(--dy) * 0.3 - 0.8em)) rotate(calc(var(--spin) * 0.4))
-      scale(1);
+  14% {
+    transform: translate(calc(var(--dx) * 0.018 + 0.07em), calc(var(--dy) * 0.018)) rotate(7deg) scale(1.11, 0.92);
+    animation-timing-function: ease-in-out;
+  }
+  16% {
+    transform: translate(calc(var(--dx) * 0.009 - 0.07em), calc(var(--dy) * 0.009)) rotate(-7deg) scale(1.06, 0.96);
+    animation-timing-function: ease-in-out;
+  }
+  18% {
+    transform: translate(calc(var(--dx) * 0.018 + 0.08em), calc(var(--dy) * 0.018)) rotate(8deg) scale(1.15, 0.9);
+    animation-timing-function: ease-in-out;
+  }
+  /* ostatni opór: wyciągnięta jak guma */
+  20% {
+    transform: translate(calc(var(--dx) * 0.026), calc(var(--dy) * 0.026)) rotate(calc(var(--spin) * 0.02))
+      scale(1.25, 0.84);
+    animation-timing-function: cubic-bezier(0.7, 0, 1, 0.6);
+  }
+  /* puściła: wessana z rosnącą prędkością, prawie po prostej */
+  23% {
+    transform: translate(calc(var(--dx) * 0.4), calc(var(--dy) * 0.4 - 0.25em)) rotate(calc(var(--spin) * 0.35))
+      scale(1.25, 0.7);
     opacity: 1;
-    animation-timing-function: linear;
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 1);
   }
-  25% {
-    transform: translate(calc(var(--dx) * 0.72), calc(var(--dy) * 0.72 - 0.6em)) rotate(calc(var(--spin) * 0.8))
-      scale(0.75);
-    opacity: 1;
-    animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
-  }
-  /* dolatuje do okładki i daje się wessać */
-  28% {
-    transform: translate(var(--dx), var(--dy)) rotate(var(--spin)) scale(0.15);
+  /* w okładce */
+  25.5% {
+    transform: translate(var(--dx), var(--dy)) rotate(var(--spin)) scale(0.12);
     opacity: 1;
   }
-  29% {
+  26.5% {
     transform: translate(var(--dx), var(--dy)) rotate(var(--spin)) scale(0.04);
     opacity: 0;
   }
+
   /* siedzi w książce */
   77% {
     transform: translate(var(--dx), var(--dy)) rotate(var(--spin)) scale(0.04);
@@ -271,7 +291,7 @@ body {
 }
 
 /* Wachlarz „przełyka” wpadające litery.
-   Start 1,95 s: wtedy pierwsza litera dolatuje do okładki. */
+   Start 1,8 s: wtedy pierwsza litera wpada do okładki. */
 @keyframes vacuum-gulp {
   0%,
   100% {
