@@ -126,10 +126,16 @@ export default function HeroFan({ books, lang = 'pl' }: { books: HeroFanBook[]; 
         const cover = (
           <Image
             src={book.coverImage}
-            alt={isFront ? t.cover(label) : ''}
+            // Opis także dla okładek z tyłu — czytniki ekranu i tak je pomijają
+            // (aria-hidden na kontenerze), a puste alt zgłaszają audyty SEO.
+            alt={t.cover(label)}
             width={600}
             height={800}
-            priority={index === 0}
+            // Trzy widoczne okładki ładujemy od razu — leniwe ładowanie zostawiało
+            // na moment puste miejsca po bokach. Reszta czeka na swoją kolej.
+            {...(isFront
+              ? { priority: true }
+              : { loading: Math.abs(d) <= 1 ? ('eager' as const) : ('lazy' as const) })}
             className="w-full rounded-xl"
           />
         );
