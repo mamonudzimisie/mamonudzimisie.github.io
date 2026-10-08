@@ -10,20 +10,42 @@ function IconPinterest({ className }: IconProps) {
   );
 }
 
+function IconInstagram({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className}>
+      <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+      <circle cx="12" cy="12" r="4.25" />
+      <circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 // Nowy profil = nowy wpis tutaj; ikonka pojawi się w stopkach i na „O nas”.
 export const SOCIALS = [
   {
     name: 'Pinterest',
     href: 'https://www.pinterest.com/ZalkaBooks/',
     handle: 'pinterest.com/ZalkaBooks',
+    // polski miejscownik: „Obserwuj nas na …”
+    namePl: 'Pintereście',
     Icon: IconPinterest,
-    // kolor marki — po najechaniu
+    // kolor marki — tło ikonki po najechaniu (stopka) i kolor ikonki na „O nas”
     hover: 'hover:bg-[#E60023]',
+    text: 'text-[#E60023]',
+  },
+  {
+    name: 'Instagram',
+    href: 'https://www.instagram.com/zalkabooks_com/',
+    handle: 'instagram.com/zalkabooks_com',
+    namePl: 'Instagramie',
+    Icon: IconInstagram,
+    hover: 'hover:bg-[#E1306C]',
+    text: 'text-[#E1306C]',
   },
 ];
 
-const FOLLOW: Record<SiteLang, { heading: string; on: (name: string) => string }> = {
-  pl: { heading: 'Obserwuj nas', on: (name) => `Obserwuj nas na ${name}` },
+const FOLLOW: Record<SiteLang, { heading: string; on: (name: string, namePl: string) => string }> = {
+  pl: { heading: 'Obserwuj nas', on: (_name, namePl) => `Obserwuj nas na ${namePl}` },
   de: { heading: 'Folge uns', on: (name) => `Folge uns auf ${name}` },
   en: { heading: 'Follow us', on: (name) => `Follow us on ${name}` },
 };
@@ -35,14 +57,14 @@ export default function SocialLinks({ lang = 'pl', className = '' }: { lang?: Si
     <div className={`flex items-center gap-3 ${className}`}>
       <span className="text-sm font-semibold text-ink/70">{t.heading}</span>
       <ul className="flex items-center gap-2">
-        {SOCIALS.map(({ name, href, Icon, hover }) => (
+        {SOCIALS.map(({ name, namePl, href, Icon, hover }) => (
           <li key={name}>
             <a
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={t.on(name)}
-              title={t.on(name)}
+              aria-label={t.on(name, namePl)}
+              title={t.on(name, namePl)}
               className={`flex h-9 w-9 items-center justify-center rounded-full bg-navy text-white transition hover:-translate-y-0.5 ${hover}`}
             >
               <Icon className="h-4 w-4" />

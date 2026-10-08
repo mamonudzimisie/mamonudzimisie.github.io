@@ -39,7 +39,7 @@ export default function ONasPage() {
           </p>
         </div>
 
-        {SOCIALS.map(({ name, href, handle, Icon }) => (
+        {SOCIALS.map(({ name, namePl, href, handle, Icon, text }) => (
           <a
             key={name}
             href={href}
@@ -49,13 +49,13 @@ export default function ONasPage() {
           >
             <span
               aria-hidden="true"
-              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-[#E60023]"
+              className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white ${text}`}
             >
               <Icon className="h-6 w-6" />
             </span>
             <span className="min-w-0 flex-1">
               <span className="block font-display text-lg font-700 leading-tight text-navy">
-                Obserwuj nas na {name}!
+                Obserwuj nas na {namePl}!
               </span>
               <span className="mt-1 block text-sm text-ink/70 group-hover:text-orange">{handle}</span>
             </span>

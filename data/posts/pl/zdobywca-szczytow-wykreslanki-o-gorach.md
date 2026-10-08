@@ -51,3 +51,5 @@ Ekwipunek dodatkowy: ołówek, herbata z termosu (dla klimatu), opcjonalnie kana
 Góry nie uciekną. Ale zanim znów założysz buty trekkingowe, możesz rozgrzać się na papierze. „Zdobywca Szczytów” nie zastąpi widoku z Tarnicy o wschodzie słońca, ale dobrze wypełni czas do następnej wyprawy. A pieczątki w książeczce odznak? Jeszcze się nazbierają.
 
 Do zobaczenia na szlaku – tym prawdziwym i tym z liter!
+
+Zajrzyj też na nasz [Instagram](https://www.instagram.com/zalkabooks_com/) – pokazujemy tam nowe książki, zanim trafią na półki.
