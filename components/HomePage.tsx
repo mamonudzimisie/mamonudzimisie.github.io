@@ -300,9 +300,10 @@ export default function HomePage({
               </span>
             </span>
 
-            <h1 className="animate-fade-up mt-6 font-display text-4xl font-800 leading-[1.1] text-navy sm:text-5xl lg:text-6xl [animation-delay:150ms]">
+            <h1 className="animate-fade-up mt-6 font-display text-5xl font-800 leading-[1.05] text-navy sm:text-6xl lg:text-7xl [animation-delay:150ms]">
+              {/* „Uwaga,” to tylko zapowiedź — mniejsza od zdania, które niesie treść. */}
               {t.titleShout && (
-                <span className="block text-6xl sm:text-7xl lg:text-8xl">{t.titleShout}</span>
+                <span className="mb-1 block text-2xl text-navy/70 sm:text-3xl lg:text-4xl">{t.titleShout}</span>
               )}
               {t.titleLines.map((line, index) => (
                 <Fragment key={line}>
