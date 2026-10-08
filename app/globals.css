@@ -99,9 +99,9 @@ body {
 
 /* Hero, strona główna (wszystkie języki): wyróżnione słowo („wciągają”,
    „fesseln”, „addictive”) wciąga odkurzacz — prosto do książek. Każda
-   litera osobno (co 150 ms) najpierw drży i stawia opór (~0,9 s), coraz
+   litera osobno (co 150 ms) najpierw drży co ~45 ms i stawia opór (~0,9 s), coraz
    mocniej przechylona i rozciągnięta w stronę wachlarza, a potem puszcza
-   i zostaje wessana z rosnącą prędkością (~0,25 s) do przedniej okładki.
+   i zostaje nagle wessana (~0,15 s) do przedniej okładki.
    Wachlarz „przełyka” wpadające litery. Po ~2,3 s litery wyłaniają się
    spod falki jak z ziemi i sprężyście wyskakują na swoje miejsca. Raz,
    od ok. 0,65 s po wejściu (po fade-up nagłówka), całość ~6 s.
@@ -131,7 +131,7 @@ body {
 
   .vacuum-gulp {
     animation: vacuum-gulp 1.5s both;
-    animation-delay: 1.8s;
+    animation-delay: 1.7s;
   }
 }
 
@@ -140,62 +140,103 @@ body {
     transform: none;
     animation-timing-function: ease-in-out;
   }
-  /* czuje ciąg: drży, zapiera się i coraz mocniej przechyla w stronę książek */
+  /* czuje ciąg: drży co ~45 ms, zapiera się i coraz mocniej przechyla
+     w stronę książek */
+  1% {
+    transform: translate(calc(var(--dx) * 0.0028 + 0.037em), calc(var(--dy) * 0.0028)) rotate(3.2deg) scale(1.027, 0.976);
+    animation-timing-function: ease-in-out;
+  }
   2% {
-    transform: translate(calc(var(--dx) * 0.004 + 0.04em), calc(var(--dy) * 0.004)) rotate(4deg) scale(1.04, 0.97);
+    transform: translate(calc(var(--dx) * 0.001 - 0.038em), calc(var(--dy) * 0.001)) rotate(-3.4deg) scale(0.996, 1.016);
+    animation-timing-function: ease-in-out;
+  }
+  3% {
+    transform: translate(calc(var(--dx) * 0.0045 + 0.04em), calc(var(--dy) * 0.0045)) rotate(3.6deg) scale(1.041, 0.967);
     animation-timing-function: ease-in-out;
   }
   4% {
-    transform: translate(calc(var(--dx) * -0.002 - 0.04em), calc(var(--dy) * -0.002)) rotate(-4deg) scale(0.98, 1.03);
+    transform: translate(calc(var(--dx) * 0.002 - 0.041em), calc(var(--dy) * 0.002)) rotate(-3.8deg) scale(1.003, 1.012);
+    animation-timing-function: ease-in-out;
+  }
+  5% {
+    transform: translate(calc(var(--dx) * 0.0062 + 0.043em), calc(var(--dy) * 0.0062)) rotate(4.1deg) scale(1.054, 0.959);
     animation-timing-function: ease-in-out;
   }
   6% {
-    transform: translate(calc(var(--dx) * 0.008 + 0.05em), calc(var(--dy) * 0.008)) rotate(5deg) scale(1.07, 0.95);
+    transform: translate(calc(var(--dx) * 0.003 - 0.044em), calc(var(--dy) * 0.003)) rotate(-4.3deg) scale(1.009, 1.007);
+    animation-timing-function: ease-in-out;
+  }
+  7% {
+    transform: translate(calc(var(--dx) * 0.0079 + 0.046em), calc(var(--dy) * 0.0079)) rotate(4.5deg) scale(1.068, 0.951);
     animation-timing-function: ease-in-out;
   }
   8% {
-    transform: translate(calc(var(--dx) * 0 - 0.05em), calc(var(--dy) * 0)) rotate(-5deg) scale(0.99, 1.02);
+    transform: translate(calc(var(--dx) * 0.004 - 0.048em), calc(var(--dy) * 0.004)) rotate(-4.7deg) scale(1.015, 1.003);
+    animation-timing-function: ease-in-out;
+  }
+  9% {
+    transform: translate(calc(var(--dx) * 0.0096 + 0.049em), calc(var(--dy) * 0.0096)) rotate(4.9deg) scale(1.082, 0.942);
     animation-timing-function: ease-in-out;
   }
   10% {
-    transform: translate(calc(var(--dx) * 0.013 + 0.06em), calc(var(--dy) * 0.013)) rotate(6deg) scale(1.1, 0.93);
+    transform: translate(calc(var(--dx) * 0.0051 - 0.051em), calc(var(--dy) * 0.0051)) rotate(-5.1deg) scale(1.022, 0.999);
+    animation-timing-function: ease-in-out;
+  }
+  11% {
+    transform: translate(calc(var(--dx) * 0.0113 + 0.052em), calc(var(--dy) * 0.0113)) rotate(5.3deg) scale(1.095, 0.934);
     animation-timing-function: ease-in-out;
   }
   12% {
-    transform: translate(calc(var(--dx) * 0.004 - 0.06em), calc(var(--dy) * 0.004)) rotate(-6deg) scale(1.02, 1);
+    transform: translate(calc(var(--dx) * 0.0061 - 0.054em), calc(var(--dy) * 0.0061)) rotate(-5.5deg) scale(1.028, 0.995);
+    animation-timing-function: ease-in-out;
+  }
+  13% {
+    transform: translate(calc(var(--dx) * 0.0129 + 0.056em), calc(var(--dy) * 0.0129)) rotate(5.7deg) scale(1.109, 0.925);
     animation-timing-function: ease-in-out;
   }
   14% {
-    transform: translate(calc(var(--dx) * 0.018 + 0.07em), calc(var(--dy) * 0.018)) rotate(7deg) scale(1.11, 0.92);
+    transform: translate(calc(var(--dx) * 0.0071 - 0.057em), calc(var(--dy) * 0.0071)) rotate(-5.9deg) scale(1.034, 0.991);
+    animation-timing-function: ease-in-out;
+  }
+  15% {
+    transform: translate(calc(var(--dx) * 0.0146 + 0.059em), calc(var(--dy) * 0.0146)) rotate(6.2deg) scale(1.123, 0.917);
     animation-timing-function: ease-in-out;
   }
   16% {
-    transform: translate(calc(var(--dx) * 0.009 - 0.07em), calc(var(--dy) * 0.009)) rotate(-7deg) scale(1.06, 0.96);
+    transform: translate(calc(var(--dx) * 0.0081 - 0.06em), calc(var(--dy) * 0.0081)) rotate(-6.4deg) scale(1.041, 0.986);
+    animation-timing-function: ease-in-out;
+  }
+  17% {
+    transform: translate(calc(var(--dx) * 0.0163 + 0.062em), calc(var(--dy) * 0.0163)) rotate(6.6deg) scale(1.136, 0.908);
     animation-timing-function: ease-in-out;
   }
   18% {
-    transform: translate(calc(var(--dx) * 0.018 + 0.08em), calc(var(--dy) * 0.018)) rotate(8deg) scale(1.15, 0.9);
+    transform: translate(calc(var(--dx) * 0.0091 - 0.063em), calc(var(--dy) * 0.0091)) rotate(-6.8deg) scale(1.047, 0.982);
+    animation-timing-function: ease-in-out;
+  }
+  19% {
+    transform: translate(calc(var(--dx) * 0.018 + 0.065em), calc(var(--dy) * 0.018)) rotate(7.0deg) scale(1.15, 0.9);
     animation-timing-function: ease-in-out;
   }
   /* ostatni opór: wyciągnięta jak guma */
   20% {
     transform: translate(calc(var(--dx) * 0.026), calc(var(--dy) * 0.026)) rotate(calc(var(--spin) * 0.02))
       scale(1.25, 0.84);
-    animation-timing-function: cubic-bezier(0.7, 0, 1, 0.6);
+    animation-timing-function: cubic-bezier(0.9, 0, 1, 0.7);
   }
-  /* puściła: wessana z rosnącą prędkością, prawie po prostej */
-  23% {
-    transform: translate(calc(var(--dx) * 0.4), calc(var(--dy) * 0.4 - 0.25em)) rotate(calc(var(--spin) * 0.35))
-      scale(1.25, 0.7);
+  /* puściła: nagle wessana, prawie po prostej */
+  21.6% {
+    transform: translate(calc(var(--dx) * 0.45), calc(var(--dy) * 0.45 - 0.2em)) rotate(calc(var(--spin) * 0.4))
+      scale(1.35, 0.65);
     opacity: 1;
-    animation-timing-function: cubic-bezier(0.5, 0, 1, 1);
+    animation-timing-function: cubic-bezier(0.6, 0, 1, 1);
   }
   /* w okładce */
-  25.5% {
+  23.2% {
     transform: translate(var(--dx), var(--dy)) rotate(var(--spin)) scale(0.12);
     opacity: 1;
   }
-  26.5% {
+  24% {
     transform: translate(var(--dx), var(--dy)) rotate(var(--spin)) scale(0.04);
     opacity: 0;
   }
@@ -291,7 +332,7 @@ body {
 }
 
 /* Wachlarz „przełyka” wpadające litery.
-   Start 1,8 s: wtedy pierwsza litera wpada do okładki. */
+   Start 1,7 s: wtedy pierwsza litera wpada do okładki. */
 @keyframes vacuum-gulp {
   0%,
   100% {
