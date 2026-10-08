@@ -7,10 +7,24 @@ body {
   color: #2e2a26;
 }
 
+/* Kratka na osobnej warstwie, żeby maska wygaszała tylko ją, a nie treść
+   sekcji. Dół płynnie zanika zamiast urywać się prostą linią. */
 .notebook-grid {
+  position: relative;
+  isolation: isolate;
+}
+
+.notebook-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
   background-image: linear-gradient(#00000012 1px, transparent 1px),
     linear-gradient(90deg, #00000012 1px, transparent 1px);
   background-size: 28px 28px;
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent);
 }
 
 .speech-bubble {
