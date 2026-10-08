@@ -182,18 +182,19 @@ export default function HeroFan({ books, lang = 'pl' }: { books: HeroFanBook[]; 
         );
       })}
 
-      <div className="relative z-40 mt-6 flex items-center justify-center gap-3">
+      {/* Strzałki i kropki wyraźnie widoczne — małe łatwo było przeoczyć. */}
+      <div className="relative z-40 mt-8 flex items-center justify-center gap-5">
         <button
           type="button"
           onClick={() => go(-1)}
           aria-label={t.prev}
-          className="flex h-7 w-7 items-center justify-center rounded-full text-ink/35 transition hover:text-orange"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-navy shadow-cover ring-1 ring-ink/10 transition hover:bg-orange hover:text-white"
         >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden="true">
             <path d="M15 6l-6 6 6 6" />
           </svg>
         </button>
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-2">
           {books.map((book, index) => (
             <button
               key={book.slug}
@@ -201,8 +202,8 @@ export default function HeroFan({ books, lang = 'pl' }: { books: HeroFanBook[]; 
               onClick={() => setFront(index)}
               aria-label={t.dot(index + 1, count, book.title)}
               aria-current={index === front}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                index === front ? 'w-5 bg-orange' : 'w-2 bg-ink/20 hover:bg-ink/40'
+              className={`h-2.5 rounded-full transition-all duration-300 ${
+                index === front ? 'w-7 bg-orange' : 'w-2.5 bg-ink/25 hover:bg-ink/45'
               }`}
             />
           ))}
@@ -211,9 +212,9 @@ export default function HeroFan({ books, lang = 'pl' }: { books: HeroFanBook[]; 
           type="button"
           onClick={() => go(1)}
           aria-label={t.next}
-          className="flex h-7 w-7 items-center justify-center rounded-full text-ink/35 transition hover:text-orange"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-navy shadow-cover ring-1 ring-ink/10 transition hover:bg-orange hover:text-white"
         >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden="true">
             <path d="M9 6l6 6-6 6" />
           </svg>
         </button>
