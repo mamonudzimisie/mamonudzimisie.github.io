@@ -34,7 +34,6 @@ type Strings = {
   whyAccent: string;
   reasons: { title: string; text: string }[];
   // Wyciszona litera w tle sekcji hero.
-  doodleLetter: string;
 };
 
 const STRINGS: Record<SiteLang, Strings> = {
@@ -75,7 +74,6 @@ const STRINGS: Record<SiteLang, Strings> = {
         text: 'Świetna zabawa w podróży, w deszczowy wieczór albo w przerwie w ciągu dnia.',
       },
     ],
-    doodleLetter: 'W',
   },
   de: {
     badge: 'Für Kinder und Erwachsene',
@@ -114,7 +112,6 @@ const STRINGS: Record<SiteLang, Strings> = {
         text: 'Perfekt für unterwegs, für einen verregneten Abend oder eine Pause zwischendurch.',
       },
     ],
-    doodleLetter: 'R',
   },
   en: {
     badge: 'For kids and adults',
@@ -154,7 +151,6 @@ const STRINGS: Record<SiteLang, Strings> = {
         text: 'Perfect for travel, a rainy evening or a quick break during the day.',
       },
     ],
-    doodleLetter: 'P',
   },
 };
 
@@ -201,34 +197,10 @@ function IconMoon({ className }: IconProps) {
   );
 }
 
-function DoodleStar({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-      <path d="M12 2l2.2 6.6H21l-5.4 4 2.1 6.6L12 15.2l-5.7 4.2 2.1-6.6L3 8.6h6.8L12 2z" />
-    </svg>
-  );
-}
-
 function DoodleSparkle({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className={className}>
       <path d="M12 2v5M12 17v5M2 12h5M17 12h5M5 5l3.5 3.5M15.5 15.5L19 19M19 5l-3.5 3.5M8.5 15.5L5 19" />
-    </svg>
-  );
-}
-
-function DoodleDashedCircle({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeDasharray="3 4" className={className}>
-      <circle cx="12" cy="12" r="9" />
-    </svg>
-  );
-}
-
-function DoodleSwirl({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className={className}>
-      <path d="M4 8c2-4 8-4 9 0s-3 6-6 4 1-7 5-6 6 5 3 8" />
     </svg>
   );
 }
@@ -319,24 +291,6 @@ export default function HomePage({
   return (
     <>
       <section className="notebook-grid relative overflow-hidden px-4 pb-24 pt-12 sm:px-6 sm:pb-32 sm:pt-20">
-        {/* rozproszone, wyciszone doodle w tle */}
-        <IconHeart className="pointer-events-none absolute right-[8%] top-[14%] hidden h-8 w-8 rotate-[8deg] text-orange/25 lg:block" />
-        <DoodleDashedCircle className="pointer-events-none absolute right-[3%] top-[46%] hidden h-16 w-16 text-green/25 lg:block" />
-        <IconPencil className="pointer-events-none absolute bottom-[16%] right-[6%] hidden h-10 w-10 rotate-[25deg] text-navy/20 lg:block" />
-        <DoodleSwirl className="pointer-events-none absolute bottom-[22%] left-[46%] hidden h-9 w-9 text-green/20 lg:block" />
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute right-[4%] top-[4%] hidden font-display text-6xl font-800 text-navy/10 lg:block"
-        >
-          B
-        </span>
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute bottom-[8%] left-[38%] hidden font-display text-5xl font-800 text-orange/10 lg:block"
-        >
-          {t.doodleLetter}
-        </span>
-
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
           <div className="text-center lg:text-left">
             <span className="relative inline-block animate-fade-up">
@@ -401,10 +355,6 @@ export default function HomePage({
           </div>
 
           <div className="relative mx-auto w-full max-w-xs sm:max-w-sm lg:mx-0 lg:max-w-md lg:justify-self-end">
-            <DoodleStar className="absolute -left-6 -top-6 hidden h-6 w-6 rotate-[-15deg] text-orange/70 sm:block" />
-            <DoodleStar className="absolute -bottom-2 -left-8 hidden h-4 w-4 rotate-[10deg] text-orange/50 sm:block" />
-            <DoodleSparkle className="absolute -right-7 top-8 hidden h-7 w-7 text-yellow-500/60 sm:block" />
-
             {/* miękki cień na "podłodze" */}
             <div className="absolute inset-x-8 -bottom-3 h-8 rounded-full bg-ink/15 blur-2xl" aria-hidden="true" />
 
@@ -421,10 +371,7 @@ export default function HomePage({
       <section className="relative px-4 pb-16 pt-10 sm:px-6 sm:pb-20 sm:pt-12">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-center font-display text-3xl font-800 text-navy sm:text-4xl">
-            <span className="relative inline-block">
-              {t.audiencesTitle}
-              <DoodleSparkle className="absolute -right-8 -top-3 hidden h-6 w-6 text-orange/70 sm:block" />
-            </span>
+            {t.audiencesTitle}
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-center text-base text-ink/70 sm:text-lg">
             {t.audiencesLead}
