@@ -506,6 +506,33 @@ export const books: Book[] = [
         '150 easy Sudoku puzzles for beginners in a really large font. Two puzzles per page, a step-by-step guide and full solutions. A calm first Sudoku book.',
     },
   },
+  {
+    slug: 'sudoku-300-puzzles-200',
+    title: 'Sudoku',
+    subtitle: '300 puzzles from easy to very hard',
+    ageRange: 'Dorośli',
+    category: 'sudoku',
+    audience: 'dorosli',
+    lang: 'en',
+    description:
+      'One grid, nine digits and a moment just for you. This book contains 300 Sudoku puzzles arranged from the easiest to the hardest — you’ll start with simple ones and finish with grids that will keep you busy much longer. Every puzzle has exactly one solution and can be solved by logic alone, with no guessing. Perfect for travel, a morning coffee, a waiting room or an evening away from screens. A great gift for anyone who loves puzzles — and for yourself.',
+    features: [
+      '300 Sudoku puzzles in four levels: easy, medium, hard and very hard',
+      'An introduction to solving methods — from the basics to X-Wing, Swordfish and XY-Wing',
+      'Full solutions at the back of the book',
+      'Clear grids with bold 3×3 box lines',
+    ],
+    coverImage: '/covers/sudoku-300-puzzles-200.webp',
+    amazonUrl: 'https://a.co/d/0icV7JLn',
+    featured: true,
+    formatInches: '8.5 × 11 in',
+    pageCount: 132,
+    seo: {
+      title: '300 Sudoku Puzzles – From Easy to Very Hard',
+      description:
+        '300 Sudoku puzzles in four difficulty levels, each with exactly one solution. An introduction to techniques from the basics to X-Wing and Swordfish. Solutions included.',
+    },
+  },
 ];
 
 export function getBookBySlug(slug: string): Book | undefined {
