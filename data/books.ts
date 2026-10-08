@@ -327,6 +327,7 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 132,
+    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/sudoku-300-zagadek-200/${n}.webp`),
     seo: {
       title: 'Sudoku – 300 zagadek od łatwych do bardzo trudnych',
       description:
@@ -527,6 +528,7 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8.5 × 11 in',
     pageCount: 132,
+    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/sudoku-300-puzzles-200/${n}.webp`),
     seo: {
       title: '300 Sudoku Puzzles – From Easy to Very Hard',
       description:
