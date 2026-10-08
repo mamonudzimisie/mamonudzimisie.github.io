@@ -44,7 +44,7 @@ const STRINGS: Record<SiteLang, Strings> = {
     titleLines: ['te zagadki'],
     titlePrefix: '',
     titleAccent: 'wciągają',
-    lead: 'Przy tym relaksują, ćwiczą umysł i dają chwilę oddechu. Dla małych i dużych!',
+    lead: 'Książeczki aktywnościowe, łamigłówki i zadania logiczne, które wciągają, a przy tym relaksują i ćwiczą umysł. Dla małych i dużych!',
     cta: 'Zobacz książki',
     benefits: [
       ['Rozwijają', 'spostrzegawczość'],
@@ -83,7 +83,7 @@ const STRINGS: Record<SiteLang, Strings> = {
     titleLines: ['diese Rätsel'],
     titlePrefix: '',
     titleAccent: 'fesseln',
-    lead: 'Dabei entspannen sie, trainieren den Kopf und schenken eine kleine Atempause. Für Groß und Klein!',
+    lead: 'Mitmachbücher, Rätsel und Logikaufgaben, die fesseln und dabei entspannen und den Kopf trainieren. Für Groß und Klein!',
     cta: 'Bücher ansehen',
     benefits: [
       ['Schärfen die', 'Aufmerksamkeit'],
@@ -122,7 +122,7 @@ const STRINGS: Record<SiteLang, Strings> = {
     titleLines: ['these puzzles'],
     titlePrefix: 'are',
     titleAccent: 'addictive',
-    lead: 'They also help you relax, keep your mind sharp and give you a moment to breathe. For kids and grown-ups alike!',
+    lead: "Activity books, puzzles and logic games so addictive you won't put them down, and they help you relax and keep your mind sharp. For kids and grown-ups alike!",
     cta: 'Browse books',
     note: 'Our first English title is out — the rest of our books are in Polish and German for now.',
     benefits: [
