@@ -48,7 +48,7 @@ const STRINGS: Record<SiteLang, Strings> = {
     benefits: [
       ['Rozwijają', 'spostrzegawczość'],
       ['Dają relaks', 'bez ekranu'],
-      ['Od 5', 'do 105 lat'],
+      ['Dla każdego', 'od 5 do 105 lat'],
     ],
     audiencesTitle: 'Znajdź coś dla siebie',
     audiencesLead: 'Łamigłówki na każdą okazję — dla dzieci, dorosłych i całej rodziny.',
@@ -86,7 +86,7 @@ const STRINGS: Record<SiteLang, Strings> = {
     benefits: [
       ['Schärfen die', 'Aufmerksamkeit'],
       ['Entspannung', 'ohne Bildschirm'],
-      ['Von 5', 'bis 105 Jahre'],
+      ['Für alle', 'von 5 bis 105 Jahren'],
     ],
     audiencesTitle: 'Finde etwas für dich',
     audiencesLead: 'Rätsel für jede Gelegenheit — für Kinder, Erwachsene und die ganze Familie.',
@@ -125,7 +125,7 @@ const STRINGS: Record<SiteLang, Strings> = {
     benefits: [
       ['Sharpen', 'attention'],
       ['Screen-free', 'relaxation'],
-      ['Ages 5', 'to 105'],
+      ['For everyone', 'aged 5 to 105'],
     ],
     audiencesTitle: 'Find something for you',
     audiencesLead: 'Puzzles for every occasion — for kids, adults and the whole family.',
