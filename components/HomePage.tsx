@@ -86,7 +86,7 @@ const STRINGS: Record<SiteLang, Strings> = {
     benefits: [
       ['Schärfen die', 'Aufmerksamkeit'],
       ['Entspannung', 'ohne Bildschirm'],
-      ['Für alle', 'von 5 bis 105 Jahren'],
+      ['Für alle von 5', 'bis 105 Jahren'],
     ],
     audiencesTitle: 'Finde etwas für dich',
     audiencesLead: 'Rätsel für jede Gelegenheit — für Kinder, Erwachsene und die ganze Familie.',
