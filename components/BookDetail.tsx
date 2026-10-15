@@ -136,9 +136,20 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
 
           <div className="mt-8">
             {book.comingSoon ? (
-              <span className="inline-block rounded-full bg-orange-light px-6 py-3 text-sm font-bold text-orange">
-                {t.detail.comingSoon}
-              </span>
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                <span className="inline-block rounded-full bg-orange-light px-6 py-3 text-sm font-bold text-orange">
+                  {t.detail.comingSoon}
+                </span>
+                {/* przed premierą podgląd z własnych stron, bez przycisku „Kup” */}
+                {book.samplePages?.length ? (
+                  <SamplePreview
+                    pages={book.samplePages}
+                    bookTitle={book.title}
+                    amazonUrl=""
+                    siteLang={siteLang}
+                  />
+                ) : null}
+              </div>
             ) : (
               <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
                 <a

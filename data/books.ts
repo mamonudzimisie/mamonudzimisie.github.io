@@ -4,6 +4,7 @@ export type BookCategory =
   | 'labirynty'
   | 'kolorowanki'
   | 'laczenie-kropek'
+  | 'nauka-jezykow'
   | 'inne';
 
 export type BookAudience = 'dzieci' | 'dorosli' | 'duzy-druk';
@@ -56,6 +57,7 @@ export const CATEGORY_LABELS: Record<BookCategory, string> = {
   labirynty: 'Labirynty',
   kolorowanki: 'Kolorowanki',
   'laczenie-kropek': 'Łączenie kropek',
+  'nauka-jezykow': 'Nauka języków',
   inne: 'Inne',
 };
 
@@ -617,6 +619,49 @@ export const books: Book[] = [
       title: '300 Sudoku Puzzles – From Easy to Very Hard',
       description:
         '300 Sudoku puzzles in four difficulty levels, each with exactly one solution. An introduction to techniques from the basics to X-Wing and Swordfish. Solutions included.',
+    },
+  },
+  {
+    // Seria „Znajdź, zakreśl, zapamiętaj” — czeka na publikację w KDP. Gdy będzie link
+    // (amazon.pl): wpisać amazonUrl i usunąć comingSoon.
+    slug: 'znajdz-zakresl-zapamietaj-angielski-czasowniki',
+    title: 'Znajdź, zakreśl, zapamiętaj',
+    subtitle: 'Angielski – czasowniki nieregularne',
+    detailSubtitle:
+      'Angielski – czasowniki nieregularne · Wykreślanki i zdania z lukami. Ćwiczenia dla młodzieży i dorosłych',
+    ageRange: '13+',
+    category: 'nauka-jezykow',
+    audience: 'dorosli',
+    lang: 'pl',
+    description:
+      'Wykreślanki dla nastolatków i dorosłych, którzy chcą wreszcie opanować angielskie czasowniki nieregularne. Na każdej rozkładówce plansza z wyrazami do odszukania po lewej, po prawej słówka, których szukasz, a następnie luki i zdania do uzupełnienia.',
+    features: [
+      '184 czasowniki: 120 podstawowych i 64 zaawansowane',
+      '40 wykreślanek na rozkładówkach – plansza po lewej, zadania po prawej',
+      '5 poziomów – od wyszukiwania form do zdań z lukami w Present Perfect',
+      '2 testy „Sprawdź się!”, tabela wszystkich form i rozwiązania',
+    ],
+    coverImage: '/covers/znajdz-zakresl-zapamietaj-angielski-czasowniki.webp',
+    amazonUrl: '',
+    featured: false,
+    comingSoon: true,
+    formatInches: '8,5 × 11 cala',
+    pageCount: 126,
+    isbn: '978-83-982993-9-8',
+    samplePages: [1, 2, 3, 4, 5, 6, 7].map(
+      (n) => `/samples/znajdz-zakresl-zapamietaj-angielski-czasowniki/${n}.webp`,
+    ),
+    seo: {
+      title: 'Angielskie czasowniki nieregularne w wykreślankach – Znajdź, zakreśl, zapamiętaj',
+      description:
+        '184 angielskie czasowniki nieregularne w 40 wykreślankach: plansze, luki i zdania w Past Simple i Present Perfect, 2 testy i tabela form. Dla młodzieży i dorosłych.',
+      keywords: [
+        'czasowniki nieregularne angielski',
+        'irregular verbs ćwiczenia',
+        'nauka angielskiego',
+        'wykreślanki po angielsku',
+        'Past Simple Present Perfect ćwiczenia',
+      ],
     },
   },
 ];

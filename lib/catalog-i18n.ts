@@ -128,6 +128,7 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       labirynty: 'Labyrinthe',
       kolorowanki: 'Malbücher',
       'laczenie-kropek': 'Punkte verbinden',
+      'nauka-jezykow': 'Sprachen lernen',
       inne: 'Sonstige',
     },
     audienceLabels: {
@@ -189,6 +190,7 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       labirynty: 'Mazes',
       kolorowanki: 'Colouring books',
       'laczenie-kropek': 'Dot to dot',
+      'nauka-jezykow': 'Language learning',
       inne: 'Other',
     },
     audienceLabels: {

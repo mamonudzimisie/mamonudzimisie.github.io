@@ -125,14 +125,16 @@ export default function SamplePreview({
             <p className="text-sm font-semibold text-white/80" aria-live="polite">
               {t.detail.samplePage(index + 1, pages.length)}
             </p>
-            <a
-              href={amazonUrl}
-              target="_blank"
-              rel="noopener noreferrer sponsored"
-              className="inline-block rounded-full bg-orange px-6 py-2 text-sm font-bold text-white transition hover:bg-orange/90"
-            >
-              {t.card.buy}
-            </a>
+            {amazonUrl && (
+              <a
+                href={amazonUrl}
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                className="inline-block rounded-full bg-orange px-6 py-2 text-sm font-bold text-white transition hover:bg-orange/90"
+              >
+                {t.card.buy}
+              </a>
+            )}
           </div>
         </div>
       )}
