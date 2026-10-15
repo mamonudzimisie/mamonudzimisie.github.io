@@ -638,7 +638,7 @@ export const books: Book[] = [
     features: [
       '184 czasowniki: 120 podstawowych i 64 zaawansowane',
       '40 wykreślanek na rozkładówkach – plansza po lewej, zadania po prawej',
-      '5 poziomów – od wyszukiwania form do zdań z lukami w Present Perfect',
+      '5 poziomów – od wyszukiwania form do zdań z lukami',
       '2 testy „Sprawdź się!”, tabela wszystkich form i rozwiązania',
     ],
     coverImage: '/covers/znajdz-zakresl-zapamietaj-angielski-czasowniki.webp',
