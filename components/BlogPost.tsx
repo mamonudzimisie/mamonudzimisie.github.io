@@ -1,6 +1,13 @@
 import Link from 'next/link';
 import type { Post } from '@/data/posts';
 import { formatPostDate } from './BlogList';
+import MiniWordSearch from './MiniWordSearch';
+
+// Znacznik zostawiany przez {{wykreslanka …}} w data/posts/index.ts.
+const PUZZLE_MARKER = /<div data-puzzle="(\d+)"><\/div>/;
+
+const PROSE =
+  'space-y-4 leading-relaxed text-ink/80 text-lg [&_a]:font-semibold [&_a]:text-navy [&_a]:underline [&_a]:underline-offset-4 [&_blockquote]:rounded-r-xl [&_blockquote]:border-l-4 [&_blockquote]:border-orange [&_blockquote]:bg-orange-light/60 [&_blockquote]:px-5 [&_blockquote]:py-3 [&_h2]:!mt-12 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:font-800 [&_h2]:text-navy [&_h3]:!mt-8 [&_h3]:font-display [&_h3]:text-xl [&_h3]:font-700 [&_h3]:text-navy [&_hr]:!my-10 [&_hr]:border-ink/10 [&_img]:rounded-lg [&_li]:ml-6 [&_li]:pl-1 [&_li]:marker:text-orange [&_ol]:list-decimal [&_strong]:text-ink [&_ul]:list-disc [&_ul]:space-y-2';
 
 const BACK = { pl: '← Wszystkie wpisy', de: '← Alle Beiträge', en: '← All posts' };
 
@@ -15,10 +22,16 @@ export default function BlogPost({ post }: { post: Post }) {
         <time dateTime={post.date} className="mt-2 block text-sm text-ink/60">
           {formatPostDate(post.date, post.lang)}
         </time>
-        <div
-          className="mt-6 space-y-4 leading-relaxed text-ink/80 text-lg [&_a]:font-semibold [&_a]:text-navy [&_a]:underline [&_a]:underline-offset-4 [&_blockquote]:rounded-r-xl [&_blockquote]:border-l-4 [&_blockquote]:border-orange [&_blockquote]:bg-orange-light/60 [&_blockquote]:px-5 [&_blockquote]:py-3 [&_h2]:!mt-12 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:font-800 [&_h2]:text-navy [&_h3]:!mt-8 [&_h3]:font-display [&_h3]:text-xl [&_h3]:font-700 [&_h3]:text-navy [&_hr]:!my-10 [&_hr]:border-ink/10 [&_img]:rounded-lg [&_li]:ml-6 [&_li]:pl-1 [&_li]:marker:text-orange [&_ol]:list-decimal [&_strong]:text-ink [&_ul]:list-disc [&_ul]:space-y-2"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
+        <div className="mt-6">
+          {post.html.split(PUZZLE_MARKER).map((part, i) =>
+            // split z grupą przeplata: html, numer planszy, html, …
+            i % 2 === 1 ? (
+              <MiniWordSearch key={i} puzzle={post.puzzles[Number(part)]} lang={post.lang} />
+            ) : (
+              <div key={i} className={PROSE} dangerouslySetInnerHTML={{ __html: part }} />
+            ),
+          )}
+        </div>
       </div>
     </article>
   );

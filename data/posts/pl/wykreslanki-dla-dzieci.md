@@ -8,6 +8,8 @@ date: 2026-09-15
 
 Wykreślanki to jedna z najprostszych łamigłówek: w siatce liter poukrywane są słowa, które trzeba znaleźć i zakreślić. Wystarczy kilka minut, żeby dziecko wciągnęło się w poszukiwania, a korzyści jest znacznie więcej, niż mogłoby się wydawać.
 
+![Pięć książek z serii „Znajdź słówko!” – wykreślanki po polsku dla dzieci od 5 lat do nastolatków](/blog/znajdz-slowko-seria.webp)
+
 ### 1. Utrwalają naukę czytania
 
 Jeśli dziecko dopiero uczy się czytać, wykreślanki będą treningiem ukrytym w zabawie. Żeby znaleźć słowo w gąszczu liter, dziecko musi je najpierw przeczytać, a potem odnaleźć identyczne słowo w siatce. To naturalny, powtarzalny trening czytania, który nie przypomina szkolnego ćwiczenia.
@@ -32,6 +34,12 @@ Podróż samochodem, poczekalnia u lekarza, deszczowe popołudnie – wykreślan
 
 Dla rodzin mieszkających poza Polską wykreślanki to przyjemny sposób na kontakt z językiem polskim w domu. Dziecko, które na co dzień mówi po angielsku, niemiecku czy holendersku, ćwiczy czytanie po polsku bez poczucia, że to „dodatkowa szkoła”. A rodzice czy dziadkowie pękają z dumy.
 
+## Sprawdźcie sami
+
+Najlepiej przekonać się w praktyce. Poniżej czeka mała wykreślanka z sześcioma słowami z łąki – można ją rozwiązać razem z dzieckiem na telefonie albo komputerze.
+
+{{wykreslanka Na łące: ŻABA MOTYL KWIAT TRAWA ŚLIMAK PSZCZOŁA}}
+
 ## Jak wybrać wykreślanki dla dziecka?
 
 Zwróć uwagę na kilka rzeczy:
@@ -40,6 +48,8 @@ Zwróć uwagę na kilka rzeczy:
 - **Kierunki ukrycia słów** – na początek najlepiej sprawdzają się słowa ułożone poziomo i pionowo, a skosy i słowa czytane wspak zostawmy na później.
 - **Tematyka** – im bliższa zainteresowaniom dziecka, tym chętniej po nią sięgnie.
 - **Rozwiązania na końcu** – przydają się, gdy jakieś słówko ukryło się zbyt dobrze.
+
+![Plansze z serii „Znajdź słówko!”: siatka 8×8 dla dzieci 5–6 lat, 13×13 dla 7–9 lat i 17×17 dla nastolatków](/blog/znajdz-slowko-poziomy-trudnosci.webp)
 
 ## Seria „Znajdź słówko!” – wykreślanki po polsku dla dzieci
 

@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 import { getBookBySlug } from '@/data/books';
+import { buildPuzzle, type Puzzle } from './wordsearch';
 
 export type PostLang = 'pl' | 'de' | 'en';
 
@@ -13,6 +14,9 @@ export type Post = {
   excerpt: string;
   date: string; // YYYY-MM-DD
   html: string;
+  // Wykreślanki ze znaczników {{wykreslanka …}}; w html zostaje po nich
+  // <div data-puzzle="N"></div>, które BlogPost podmienia na komponent.
+  puzzles: Puzzle[];
 };
 
 // Każdy post to plik Markdown: data/posts/<język>/<slug>.md
@@ -55,13 +59,22 @@ function renderBookCards(slugs: string[], lang: PostLang): string {
   return `<div class="not-prose my-8 grid gap-4 sm:grid-cols-2">${cards}</div>`;
 }
 
-function renderMarkdown(content: string, lang: PostLang): string {
+function renderMarkdown(content: string, lang: PostLang): { html: string; puzzles: Puzzle[] } {
   // [ \t]* zamiast \s* — \s zjadałoby puste linie po znaczniku i następny
   // nagłówek przyklejałby się do bloku HTML (Markdown by go nie rozpoznał).
   const withBooks = content.replace(/^\{\{ksiazki[ \t]+([^}\n]+)\}\}[ \t]*$/gm, (_, slugs: string) =>
     `\n${renderBookCards(slugs.trim().split(/\s+/), lang)}\n`,
   );
-  return marked.parse(withBooks) as string;
+  // {{wykreslanka Temat: SŁOWO SŁOWO …}} → interaktywna plansza.
+  const puzzles: Puzzle[] = [];
+  const withPuzzles = withBooks.replace(
+    /^\{\{wykreslanka[ \t]+([^:}\n]+):([^}\n]+)\}\}[ \t]*$/gm,
+    (_, title: string, words: string) => {
+      puzzles.push(buildPuzzle(title.trim(), words.trim().split(/\s+/)));
+      return `\n<div data-puzzle="${puzzles.length - 1}"></div>\n`;
+    },
+  );
+  return { html: marked.parse(withPuzzles) as string, puzzles };
 }
 
 function toDateString(value: unknown): string {
@@ -84,7 +97,7 @@ export function getPosts(lang: PostLang): Post[] {
         title: String(data.title),
         excerpt: String(data.excerpt ?? ''),
         date: toDateString(data.date),
-        html: renderMarkdown(content, lang),
+        ...renderMarkdown(content, lang),
       };
     })
     .sort((a, b) => b.date.localeCompare(a.date));
