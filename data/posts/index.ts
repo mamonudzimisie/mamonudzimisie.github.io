@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 import { getBookBySlug } from '@/data/books';
+import { CATALOG_STRINGS } from '@/lib/catalog-i18n';
 import { buildPuzzle, type Puzzle } from './wordsearch';
 
 export type PostLang = 'pl' | 'de' | 'en';
@@ -36,6 +37,8 @@ function escapeHtml(text: string): string {
 // Znacznik w osobnej linii: {{ksiazki slug-1 slug-2}} → siatka kart z okładkami.
 function renderBookCards(slugs: string[], lang: PostLang): string {
   const t = BOOK_LABELS[lang];
+  // ageRange jest zapisany po polsku („Dorośli”) — tłumaczymy go jak w katalogu.
+  const ageLabels: Record<string, string> = CATALOG_STRINGS[lang].ageLabels;
   const cards = slugs
     .map((slug) => getBookBySlug(slug))
     .filter((book): book is NonNullable<typeof book> => Boolean(book))
@@ -47,7 +50,7 @@ function renderBookCards(slugs: string[], lang: PostLang): string {
     </a>
     <div class="flex flex-col">
       <p class="!m-0 font-display font-700 leading-tight text-navy">${escapeHtml(book.title)}</p>
-      <p class="!m-0 text-sm text-ink/70">${escapeHtml(book.subtitle)} · ${escapeHtml(book.ageRange)}</p>
+      <p class="!m-0 text-sm text-ink/70">${escapeHtml(book.subtitle)} · ${escapeHtml(ageLabels[book.ageRange] ?? book.ageRange)}</p>
       <div class="mt-auto flex flex-wrap gap-x-3 gap-y-1 pt-3 text-sm">
         <a href="/${lang}/books/${book.slug}" class="font-semibold text-navy underline underline-offset-4 hover:text-orange">${t.details}</a>
         <a href="${book.amazonUrl}" target="_blank" rel="noopener" class="font-semibold text-orange underline underline-offset-4">${t.amazon}</a>
