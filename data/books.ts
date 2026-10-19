@@ -33,9 +33,8 @@ export type Book = {
   isbn?: string; // ISBN wydania drukowanego (ze strony redakcyjnej PDF-a)
   // Przykładowe strony do podglądu „Zajrzyj do środka” (WebP w /public/samples/<slug>/).
   // Bez tego pola przycisk prowadzi na Amazon.
-  // Strona książki pokazuje je jako rozkładówki: kolejne pary obok siebie, a przy
-  // nieparzystej liczbie pierwsza stoi sama. Pary muszą więc być prawdziwymi
-  // rozkładówkami z PDF-a — strona parzysta po lewej, następna nieparzysta po prawej.
+  // Wybierane parami jako prawdziwe rozkładówki z PDF-a (strona parzysta, potem
+  // następna nieparzysta), żeby sąsiednie miniatury były sąsiednimi stronami.
   samplePages?: string[];
   // Sekcja „Dla kogo jest ta książka?” pod głównym blokiem. `easier` / `harder`
   // to slugi sąsiednich poziomów, pokazywanych jako miniatury z linkami.

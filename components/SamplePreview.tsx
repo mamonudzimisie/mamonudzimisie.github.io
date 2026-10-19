@@ -63,12 +63,6 @@ export default function SamplePreview({
   const navBtn =
     'absolute top-1/2 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-2xl font-bold text-navy shadow-cover transition hover:bg-white disabled:pointer-events-none disabled:opacity-0 z-10';
 
-  // Podgląd jak w otwartej książce: przy nieparzystej liczbie stron pierwsza
-  // stoi sama (jak prawa strona po otwarciu okładki), dalej pary stron.
-  const spreads: number[][] = [];
-  for (let i = pages.length % 2; i < pages.length; i += 2) spreads.push([i, i + 1]);
-  if (pages.length % 2) spreads.unshift([0]);
-
   const stripRef = useRef<HTMLUListElement>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
@@ -101,32 +95,27 @@ export default function SamplePreview({
             <ul
               ref={stripRef}
               onScroll={updateArrows}
-              className="no-scrollbar -mx-4 flex snap-x snap-mandatory scroll-px-4 gap-6 overflow-x-auto px-4 pb-10 pt-2 sm:mx-0 sm:scroll-px-1 sm:px-1"
+              className="no-scrollbar -mx-4 flex snap-x snap-mandatory scroll-px-4 gap-5 overflow-x-auto px-4 pb-10 pt-2 sm:mx-0 sm:scroll-px-1 sm:px-1"
             >
-              {spreads.map((spread) => (
-                <li key={spread[0]} className="shrink-0 snap-start">
+              {pages.map((src, i) => (
+                <li key={src} className="shrink-0 snap-start">
                   <button
                     type="button"
                     onClick={(e) => {
                       triggerRef.current = e.currentTarget;
-                      setIndex(spread[0]);
+                      setIndex(i);
                       setOpen(true);
                     }}
-                    className="flex rounded-md bg-white p-1.5 shadow-cover transition hover:-translate-y-1"
-                    aria-label={`${t.detail.lookInside}: ${t.detail.samplePage(spread[0] + 1, pages.length)}`}
+                    className="block rounded-md bg-white p-1.5 shadow-cover transition hover:-translate-y-1"
+                    aria-label={`${t.detail.lookInside}: ${t.detail.samplePage(i + 1, pages.length)}`}
                   >
-                    {spread.map((i, k) => (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        key={i}
-                        src={pages[i]}
-                        alt=""
-                        loading="lazy"
-                        className={`aspect-[17/22] h-[13rem] w-auto object-cover sm:h-[20rem] ${
-                          spread.length === 2 ? (k === 0 ? 'rounded-l-sm border-r border-navy/10' : 'rounded-r-sm') : 'rounded-sm'
-                        }`}
-                      />
-                    ))}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={src}
+                      alt=""
+                      loading="lazy"
+                      className="aspect-[17/22] h-[15rem] w-auto rounded-sm object-cover sm:h-[20rem]"
+                    />
                   </button>
                 </li>
               ))}
