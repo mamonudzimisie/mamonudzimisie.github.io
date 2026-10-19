@@ -253,6 +253,38 @@ export const books: Book[] = [
     },
   },
   {
+    // Wydanie świąteczne — czeka na publikację w KDP. Gdy będzie link (amazon.pl):
+    // wpisać amazonUrl, usunąć comingSoon, dodać samplePages.
+    slug: 'znajdz-slowko-swieta',
+    title: 'Znajdź słówko! Święta',
+    subtitle: '40 świątecznych wykreślanek, 6–9 lat',
+    detailSubtitle: '40 świątecznych wykreślanek dla dzieci w wieku 6–9 lat, z ciekawostkami o Bożym Narodzeniu',
+    ageRange: '6–9 lat',
+    category: 'wykreslanki',
+    audience: 'dzieci',
+    lang: 'pl',
+    description:
+      'Czterdzieści zagadek ze słowami, które pachną piernikiem i choinką. W każdej planszy ukryło się 9 świątecznych wyrazów: od kolęd i wigilijnych potraw po Mikołaja i jego renifery. Co czwarta plansza ma kształt serca, gwiazdy albo kuli, a między zagadkami czekają strony z ciekawostkami — na przykład o tym, dlaczego płatek śniegu ma sześć ramion. Dobry pomysł na prezent pod choinkę i na spokojne popołudnie w czasie ferii.',
+    features: [
+      '40 świątecznych wykreślanek, każda na osobnej stronie',
+      'Co czwarta plansza w kształcie serca, gwiazdy albo kuli',
+      'Strony z ciekawostkami o zimie i Bożym Narodzeniu',
+      'Duże litery na liście słów i rozwiązania na końcu książki',
+    ],
+    coverImage: '/covers/znajdz-slowko-swieta.webp',
+    amazonUrl: '',
+    featured: false,
+    comingSoon: true,
+    formatInches: '8,5 × 11 cala',
+    pageCount: 62,
+    isbn: '978-83-983901-1-8',
+    seo: {
+      title: 'Znajdź słówko! Święta – świąteczne wykreślanki dla dzieci 6–9 lat',
+      description:
+        '40 świątecznych wykreślanek dla dzieci 6–9 lat: kolędy, wigilijne potrawy, Mikołaj i renifery. Plansze w kształcie serca, gwiazdy i kuli, ciekawostki i rozwiązania.',
+    },
+  },
+  {
     slug: 'zdobywca-szczytow',
     title: 'Zdobywca Szczytów',
     subtitle: '75 wykreślanek z nazwami szczytów odznak turystycznych Polski i okolic',
@@ -618,6 +650,36 @@ export const books: Book[] = [
       title: '300 Sudoku Puzzles – From Easy to Very Hard',
       description:
         '300 Sudoku puzzles in four difficulty levels, each with exactly one solution. An introduction to techniques from the basics to X-Wing and Swordfish. Solutions included.',
+    },
+  },
+  {
+    // Wydanie EN tomu 400 — czeka na publikację w KDP. Gdy będzie link (amazon.com):
+    // wpisać amazonUrl, usunąć comingSoon, dodać isbn.
+    slug: 'killer-sudoku-400-en',
+    title: 'Killer Sudoku',
+    subtitle: '150 easy puzzles for beginners',
+    ageRange: 'Dorośli',
+    category: 'sudoku',
+    audience: 'dorosli',
+    lang: 'en',
+    description:
+      'Enjoy Sudoku and fancy trying something new? Killer Sudoku keeps the classic rules and adds a little simple arithmetic: besides filling every row, column and box with the digits 1 to 9, the digits in each cage must add up to the number shown. 150 puzzles arranged from the easiest to the hardest, with starting digits to get you going — great practice for logic and mental arithmetic, without the frustration.',
+    features: [
+      '150 puzzles for beginners, from the easiest to the hardest',
+      'A starter guide: the rules, three basic techniques and the rule of 45',
+      'Cage-sum tables for two-, three- and four-cell cages',
+      'Complete solutions at the back of the book',
+    ],
+    coverImage: '/covers/killer-sudoku-400-en.webp',
+    amazonUrl: '',
+    featured: false,
+    comingSoon: true,
+    formatInches: '8.5 × 11 in',
+    pageCount: 110,
+    seo: {
+      title: 'Killer Sudoku – 150 Easy Puzzles for Beginners',
+      description:
+        '150 easy Killer Sudoku puzzles with starting digits. A starter guide with the rule of 45, cage-sum tables and full solutions. A gentle way into a new puzzle.',
     },
   },
   {
