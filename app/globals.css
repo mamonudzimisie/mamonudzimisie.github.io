@@ -430,3 +430,11 @@ html[data-nf='de'] .nf-de,
 html[data-nf='en'] .nf-en {
   display: block;
 }
+
+/* Pasek podglądu stron: przewijanie strzałkami i palcem, bez paska przewijania. */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

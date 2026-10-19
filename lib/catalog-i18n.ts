@@ -43,6 +43,7 @@ export type CatalogStrings = {
     sampleClose: string;
     samplePrev: string;
     sampleNext: string;
+    sampleHint: string;
     backToCatalog: string;
     forWhom: string;
     easierLevel: string;
@@ -98,6 +99,7 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       sampleClose: 'Zamknij',
       samplePrev: 'Poprzednia strona',
       sampleNext: 'Następna strona',
+      sampleHint: 'Kliknij stronę, żeby ją powiększyć.',
       backToCatalog: '← Wróć do katalogu',
       forWhom: 'Dla kogo jest ta książka?',
       easierLevel: 'Łatwiejszy poziom',
@@ -160,6 +162,7 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       sampleClose: 'Schließen',
       samplePrev: 'Vorherige Seite',
       sampleNext: 'Nächste Seite',
+      sampleHint: 'Klicken Sie auf eine Seite, um sie zu vergrößern.',
       backToCatalog: '← Zurück zum Katalog',
       forWhom: 'Für wen ist dieses Buch?',
       easierLevel: 'Leichtere Stufe',
@@ -222,6 +225,7 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       sampleClose: 'Close',
       samplePrev: 'Previous page',
       sampleNext: 'Next page',
+      sampleHint: 'Click a page to enlarge it.',
       backToCatalog: '← Back to all books',
       forWhom: 'Who is this book for?',
       easierLevel: 'Easier level',

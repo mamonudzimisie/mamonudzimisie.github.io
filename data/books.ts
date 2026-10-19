@@ -33,6 +33,9 @@ export type Book = {
   isbn?: string; // ISBN wydania drukowanego (ze strony redakcyjnej PDF-a)
   // Przykładowe strony do podglądu „Zajrzyj do środka” (WebP w /public/samples/<slug>/).
   // Bez tego pola przycisk prowadzi na Amazon.
+  // Strona książki pokazuje je jako rozkładówki: kolejne pary obok siebie, a przy
+  // nieparzystej liczbie pierwsza stoi sama. Pary muszą więc być prawdziwymi
+  // rozkładówkami z PDF-a — strona parzysta po lewej, następna nieparzysta po prawej.
   samplePages?: string[];
   // Sekcja „Dla kogo jest ta książka?” pod głównym blokiem. `easier` / `harder`
   // to slugi sąsiednich poziomów, pokazywanych jako miniatury z linkami.
@@ -110,7 +113,7 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
     isbn: '978-83-981441-2-4',
-    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/znajdz-slowko-poziom-latwy/${n}.webp`),
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/znajdz-slowko-poziom-latwy/${n}.webp`),
     seo: {
       title: 'Znajdź słówko! Wykreślanki dla dzieci 5–6 lat',
       description:
@@ -141,9 +144,7 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
     isbn: '978-83-981441-0-0',
-    samplePages: [1, 2, 3, 4, 5].map(
-      (n) => `/samples/znajdz-slowko-poziom-latwy-6-7/${n}.webp`,
-    ),
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/znajdz-slowko-poziom-latwy-6-7/${n}.webp`),
     forWhom: {
       paragraphs: [
         'Dla dzieci, które znają już litery i zaczynają składać je w słowa – w zerówce, na wakacjach przed szkołą albo w pierwszej klasie.',
@@ -187,7 +188,7 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
     isbn: '978-83-981441-1-7',
-    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/znajdz-slowko-poziom-sredni-7-9/${n}.webp`),
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/znajdz-slowko-poziom-sredni-7-9/${n}.webp`),
     seo: {
       title: 'Znajdź słówko! Wykreślanki dla dzieci 7–9 lat',
       description:
@@ -216,7 +217,7 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
     isbn: '978-83-981441-3-1',
-    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/znajdz-slowko-poziom-trudny-10/${n}.webp`),
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/znajdz-slowko-poziom-trudny-10/${n}.webp`),
     seo: {
       title: 'Znajdź słówko! Trudne wykreślanki dla dzieci 10+',
       description:
@@ -245,7 +246,7 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 128,
     isbn: '978-83-981441-4-8',
-    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/znajdz-slowko-poziom-ekspert-13/${n}.webp`),
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/znajdz-slowko-poziom-ekspert-13/${n}.webp`),
     seo: {
       title: 'Znajdź słówko! Wykreślanki dla nastolatków 13+',
       description:
@@ -306,6 +307,7 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 100,
     isbn: '978-83-981441-7-9',
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/zdobywca-szczytow/${n}.webp`),
     seo: {
       title: 'Zdobywca Szczytów – wykreślanki o polskich górach',
       description:
@@ -333,7 +335,7 @@ export const books: Book[] = [
     featured: false,
     formatInches: '8,5 × 11 cala',
     pageCount: 96,
-    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/sudoku-duzym-drukiem-100/${n}.webp`),
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/sudoku-duzym-drukiem-100/${n}.webp`),
     seo: {
       title: 'Sudoku dużym drukiem – 120 łamigłówek dla seniorów',
       description:
@@ -361,7 +363,7 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 132,
-    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/sudoku-300-zagadek-200/${n}.webp`),
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/sudoku-300-zagadek-200/${n}.webp`),
     seo: {
       title: 'Sudoku – 300 zagadek od łatwych do bardzo trudnych',
       description:
@@ -390,6 +392,7 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 100,
     isbn: '978-83-982993-3-6',
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/sudoku-duzym-drukiem-101/${n}.webp`),
     seo: {
       title: 'Sudoku dużym drukiem – 120 trudnych i bardzo trudnych łamigłówek',
       description:
@@ -418,6 +421,7 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 122,
     isbn: '978-83-982993-5-0',
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/sudoku-duzym-drukiem-102/${n}.webp`),
     seo: {
       title: 'Sudoku dużym drukiem dla początkujących – 150 łatwych łamigłówek',
       description:
@@ -446,6 +450,7 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 110,
     isbn: '978-83-982993-7-4',
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/killer-sudoku-400/${n}.webp`),
     seo: {
       title: 'Killer Sudoku – 150 łatwych zagadek dla początkujących',
       description:
@@ -474,7 +479,7 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 108,
     isbn: '978-83-981441-5-5',
-    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/meine-ersten-wortsuchratsel-stufe-1/${n}.webp`),
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/meine-ersten-wortsuchratsel-stufe-1/${n}.webp`),
     seo: {
       title: 'Wortsuchrätsel für Kinder ab 5 Jahren – Stufe 1',
       description:
@@ -503,7 +508,7 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 108,
     isbn: '978-83-981441-6-2',
-    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/meine-ersten-wortsuchratsel-stufe-2/${n}.webp`),
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/meine-ersten-wortsuchratsel-stufe-2/${n}.webp`),
     seo: {
       title: 'Wortsuchrätsel für Kinder ab 6 Jahren – Stufe 2',
       description:
@@ -532,7 +537,7 @@ export const books: Book[] = [
     formatInches: '8,5 × 11 cala',
     pageCount: 96,
     isbn: '978-83-982993-8-1',
-    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/sudoku-grossdruck-100/${n}.webp`),
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/sudoku-grossdruck-100/${n}.webp`),
     seo: {
       title: 'Sudoku Großdruck – 120 leichte und mittlere Rätsel für Senioren',
       description:
@@ -561,7 +566,7 @@ export const books: Book[] = [
     formatInches: '8.5 × 11 in',
     pageCount: 96,
     isbn: '978-83-982993-0-5',
-    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/large-print-sudoku-100/${n}.webp`),
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/large-print-sudoku-100/${n}.webp`),
     seo: {
       title: 'Large Print Sudoku – 120 Easy and Medium Puzzles for Seniors',
       description:
@@ -590,6 +595,7 @@ export const books: Book[] = [
     formatInches: '8.5 × 11 in',
     pageCount: 100,
     isbn: '978-83-982993-4-3',
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/large-print-sudoku-101/${n}.webp`),
     seo: {
       title: 'Large Print Sudoku – 120 Hard and Very Hard Puzzles',
       description:
@@ -618,6 +624,7 @@ export const books: Book[] = [
     formatInches: '8.5 × 11 in',
     pageCount: 122,
     isbn: '978-83-982993-6-7',
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/large-print-sudoku-102/${n}.webp`),
     seo: {
       title: 'Large Print Sudoku for Beginners – 150 Warm-up and Easy Puzzles',
       description:
@@ -645,7 +652,7 @@ export const books: Book[] = [
     featured: true,
     formatInches: '8.5 × 11 in',
     pageCount: 132,
-    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/sudoku-300-puzzles-200/${n}.webp`),
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/sudoku-300-puzzles-200/${n}.webp`),
     seo: {
       title: '300 Sudoku Puzzles – From Easy to Very Hard',
       description:
@@ -676,6 +683,7 @@ export const books: Book[] = [
     comingSoon: true,
     formatInches: '8.5 × 11 in',
     pageCount: 110,
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/killer-sudoku-400-en/${n}.webp`),
     seo: {
       title: 'Killer Sudoku – 150 Easy Puzzles for Beginners',
       description:

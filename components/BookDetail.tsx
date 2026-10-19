@@ -191,6 +191,18 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
         </div>
       </div>
 
+      {book.samplePages?.length ? (
+        <div className="mx-auto mt-14 max-w-5xl border-t border-navy/[0.08] pt-10">
+          <SamplePreview
+            pages={book.samplePages}
+            bookTitle={book.title}
+            amazonUrl={book.comingSoon ? '' : book.amazonUrl}
+            siteLang={siteLang}
+            variant="strip"
+          />
+        </div>
+      ) : null}
+
       {book.forWhom && (
         <div className="mx-auto mt-14 max-w-5xl border-t border-navy/[0.08] pt-10">
           <h2 className="font-display text-2xl font-800 text-navy">{t.detail.forWhom}</h2>
