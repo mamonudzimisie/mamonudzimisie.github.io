@@ -479,8 +479,6 @@ export const books: Book[] = [
     },
   },
   {
-    // Wydanie DE tomu 100 — czeka na publikację w KDP. Gdy będzie link:
-    // wpisać amazonUrl, usunąć comingSoon, dodać isbn i samplePages.
     slug: 'sudoku-grossdruck-100',
     title: 'Sudoku Großdruck',
     subtitle: '120 Rätsel, leicht und mittel',
@@ -497,11 +495,12 @@ export const books: Book[] = [
       'Alle Lösungen am Ende des Buches',
     ],
     coverImage: '/covers/sudoku-grossdruck-100.webp',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.de/dp/839829938X',
     featured: false,
-    comingSoon: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 96,
+    isbn: '978-83-982993-8-1',
+    samplePages: [1, 2, 3, 4, 5].map((n) => `/samples/sudoku-grossdruck-100/${n}.webp`),
     seo: {
       title: 'Sudoku Großdruck – 120 leichte und mittlere Rätsel für Senioren',
       description:
@@ -622,8 +621,6 @@ export const books: Book[] = [
     },
   },
   {
-    // Seria „Znajdź, zakreśl, zapamiętaj” — czeka na publikację w KDP. Gdy będzie link
-    // (amazon.pl): wpisać amazonUrl i usunąć comingSoon.
     slug: 'znajdz-zakresl-zapamietaj-angielski-czasowniki',
     title: 'Znajdź, zakreśl, zapamiętaj',
     subtitle: 'Angielski – czasowniki nieregularne',
@@ -642,9 +639,8 @@ export const books: Book[] = [
       '2 testy „Sprawdź się!”, tabela wszystkich form i rozwiązania',
     ],
     coverImage: '/covers/znajdz-zakresl-zapamietaj-angielski-czasowniki.webp',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.pl/dp/8398299398',
     featured: false,
-    comingSoon: true,
     formatInches: '8,5 × 11 cala',
     pageCount: 126,
     isbn: '978-83-982993-9-8',
@@ -661,6 +657,46 @@ export const books: Book[] = [
         'nauka angielskiego',
         'wykreślanki po angielsku',
         'Past Simple Present Perfect ćwiczenia',
+      ],
+    },
+  },
+  {
+    slug: 'znajdz-zakresl-zapamietaj-niemiecki-biznesowy',
+    title: 'Znajdź, zakreśl, zapamiętaj',
+    subtitle: 'Niemiecki – słownictwo biznesowe',
+    detailSubtitle:
+      'Niemiecki – słownictwo biznesowe · Wykreślanki i zdania z lukami. Poziom C1–C2',
+    ageRange: 'Dorośli',
+    category: 'nauka-jezykow',
+    audience: 'dorosli',
+    lang: 'pl',
+    description:
+      'Wykreślanki dla osób, które znają niemiecki na poziomie C1 i chcą brzmieć jak niemieckie biuro: wiedzieć, że decyzję się trifft, a nie macht, i że Konkurs to upadłość, a nie konkurs. Na każdej rozkładówce plansza po lewej, a po prawej zdania z życia firmy z lukami do uzupełnienia i ich polskie tłumaczenia. Najpierw wpisujesz brakujące słowo, potem szukasz go w planszy — tak sprawdzasz odpowiedź.',
+    features: [
+      '32 wykreślanki na rozkładówkach i 576 zdań z lukami',
+      '5 części: słownictwo specjalistyczne, Funktionsverbgefüge, korespondencja, umowy i negocjacje, idiomy i fałszywi przyjaciele',
+      '2 testy „Sprawdź się!” i słowniczek Funktionsverbgefüge',
+      'Rozwiązania wszystkich wykreślanek',
+    ],
+    coverImage: '/covers/znajdz-zakresl-zapamietaj-niemiecki-biznesowy.webp',
+    amazonUrl: 'https://www.amazon.pl/dp/8398390107',
+    featured: false,
+    formatInches: '8,5 × 11 cala',
+    pageCount: 92,
+    isbn: '978-83-983901-0-1',
+    samplePages: [1, 2, 3, 4, 5, 6, 7].map(
+      (n) => `/samples/znajdz-zakresl-zapamietaj-niemiecki-biznesowy/${n}.webp`,
+    ),
+    seo: {
+      title: 'Niemiecki biznesowy C1–C2 w wykreślankach – Znajdź, zakreśl, zapamiętaj',
+      description:
+        '576 zdań z lukami i 32 wykreślanki: słownictwo specjalistyczne, Funktionsverbgefüge, korespondencja, umowy, idiomy i fałszywi przyjaciele. Niemiecki biznesowy C1–C2.',
+      keywords: [
+        'niemiecki biznesowy',
+        'niemiecki C1 ćwiczenia',
+        'Funktionsverbgefüge',
+        'korespondencja handlowa niemiecki',
+        'słownictwo biznesowe niemiecki',
       ],
     },
   },
