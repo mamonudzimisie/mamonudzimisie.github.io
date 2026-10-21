@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Grafiki do angielskiego posta o serii Large Print Sudoku → public/blog/.
+"""Grafiki do postów o serii Sudoku dużym drukiem → public/blog/.
 
-- large-print-sudoku-levels.webp — trzy okładki ułożone od najłatwiejszej
+Dla każdego języka (EN: Large Print Sudoku, PL: Sudoku dużym drukiem):
+- <prefiks>-levels.webp / -poziomy.webp — trzy okładki ułożone od najłatwiejszej
   do najtrudniejszej, z poziomami pod spodem,
-- large-print-sudoku-page.webp — górna połowa prawdziwej strony z zagadką,
+- <prefiks>-page.webp / -strona.webp — górna połowa prawdziwej strony z zagadką,
   wyrenderowana z PDF-u książki (wymaga pdftoppm).
 
 Uruchomienie: python3 scripts/make_blog_large_print.py
@@ -23,15 +24,35 @@ BOOKS_PDF = ROOT.parent / 'word-search/output/Sudoku'
 
 W, H = 1600, 900
 
-# Od najłatwiejszej: kolejność, w jakiej czytelnik ma przechodzić przez serię.
-LEVELS = [
-    ('large-print-sudoku-102', 'Warm-up & Easy', 'Set 102 · for beginners'),
-    ('large-print-sudoku-100', 'Easy & Medium', 'Set 100 · everyday solving'),
-    ('large-print-sudoku-101', 'Hard & Very Hard', 'Set 101 · a real challenge'),
-]
+# Poziomy od najłatwiejszego: kolejność, w jakiej czytelnik ma przechodzić przez serię.
+VARIANTS = {
+    'en': {
+        'title': 'Large Print Sudoku',
+        'tagline': 'Three levels · the same big, clear grids in every book',
+        'levels': [
+            ('large-print-sudoku-102', 'Warm-up & Easy', 'Set 102 · for beginners'),
+            ('large-print-sudoku-100', 'Easy & Medium', 'Set 100 · everyday solving'),
+            ('large-print-sudoku-101', 'Hard & Very Hard', 'Set 101 · a real challenge'),
+        ],
+        'caption': 'In the book: grid 11 cm (4.4 in) wide · digits 19 pt',
+        'files': ('large-print-sudoku-levels.webp', 'large-print-sudoku-page.webp'),
+    },
+    'pl': {
+        'title': 'Sudoku dużym drukiem',
+        'tagline': 'Trzy poziomy · w każdej książce te same duże, wyraźne plansze',
+        'levels': [
+            ('sudoku-duzym-drukiem-102', 'Rozgrzewka i łatwy', 'Tom 102 · na początek'),
+            ('sudoku-duzym-drukiem-100', 'Łatwy i średni', 'Tom 100 · na co dzień'),
+            ('sudoku-duzym-drukiem-101', 'Trudny i b. trudny', 'Tom 101 · prawdziwe wyzwanie'),
+        ],
+        'caption': 'W książce: plansza o szerokości 11 cm · cyfry 19 pt',
+        'files': ('sudoku-duzym-drukiem-poziomy.webp', 'sudoku-duzym-drukiem-strona.webp'),
+    },
+}
 
 
-def levels_image():
+def levels_image(v):
+    levels = v['levels']
     # Tło jak w make_og (papier w kratkę), tylko w większym formacie.
     grid = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     gd = ImageDraw.Draw(grid)
@@ -42,14 +63,14 @@ def levels_image():
     img = Image.alpha_composite(Image.new('RGBA', (W, H), PAPER), grid)
     d = ImageDraw.Draw(img)
 
-    d.text((W / 2, 112), 'Large Print Sudoku', font=display(78), fill=NAVY, anchor='ms')
-    d.text((W / 2, 168), 'Three levels · the same big, clear grids in every book',
+    d.text((W / 2, 112), v['title'], font=display(78), fill=NAVY, anchor='ms')
+    d.text((W / 2, 168), v['tagline'],
            font=body(36, 'Bold'), fill='#3B7A57', anchor='ms')
 
     cover_h = 500
     xs = [W / 2 - 480, W / 2, W / 2 + 480]
     cy = 210 + cover_h / 2 + 20
-    for (slug, _, _), x in zip(LEVELS, xs):
+    for (slug, _, _), x in zip(levels, xs):
         paste_with_shadow(img, cover(slug, cover_h), (x, cy))
 
     # Strzałka trudności pod okładkami.
@@ -57,15 +78,15 @@ def levels_image():
     ay = cy + cover_h / 2 + 52
     d.line([(xs[0] - 150, ay), (xs[2] + 170, ay)], fill=ORANGE, width=6)
     d.polygon([(xs[2] + 196, ay), (xs[2] + 166, ay - 16), (xs[2] + 166, ay + 16)], fill=ORANGE)
-    for (_, level, note), x in zip(LEVELS, xs):
+    for (_, level, note), x in zip(levels, xs):
         d.ellipse([x - 13, ay - 13, x + 13, ay + 13], fill=ORANGE)
         d.text((x, ay + 58), level, font=display(44), fill=NAVY, anchor='ms')
         d.text((x, ay + 98), note, font=body(28), fill=INK, anchor='ms')
     return img
 
 
-def page_image():
-    pdf = BOOKS_PDF / '102-DuzyDruk-RozgrzewkaLatwy/en.pdf'
+def page_image(lang, v):
+    pdf = BOOKS_PDF / f'102-DuzyDruk-RozgrzewkaLatwy/{lang}.pdf'
     with tempfile.TemporaryDirectory() as tmp:
         subprocess.run(['pdftoppm', '-f', '12', '-l', '12', '-r', '150', '-png',
                         '-singlefile', str(pdf), f'{tmp}/page'], check=True)
@@ -87,7 +108,7 @@ def page_image():
     canvas.alpha_composite(crop, (pad, pad))
     d = ImageDraw.Draw(canvas)
     y = pad + crop.height + 74
-    d.text((canvas.width / 2, y), 'In the book: grid 11 cm (4.4 in) wide · digits 19 pt',
+    d.text((canvas.width / 2, y), v['caption'],
            font=body(34, 'Bold'), fill=NAVY, anchor='ms')
     return canvas
 
@@ -99,8 +120,10 @@ def save(img, name):
 
 
 def main():
-    save(levels_image(), 'large-print-sudoku-levels.webp')
-    save(page_image(), 'large-print-sudoku-page.webp')
+    for lang, v in VARIANTS.items():
+        levels_name, page_name = v['files']
+        save(levels_image(v), levels_name)
+        save(page_image(lang, v), page_name)
 
 
 if __name__ == '__main__':
