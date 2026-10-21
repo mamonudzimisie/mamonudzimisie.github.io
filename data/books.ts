@@ -677,11 +677,11 @@ export const books: Book[] = [
       'Complete solutions at the back of the book',
     ],
     coverImage: '/covers/killer-sudoku-400-en.webp',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.com/dp/8398390123',
     featured: false,
-    comingSoon: true,
     formatInches: '8.5 × 11 in',
     pageCount: 110,
+    isbn: '978-83-983901-2-5',
     samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/killer-sudoku-400-en/${n}.webp`),
     seo: {
       title: 'Killer Sudoku – 150 Easy Puzzles for Beginners',
