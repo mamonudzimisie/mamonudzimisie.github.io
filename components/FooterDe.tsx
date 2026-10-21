@@ -22,11 +22,7 @@ export default function FooterDe() {
           </p>
           <SocialLinks lang="de" className="mt-4" />
         </div>
-        <p className="mt-8 border-t border-ink/10 pt-6 text-xs leading-relaxed text-ink/60">
-          Als Amazon-Partner verdienen wir an qualifizierten Käufen, die über Links auf
-          dieser Seite getätigt werden. Der Preis, den du zahlst, ändert sich dadurch nicht.
-        </p>
-        <p className="mt-3 text-xs text-ink/50">
+        <p className="mt-8 border-t border-ink/10 pt-6 text-xs text-ink/50">
           © {new Date().getFullYear()} ZALKA BOOKS. Alle Rechte vorbehalten.
         </p>
       </div>

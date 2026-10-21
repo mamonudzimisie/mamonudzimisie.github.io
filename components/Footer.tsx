@@ -36,11 +36,7 @@ export default function Footer() {
             </Link>
           </nav>
         </div>
-        <p className="mt-8 border-t border-ink/10 pt-6 text-xs leading-relaxed text-ink/60">
-          Jako partner Amazon (Amazon Associates) zarabiamy na kwalifikujących się zakupach
-          dokonanych za pośrednictwem linków na tej stronie. Nie wpływa to na cenę, jaką płacisz.
-        </p>
-        <p className="mt-3 text-xs text-ink/50">
+        <p className="mt-8 border-t border-ink/10 pt-6 text-xs text-ink/50">
           © {new Date().getFullYear()} ZALKA BOOKS. Wszystkie prawa zastrzeżone.
         </p>
       </div>

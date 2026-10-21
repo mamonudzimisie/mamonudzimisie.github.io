@@ -22,11 +22,7 @@ export default function FooterEn() {
           </p>
           <SocialLinks lang="en" className="mt-4" />
         </div>
-        <p className="mt-8 border-t border-ink/10 pt-6 text-xs leading-relaxed text-ink/60">
-          As an Amazon Associate we earn from qualifying purchases made through links on
-          this site. The price you pay stays the same.
-        </p>
-        <p className="mt-3 text-xs text-ink/50">
+        <p className="mt-8 border-t border-ink/10 pt-6 text-xs text-ink/50">
           © {new Date().getFullYear()} ZALKA BOOKS. All rights reserved.
         </p>
       </div>
