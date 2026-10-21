@@ -53,7 +53,7 @@ function renderBookCards(slugs: string[], lang: PostLang): string {
       <p class="!m-0 text-sm text-ink/70">${escapeHtml(book.subtitle)} · ${escapeHtml(ageLabels[book.ageRange] ?? book.ageRange)}</p>
       <div class="mt-auto flex flex-wrap gap-x-3 gap-y-1 pt-3 text-sm">
         <a href="/${lang}/books/${book.slug}" class="font-semibold text-navy underline underline-offset-4 hover:text-orange">${t.details}</a>
-        <a href="${book.amazonUrl}" target="_blank" rel="noopener" class="font-semibold text-orange underline underline-offset-4">${t.amazon}</a>
+        <a href="${book.amazonUrl}" target="_blank" rel="noopener noreferrer sponsored" class="font-semibold text-orange underline underline-offset-4">${t.amazon}</a>
       </div>
     </div>
   </div>`,

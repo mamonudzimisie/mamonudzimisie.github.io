@@ -15,6 +15,9 @@ export type BookLang = 'pl' | 'de' | 'en';
 export type Book = {
   slug: string; // np. "znajdz-slowko-poziom-latwy"
   title: string; // "Znajdź słówko!"
+  // Tytuł na karcie w katalogu, gdy kilka książek ma ten sam `title` —
+  // bez niego pięć kart „Znajdź słówko!” wygląda (i linkuje) identycznie.
+  cardTitle?: string; // "Znajdź słówko! 5–6 lat"
   subtitle: string; // "Poziom najłatwiejszy"
   // Dłuższy podtytuł tylko na stronie książki; karty i wachlarz używają `subtitle`.
   detailSubtitle?: string;
@@ -93,6 +96,7 @@ export const books: Book[] = [
   {
     slug: 'znajdz-slowko-poziom-latwy',
     title: 'Znajdź słówko!',
+    cardTitle: 'Znajdź słówko! 5–6 lat',
     subtitle: 'Poziom najłatwiejszy',
     ageRange: '5–6 lat',
     category: 'wykreslanki',
@@ -122,6 +126,7 @@ export const books: Book[] = [
   {
     slug: 'znajdz-slowko-poziom-latwy-6-7',
     title: 'Znajdź słówko!',
+    cardTitle: 'Znajdź słówko! 6–7 lat',
     subtitle: 'Poziom łatwy',
     detailSubtitle: '100 wykreślanek dla dzieci 6–7 lat · Poziom łatwy',
     ageRange: '6–7 lat',
@@ -168,6 +173,7 @@ export const books: Book[] = [
   {
     slug: 'znajdz-slowko-poziom-sredni-7-9',
     title: 'Znajdź słówko!',
+    cardTitle: 'Znajdź słówko! 7–9 lat',
     subtitle: 'Poziom średni',
     ageRange: '7–9 lat',
     category: 'wykreslanki',
@@ -197,6 +203,7 @@ export const books: Book[] = [
   {
     slug: 'znajdz-slowko-poziom-trudny-10',
     title: 'Znajdź słówko!',
+    cardTitle: 'Znajdź słówko! 10+',
     subtitle: 'Poziom trudny',
     ageRange: '10+',
     category: 'wykreslanki',
@@ -226,6 +233,7 @@ export const books: Book[] = [
   {
     slug: 'znajdz-slowko-poziom-ekspert-13',
     title: 'Znajdź słówko!',
+    cardTitle: 'Znajdź słówko! 13+',
     subtitle: 'Poziom ekspert',
     ageRange: '13+',
     category: 'wykreslanki',
@@ -316,6 +324,7 @@ export const books: Book[] = [
   {
     slug: 'sudoku-duzym-drukiem-100',
     title: 'Sudoku dużym drukiem',
+    cardTitle: 'Sudoku dużym drukiem – łatwe i średnie',
     subtitle: '120 łamigłówek, poziom łatwy–średni',
     ageRange: 'Dorośli',
     category: 'sudoku',
@@ -372,6 +381,7 @@ export const books: Book[] = [
   {
     slug: 'sudoku-duzym-drukiem-101',
     title: 'Sudoku dużym drukiem',
+    cardTitle: 'Sudoku dużym drukiem – trudne',
     subtitle: '120 łamigłówek, poziom trudny i bardzo trudny',
     ageRange: 'Dorośli',
     category: 'sudoku',
@@ -401,6 +411,7 @@ export const books: Book[] = [
   {
     slug: 'sudoku-duzym-drukiem-102',
     title: 'Sudoku dużym drukiem',
+    cardTitle: 'Sudoku dużym drukiem – dla początkujących',
     subtitle: '150 łamigłówek dla początkujących, rozgrzewka i poziom łatwy',
     ageRange: 'Dorośli',
     category: 'sudoku',
@@ -459,6 +470,7 @@ export const books: Book[] = [
   {
     slug: 'meine-ersten-wortsuchratsel-stufe-1',
     title: 'Meine ersten Wortsuchrätsel',
+    cardTitle: 'Meine ersten Wortsuchrätsel – Stufe 1',
     subtitle: 'Stufe 1: 5–6 Jahre',
     ageRange: '5–6 lat',
     category: 'wykreslanki',
@@ -488,6 +500,7 @@ export const books: Book[] = [
   {
     slug: 'meine-ersten-wortsuchratsel-stufe-2',
     title: 'Meine ersten Wortsuchrätsel',
+    cardTitle: 'Meine ersten Wortsuchrätsel – Stufe 2',
     subtitle: 'Stufe 2: 6–7 Jahre',
     ageRange: '6–7 lat',
     category: 'wykreslanki',
@@ -546,6 +559,7 @@ export const books: Book[] = [
   {
     slug: 'large-print-sudoku-100',
     title: 'Large Print Sudoku',
+    cardTitle: 'Large Print Sudoku – Easy & Medium',
     subtitle: '120 puzzles, easy and medium',
     ageRange: 'Dorośli',
     category: 'sudoku',
@@ -575,6 +589,7 @@ export const books: Book[] = [
   {
     slug: 'large-print-sudoku-101',
     title: 'Large Print Sudoku',
+    cardTitle: 'Large Print Sudoku – Hard',
     subtitle: '120 puzzles, hard and very hard',
     ageRange: 'Dorośli',
     category: 'sudoku',
@@ -604,6 +619,7 @@ export const books: Book[] = [
   {
     slug: 'large-print-sudoku-102',
     title: 'Large Print Sudoku',
+    cardTitle: 'Large Print Sudoku – Beginners',
     subtitle: '150 puzzles for beginners, warm-up and easy',
     ageRange: 'Dorośli',
     category: 'sudoku',
@@ -692,6 +708,7 @@ export const books: Book[] = [
   {
     slug: 'znajdz-zakresl-zapamietaj-angielski-czasowniki',
     title: 'Znajdź, zakreśl, zapamiętaj',
+    cardTitle: 'Znajdź, zakreśl, zapamiętaj – angielski',
     subtitle: 'Angielski – czasowniki nieregularne',
     detailSubtitle:
       'Angielski – czasowniki nieregularne · Wykreślanki i zdania z lukami. Ćwiczenia dla młodzieży i dorosłych',
@@ -732,6 +749,7 @@ export const books: Book[] = [
   {
     slug: 'znajdz-zakresl-zapamietaj-niemiecki-biznesowy',
     title: 'Znajdź, zakreśl, zapamiętaj',
+    cardTitle: 'Znajdź, zakreśl, zapamiętaj – niemiecki',
     subtitle: 'Niemiecki – słownictwo biznesowe',
     detailSubtitle:
       'Niemiecki – słownictwo biznesowe · Wykreślanki i zdania z lukami. Poziom C1–C2',

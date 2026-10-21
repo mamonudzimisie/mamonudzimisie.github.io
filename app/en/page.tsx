@@ -5,6 +5,7 @@ import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   alternates: {
+    canonical: `${SITE_URL}/en`,
     languages: {
       pl: `${SITE_URL}/pl`,
       de: `${SITE_URL}/de`,

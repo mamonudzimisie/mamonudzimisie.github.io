@@ -12,6 +12,7 @@ export default function BookCard({
 }) {
   const t = CATALOG_STRINGS[siteLang];
   const href = bookHref(book, siteLang);
+  const title = book.cardTitle ?? book.title;
 
   return (
     <div className="flex flex-col overflow-hidden rounded-2xl border border-ink/10 bg-white/60 transition hover:-translate-y-1 hover:shadow-cover">
@@ -35,7 +36,7 @@ export default function BookCard({
         <div className="relative mx-auto aspect-[3/4] w-40 shadow-cover sm:w-44">
           <Image
             src={book.coverImage}
-            alt={t.card.coverAlt(book.title)}
+            alt={t.card.coverAlt(title)}
             fill
             unoptimized
             className="rounded-md object-cover"
@@ -43,7 +44,7 @@ export default function BookCard({
         </div>
       </Link>
       <div className="flex flex-1 flex-col gap-2 p-5">
-        <h3 className="font-display text-xl font-700 text-navy">{book.title}</h3>
+        <h3 className="font-display text-xl font-700 text-navy">{title}</h3>
         <p className="text-sm text-ink/70">
           <span className="font-semibold">{t.categoryLabels[book.category]}</span>
           {' · '}

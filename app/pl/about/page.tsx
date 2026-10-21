@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import { SOCIALS } from '@/components/SocialLinks';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'O nas',
   description:
     'Poznaj naszą historię i podejście do tworzenia książek z łamigłówkami dla dzieci i dorosłych.',
+  alternates: { canonical: `${SITE_URL}/pl/about` },
 };
 
 export default function ONasPage() {

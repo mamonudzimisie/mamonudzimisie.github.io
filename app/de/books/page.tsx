@@ -1,11 +1,20 @@
 import type { Metadata } from 'next';
 import BookCatalog from '@/components/BookCatalog';
 import { books } from '@/data/books';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Bücher',
   description:
     'Alle unsere Rätselbücher an einem Ort. Filtere nach Zielgruppe, Kategorie und Sprache.',
+  alternates: {
+    canonical: `${SITE_URL}/de/books`,
+    languages: {
+      pl: `${SITE_URL}/pl/books`,
+      de: `${SITE_URL}/de/books`,
+      en: `${SITE_URL}/en/books`,
+    },
+  },
 };
 
 export default function BooksDe() {

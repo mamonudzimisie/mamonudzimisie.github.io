@@ -1,11 +1,20 @@
 import type { Metadata } from 'next';
 import BookCatalog from '@/components/BookCatalog';
 import { books } from '@/data/books';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Books',
   description:
     'All our puzzle books in one place. Filter by audience, category and language.',
+  alternates: {
+    canonical: `${SITE_URL}/en/books`,
+    languages: {
+      pl: `${SITE_URL}/pl/books`,
+      de: `${SITE_URL}/de/books`,
+      en: `${SITE_URL}/en/books`,
+    },
+  },
 };
 
 export default function BooksEn() {

@@ -17,6 +17,7 @@ const HERO_SLUGS = [
 
 export const metadata: Metadata = {
   alternates: {
+    canonical: `${SITE_URL}/de`,
     languages: {
       pl: `${SITE_URL}/pl`,
       de: `${SITE_URL}/de`,

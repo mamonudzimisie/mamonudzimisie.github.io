@@ -17,16 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/en/free-printables',
     // Pusty blog to „thin content” — lista trafia do sitemapy dopiero z pierwszym wpisem.
     ...(['pl', 'de', 'en'] as const).filter((lang) => getPosts(lang).length > 0).map((lang) => `/${lang}/blog`),
-  ].map((route) => ({
-    url: `${SITE_URL}${route}`,
-    lastModified: new Date(),
-  }));
+  ].map((route) => ({ url: `${SITE_URL}${route}` }));
 
   // Tylko wersja kanoniczna — bliźniacza sekcja ma noindex.
-  const bookRoutes = books.map((book) => ({
-    url: `${SITE_URL}${canonicalBookHref(book)}`,
-    lastModified: new Date(),
-  }));
+  // Bez lastModified: data budowania przy każdym wdrożeniu ogłaszałaby, że wszystko
+  // się zmieniło, a Google uczy się takie daty ignorować. Prawdziwe daty mają tylko wpisy.
+  const bookRoutes = books.map((book) => ({ url: `${SITE_URL}${canonicalBookHref(book)}` }));
 
   const postRoutes = getAllPosts().map((post) => ({
     url: `${SITE_URL}/${post.lang}/blog/${post.slug}`,
