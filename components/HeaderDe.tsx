@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import LanguageSwitcher from './LanguageSwitcher';
+import { getPosts } from '@/data/posts';
 
 export default function HeaderDe() {
   return (
@@ -17,11 +18,15 @@ export default function HeaderDe() {
           </span>
         </Link>
         {/* Na telefonie linki schodzą do drugiego rzędu, żeby nie dotykały logo. */}
-        <nav className="order-last flex w-full items-center justify-center gap-6 text-sm font-semibold md:order-none md:ml-auto md:w-auto md:text-base">
-          <Link href="/de/blog" className="whitespace-nowrap hover:text-orange">
-            Blog
-          </Link>
-        </nav>
+        {/* Menu (na razie tylko Blog) pojawi się z pierwszym wpisem po niemiecku —
+            pusty <nav> dodawałby na telefonie pusty drugi rząd. */}
+        {getPosts('de').length > 0 && (
+          <nav className="order-last flex w-full items-center justify-center gap-6 text-sm font-semibold md:order-none md:ml-auto md:w-auto md:text-base">
+            <Link href="/de/blog" className="whitespace-nowrap hover:text-orange">
+              Blog
+            </Link>
+          </nav>
+        )}
         <div className="flex items-center gap-3 sm:gap-6">
           <Link
             href="/de/books"
