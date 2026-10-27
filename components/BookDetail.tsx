@@ -5,6 +5,16 @@ import { CATALOG_STRINGS, canonicalBookHref, type SiteLang } from '@/lib/catalog
 import { SITE_URL } from '@/lib/site';
 import SamplePreview, { IconEye } from '@/components/SamplePreview';
 
+// Format w calach w języku strony, a nie książki (np. polska książka na stronie DE → „Zoll”).
+const INCH_UNIT: Record<SiteLang, string> = { pl: 'cala', de: 'Zoll', en: 'in' };
+
+function localizedInches(formatInches: string, siteLang: SiteLang) {
+  const [w, h] = formatInches.match(/\d+(?:[.,]\d+)?/g) ?? [];
+  if (!w || !h) return formatInches;
+  const num = (n: string) => (siteLang === 'en' ? n.replace(',', '.') : n.replace('.', ','));
+  return `${num(w)} × ${num(h)} ${INCH_UNIT[siteLang]}`;
+}
+
 export default function BookDetail({ book, siteLang }: { book: Book; siteLang: SiteLang }) {
   const t = CATALOG_STRINGS[siteLang];
   const levelLinks = book.forWhom
@@ -110,7 +120,7 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
                 {book.hardcover ? '21 × 27,9 cm' : '21,6 × 27,9 cm'}
               </dd>
               <p className="mt-[5px] text-[12.5px] text-ink/[0.58]">
-                {book.formatInches} ·{' '}
+                {localizedInches(book.formatInches, siteLang)} ·{' '}
                 {book.hardcover ? t.detail.formatNoteHardcover : t.detail.formatNote}
               </p>
             </div>
