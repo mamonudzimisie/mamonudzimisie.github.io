@@ -57,7 +57,7 @@ const AUDIENCES: {
   {
     audience: 'dzieci',
     Icon: IconKid,
-    color: 'bg-orange-light text-orange',
+    color: 'text-navy',
     text: {
       pl: { label: 'Dla dzieci', description: 'Zabawa i nauka w jednym' },
       de: { label: 'Für Kinder', description: 'Spielen und Lernen in einem' },
@@ -67,7 +67,7 @@ const AUDIENCES: {
   {
     audience: 'dorosli',
     Icon: IconAdult,
-    color: 'bg-navy-light text-navy',
+    color: 'text-navy',
     text: {
       pl: { label: 'Dla dorosłych', description: 'Trening umysłu i relaks' },
       de: { label: 'Für Erwachsene', description: 'Gehirntraining und Entspannung' },
@@ -77,7 +77,7 @@ const AUDIENCES: {
   {
     audience: 'duzy-druk',
     Icon: IconLargePrint,
-    color: 'bg-green-light text-green',
+    color: 'text-navy',
     text: {
       pl: { label: 'Duży druk', description: 'Wygodna, czytelna czcionka' },
       de: { label: 'Großdruck', description: 'Angenehme, gut lesbare Schrift' },
@@ -101,7 +101,7 @@ export default function AudienceLinks({ lang = 'pl' }: { lang?: SiteLang }) {
       color,
       ...text[lang],
     })),
-    ...(downloads ? [{ ...downloads, Icon: IconDownload, color: 'bg-rose-100 text-rose-500' }] : []),
+    ...(downloads ? [{ ...downloads, Icon: IconDownload, color: 'text-navy' }] : []),
   ];
   // Przy czterech kafelkach w rzędzie robi się ciasno — mniejsze odstępy i ikony.
   const four = cards.length === 4;
@@ -112,12 +112,12 @@ export default function AudienceLinks({ lang = 'pl' }: { lang?: SiteLang }) {
         <Link
           key={card.href}
           href={card.href}
-          className={`group flex items-center gap-4 rounded-3xl p-5 transition hover:-translate-y-1 hover:shadow-cover ${
+          className={`group flex items-center gap-4 rounded-lg border border-ink/10 bg-white/50 p-5 transition hover:border-ink/25 hover:bg-white/80 ${
             four ? 'lg:gap-3 lg:p-4' : ''
           } ${card.color}`}
         >
           <span className="shrink-0" aria-hidden="true">
-            <card.Icon className={`h-14 w-14 ${four ? 'lg:h-12 lg:w-12' : ''}`} />
+            <card.Icon className={`h-11 w-11 text-orange ${four ? 'lg:h-10 lg:w-10' : ''}`} />
           </span>
           <div className="min-w-0 flex-1">
             <h3 className="font-display text-lg font-700 leading-tight text-navy">{card.label}</h3>
@@ -125,7 +125,7 @@ export default function AudienceLinks({ lang = 'pl' }: { lang?: SiteLang }) {
           </div>
           <span
             aria-hidden="true"
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white shadow-sm transition group-hover:translate-x-0.5"
+            className="flex h-9 w-9 shrink-0 items-center justify-center text-navy/50 transition group-hover:translate-x-0.5 group-hover:text-orange"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
               <path d="M5 12h14M13 6l6 6-6 6" />

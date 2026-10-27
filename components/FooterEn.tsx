@@ -7,11 +7,11 @@ export default function FooterEn() {
         <div>
           <div className="flex items-center">
             <p className="font-display leading-none text-navy">
-              <span className="flex items-baseline gap-1 text-lg font-800 tracking-tight">
+              <span className="flex items-baseline gap-0.5 text-xl font-800 tracking-tight">
                 ZALKA
                 <span className="text-orange">.</span>
               </span>
-              <span className="mt-0.5 block text-[0.55rem] font-700 uppercase tracking-[0.4em] text-orange">
+              <span className="mt-1 block font-body text-[0.55rem] font-semibold uppercase tracking-[0.42em] text-ink/55">
                 Books
               </span>
             </p>

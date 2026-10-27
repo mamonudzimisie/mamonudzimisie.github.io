@@ -212,7 +212,7 @@ export default function SamplePreview({
                 href={amazonUrl}
                 target="_blank"
                 rel="noopener noreferrer sponsored"
-                className="inline-block rounded-full bg-orange px-6 py-2 text-sm font-bold text-white transition hover:bg-orange/90"
+                className="inline-block rounded-md bg-orange px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-orange/90"
               >
                 {t.card.buy}
               </a>

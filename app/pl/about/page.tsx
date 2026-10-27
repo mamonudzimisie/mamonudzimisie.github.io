@@ -47,7 +47,7 @@ export default function ONasPage() {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="group mt-10 flex items-center gap-4 rounded-3xl bg-rose-100 p-5 transition hover:-translate-y-1 hover:shadow-cover"
+            className="group mt-10 flex items-center gap-4 rounded-lg border border-ink/10 bg-white/50 p-5 transition hover:border-ink/25 hover:bg-white/80"
           >
             <span
               aria-hidden="true"

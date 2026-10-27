@@ -74,10 +74,10 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
         </div>
         <div>
           <div className="flex flex-wrap items-center gap-2">
-            <p className="inline-block rounded-full bg-navy px-3 py-1 text-xs font-bold text-white">
+            <p className="inline-block rounded bg-navy px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-wider text-white">
               {t.ageLabels[book.ageRange as keyof typeof t.ageLabels] ?? book.ageRange}
             </p>
-            <p className="inline-block rounded-full border border-navy/25 px-3 py-1 text-xs font-bold text-navy/70">
+            <p className="inline-block rounded border border-navy/25 px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-wider text-navy/70">
               {t.detail.language}: {t.langNames[book.lang]} ({LANG_LABELS[book.lang]})
             </p>
           </div>
@@ -152,7 +152,7 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
           <div className="mt-8">
             {book.comingSoon ? (
               <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-                <span className="inline-block rounded-full bg-orange-light px-6 py-3 text-sm font-bold text-orange">
+                <span className="inline-block rounded-md bg-orange-light px-6 py-3 text-sm font-semibold text-orange">
                   {t.detail.comingSoon}
                 </span>
                 {/* przed premierą podgląd z własnych stron, bez przycisku „Kup” */}
@@ -171,7 +171,7 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
                   href={book.amazonUrl}
                   target="_blank"
                   rel="noopener noreferrer sponsored"
-                  className="inline-block rounded-full bg-orange px-8 py-3 text-base font-bold text-white shadow-cover transition hover:bg-orange/90"
+                  className="inline-block rounded-md bg-orange px-8 py-3.5 text-base font-semibold text-white transition hover:bg-orange/90"
                 >
                   {t.card.buy}
                 </a>

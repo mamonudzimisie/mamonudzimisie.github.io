@@ -1,18 +1,19 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { Baloo_2, Nunito } from 'next/font/google';
+import { Fraunces, Inter } from 'next/font/google';
 import './globals.css';
 import { SITE_URL } from '@/lib/site';
 
-const baloo = Baloo_2({
+// Nagłówki: szeryfowy Fraunces (zmienna grubość), tekst: Inter.
+// Oba mają latin-ext, więc polskie i niemieckie znaki są w komplecie.
+const fraunces = Fraunces({
   subsets: ['latin-ext'],
-  weight: ['600', '700', '800'],
   variable: '--font-display',
+  axes: ['opsz', 'SOFT'],
 });
 
-const nunito = Nunito({
+const inter = Inter({
   subsets: ['latin-ext'],
-  weight: ['400', '600', '700'],
   variable: '--font-body',
 });
 
@@ -59,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pl" className={`${baloo.variable} ${nunito.variable}`}>
+    <html lang="pl" className={`${fraunces.variable} ${inter.variable}`}>
       <body className="font-body flex min-h-screen flex-col bg-paper text-ink">
         {children}
         {/* Cloudflare Web Analytics — bez ciasteczek, więc bez zgody na cookies. */}

@@ -9,22 +9,24 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Paleta „premium”: chłodniejszy papier, głęboki atrament i granat,
+        // jeden akcent (terakota, nazwa `orange` zostaje dla zgodności klas).
         paper: {
-          DEFAULT: '#FBF3E3',
-          dark: '#F3E7D0',
+          DEFAULT: '#F6F1E9',
+          dark: '#EDE6DA',
         },
-        ink: '#2E2A26',
+        ink: '#1E1C19',
         green: {
-          DEFAULT: '#2F7A5C',
-          light: '#E4F1EA',
+          DEFAULT: '#2F5D4A',
+          light: '#E6ECE6',
         },
         orange: {
-          DEFAULT: '#E8793C',
-          light: '#FCE7DA',
+          DEFAULT: '#B9532F',
+          light: '#F2E4DA',
         },
         navy: {
-          DEFAULT: '#26355D',
-          light: '#E4E7F1',
+          DEFAULT: '#1F2A48',
+          light: '#E6E8EE',
         },
       },
       fontFamily: {
@@ -32,9 +34,11 @@ const config: Config = {
         body: ['var(--font-body)'],
       },
       fontWeight: {
-        600: '600',
-        700: '700',
-        800: '800',
+        // Fraunces jest zmienny: „800” z dawnego Baloo wygląda w nim zbyt
+        // ciężko, więc nagłówki dostają spokojniejszą grubość.
+        600: '500',
+        700: '600',
+        800: '600',
       },
       backgroundImage: {
         grid: 'linear-gradient(#00000012 1px, transparent 1px), linear-gradient(90deg, #00000012 1px, transparent 1px)',
@@ -43,8 +47,8 @@ const config: Config = {
         grid: '28px 28px',
       },
       boxShadow: {
-        cover: '0 18px 35px -12px rgba(46, 42, 38, 0.35)',
-        'cover-lg': '0 40px 70px -20px rgba(46, 42, 38, 0.28)',
+        cover: '0 14px 28px -14px rgba(30, 28, 25, 0.28)',
+        'cover-lg': '0 34px 60px -24px rgba(30, 28, 25, 0.3)',
       },
     },
   },

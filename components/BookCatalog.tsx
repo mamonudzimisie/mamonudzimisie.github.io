@@ -138,7 +138,7 @@ export default function BookCatalog({
 
   return (
     <div>
-      <div className="rounded-2xl border border-ink/10 bg-paper-dark p-4 sm:p-5">
+      <div className="rounded-lg border border-ink/10 bg-white/40 p-4 sm:p-5">
         <span className="text-xs font-bold uppercase tracking-wide text-navy/70">{t.audienceHeading}</span>
         <div className="mt-3 flex flex-wrap items-center gap-2.5">
           <button
@@ -147,10 +147,10 @@ export default function BookCatalog({
               setSelectedAge('');
               setSelectedCategory('');
             }}
-            className={`rounded-full px-5 py-2.5 text-base font-bold transition ${
+            className={`rounded-md px-4 py-2 text-[0.95rem] font-semibold transition ${
               selectedAudience === ''
-                ? 'bg-navy text-white shadow-cover'
-                : 'bg-white text-ink/80 hover:bg-white/80'
+                ? 'bg-navy text-white'
+                : 'bg-white text-ink/80 ring-1 ring-ink/10 hover:ring-ink/25'
             }`}
           >
             {t.all}
@@ -165,10 +165,10 @@ export default function BookCatalog({
                 }
                 setSelectedCategory('');
               }}
-              className={`rounded-full px-5 py-2.5 text-base font-bold transition ${
+              className={`rounded-md px-4 py-2 text-[0.95rem] font-semibold transition ${
                 selectedAudience === audience
-                  ? 'bg-navy text-white shadow-cover'
-                  : 'bg-white text-ink/80 hover:bg-white/80'
+                  ? 'bg-navy text-white'
+                  : 'bg-white text-ink/80 ring-1 ring-ink/10 hover:ring-ink/25'
               }`}
             >
               {t.audienceLabels[audience]}
@@ -191,7 +191,7 @@ export default function BookCatalog({
             <span className="text-sm font-semibold text-ink/70">{t.age}</span>
             <button
               onClick={() => setSelectedAge('')}
-              className={`rounded-full px-3 py-1 text-sm font-semibold transition ${
+              className={`rounded-md px-3 py-1 text-sm font-medium transition ${
                 selectedAge === '' ? 'bg-navy text-white' : 'bg-white/60 text-ink/70'
               }`}
             >
@@ -201,7 +201,7 @@ export default function BookCatalog({
               <button
                 key={age}
                 onClick={() => setSelectedAge(age)}
-                className={`rounded-full px-3 py-1 text-sm font-semibold transition ${
+                className={`rounded-md px-3 py-1 text-sm font-medium transition ${
                   selectedAge === age ? 'bg-navy text-white' : 'bg-white/60 text-ink/70'
                 }`}
               >
@@ -223,7 +223,7 @@ export default function BookCatalog({
             <span className="text-sm font-semibold text-ink/70">{t.category}</span>
             <button
               onClick={() => setSelectedCategory('')}
-              className={`rounded-full px-3 py-1 text-sm font-semibold transition ${
+              className={`rounded-md px-3 py-1 text-sm font-medium transition ${
                 selectedCategory === '' ? 'bg-orange text-white' : 'bg-white/60 text-ink/70'
               }`}
             >
@@ -233,7 +233,7 @@ export default function BookCatalog({
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`rounded-full px-3 py-1 text-sm font-semibold transition ${
+                className={`rounded-md px-3 py-1 text-sm font-medium transition ${
                   selectedCategory === category ? 'bg-orange text-white' : 'bg-white/60 text-ink/70'
                 }`}
               >
@@ -252,7 +252,7 @@ export default function BookCatalog({
             aria-haspopup="true"
             aria-expanded={langMenuOpen}
             onClick={() => setLangMenuOpen((open) => !open)}
-            className="flex items-center gap-1.5 rounded-full border border-ink/15 px-2.5 py-0.5 font-semibold tracking-wide text-ink/60 transition hover:border-ink/30 hover:text-ink/80"
+            className="flex items-center gap-1.5 rounded-md border border-ink/15 px-2.5 py-0.5 font-semibold tracking-wide text-ink/60 transition hover:border-ink/30 hover:text-ink/80"
           >
             {selectedLangs
               .slice()

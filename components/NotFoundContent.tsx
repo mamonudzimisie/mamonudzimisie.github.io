@@ -60,14 +60,14 @@ export default function NotFoundContent() {
                 ZALKA
                 <span className="text-orange">.</span>
               </span>
-              <span className="mt-0.5 block text-xs font-700 uppercase tracking-[0.4em] text-orange">Books</span>
+              <span className="mt-1 block font-body text-xs font-semibold uppercase tracking-[0.42em] text-ink/55">Books</span>
             </Link>
             <h1 className="mt-12 font-display text-3xl font-800 text-navy sm:text-4xl">{t.title}</h1>
             <p className="mt-3 text-ink/70">{t.text}</p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href={home.href}
-                className="rounded-full bg-orange px-6 py-3 text-sm font-bold text-white shadow-cover transition hover:bg-orange/90"
+                className="rounded-md bg-orange px-6 py-3 text-sm font-semibold text-white transition hover:bg-orange/90"
               >
                 {home.label}
               </Link>
@@ -75,7 +75,7 @@ export default function NotFoundContent() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="rounded-full border border-navy/20 bg-white px-6 py-3 text-sm font-bold text-navy transition hover:border-orange hover:text-orange"
+                  className="rounded-md border border-navy/25 px-6 py-3 text-sm font-semibold text-navy transition hover:border-navy hover:bg-navy hover:text-white"
                 >
                   {link.label}
                 </Link>

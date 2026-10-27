@@ -39,7 +39,7 @@ export default function MaterialyPage() {
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                 <h2 className="font-display text-2xl font-800 text-navy">{set.title}</h2>
                 {set.isNew && (
-                  <span className="rounded-full bg-orange-light px-3 py-0.5 text-xs font-bold text-orange">
+                  <span className="rounded bg-orange-light px-2 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wider text-orange">
                     Nowość
                   </span>
                 )}
@@ -54,7 +54,7 @@ export default function MaterialyPage() {
                       key={variant.pdf}
                       className="flex flex-wrap items-center gap-x-4 gap-y-2 py-3"
                     >
-                      <span className="w-20 shrink-0 rounded-full bg-navy px-3 py-1 text-center text-xs font-bold text-white">
+                      <span className="w-20 shrink-0 rounded bg-navy px-2.5 py-1 text-center text-[0.7rem] font-semibold uppercase tracking-wider text-white">
                         {variant.level}
                       </span>
                       <span className="min-w-0 flex-1 basis-56 text-sm text-ink/80">
@@ -75,7 +75,7 @@ export default function MaterialyPage() {
                         href={variant.pdf}
                         download
                         aria-label={`Pobierz PDF: ${set.title}, ${variant.level}`}
-                        className="inline-flex items-baseline gap-2 rounded-full bg-orange px-5 py-2 text-sm font-bold text-white shadow-cover transition hover:bg-orange/90"
+                        className="inline-flex items-baseline gap-2 rounded-md bg-orange px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-orange/90"
                       >
                         Pobierz PDF
                         <span className="text-xs font-semibold text-white/80">

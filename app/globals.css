@@ -3,8 +3,17 @@
 @tailwind utilities;
 
 body {
-  background-color: #fbf3e3;
-  color: #2e2a26;
+  background-color: #f6f1e9;
+  color: #1e1c19;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* :where = zerowa specyficzność, klasy tracking-* nadal wygrywają. */
+:where(.font-display) {
+  letter-spacing: -0.015em;
+  font-variation-settings: 'SOFT' 30;
 }
 
 /* Kratka na osobnej warstwie, żeby maska wygaszała tylko ją, a nie treść
