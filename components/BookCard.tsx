@@ -36,18 +36,18 @@ export default function BookCard({
             {t.card.comingSoon}
           </span>
         )}
-        <div className="relative mx-auto aspect-[3/4] w-[62%] max-w-[13rem] shadow-cover transition duration-300 group-hover:-translate-y-1.5 group-hover:shadow-cover-lg">
+        <div className="relative mx-auto aspect-[3/4] w-[62%] max-w-[13rem] rounded-[5px] shadow-cover transition duration-300 group-hover:-translate-y-1.5 group-hover:shadow-cover-lg">
           <Image
             src={book.coverImage}
             alt={t.card.coverAlt(title)}
             fill
             unoptimized
-            className="rounded-[2px] object-cover"
+            className="rounded-[5px] object-cover"
           />
           {/* lekki grzbiet: cień przy lewej krawędzi okładki */}
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 left-0 w-3 rounded-l-[2px] bg-gradient-to-r from-black/15 via-white/10 to-transparent"
+            className="pointer-events-none absolute inset-y-0 left-0 w-3 rounded-l-[5px] bg-gradient-to-r from-black/15 via-white/10 to-transparent"
           />
         </div>
       </Link>

@@ -34,7 +34,7 @@ const config: Config = {
         body: ['var(--font-body)'],
       },
       fontWeight: {
-        // Fraunces jest zmienny: „800” z dawnego Baloo wygląda w nim zbyt
+        // Newsreader jest zmienny: „800” z dawnego Baloo wygląda w nim zbyt
         // ciężko, więc nagłówki dostają spokojniejszą grubość.
         600: '500',
         700: '600',

@@ -58,7 +58,7 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
       />
       <div className="mx-auto grid max-w-5xl gap-10 sm:grid-cols-2">
         <div className="relative mx-auto aspect-[3/4] w-full max-w-[23.25rem]">
-          <div className="book-cover-frame absolute inset-0 overflow-hidden rounded-[3px]">
+          <div className="book-cover-frame absolute inset-0 overflow-hidden rounded-[8px]">
             <Image
               src={book.coverImage}
               alt={t.card.coverAlt(book.title)}

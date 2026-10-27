@@ -1,15 +1,18 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { Fraunces, Inter } from 'next/font/google';
+import { Inter, Newsreader } from 'next/font/google';
 import './globals.css';
 import { SITE_URL } from '@/lib/site';
 
-// Nagłówki: szeryfowy Fraunces (zmienna grubość), tekst: Inter.
-// Oba mają latin-ext, więc polskie i niemieckie znaki są w komplecie.
-const fraunces = Fraunces({
+// Nagłówki: szeryfowy Newsreader (zmienna grubość, prawdziwa kursywa),
+// tekst: Inter. Oba mają latin-ext, więc polskie i niemieckie znaki są
+// w komplecie. Fraunces odpadł: jego „j” prawie nie schodzi pod linię
+// pisma i w polskich słowach wyglądało jak błąd.
+const newsreader = Newsreader({
   subsets: ['latin-ext'],
+  style: ['normal', 'italic'],
   variable: '--font-display',
-  axes: ['opsz', 'SOFT'],
+  axes: ['opsz'],
 });
 
 const inter = Inter({
@@ -60,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pl" className={`${fraunces.variable} ${inter.variable}`}>
+    <html lang="pl" className={`${newsreader.variable} ${inter.variable}`}>
       <body className="font-body flex min-h-screen flex-col bg-paper text-ink">
         {children}
         {/* Cloudflare Web Analytics — bez ciasteczek, więc bez zgody na cookies. */}

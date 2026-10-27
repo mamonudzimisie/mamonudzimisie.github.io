@@ -138,14 +138,14 @@ export default function HeroFan({ books, lang = 'pl' }: { books: HeroFanBook[]; 
             {...(isFront
               ? { priority: true }
               : { loading: Math.abs(d) <= 1 ? ('eager' as const) : ('lazy' as const) })}
-            className="w-full rounded-[3px]"
+            className="w-full rounded-[7px]"
           />
         );
 
         return (
           <div
             key={book.slug}
-            className={`absolute left-1/2 top-0 w-[62%] rounded-[3px] transition-all duration-[600ms] motion-reduce:transition-none ${
+            className={`absolute left-1/2 top-0 w-[62%] rounded-[7px] transition-all duration-[600ms] motion-reduce:transition-none ${
               isFront ? 'shadow-cover-lg' : 'shadow-cover brightness-[0.97]'
             }`}
             style={{
@@ -166,7 +166,7 @@ export default function HeroFan({ books, lang = 'pl' }: { books: HeroFanBook[]; 
                 <span
                   key={front}
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 animate-cover-shine overflow-hidden rounded-[3px] motion-reduce:hidden"
+                  className="pointer-events-none absolute inset-0 animate-cover-shine overflow-hidden rounded-[7px] motion-reduce:hidden"
                 />
               </Link>
             ) : (

@@ -12,8 +12,7 @@ body {
 
 /* :where = zerowa specyficzność, klasy tracking-* nadal wygrywają. */
 :where(.font-display) {
-  letter-spacing: -0.015em;
-  font-variation-settings: 'SOFT' 30;
+  letter-spacing: -0.01em;
 }
 
 /* Kratka na osobnej warstwie, żeby maska wygaszała tylko ją, a nie treść
