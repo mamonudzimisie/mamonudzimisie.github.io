@@ -172,7 +172,7 @@ export default function MiniWordSearch({ puzzle, lang }: { puzzle: Puzzle; lang:
 
   return (
     <div className="not-prose my-10 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-ink/10 sm:p-7">
-      <p className="text-sm font-800 uppercase tracking-wider text-orange">{t.kicker}</p>
+      <p className="text-sm font-800 uppercase tracking-wider text-orange-ink">{t.kicker}</p>
       <p className="mt-1 font-display text-2xl font-800 text-navy">{puzzle.title}</p>
       <p className="mt-1 text-base text-ink/70">{t.hint}</p>
 
@@ -235,7 +235,7 @@ export default function MiniWordSearch({ puzzle, lang }: { puzzle: Puzzle; lang:
             <button
               type="button"
               onClick={() => setRevealed(true)}
-              className="mt-4 text-sm font-semibold text-ink/60 underline underline-offset-4 hover:text-orange"
+              className="mt-4 text-sm font-semibold text-ink/60 underline underline-offset-4 hover:text-orange-ink"
             >
               {t.reveal}
             </button>
@@ -247,13 +247,13 @@ export default function MiniWordSearch({ puzzle, lang }: { puzzle: Puzzle; lang:
         <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3 rounded-2xl bg-green-light px-5 py-4">
           <p className="font-display text-xl font-800 text-green">{allFound ? t.done : t.doneRevealed}</p>
           <div className="flex flex-wrap gap-x-4 gap-y-2 text-base">
-            <Link href={t.moreHref} className="font-semibold text-navy underline underline-offset-4 hover:text-orange">
+            <Link href={t.moreHref} className="font-semibold text-navy underline underline-offset-4 hover:text-orange-ink">
               {t.more}
             </Link>
             <button
               type="button"
               onClick={reset}
-              className="font-semibold text-navy underline underline-offset-4 hover:text-orange"
+              className="font-semibold text-navy underline underline-offset-4 hover:text-orange-ink"
             >
               {t.reset}
             </button>

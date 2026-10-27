@@ -21,7 +21,7 @@ export default function BlogList({ lang }: { lang: PostLang }) {
 
   return (
     <section className="px-4 py-16 sm:px-6 sm:py-24">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         <h1 className="font-display text-4xl font-800 text-navy sm:text-5xl">{t.heading}</h1>
         {posts.length === 0 ? (
           <p className="mt-6 text-ink/80">{t.empty}</p>
@@ -45,14 +45,14 @@ export default function BlogList({ lang }: { lang: PostLang }) {
                       />
                     ) : null}
                   </div>
-                  <time dateTime={post.date} className="mt-5 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-ink/50">
+                  <time dateTime={post.date} className="mt-5 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-ink/70">
                     {formatPostDate(post.date, lang)}
                   </time>
                   <h2 className="mt-2 font-display text-2xl font-700 leading-snug text-navy">
                     {/* Link rozciągnięty na całą kartę (after:inset-0). */}
                     <Link
                       href={`/${lang}/blog/${post.slug}`}
-                      className="transition-colors after:absolute after:inset-0 group-hover:text-orange"
+                      className="transition-colors after:absolute after:inset-0 group-hover:text-orange-ink"
                     >
                       {post.title}
                     </Link>

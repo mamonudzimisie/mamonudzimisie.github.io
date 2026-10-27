@@ -3,7 +3,6 @@ import Link from 'next/link';
 import AudienceLinks from '@/components/AudienceLinks';
 import BookCard from '@/components/BookCard';
 import HeroFan from '@/components/HeroFan';
-import VacuumWord from '@/components/VacuumWord';
 import type { Book } from '@/data/books';
 import type { SiteLang } from '@/lib/catalog-i18n';
 
@@ -19,8 +18,7 @@ type Strings = {
   // Kolejne linie nagłówka przed wyróżnioną końcówką (łamane tylko na dużych ekranach).
   titleLines: string[];
   titlePrefix: string;
-  // Litery wyróżnionego słowa są wciągane pod falkę i wyskakują z powrotem
-  // (raz, po wejściu na stronę) — we wszystkich językach.
+  // Wyróżnione słowo; pod nim rysuje się falka (raz, po wejściu na stronę).
   titleAccent: string;
   lead: string;
   cta: string;
@@ -186,10 +184,10 @@ export default function HomePage({
 
   return (
     <>
-      <section className="relative overflow-hidden px-4 pb-20 pt-12 sm:px-6 sm:pb-28 sm:pt-20">
+      <section className="relative overflow-hidden px-4 pb-12 pt-12 sm:px-6 sm:pb-16 sm:pt-20">
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
           <div className="text-center lg:text-left">
-            <span className="inline-flex animate-fade-up items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] text-ink/60">
+            <span className="inline-flex animate-fade-up items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] text-ink/70">
               <span className="h-px w-8 bg-orange" aria-hidden="true" />
               {t.badge}
             </span>
@@ -212,8 +210,8 @@ export default function HomePage({
               <br />
               {t.titlePrefix && <>{t.titlePrefix} </>}
               <span className="relative inline-block text-orange">
-                <VacuumWord word={t.titleAccent} />
-                <SquiggleUnderline className="vacuum-squiggle absolute -bottom-2 left-0 h-3 w-full text-orange" />
+                {t.titleAccent}
+                <SquiggleUnderline className="squiggle-draw absolute -bottom-2 left-0 h-3 w-full text-orange" />
               </span>
             </h1>
 
@@ -232,7 +230,7 @@ export default function HomePage({
               {t.note && <span className="text-sm font-semibold text-ink/70">{t.note}</span>}
             </div>
 
-            <ul className="animate-fade-up mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 border-t border-ink/10 pt-6 text-sm text-ink/60 lg:justify-start [animation-delay:350ms]">
+            <ul className="animate-fade-up mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 border-t border-ink/10 pt-6 text-sm text-ink/70 lg:justify-start [animation-delay:350ms]">
               {t.benefits.map(([first, second]) => (
                 <li key={first} className="flex items-center gap-2">
                   <span className="h-1 w-1 rounded-full bg-orange" aria-hidden="true" />
@@ -247,15 +245,15 @@ export default function HomePage({
           <div className="relative mx-auto w-full max-w-sm sm:max-w-md lg:mx-0 lg:max-w-[34rem] lg:justify-self-end">
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-x-[6%] bottom-[54px] top-[-8%] rounded-t-full bg-[#EACFBC]"
+              className="pointer-events-none absolute inset-x-0 bottom-[54px] top-[-8%] rounded-t-full bg-[#EACFBC]"
             />
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-x-[6%] bottom-[54px] top-[-8%] rounded-t-full bg-[radial-gradient(70%_45%_at_50%_28%,rgba(255,255,255,0.35),transparent_75%)]"
+              className="pointer-events-none absolute inset-x-0 bottom-[54px] top-[-8%] rounded-t-full bg-[radial-gradient(70%_45%_at_50%_28%,rgba(255,255,255,0.35),transparent_75%)]"
             />
             {/* cienka linia „parapetu”, na którym stoją książki */}
-            <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-[54px] h-px bg-ink/15" />
-            <div className="relative px-6 pt-10 sm:px-10">
+            <div aria-hidden="true" className="pointer-events-none absolute inset-x-[4%] bottom-[54px] h-px bg-ink/20" />
+            <div className="relative px-10 pt-10 sm:px-14">
               <HeroFan
                 lang={lang}
                 books={heroBooks.map(({ slug, title, subtitle, coverImage }) => ({ slug, title, subtitle, coverImage }))}
@@ -266,7 +264,7 @@ export default function HomePage({
 
       </section>
 
-      <section className="relative px-4 py-16 sm:px-6 sm:py-24">
+      <section className="relative px-4 pb-16 pt-12 sm:px-6 sm:pb-24 sm:pt-16">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <h2 className="font-display text-3xl font-700 text-navy sm:text-4xl">{t.audiencesTitle}</h2>
@@ -279,18 +277,18 @@ export default function HomePage({
       </section>
 
       {featuredBooks.length > 0 && (
-        <section className="border-y border-ink/10 bg-paper-light px-4 py-20 sm:px-6 sm:py-24">
+        <section className="paper-grain border-y border-ink/10 bg-[#EFE6D8] px-4 py-20 sm:px-6 sm:py-24">
           <div className="mx-auto max-w-6xl">
             <div className="flex items-end justify-between gap-4">
               <h2 className="font-display text-3xl font-700 text-navy sm:text-4xl">{t.featuredTitle}</h2>
               <Link
                 href={`/${lang}/books`}
-                className="hidden shrink-0 text-sm font-medium text-navy transition-colors hover:text-orange sm:inline"
+                className="hidden shrink-0 text-sm font-medium text-navy transition-colors hover:text-orange-ink sm:inline"
               >
                 {t.cta} <span aria-hidden="true">→</span>
               </Link>
             </div>
-            <div className="mt-12 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 sm:mt-12 sm:gap-x-8 sm:gap-y-14 lg:grid-cols-3">
               {featuredBooks.map((book) => (
                 <BookCard key={book.slug} book={book} siteLang={lang} />
               ))}
@@ -301,7 +299,7 @@ export default function HomePage({
 
       {/* Jasna, ciepła sekcja z numerami zamiast ikon. Ciemny blok przed
           stopką był za ciężki. */}
-      <section className="relative overflow-hidden bg-orange-light px-4 py-20 sm:px-6 sm:py-28">
+      <section className="relative overflow-hidden bg-[#F1DDCF] px-4 py-20 sm:px-6 sm:py-28">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <div className="lg:sticky lg:top-24 lg:self-start">
             <h2 className="font-display text-4xl font-700 leading-[1.1] text-navy sm:text-5xl">

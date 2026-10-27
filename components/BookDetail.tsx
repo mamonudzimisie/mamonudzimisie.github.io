@@ -56,7 +56,7 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="mx-auto grid max-w-5xl gap-10 sm:grid-cols-2">
+      <div className="mx-auto grid max-w-6xl gap-10 sm:grid-cols-2 lg:gap-16">
         <div className="relative mx-auto aspect-[3/4] w-full max-w-[23.25rem]">
           <div className="book-cover-frame absolute inset-0 overflow-hidden rounded-[8px]">
             <Image
@@ -74,10 +74,10 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
         </div>
         <div>
           <div className="flex flex-wrap items-center gap-2">
-            <p className="inline-block rounded bg-navy px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-wider text-white">
+            <p className="inline-block rounded border border-navy/25 px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-wider text-navy">
               {t.ageLabels[book.ageRange as keyof typeof t.ageLabels] ?? book.ageRange}
             </p>
-            <p className="inline-block rounded border border-navy/25 px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-wider text-navy/70">
+            <p className="inline-block rounded border border-navy/25 px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-wider text-navy">
               {t.detail.language}: {t.langNames[book.lang]} ({LANG_LABELS[book.lang]})
             </p>
           </div>
@@ -87,7 +87,7 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
           <p lang={book.lang} className="mt-1 text-lg text-ink/70">
             {book.detailSubtitle ?? book.subtitle}
           </p>
-          <p className="mt-2 text-sm font-semibold text-orange">
+          <p className="mt-2 text-sm font-semibold text-orange-ink">
             {t.categoryLabels[book.category]}
           </p>
           {/* Opisu i tytułu nie tłumaczymy — czytelnik ma wiedzieć, w jakim
@@ -187,7 +187,7 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
                     href={book.amazonUrl}
                     target="_blank"
                     rel="noopener noreferrer sponsored"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-ink/70 underline decoration-dotted decoration-ink/40 underline-offset-4 hover:text-orange"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-ink/70 underline decoration-dotted decoration-ink/40 underline-offset-4 hover:text-orange-ink"
                   >
                     <IconEye className="h-4 w-4" />
                     {t.detail.lookInside}
@@ -199,7 +199,7 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
 
           <Link
             href={`/${siteLang}/books`}
-            className="mt-8 inline-block text-sm font-semibold text-navy underline underline-offset-4 hover:text-orange"
+            className="mt-8 inline-block text-sm font-semibold text-navy underline underline-offset-4 hover:text-orange-ink"
           >
             {t.detail.backToCatalog}
           </Link>
@@ -207,7 +207,7 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
       </div>
 
       {book.samplePages?.length ? (
-        <div className="mx-auto mt-14 max-w-5xl border-t border-navy/[0.08] pt-10">
+        <div className="mx-auto mt-14 max-w-6xl border-t border-navy/[0.08] pt-10">
           <SamplePreview
             pages={book.samplePages}
             bookTitle={book.title}
@@ -219,7 +219,7 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
       ) : null}
 
       {book.forWhom && (
-        <div className="mx-auto mt-14 max-w-5xl border-t border-navy/[0.08] pt-10">
+        <div className="mx-auto mt-14 max-w-6xl border-t border-navy/[0.08] pt-10">
           <h2 className="font-display text-2xl font-800 text-navy">{t.detail.forWhom}</h2>
           <div lang={book.lang} className="mt-4 max-w-3xl space-y-3 leading-relaxed text-ink/80">
             {book.forWhom.paragraphs.map((paragraph) => (
@@ -247,7 +247,7 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
                     <p className="text-[11px] font-semibold uppercase tracking-[0.04em] text-navy/[0.62]">
                       {label}
                     </p>
-                    <p lang={other.lang} className="mt-1 font-bold text-navy group-hover:text-orange">
+                    <p lang={other.lang} className="mt-1 font-bold text-navy group-hover:text-orange-ink">
                       {other.title} — {other.subtitle}
                     </p>
                     <p className="text-sm text-ink/70">

@@ -33,7 +33,7 @@ export default function ONasPage() {
             Wszystkie nasze książki znajdziesz na Amazon — zapraszamy do{' '}
             <a
               href="/pl/books"
-              className="font-semibold text-navy underline underline-offset-4 hover:text-orange"
+              className="font-semibold text-navy underline underline-offset-4 hover:text-orange-ink"
             >
               katalogu
             </a>
@@ -59,7 +59,7 @@ export default function ONasPage() {
               <span className="block font-display text-lg font-700 leading-tight text-navy">
                 Obserwuj nas na {namePl}!
               </span>
-              <span className="mt-1 block text-sm text-ink/70 group-hover:text-orange">{handle}</span>
+              <span className="mt-1 block text-sm text-ink/70 group-hover:text-orange-ink">{handle}</span>
             </span>
           </a>
         ))}

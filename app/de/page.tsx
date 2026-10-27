@@ -7,12 +7,11 @@ import { SITE_URL } from '@/lib/site';
 // Zaczynamy od tytułów niemieckich, dalej reszta oferty — karty i strony
 // książek i tak oznaczają język treści.
 const HERO_SLUGS = [
+  // Same niemieckie wydania — polskie okładki w niemieckim hero myliły.
   'meine-ersten-wortsuchratsel-stufe-1',
+  'sudoku-grossdruck-103',
   'meine-ersten-wortsuchratsel-stufe-2',
-  'sudoku-300-zagadek-200',
-  'znajdz-slowko-poziom-latwy',
-  'sudoku-duzym-drukiem-100',
-  'zdobywca-szczytow',
+  'sudoku-grossdruck-100',
 ];
 
 export const metadata: Metadata = {

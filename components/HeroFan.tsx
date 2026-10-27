@@ -101,7 +101,7 @@ export default function HeroFan({
 
   return (
     <div
-      className="vacuum-gulp relative"
+      className="relative"
       role="region"
       aria-roledescription={t.carousel}
       aria-label={t.region}
@@ -127,10 +127,8 @@ export default function HeroFan({
         touchX.current = null;
       }}
     >
-      {/* Rezerwuje wysokość wachlarza — okładki są pozycjonowane absolutnie.
-          Stoi dokładnie pod przednią okładką, więc to w nią celują litery
-          porywane przez „odkurzacz” w nagłówku (VacuumWord). */}
-      <div className="mx-auto aspect-[3/4] w-[62%]" aria-hidden="true" data-vacuum-target />
+      {/* Rezerwuje wysokość wachlarza — okładki są pozycjonowane absolutnie. */}
+      <div className="mx-auto aspect-[3/4] w-[62%]" aria-hidden="true" />
 
       {books.map((book, index) => {
         const d = offset(index);

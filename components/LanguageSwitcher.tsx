@@ -40,7 +40,7 @@ export default function LanguageSwitcher({ current }: { current: string }) {
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={(SWITCH_LABEL[current] ?? SWITCH_LABEL.pl)(currentLocale.label)}
-        className="flex items-center gap-1 whitespace-nowrap rounded-md border border-ink/15 px-3 py-1.5 text-sm font-semibold text-ink/80 transition hover:border-orange hover:text-orange"
+        className="flex items-center gap-1 whitespace-nowrap rounded-md border border-ink/15 px-3 py-1.5 text-sm font-semibold text-ink/80 transition hover:border-orange hover:text-orange-ink"
       >
         <span aria-hidden="true">{currentLocale.flag}</span>
         <span>{currentLocale.short}</span>

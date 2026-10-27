@@ -51,8 +51,8 @@ const LANGS: { lang: SiteLang; label: string }[] = [
 export default function SiteFooter({ lang }: { lang: SiteLang }) {
   const t = TEXT[lang];
   return (
-    <footer className="border-t border-ink/10 bg-paper">
-      <div className="mx-auto max-w-6xl px-4 pb-10 pt-14 sm:px-6">
+    <footer className="border-t border-ink/10 bg-paper px-4 sm:px-6">
+      <div className="mx-auto max-w-6xl pb-10 pt-14">
         <div className="grid gap-10 sm:grid-cols-[1.6fr_1fr_1fr]">
           <div>
             <p className="font-display leading-none text-navy">
@@ -60,19 +60,19 @@ export default function SiteFooter({ lang }: { lang: SiteLang }) {
                 ZALKA
                 <span className="text-orange">.</span>
               </span>
-              <span className="mt-1 block font-body text-[0.58rem] font-semibold uppercase tracking-[0.42em] text-ink/55">
+              <span className="mt-1 block font-body text-[0.58rem] font-semibold uppercase tracking-[0.42em] text-ink/70">
                 Books
               </span>
             </p>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink/65">{t.tagline}</p>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink/70">{t.tagline}</p>
             <SocialLinks lang={lang} className="mt-5" />
           </div>
           <nav aria-label={t.navTitle}>
-            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-ink/45">{t.navTitle}</p>
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-ink/70">{t.navTitle}</p>
             <ul className="mt-4 space-y-2.5 text-sm">
               {t.links.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-ink/80 transition-colors hover:text-orange">
+                  <Link href={link.href} className="text-ink/80 transition-colors hover:text-orange-ink">
                     {link.label}
                   </Link>
                 </li>
@@ -80,7 +80,7 @@ export default function SiteFooter({ lang }: { lang: SiteLang }) {
             </ul>
           </nav>
           <div>
-            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-ink/45">{t.langTitle}</p>
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-ink/70">{t.langTitle}</p>
             <ul className="mt-4 space-y-2.5 text-sm">
               {LANGS.map((item) => (
                 <li key={item.lang}>
@@ -91,7 +91,7 @@ export default function SiteFooter({ lang }: { lang: SiteLang }) {
                     className={
                       item.lang === lang
                         ? 'font-medium text-navy'
-                        : 'text-ink/80 transition-colors hover:text-orange'
+                        : 'text-ink/80 transition-colors hover:text-orange-ink'
                     }
                   >
                     {item.label}
@@ -101,7 +101,7 @@ export default function SiteFooter({ lang }: { lang: SiteLang }) {
             </ul>
           </div>
         </div>
-        <p className="mt-12 border-t border-ink/10 pt-6 text-xs text-ink/45">
+        <p className="mt-12 border-t border-ink/10 pt-6 text-xs text-ink/70">
           © {new Date().getFullYear()} ZALKA BOOKS. {t.rights}
         </p>
       </div>

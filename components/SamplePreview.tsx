@@ -95,7 +95,7 @@ export default function SamplePreview({
             <ul
               ref={stripRef}
               onScroll={updateArrows}
-              className="no-scrollbar -mx-4 flex snap-x snap-mandatory scroll-px-4 gap-5 overflow-x-auto px-4 pb-10 pt-2 sm:mx-0 sm:scroll-px-1 sm:px-1"
+              className="no-scrollbar -mx-4 flex snap-x snap-mandatory scroll-px-4 gap-5 overflow-x-auto px-4 pb-10 pt-2 [mask-image:linear-gradient(to_right,black_85%,transparent)] sm:mx-0 sm:scroll-px-1 sm:px-1"
             >
               {pages.map((src, i) => (
                 <li key={src} className="shrink-0 snap-start">
@@ -149,7 +149,7 @@ export default function SamplePreview({
           setIndex(0);
           setOpen(true);
         }}
-        className="inline-flex items-center gap-2 text-sm font-semibold text-ink/70 underline decoration-dotted decoration-ink/40 underline-offset-4 hover:text-orange"
+        className="inline-flex items-center gap-2 text-sm font-semibold text-ink/70 underline decoration-dotted decoration-ink/40 underline-offset-4 hover:text-orange-ink"
       >
         <IconEye className="h-4 w-4" />
         {t.detail.lookInside}

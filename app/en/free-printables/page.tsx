@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default function FreePrintablesPage() {
   return (
     <section className="px-4 py-16 sm:px-6 sm:py-20">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-6xl">
         <h1 className="font-display text-3xl font-800 text-navy sm:text-4xl">Free printables</h1>
         <p className="mt-3 max-w-2xl leading-relaxed text-ink/70">
           Want to see whether our puzzles are for you? Download a free set, print it at home and
@@ -62,7 +62,7 @@ export default function FreePrintablesPage() {
                             {' · '}
                             <Link
                               href={`/en/books/${book.slug}`}
-                              className="font-semibold text-navy underline underline-offset-4 hover:text-orange"
+                              className="font-semibold text-navy underline underline-offset-4 hover:text-orange-ink"
                             >
                               the full book for beginners
                             </Link>

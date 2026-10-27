@@ -26,6 +26,8 @@ const config: Config = {
           light: '#F2E4DA',
           // akcent na ciemnym tle (granatowe sekcje) — terakota byłaby tam za ciemna
           soft: '#EBA98A',
+          // terakota do tekstu i linków na jasnym tle (kontrast 5,6:1; DEFAULT ma 4,3:1)
+          ink: '#9E4422',
         },
         navy: {
           DEFAULT: '#1F2A48',

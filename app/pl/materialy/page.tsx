@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function MaterialyPage() {
   return (
     <section className="px-4 py-16 sm:px-6 sm:py-20">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-6xl">
         <h1 className="font-display text-3xl font-800 text-navy sm:text-4xl">
           Materiały do pobrania
         </h1>
@@ -64,7 +64,7 @@ export default function MaterialyPage() {
                             {' · '}
                             <Link
                               href={`/pl/books/${book.slug}`}
-                              className="font-semibold text-navy underline underline-offset-4 hover:text-orange"
+                              className="font-semibold text-navy underline underline-offset-4 hover:text-orange-ink"
                             >
                               książka dla dzieci {variant.level}
                             </Link>
