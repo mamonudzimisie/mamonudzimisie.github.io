@@ -3,6 +3,8 @@ import Link from 'next/link';
 import AudienceLinks from '@/components/AudienceLinks';
 import BookCard from '@/components/BookCard';
 import HeroFan from '@/components/HeroFan';
+import OpenBook from '@/components/OpenBook';
+import { getBookBySlug } from '@/data/books';
 import type { Book } from '@/data/books';
 import type { SiteLang } from '@/lib/catalog-i18n';
 
@@ -28,6 +30,8 @@ type Strings = {
   audiencesTitle: string;
   audiencesLead: string;
   featuredTitle: string;
+  // Sekcja z otwartą książką (strony przykładowe zamiast zdjęcia produktu).
+  inside: { eyebrow: string; title: string; text: string; link: string; slug: string };
   whyLine: string;
   whyPrefix: string;
   whyAccent: string;
@@ -52,6 +56,13 @@ const STRINGS: Record<SiteLang, Strings> = {
     audiencesTitle: 'Znajdź coś dla siebie',
     audiencesLead: 'Łamigłówki na każdą okazję — dla dzieci, dorosłych i całej rodziny.',
     featuredTitle: 'Wyróżnione książki',
+    inside: {
+      eyebrow: 'Zajrzyj do środka',
+      title: 'Duży druk, który naprawdę widać',
+      text: 'Dwie zagadki na stronę, wyraźne kratki i cyfry, które nie męczą oczu. Tak wygląda środek naszych książek z sudoku dużym drukiem.',
+      link: 'Zobacz książkę',
+      slug: 'sudoku-duzym-drukiem-100',
+    },
     whyLine: 'Dlaczego Twój mózg',
     whyPrefix: 'lubi',
     whyAccent: 'łamigłówki?',
@@ -90,6 +101,13 @@ const STRINGS: Record<SiteLang, Strings> = {
     audiencesTitle: 'Finde etwas für dich',
     audiencesLead: 'Rätsel für jede Gelegenheit — für Kinder, Erwachsene und die ganze Familie.',
     featuredTitle: 'Empfohlene Bücher',
+    inside: {
+      eyebrow: 'Ein Blick hinein',
+      title: 'Großdruck, den man wirklich lesen kann',
+      text: 'Zwei Rätsel pro Seite, klare Kästchen und Ziffern, die die Augen schonen. So sehen unsere Sudoku-Bücher im Großdruck von innen aus.',
+      link: 'Zum Buch',
+      slug: 'sudoku-grossdruck-100',
+    },
     whyLine: 'Warum dein Gehirn',
     whyPrefix: '',
     whyAccent: 'Rätsel mag',
@@ -129,6 +147,13 @@ const STRINGS: Record<SiteLang, Strings> = {
     audiencesTitle: 'Find something for you',
     audiencesLead: 'Puzzles for every occasion — for kids, adults and the whole family.',
     featuredTitle: 'Featured books',
+    inside: {
+      eyebrow: 'Look inside',
+      title: 'Large print you can actually read',
+      text: 'Two puzzles per page, clear grids and digits that are easy on the eyes. This is what the inside of our large print sudoku books looks like.',
+      link: 'See the book',
+      slug: 'large-print-sudoku-100',
+    },
     whyLine: 'Why your brain',
     whyPrefix: '',
     whyAccent: 'loves puzzles',
@@ -296,6 +321,34 @@ export default function HomePage({
           </div>
         </section>
       )}
+
+      {(() => {
+        const insideBook = getBookBySlug(t.inside.slug);
+        const pages = insideBook?.samplePages;
+        if (!insideBook || !pages || pages.length < 5) return null;
+        return (
+          <section className="px-4 py-20 sm:px-6 sm:py-28">
+            <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+              <div>
+                <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] text-ink/70">
+                  <span className="h-px w-8 bg-orange" aria-hidden="true" />
+                  {t.inside.eyebrow}
+                </p>
+                <h2 className="mt-4 font-display text-4xl font-700 leading-[1.1] text-navy sm:text-5xl">{t.inside.title}</h2>
+                <p className="mt-5 max-w-md text-lg leading-relaxed text-ink/75">{t.inside.text}</p>
+                <Link
+                  href={`/${lang}/books/${insideBook.slug}`}
+                  className="mt-7 inline-flex items-center gap-2 font-medium text-navy transition-colors hover:text-orange-ink"
+                >
+                  {t.inside.link} <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+              {/* strony 4 i 5 to pierwsza rozkładówka z łamigłówkami */}
+              <OpenBook left={pages[3]} right={pages[4]} />
+            </div>
+          </section>
+        );
+      })()}
 
       {/* Jasna, ciepła sekcja z numerami zamiast ikon. Ciemny blok przed
           stopką był za ciężki. */}
