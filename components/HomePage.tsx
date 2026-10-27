@@ -206,10 +206,10 @@ function SquiggleUnderline({ className }: IconProps) {
 // Ikony i kolory stałe — kolejność odpowiada STRINGS[lang].benefits / .reasons.
 
 const REASON_ICONS = [
-  { Icon: IconPencil, color: 'text-orange' },
-  { Icon: IconBrain, color: 'text-orange' },
-  { Icon: IconMoon, color: 'text-orange' },
-  { Icon: IconHeart, color: 'text-orange' },
+  { Icon: IconPencil, color: 'text-orange-soft' },
+  { Icon: IconBrain, color: 'text-orange-soft' },
+  { Icon: IconMoon, color: 'text-orange-soft' },
+  { Icon: IconHeart, color: 'text-orange-soft' },
 ];
 
 export default function HomePage({
@@ -282,14 +282,29 @@ export default function HomePage({
             </ul>
           </div>
 
-          <div className="relative mx-auto w-full max-w-xs sm:max-w-sm lg:mx-0 lg:max-w-md lg:justify-self-end">
-            {/* miękki cień na "podłodze" */}
-            <div className="absolute inset-x-8 -bottom-3 h-8 rounded-full bg-ink/15 blur-2xl" aria-hidden="true" />
-
-            <HeroFan
-              lang={lang}
-              books={heroBooks.map(({ slug, title, subtitle, coverImage }) => ({ slug, title, subtitle, coverImage }))}
-            />
+          {/* Granatowa „witryna” za wachlarzem: okładki stoją na ciemnym tle
+              jak w oknie księgarni. Światło z góry daje głębię. */}
+          <div className="relative mx-auto w-full max-w-sm sm:max-w-md lg:mx-0 lg:max-w-[34rem] lg:justify-self-end">
+            <div className="relative isolate rounded-[28px] bg-navy px-12 pb-6 pt-12 shadow-cover-lg sm:px-16 sm:pt-14">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 -z-10 rounded-[28px] bg-[radial-gradient(90%_60%_at_50%_8%,rgba(255,255,255,0.14),transparent_70%)]"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-3 -z-10 rounded-[20px] ring-1 ring-white/10"
+              />
+              {/* „podłoga”, na której stoją książki */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[32%] rounded-b-[28px] bg-navy-deep/60"
+              />
+              <HeroFan
+                lang={lang}
+                dark
+                books={heroBooks.map(({ slug, title, subtitle, coverImage }) => ({ slug, title, subtitle, coverImage }))}
+              />
+            </div>
           </div>
         </div>
 
@@ -308,7 +323,7 @@ export default function HomePage({
       </section>
 
       {featuredBooks.length > 0 && (
-        <section className="border-y border-ink/10 bg-white/50 px-4 py-20 sm:px-6 sm:py-24">
+        <section className="border-y border-ink/10 bg-paper-light px-4 py-20 sm:px-6 sm:py-24">
           <div className="mx-auto max-w-6xl">
             <div className="flex items-end justify-between gap-4">
               <h2 className="font-display text-3xl font-700 text-navy sm:text-4xl">{t.featuredTitle}</h2>
@@ -328,25 +343,24 @@ export default function HomePage({
         </section>
       )}
 
-      <section className="relative bg-white/60 px-4 py-20 sm:px-6 sm:py-24">
-        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[280px_1fr] lg:items-start lg:gap-16">
-          <div className="text-center lg:text-left">
-            <h2 className="font-display text-2xl font-700 leading-snug text-navy sm:text-3xl">
+      <section className="relative bg-navy px-4 py-20 text-paper sm:px-6 sm:py-28">
+        <div className="mx-auto max-w-6xl">
+          <div>
+            <h2 className="font-display text-3xl font-700 leading-snug text-paper sm:text-4xl">
               {t.whyLine}{' '}
-              <br />
               {t.whyPrefix && `${t.whyPrefix} `}
-              <span className="italic text-orange">{t.whyAccent}</span>
+              <span className="italic text-orange-soft">{t.whyAccent}</span>
             </h2>
           </div>
 
-          <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-x-10 gap-y-10 border-t border-white/10 pt-12 sm:grid-cols-2 lg:grid-cols-4">
             {t.reasons.map((reason, index) => {
               const { Icon, color } = REASON_ICONS[index];
               return (
                 <div key={reason.title}>
                   <Icon className={`h-7 w-7 ${color}`} />
-                  <h3 className="mt-4 font-display text-lg font-700 text-navy">{reason.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-ink/70">{reason.text}</p>
+                  <h3 className="mt-4 font-display text-xl font-700 text-paper">{reason.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-paper/70">{reason.text}</p>
                 </div>
               );
             })}

@@ -71,7 +71,19 @@ const POSITIONS: Record<string, { transform: string; z: number; opacity: number 
 const SPRING = 'cubic-bezier(0.34, 1.3, 0.64, 1)';
 const MAX_TILT = 6; // stopnie
 
-export default function HeroFan({ books, lang = 'pl' }: { books: HeroFanBook[]; lang?: FanLang }) {
+export default function HeroFan({
+  books,
+  lang = 'pl',
+  dark = false,
+}: {
+  books: HeroFanBook[];
+  lang?: FanLang;
+  // Wachlarz na ciemnym tle: jasne strzałki i kropki.
+  dark?: boolean;
+}) {
+  const arrowClass = dark
+    ? 'flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white ring-1 ring-white/25 transition hover:bg-white hover:text-navy'
+    : 'flex h-11 w-11 items-center justify-center rounded-full bg-white/80 text-navy ring-1 ring-ink/15 transition hover:bg-navy hover:text-white';
   const [front, setFront] = useState(0);
   const [tilt, setTilt] = useState(0);
   const touchX = useRef<number | null>(null);
@@ -146,7 +158,13 @@ export default function HeroFan({ books, lang = 'pl' }: { books: HeroFanBook[]; 
           <div
             key={book.slug}
             className={`absolute left-1/2 top-0 w-[62%] rounded-[7px] transition-all duration-[600ms] motion-reduce:transition-none ${
-              isFront ? 'shadow-cover-lg' : 'shadow-cover brightness-[0.97]'
+              isFront
+                ? dark
+                  ? 'shadow-[0_34px_60px_-18px_rgba(0,0,0,0.6)]'
+                  : 'shadow-cover-lg'
+                : dark
+                  ? 'shadow-[0_18px_34px_-14px_rgba(0,0,0,0.55)]'
+                  : 'shadow-cover'
             }`}
             style={{
               transform: isFront
@@ -190,7 +208,7 @@ export default function HeroFan({ books, lang = 'pl' }: { books: HeroFanBook[]; 
           type="button"
           onClick={() => go(-1)}
           aria-label={t.prev}
-          className="flex h-11 w-11 items-center justify-center rounded-full bg-white/80 text-navy ring-1 ring-ink/15 transition hover:bg-navy hover:text-white"
+          className={arrowClass}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden="true">
             <path d="M15 6l-6 6 6 6" />
@@ -205,7 +223,9 @@ export default function HeroFan({ books, lang = 'pl' }: { books: HeroFanBook[]; 
               aria-label={t.dot(index + 1, count, book.title)}
               aria-current={index === front}
               className={`h-2.5 rounded-full transition-all duration-300 ${
-                index === front ? 'w-7 bg-navy' : 'w-2.5 bg-ink/20 hover:bg-ink/40'
+                index === front
+                  ? `w-7 ${dark ? 'bg-white' : 'bg-navy'}`
+                  : `w-2.5 ${dark ? 'bg-white/30 hover:bg-white/50' : 'bg-ink/20 hover:bg-ink/40'}`
               }`}
             />
           ))}
@@ -214,7 +234,7 @@ export default function HeroFan({ books, lang = 'pl' }: { books: HeroFanBook[]; 
           type="button"
           onClick={() => go(1)}
           aria-label={t.next}
-          className="flex h-11 w-11 items-center justify-center rounded-full bg-white/80 text-navy ring-1 ring-ink/15 transition hover:bg-navy hover:text-white"
+          className={arrowClass}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden="true">
             <path d="M9 6l6 6-6 6" />

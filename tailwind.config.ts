@@ -14,6 +14,7 @@ const config: Config = {
         paper: {
           DEFAULT: '#F6F1E9',
           dark: '#EDE6DA',
+          light: '#FDFBF7',
         },
         ink: '#1E1C19',
         green: {
@@ -23,10 +24,13 @@ const config: Config = {
         orange: {
           DEFAULT: '#B9532F',
           light: '#F2E4DA',
+          // akcent na ciemnym tle (granatowe sekcje) — terakota byłaby tam za ciemna
+          soft: '#EBA98A',
         },
         navy: {
           DEFAULT: '#1F2A48',
           light: '#E6E8EE',
+          deep: '#161E35',
         },
       },
       fontFamily: {
