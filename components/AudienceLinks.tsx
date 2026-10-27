@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { books, type BookAudience } from '@/data/books';
 import type { SiteLang } from '@/lib/catalog-i18n';
@@ -62,27 +61,29 @@ function coversFor(audience: BookAudience, lang: SiteLang): string[] {
   return sorted.slice(0, 3).map((book) => book.coverImage.replace('/covers/', '/covers/thumbs/'));
 }
 
-// Mały stos: środkowa okładka z przodu, dwie po bokach lekko przechylone.
-const STACK = [
-  'left-[12%] rotate-[-9deg] z-0',
-  'left-1/2 -translate-x-1/2 z-10',
-  'right-[12%] rotate-[9deg] z-0',
-];
-
+// Okładki stoją prosto obok siebie, lekko na siebie zachodząc — jak na
+// półce. Bez obracania: obrócone małe obrazki na zwykłym ekranie zawsze
+// miały postrzępione krawędzie. Środkowa jest z przodu i odrobinę wyższa.
 function CoverStack({ images, pages }: { images: string[]; pages?: boolean }) {
   const ordered = images.length === 3 ? [images[1], images[0], images[2]] : images;
-  const slots = images.length === 3 ? STACK : ['left-[24%] rotate-[-6deg] z-0', 'right-[24%] rotate-[6deg] z-10'];
+  const front = images.length === 3 ? 1 : -1;
   return (
-    <div className="relative h-[5.5rem] sm:h-40" aria-hidden="true">
+    <div className="flex h-24 items-end justify-center sm:h-36" aria-hidden="true">
       {ordered.map((src, i) => (
-        <div
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
           key={src}
-          className={`tilt-smooth absolute bottom-0 aspect-[3/4] w-[34%] max-w-[6.75rem] rounded-[4px] shadow-cover transition duration-300 group-hover:-translate-y-1 ${
-            pages ? 'bg-white p-1' : ''
-          } ${slots[i]}`}
-        >
-          <Image src={src} alt="" fill unoptimized className={`rounded-[4px] ${pages ? 'object-contain p-1' : 'object-cover'}`} />
-        </div>
+          src={src}
+          alt=""
+          loading="lazy"
+          className={`relative block w-auto rounded-[1px_3px_3px_1px] transition duration-300 group-hover:-translate-y-1 ${
+            pages ? 'bg-white p-1.5' : ''
+          } ${
+            i === front
+              ? 'z-10 h-full shadow-[0_2px_4px_rgba(31,42,72,0.15),0_16px_24px_-10px_rgba(31,42,72,0.4)]'
+              : 'h-[86%] shadow-[0_1px_3px_rgba(31,42,72,0.15),0_10px_18px_-10px_rgba(31,42,72,0.35)]'
+          } ${i > 0 ? '-ml-9 sm:-ml-12' : ''}`}
+        />
       ))}
     </div>
   );
