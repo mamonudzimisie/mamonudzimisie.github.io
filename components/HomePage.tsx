@@ -181,15 +181,6 @@ function IconBrain({ className }: IconProps) {
   );
 }
 
-function IconLeaf({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M5 19c-1-8 4-14 15-14 0 10-5 15-13 14" />
-      <path d="M4 21c2-6 6-10 11-12" />
-    </svg>
-  );
-}
-
 function IconMoon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -213,11 +204,6 @@ function SquiggleUnderline({ className }: IconProps) {
 }
 
 // Ikony i kolory stałe — kolejność odpowiada STRINGS[lang].benefits / .reasons.
-const BENEFIT_ICONS = [
-  { Icon: IconBrain, color: 'text-orange' },
-  { Icon: IconLeaf, color: 'text-orange' },
-  { Icon: IconHeart, color: 'text-orange' },
-];
 
 const REASON_ICONS = [
   { Icon: IconPencil, color: 'text-orange' },
@@ -286,20 +272,13 @@ export default function HomePage({
               {t.note && <span className="text-sm font-semibold text-ink/70">{t.note}</span>}
             </div>
 
-            <ul className="animate-fade-up mt-10 flex flex-wrap justify-center gap-x-8 gap-y-4 text-left text-sm font-medium leading-snug text-ink/70 lg:justify-start [animation-delay:350ms]">
-              {t.benefits.map(([first, second], index) => {
-                const { Icon, color } = BENEFIT_ICONS[index];
-                return (
-                  <li key={first} className="flex items-center gap-3">
-                    <Icon className={`h-7 w-7 shrink-0 ${color}`} />
-                    <span>
-                      {first}
-                      <br />
-                      {second}
-                    </span>
-                  </li>
-                );
-              })}
+            <ul className="animate-fade-up mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 border-t border-ink/10 pt-6 text-sm text-ink/60 lg:justify-start [animation-delay:350ms]">
+              {t.benefits.map(([first, second]) => (
+                <li key={first} className="flex items-center gap-2">
+                  <span className="h-1 w-1 rounded-full bg-orange" aria-hidden="true" />
+                  {first} {second}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -316,14 +295,12 @@ export default function HomePage({
 
       </section>
 
-      <section className="relative px-4 pb-16 pt-10 sm:px-6 sm:pb-20 sm:pt-12">
+      <section className="relative px-4 py-16 sm:px-6 sm:py-24">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-center font-display text-3xl font-700 text-navy sm:text-4xl">
-            {t.audiencesTitle}
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-center text-base text-ink/70 sm:text-lg">
-            {t.audiencesLead}
-          </p>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <h2 className="font-display text-3xl font-700 text-navy sm:text-4xl">{t.audiencesTitle}</h2>
+            <p className="max-w-md text-base text-ink/65 sm:text-right">{t.audiencesLead}</p>
+          </div>
           <div className="mt-10">
             <AudienceLinks lang={lang} />
           </div>
@@ -331,12 +308,18 @@ export default function HomePage({
       </section>
 
       {featuredBooks.length > 0 && (
-        <section className="border-y border-ink/10 bg-paper-dark px-4 py-20 sm:px-6 sm:py-24">
-          <div className="mx-auto max-w-5xl">
-            <h2 className="text-center font-display text-3xl font-700 text-navy sm:text-4xl">
-              {t.featuredTitle}
-            </h2>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="border-y border-ink/10 bg-white/50 px-4 py-20 sm:px-6 sm:py-24">
+          <div className="mx-auto max-w-6xl">
+            <div className="flex items-end justify-between gap-4">
+              <h2 className="font-display text-3xl font-700 text-navy sm:text-4xl">{t.featuredTitle}</h2>
+              <Link
+                href={`/${lang}/books`}
+                className="hidden shrink-0 text-sm font-medium text-navy transition-colors hover:text-orange sm:inline"
+              >
+                {t.cta} <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+            <div className="mt-12 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
               {featuredBooks.map((book) => (
                 <BookCard key={book.slug} book={book} siteLang={lang} />
               ))}

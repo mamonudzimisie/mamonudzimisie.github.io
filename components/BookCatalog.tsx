@@ -309,7 +309,7 @@ export default function BookCatalog({
           {t.empty}
         </p>
       ) : (
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
           {filteredBooks.map((book) => (
             <BookCard key={book.slug} book={book} siteLang={siteLang} />
           ))}

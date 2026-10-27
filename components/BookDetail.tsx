@@ -58,17 +58,17 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
       />
       <div className="mx-auto grid max-w-5xl gap-10 sm:grid-cols-2">
         <div className="relative mx-auto aspect-[3/4] w-full max-w-[23.25rem]">
-          <div
-            className="absolute inset-0 translate-x-[10px] translate-y-3 rotate-[1deg] rounded-lg bg-white/90"
-            aria-hidden="true"
-          />
-          <div className="book-cover-frame absolute inset-0 overflow-hidden rounded-lg border-[5px] border-white/80 rotate-[0.4deg]">
+          <div className="book-cover-frame absolute inset-0 overflow-hidden rounded-[3px]">
             <Image
               src={book.coverImage}
               alt={t.card.coverAlt(book.title)}
               fill
               unoptimized
               className="object-cover"
+            />
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 left-0 w-4 bg-gradient-to-r from-black/15 via-white/10 to-transparent"
             />
           </div>
         </div>
