@@ -1,9 +1,32 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { LANG_LABELS, getBookBySlug, type Book } from '@/data/books';
+import { LANG_LABELS, books, getBookBySlug, type Book } from '@/data/books';
 import { CATALOG_STRINGS, canonicalBookHref, type SiteLang } from '@/lib/catalog-i18n';
 import { SITE_URL } from '@/lib/site';
 import SamplePreview, { IconEye } from '@/components/SamplePreview';
+import BookCard from '@/components/BookCard';
+import { COVER_TINTS } from '@/data/coverTints';
+
+// Linia zaufania pod przyciskiem zakupu (bez opinii — tylko fakty o zakupie).
+const TRUST: Record<SiteLang, string> = {
+  pl: 'Bezpieczny zakup na Amazonie · wysyłka i zwroty przez Amazon',
+  de: 'Sicher bei Amazon kaufen · Versand und Rückgabe über Amazon',
+  en: 'Secure checkout on Amazon · shipping and returns by Amazon',
+};
+
+const RELATED_TITLE: Record<SiteLang, string> = {
+  pl: 'Może Ci się też spodobać',
+  de: 'Das könnte dir auch gefallen',
+  en: 'You might also like',
+};
+
+// Trzy inne książki dla tej samej grupy: najpierw w języku strony, potem
+// w języku tej książki, na końcu pozostałe. Bez zapowiedzi i bez tej samej.
+function relatedBooks(book: Book, siteLang: SiteLang): Book[] {
+  const pool = books.filter((b) => b.slug !== book.slug && b.audience === book.audience && !b.comingSoon);
+  const rank = (b: Book) => (b.lang === siteLang ? 0 : b.lang === book.lang ? 1 : 2);
+  return [...pool].sort((a, b) => rank(a) - rank(b)).slice(0, 3);
+}
 
 // Format w calach w języku strony, a nie książki (np. polska książka na stronie DE → „Zoll”).
 const INCH_UNIT: Record<SiteLang, string> = { pl: 'cala', de: 'Zoll', en: 'in' };
@@ -57,8 +80,13 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="mx-auto grid max-w-6xl gap-10 sm:grid-cols-2 lg:gap-16">
+        {/* Okładka na jasnym tle w odcieniu jej własnego koloru (data/coverTints.ts). */}
+        <div
+          className="flex items-center justify-center self-start rounded-xl px-[12%] py-[10%]"
+          style={{ backgroundColor: COVER_TINTS[book.coverImage] ?? '#F6F2EC' }}
+        >
         <div className="relative mx-auto aspect-[3/4] w-full max-w-[23.25rem]">
-          <div className="book-cover-frame absolute inset-0 overflow-hidden rounded-[8px]">
+          <div className="book-cover-frame absolute inset-0 overflow-hidden rounded-[1px_6px_6px_1px]">
             <Image
               src={book.coverImage}
               alt={t.card.coverAlt(book.title)}
@@ -71,6 +99,7 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
               className="pointer-events-none absolute inset-y-0 left-0 w-4 bg-gradient-to-r from-black/15 via-white/10 to-transparent"
             />
           </div>
+        </div>
         </div>
         <div>
           <div className="flex flex-wrap items-center gap-2">
@@ -195,6 +224,14 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
                 )}
               </div>
             )}
+            {!book.comingSoon && (
+              <p className="mt-4 flex items-center gap-2 text-xs text-ink/70">
+                <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 shrink-0 text-green" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M3 8.5 6.5 12 13 4.5" />
+                </svg>
+                {TRUST[siteLang]}
+              </p>
+            )}
           </div>
 
           <Link
@@ -258,6 +295,17 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
               ))}
             </div>
           )}
+        </div>
+      )}
+
+      {relatedBooks(book, siteLang).length > 0 && (
+        <div className="mx-auto mt-16 max-w-6xl border-t border-navy/[0.08] pt-10">
+          <h2 className="font-display text-2xl font-800 text-navy sm:text-3xl">{RELATED_TITLE[siteLang]}</h2>
+          <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-8 lg:grid-cols-3">
+            {relatedBooks(book, siteLang).map((other) => (
+              <BookCard key={other.slug} book={other} siteLang={siteLang} />
+            ))}
+          </div>
         </div>
       )}
     </section>

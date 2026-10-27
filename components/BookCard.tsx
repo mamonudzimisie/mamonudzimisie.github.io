@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { LANG_LABELS, type Book } from '@/data/books';
 import { bookHref, CATALOG_STRINGS, type SiteLang } from '@/lib/catalog-i18n';
@@ -14,9 +13,10 @@ export default function BookCard({
   const href = bookHref(book, siteLang);
   const title = book.cardTitle ?? book.title;
 
-  // Okładka na gołym tle strony, pod nią tytuł i jedna linia metadanych.
-  // Jeden główny link (szczegóły) i dyskretny link do Amazona — bez ściany
-  // pomarańczowych przycisków w katalogu.
+  // Jak u wydawnictw (Taschen, Dwie Siostry): okładka stoi wprost na tle
+  // strony, z cieniem i grzbietem, wyrównana do wspólnej dolnej linii; pod nią
+  // krótki, wyśrodkowany podpis. Jeden główny link (szczegóły) i dyskretny
+  // link do Amazona — bez ściany przycisków w katalogu.
   const age = t.ageLabels[book.ageRange as keyof typeof t.ageLabels] ?? book.ageRange;
   const meta = [
     t.categoryLabels[book.category],
@@ -26,47 +26,39 @@ export default function BookCard({
   ].filter(Boolean);
 
   return (
-    <article className="group flex flex-col">
-      <Link
-        href={href}
-        className="relative block overflow-hidden rounded-lg bg-white px-4 shadow-[inset_0_0_0_1px_#EFE8DE,0_8px_20px_-14px_rgba(30,28,25,0.25)] transition-shadow duration-300 hover:shadow-[inset_0_0_0_1px_#E6DCCD,0_14px_28px_-16px_rgba(30,28,25,0.3)] pb-6 pt-7 sm:px-8 sm:pb-9 sm:pt-10"
-      >
-        {/* miękki cień „półki” pod okładką */}
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute bottom-4 left-1/2 h-3 w-[60%] -translate-x-1/2 rounded-full bg-black/15 blur-md sm:bottom-7"
-        />
+    <article className="group flex flex-col text-center">
+      <Link href={href} className="relative flex aspect-[5/6] items-end justify-center px-[9%]">
         {book.comingSoon && (
-          <span className="absolute right-3 top-3 z-10 rounded-sm bg-orange px-2 py-1 text-[0.68rem] font-semibold uppercase tracking-wider text-white">
+          <span className="absolute left-1/2 top-0 z-10 -translate-x-1/2 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-orange-ink">
             {t.card.comingSoon}
           </span>
         )}
-        <div className="relative mx-auto aspect-[3/4] w-[70%] max-w-[14rem] rounded-[5px] shadow-cover transition duration-300 group-hover:-translate-y-1.5 group-hover:shadow-cover-lg">
-          <Image
+        <span className="relative block w-full max-w-[13.5rem] transition duration-300 ease-out group-hover:-translate-y-1.5">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src={book.coverImage}
             alt={t.card.coverAlt(title)}
-            fill
-            unoptimized
-            className="rounded-[5px] object-cover"
+            loading="lazy"
+            className="block h-auto w-full rounded-[1px_4px_4px_1px] shadow-[0_1px_2px_rgba(31,42,72,0.12),0_14px_26px_-10px_rgba(31,42,72,0.32)] transition-shadow duration-300 group-hover:shadow-[0_1px_2px_rgba(31,42,72,0.12),0_22px_34px_-12px_rgba(31,42,72,0.38)]"
           />
-          {/* lekki grzbiet: cień przy lewej krawędzi okładki */}
+          {/* grzbiet: cień i odblask przy lewej krawędzi */}
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 left-0 w-3 rounded-l-[5px] bg-gradient-to-r from-black/15 via-white/10 to-transparent"
+            className="pointer-events-none absolute inset-y-0 left-0 w-[5%] rounded-l-[1px] bg-gradient-to-r from-black/20 via-white/15 to-transparent"
           />
-        </div>
+        </span>
       </Link>
-      <div className="flex flex-1 flex-col pt-4 sm:pt-5">
-        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-ink/70 sm:text-[0.7rem] sm:tracking-[0.16em]">
+      <div className="flex flex-1 flex-col items-center pt-5">
+        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-ink/70 sm:text-[0.7rem]">
           {meta.join(' · ')}
         </p>
-        <h3 className="mt-2 font-display text-lg font-700 leading-snug text-navy sm:text-xl">
+        <h3 className="mt-1.5 font-display text-lg font-700 leading-snug text-navy sm:text-xl">
           <Link href={href} className="transition-colors hover:text-orange-ink">
             {title}
           </Link>
         </h3>
         <p className="mt-1 text-sm leading-relaxed text-ink/70">{book.subtitle}</p>
-        <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-1 pt-4 text-sm font-medium">
+        <div className="mt-auto flex flex-wrap items-center justify-center gap-x-4 gap-y-1 pt-3 text-sm font-medium">
           <Link href={href} className="text-navy transition-colors hover:text-orange-ink">
             {t.card.details} <span aria-hidden="true">→</span>
           </Link>

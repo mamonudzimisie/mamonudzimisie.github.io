@@ -288,7 +288,7 @@ export default function HomePage({
                 {t.cta} <span aria-hidden="true">→</span>
               </Link>
             </div>
-            <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 sm:mt-12 sm:gap-x-8 sm:gap-y-14 lg:grid-cols-3">
+            <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-12 sm:mt-12 sm:grid-cols-3 sm:gap-x-10 sm:gap-y-16">
               {featuredBooks.map((book) => (
                 <BookCard key={book.slug} book={book} siteLang={lang} />
               ))}

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { downloadSetsEn } from '@/data/downloads';
 import { getBookBySlug } from '@/data/books';
 import { SITE_URL } from '@/lib/site';
+import { downloadPreview } from '@/lib/downloadPreview';
 
 const TITLE = 'Free Printable Large Print Sudoku – Easy Puzzles to Print';
 const DESCRIPTION =
@@ -33,11 +34,26 @@ export default function FreePrintablesPage() {
 
         <div className="mt-10 space-y-6">
           {downloadSetsEn.map((set) => (
-            <article key={set.slug} className="rounded-lg bg-paper-soft p-5 sm:p-6">
+            <article
+              key={set.slug}
+              className="grid gap-6 rounded-lg bg-paper-soft p-5 sm:grid-cols-[9rem_1fr] sm:p-6 lg:grid-cols-[11rem_1fr] lg:gap-8"
+            >
+              {downloadPreview(set) && (
+                <div className="mx-auto w-32 sm:mx-0 sm:w-full" aria-hidden="true">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={downloadPreview(set)}
+                    alt=""
+                    loading="lazy"
+                    className="aspect-[17/22] w-full rotate-[-2deg] rounded-[3px] bg-white object-cover p-1 shadow-cover"
+                  />
+                </div>
+              )}
+              <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                 <h2 className="font-display text-2xl font-800 text-navy">{set.title}</h2>
                 {set.isNew && (
-                  <span className="rounded bg-orange-light px-2 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wider text-orange">
+                  <span className="rounded bg-orange-light px-2 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wider text-orange-ink">
                     New
                   </span>
                 )}
@@ -84,6 +100,7 @@ export default function FreePrintablesPage() {
                   );
                 })}
               </ul>
+              </div>
             </article>
           ))}
         </div>
