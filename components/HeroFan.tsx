@@ -155,7 +155,7 @@ export default function HeroFan({
         return (
           <div
             key={book.slug}
-            className={`absolute left-1/2 top-0 w-[62%] rounded-[7px] transition-all duration-[600ms] motion-reduce:transition-none ${
+            className={`tilt-smooth absolute left-1/2 top-0 w-[62%] rounded-[7px] transition-all duration-[600ms] motion-reduce:transition-none ${
               isFront
                 ? dark
                   ? 'shadow-[0_34px_60px_-18px_rgba(0,0,0,0.6)]'

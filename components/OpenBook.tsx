@@ -3,7 +3,7 @@
 // kolejnych kartek pod spodem i ołówek obok.
 export default function OpenBook({ left, right }: { left: string; right: string }) {
   return (
-    <div className="relative mx-auto w-full max-w-[38rem] rotate-[-2deg] px-2 pb-10 pt-2" aria-hidden="true">
+    <div className="tilt-smooth relative mx-auto w-full max-w-[38rem] rotate-[-2deg] px-2 pb-10 pt-2" aria-hidden="true">
       {/* cień całej książki na blacie */}
       <div className="absolute inset-x-[4%] bottom-6 top-6 rounded-[10px] bg-ink/25 blur-2xl" />
       {/* krawędzie kartek pod spodem */}

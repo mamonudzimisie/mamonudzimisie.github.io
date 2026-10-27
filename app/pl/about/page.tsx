@@ -27,10 +27,10 @@ export default function ONasPage() {
             // eslint-disable-next-line @next/next/no-img-element
             <img
               key={src}
-              src={src}
+              src={src.replace('/covers/', '/covers/thumbs/')}
               alt=""
               loading="lazy"
-              className={`aspect-[17/22] w-full rounded-[1px_3px_3px_1px] object-cover shadow-[0_1px_2px_rgba(31,42,72,0.12),0_10px_18px_-8px_rgba(31,42,72,0.3)] ${TILTS[i % TILTS.length]}`}
+              className={`tilt-smooth aspect-[17/22] w-full rounded-[1px_3px_3px_1px] object-cover shadow-[0_1px_2px_rgba(31,42,72,0.12),0_10px_18px_-8px_rgba(31,42,72,0.3)] ${TILTS[i % TILTS.length]}`}
             />
           ))}
         </div>

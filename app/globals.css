@@ -15,6 +15,15 @@ body {
   letter-spacing: -0.01em;
 }
 
+/* Przechylone okładki: wygładzone krawędzie. Własna warstwa (will-change),
+   ukryty tył i przezroczysty obrys zmuszają przeglądarkę do antyaliasingu
+   krawędzi obróconego obrazka — bez tego Chrome z GPU rysował schodki. */
+.tilt-smooth {
+  will-change: transform;
+  backface-visibility: hidden;
+  outline: 1px solid transparent;
+}
+
 /* Ziarno papieru: bardzo delikatny szum (ok. 4%) na tle sekcji. Kolor tła
    daje klasa bg-*, ten obrazek tylko dokłada fakturę. */
 .paper-grain {

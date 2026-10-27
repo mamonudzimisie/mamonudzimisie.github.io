@@ -34,19 +34,20 @@ const AUDIENCES: { audience: BookAudience; text: Record<SiteLang, Text> }[] = [
 ];
 
 // Dział z materiałami istnieje tylko w wersjach, które mają tu wpis.
-// `pages` to podglądy stron do wydruku pokazane w kafelku zamiast okładek.
+// `pages` to podglądy stron do wydruku pokazane w kafelku zamiast okładek
+// (miniatury 320 px z scripts/cover-thumbs.py).
 const DOWNLOADS: Partial<Record<SiteLang, Text & { href: string; pages: string[] }>> = {
   pl: {
     href: '/pl/materialy',
     label: 'Do pobrania',
     description: 'Zagadki do wydruku w domu',
-    pages: ['/materialy/wykreslanki-jesien-5-6-lat.webp', '/materialy/wykreslanki-halloween-5-6-lat.webp'],
+    pages: ['/materialy/thumbs/wykreslanki-jesien-5-6-lat.webp', '/materialy/thumbs/wykreslanki-halloween-5-6-lat.webp'],
   },
   en: {
     href: '/en/free-printables',
     label: 'Free printables',
     description: 'Puzzles to print at home',
-    pages: ['/samples/large-print-sudoku-100/4.webp', '/samples/large-print-sudoku-100/5.webp'],
+    pages: ['/samples/large-print-sudoku-100/thumbs/4.webp', '/samples/large-print-sudoku-100/thumbs/5.webp'],
   },
 };
 
@@ -56,7 +57,9 @@ function coversFor(audience: BookAudience, lang: SiteLang): string[] {
   const own = group.filter((b) => b.lang === lang);
   // Dwie okładki w języku strony wystarczą na stos — bez obcych okładek.
   const sorted = own.length >= 2 ? own : [...own, ...group.filter((b) => b.lang !== lang)];
-  return sorted.slice(0, 3).map((book) => book.coverImage);
+  // Miniatury 320 px (scripts/cover-thumbs.py) — pełne okładki pomniejszone
+  // do ~70 px i przechylone wyglądały na postrzępione.
+  return sorted.slice(0, 3).map((book) => book.coverImage.replace('/covers/', '/covers/thumbs/'));
 }
 
 // Mały stos: środkowa okładka z przodu, dwie po bokach lekko przechylone.
@@ -74,11 +77,11 @@ function CoverStack({ images, pages }: { images: string[]; pages?: boolean }) {
       {ordered.map((src, i) => (
         <div
           key={src}
-          className={`absolute bottom-0 aspect-[3/4] w-[34%] max-w-[6.75rem] overflow-hidden rounded-[4px] shadow-cover transition duration-300 group-hover:-translate-y-1 ${
+          className={`tilt-smooth absolute bottom-0 aspect-[3/4] w-[34%] max-w-[6.75rem] rounded-[4px] shadow-cover transition duration-300 group-hover:-translate-y-1 ${
             pages ? 'bg-white p-1' : ''
           } ${slots[i]}`}
         >
-          <Image src={src} alt="" fill unoptimized className={pages ? 'object-contain p-1' : 'object-cover'} />
+          <Image src={src} alt="" fill unoptimized className={`rounded-[4px] ${pages ? 'object-contain p-1' : 'object-cover'}`} />
         </div>
       ))}
     </div>
