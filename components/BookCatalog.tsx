@@ -140,14 +140,14 @@ export default function BookCatalog({
     <div>
       <div className="border-b border-ink/10 pb-6">
         <span className="text-xs font-bold uppercase tracking-wide text-navy/70">{t.audienceHeading}</span>
-        <div className="mt-3 flex flex-wrap items-center gap-2.5">
+        <div className="no-scrollbar -mx-4 mt-3 flex items-center gap-2.5 overflow-x-auto px-4 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
           <button
             onClick={() => {
               setSelectedAudience('');
               setSelectedAge('');
               setSelectedCategory('');
             }}
-            className={`rounded-md border px-4 py-2 text-[0.95rem] font-semibold transition ${
+            className={`shrink-0 whitespace-nowrap rounded-md border px-4 py-2 text-[0.95rem] font-semibold transition ${
               selectedAudience === ''
                 ? 'border-navy bg-navy text-white'
                 : 'border-ink/15 text-ink/80 hover:border-ink/40'
@@ -165,7 +165,7 @@ export default function BookCatalog({
                 }
                 setSelectedCategory('');
               }}
-              className={`rounded-md border px-4 py-2 text-[0.95rem] font-semibold transition ${
+              className={`shrink-0 whitespace-nowrap rounded-md border px-4 py-2 text-[0.95rem] font-semibold transition ${
                 selectedAudience === audience
                   ? 'bg-navy text-white'
                   : 'bg-white text-ink/80 ring-1 ring-ink/10 hover:ring-ink/25'
@@ -309,7 +309,7 @@ export default function BookCatalog({
           {t.empty}
         </p>
       ) : (
-        <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 sm:mt-12 sm:gap-x-8 sm:gap-y-14 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-12 sm:mt-12 sm:grid-cols-3 sm:gap-x-8 sm:gap-y-16 lg:grid-cols-4">
           {filteredBooks.map((book) => (
             <BookCard key={book.slug} book={book} siteLang={siteLang} />
           ))}

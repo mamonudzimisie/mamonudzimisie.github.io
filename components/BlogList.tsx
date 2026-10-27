@@ -27,10 +27,15 @@ export default function BlogList({ lang }: { lang: PostLang }) {
           <p className="mt-6 text-ink/80">{t.empty}</p>
         ) : (
           <ul className="mt-12 grid gap-x-10 gap-y-14 sm:grid-cols-2">
-            {posts.map((post) => (
-              <li key={post.slug}>
-                <article className="group relative flex h-full flex-col">
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-paper-dark">
+            {posts.map((post, index) => (
+              // Najnowszy wpis szerzej: obrazek obok tekstu na całą szerokość.
+              <li key={post.slug} className={index === 0 ? 'sm:col-span-2' : ''}>
+                <article
+                  className={`group relative flex h-full flex-col ${
+                    index === 0 ? 'lg:grid lg:grid-cols-[1.25fr_1fr] lg:items-center lg:gap-12' : ''
+                  }`}
+                >
+                  <div className="relative aspect-[3/2] overflow-hidden rounded-md bg-paper-soft">
                     {post.image ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
@@ -45,10 +50,15 @@ export default function BlogList({ lang }: { lang: PostLang }) {
                       />
                     ) : null}
                   </div>
+                  <div className="flex flex-col">
                   <time dateTime={post.date} className="mt-5 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-ink/70">
                     {formatPostDate(post.date, lang)}
                   </time>
-                  <h2 className="mt-2 font-display text-2xl font-700 leading-snug text-navy">
+                  <h2
+                    className={`mt-2 font-display font-700 leading-snug text-navy ${
+                      index === 0 ? 'text-2xl lg:text-4xl' : 'text-2xl'
+                    }`}
+                  >
                     {/* Link rozciągnięty na całą kartę (after:inset-0). */}
                     <Link
                       href={`/${lang}/blog/${post.slug}`}
@@ -61,6 +71,7 @@ export default function BlogList({ lang }: { lang: PostLang }) {
                   <span aria-hidden="true" className="mt-4 text-sm font-medium text-navy">
                     {t.more} →
                   </span>
+                  </div>
                 </article>
               </li>
             ))}

@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { books, type BookAudience } from '@/data/books';
 import type { SiteLang } from '@/lib/catalog-i18n';
@@ -34,50 +33,57 @@ const AUDIENCES: { audience: BookAudience; text: Record<SiteLang, Text> }[] = [
 ];
 
 // Dział z materiałami istnieje tylko w wersjach, które mają tu wpis.
-// `pages` to podglądy stron do wydruku pokazane w kafelku zamiast okładek.
+// `pages` to podglądy stron do wydruku pokazane w kafelku zamiast okładek
+// (miniatury 320 px z scripts/cover-thumbs.py).
 const DOWNLOADS: Partial<Record<SiteLang, Text & { href: string; pages: string[] }>> = {
   pl: {
     href: '/pl/materialy',
     label: 'Do pobrania',
     description: 'Zagadki do wydruku w domu',
-    pages: ['/materialy/wykreslanki-jesien-5-6-lat.webp', '/materialy/wykreslanki-halloween-5-6-lat.webp'],
+    pages: ['/materialy/thumbs/wykreslanki-jesien-5-6-lat.webp', '/materialy/thumbs/wykreslanki-halloween-5-6-lat.webp'],
   },
   en: {
     href: '/en/free-printables',
     label: 'Free printables',
     description: 'Puzzles to print at home',
-    pages: ['/samples/large-print-sudoku-100/4.webp', '/samples/large-print-sudoku-100/5.webp'],
+    pages: ['/samples/large-print-sudoku-100/thumbs/4.webp', '/samples/large-print-sudoku-100/thumbs/5.webp'],
   },
 };
 
 // Trzy okładki z danej grupy: najpierw w języku strony, potem pozostałe.
 function coversFor(audience: BookAudience, lang: SiteLang): string[] {
   const group = books.filter((book) => book.audience === audience && !book.comingSoon);
-  const sorted = [...group.filter((b) => b.lang === lang), ...group.filter((b) => b.lang !== lang)];
-  return sorted.slice(0, 3).map((book) => book.coverImage);
+  const own = group.filter((b) => b.lang === lang);
+  // Dwie okładki w języku strony wystarczą na stos — bez obcych okładek.
+  const sorted = own.length >= 2 ? own : [...own, ...group.filter((b) => b.lang !== lang)];
+  // Miniatury 320 px (scripts/cover-thumbs.py) — pełne okładki pomniejszone
+  // do ~70 px i przechylone wyglądały na postrzępione.
+  return sorted.slice(0, 3).map((book) => book.coverImage.replace('/covers/', '/covers/thumbs/'));
 }
 
-// Mały stos: środkowa okładka z przodu, dwie po bokach lekko przechylone.
-const STACK = [
-  'left-[12%] rotate-[-9deg] z-0',
-  'left-1/2 -translate-x-1/2 z-10',
-  'right-[12%] rotate-[9deg] z-0',
-];
-
+// Okładki stoją prosto obok siebie, lekko na siebie zachodząc — jak na
+// półce. Bez obracania: obrócone małe obrazki na zwykłym ekranie zawsze
+// miały postrzępione krawędzie. Środkowa jest z przodu i odrobinę wyższa.
 function CoverStack({ images, pages }: { images: string[]; pages?: boolean }) {
   const ordered = images.length === 3 ? [images[1], images[0], images[2]] : images;
-  const slots = images.length === 3 ? STACK : ['left-[24%] rotate-[-6deg] z-0', 'right-[24%] rotate-[6deg] z-10'];
+  const front = images.length === 3 ? 1 : -1;
   return (
-    <div className="relative h-[5.5rem] sm:h-40" aria-hidden="true">
+    <div className="flex h-24 items-end justify-center sm:h-36" aria-hidden="true">
       {ordered.map((src, i) => (
-        <div
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
           key={src}
-          className={`absolute bottom-0 aspect-[3/4] w-[34%] max-w-[6.75rem] overflow-hidden rounded-[4px] shadow-cover transition duration-300 group-hover:-translate-y-1 ${
-            pages ? 'bg-white p-1' : ''
-          } ${slots[i]}`}
-        >
-          <Image src={src} alt="" fill unoptimized className={pages ? 'object-contain p-1' : 'object-cover'} />
-        </div>
+          src={src}
+          alt=""
+          loading="lazy"
+          className={`relative block w-auto rounded-[1px_3px_3px_1px] transition duration-300 group-hover:-translate-y-1 ${
+            pages ? 'bg-white p-1.5' : ''
+          } ${
+            i === front
+              ? 'z-10 h-full shadow-[0_2px_4px_rgba(31,42,72,0.15),0_16px_24px_-10px_rgba(31,42,72,0.4)]'
+              : 'h-[86%] shadow-[0_1px_3px_rgba(31,42,72,0.15),0_10px_18px_-10px_rgba(31,42,72,0.35)]'
+          } ${i > 0 ? '-ml-9 sm:-ml-12' : ''}`}
+        />
       ))}
     </div>
   );

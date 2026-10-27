@@ -83,7 +83,7 @@ export default function HeroFan({
 }) {
   const arrowClass = dark
     ? 'flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white ring-1 ring-white/25 transition hover:bg-white hover:text-navy'
-    : 'flex h-11 w-11 items-center justify-center rounded-full bg-white/80 text-navy ring-1 ring-ink/15 transition hover:bg-navy hover:text-white';
+    : 'flex h-10 w-10 items-center justify-center rounded-full text-navy/60 transition hover:bg-navy/5 hover:text-navy';
   const [front, setFront] = useState(0);
   const [tilt, setTilt] = useState(0);
   const touchX = useRef<number | null>(null);
@@ -155,7 +155,7 @@ export default function HeroFan({
         return (
           <div
             key={book.slug}
-            className={`absolute left-1/2 top-0 w-[62%] rounded-[7px] transition-all duration-[600ms] motion-reduce:transition-none ${
+            className={`tilt-smooth absolute left-1/2 top-0 w-[62%] rounded-[7px] transition-all duration-[600ms] motion-reduce:transition-none ${
               isFront
                 ? dark
                   ? 'shadow-[0_34px_60px_-18px_rgba(0,0,0,0.6)]'
@@ -201,7 +201,7 @@ export default function HeroFan({
       })}
 
       {/* Strzałki i kropki wyraźnie widoczne — małe łatwo było przeoczyć. */}
-      <div className="relative z-40 mt-8 flex items-center justify-center gap-5">
+      <div className="relative z-40 mt-6 flex items-center justify-center gap-3">
         <button
           type="button"
           onClick={() => go(-1)}
@@ -220,12 +220,17 @@ export default function HeroFan({
               onClick={() => setFront(index)}
               aria-label={t.dot(index + 1, count, book.title)}
               aria-current={index === front}
-              className={`h-2.5 rounded-full transition-all duration-300 ${
-                index === front
-                  ? `w-7 ${dark ? 'bg-white' : 'bg-navy'}`
-                  : `w-2.5 ${dark ? 'bg-white/30 hover:bg-white/50' : 'bg-ink/20 hover:bg-ink/40'}`
-              }`}
-            />
+              // Duży obszar kliknięcia, mała kropka w środku.
+              className="group/dot flex h-8 items-center px-1"
+            >
+              <span
+                className={`block h-1.5 rounded-full transition-all duration-300 ${
+                  index === front
+                    ? `w-5 ${dark ? 'bg-white' : 'bg-navy/70'}`
+                    : `w-1.5 ${dark ? 'bg-white/30 group-hover/dot:bg-white/50' : 'bg-ink/20 group-hover/dot:bg-ink/40'}`
+                }`}
+              />
+            </button>
           ))}
         </div>
         <button

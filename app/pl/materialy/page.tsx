@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { downloadSets } from '@/data/downloads';
 import { getBookBySlug } from '@/data/books';
 import { SITE_URL } from '@/lib/site';
+import { downloadPreview } from '@/lib/downloadPreview';
 
 const TITLE = 'Wykreślanki do druku dla dzieci – materiały do pobrania';
 const DESCRIPTION =
@@ -35,11 +36,26 @@ export default function MaterialyPage() {
 
         <div className="mt-10 space-y-6">
           {downloadSets.map((set) => (
-            <article key={set.slug} className="rounded-lg bg-paper-soft p-5 sm:p-6">
+            <article
+              key={set.slug}
+              className="grid gap-6 rounded-lg bg-paper-soft p-5 sm:grid-cols-[10rem_1fr] sm:p-7 lg:grid-cols-[13rem_1fr] lg:gap-10"
+            >
+              {downloadPreview(set) && (
+                <div className="mx-auto w-32 sm:mx-0 sm:w-full" aria-hidden="true">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={downloadPreview(set)}
+                    alt=""
+                    loading="lazy"
+                    className="aspect-[17/22] w-full rotate-[-2deg] rounded-[3px] bg-white object-cover p-1 shadow-cover"
+                  />
+                </div>
+              )}
+              <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                 <h2 className="font-display text-2xl font-800 text-navy">{set.title}</h2>
                 {set.isNew && (
-                  <span className="rounded bg-orange-light px-2 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wider text-orange">
+                  <span className="rounded bg-orange-light px-2 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wider text-orange-ink">
                     Nowość
                   </span>
                 )}
@@ -47,14 +63,14 @@ export default function MaterialyPage() {
               <p className="mt-1 max-w-2xl text-sm leading-relaxed text-ink/75">{set.description}</p>
 
               <ul className="mt-4 divide-y divide-navy/10 border-t border-navy/10">
-                {set.variants.map((variant) => {
+                {set.variants.map((variant, variantIndex) => {
                   const book = variant.bookSlug ? getBookBySlug(variant.bookSlug) : undefined;
                   return (
                     <li
                       key={variant.pdf}
                       className="flex flex-wrap items-center gap-x-4 gap-y-2 py-3"
                     >
-                      <span className="w-20 shrink-0 rounded bg-navy px-2.5 py-1 text-center text-[0.7rem] font-semibold uppercase tracking-wider text-white">
+                      <span className="w-20 shrink-0 rounded border border-navy/25 px-2.5 py-1 text-center text-[0.7rem] font-semibold uppercase tracking-wider text-navy">
                         {variant.level}
                       </span>
                       <span className="min-w-0 flex-1 basis-56 text-sm text-ink/80">
@@ -75,10 +91,14 @@ export default function MaterialyPage() {
                         href={variant.pdf}
                         download
                         aria-label={`Pobierz PDF: ${set.title}, ${variant.level}`}
-                        className="inline-flex items-baseline gap-2 rounded-md bg-orange px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-orange/90"
+                        className={`inline-flex items-baseline gap-2 rounded-md px-5 py-2.5 text-sm font-semibold transition ${
+                          variantIndex === 0
+                            ? 'bg-orange text-white hover:bg-orange/90'
+                            : 'border border-navy/25 text-navy hover:border-navy hover:bg-navy hover:text-white'
+                        }`}
                       >
                         Pobierz PDF
-                        <span className="text-xs font-semibold text-white/80">
+                        <span className="text-xs font-semibold opacity-80">
                           {variant.pages} stron
                         </span>
                       </a>
@@ -86,6 +106,7 @@ export default function MaterialyPage() {
                   );
                 })}
               </ul>
+              </div>
             </article>
           ))}
         </div>

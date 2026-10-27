@@ -202,7 +202,7 @@ export default function MiniWordSearch({ puzzle, lang }: { puzzle: Puzzle; lang:
               <span
                 key={i}
                 aria-hidden
-                className="relative flex items-center justify-center font-display font-700 text-navy"
+                className="relative flex items-center justify-center font-body font-semibold text-navy"
                 style={{ fontSize: `clamp(1rem, ${28 / size}vw, ${13 / size}rem)` }}
               >
                 {letter}
@@ -221,7 +221,7 @@ export default function MiniWordSearch({ puzzle, lang }: { puzzle: Puzzle; lang:
               return (
                 <li
                   key={w.word}
-                  className={`!m-0 rounded-full px-3 py-1 font-display text-lg font-700 transition-colors ${
+                  className={`!m-0 rounded-md px-3 py-1 font-body text-sm font-semibold uppercase tracking-wider transition-colors ${
                     isFound ? 'text-ink/50 line-through' : 'bg-paper text-navy'
                   }`}
                   style={isFound ? { background: `${COLORS[i % COLORS.length]}55` } : undefined}
