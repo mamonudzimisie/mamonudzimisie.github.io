@@ -155,40 +155,6 @@ const STRINGS: Record<SiteLang, Strings> = {
   },
 };
 
-function IconPencil({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M4 20l1-4.5L15.5 5 19 8.5 8.5 19 4 20z" />
-      <path d="M13 7l3.5 3.5" />
-    </svg>
-  );
-}
-
-function IconHeart({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M12 20s-7-4.4-9.5-9C0.8 7.4 2.6 4 6 4c2 0 3.5 1.2 4 2.5.5-1.3 2-2.5 4-2.5 3.4 0 5.2 3.4 3.5 7-2.5 4.6-9.5 9-9.5 9z" />
-    </svg>
-  );
-}
-
-function IconBrain({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M9 4a3 3 0 00-3 3 3 3 0 00-1.5 5.6A3 3 0 007 17a3 3 0 003 3V4z" />
-      <path d="M15 4a3 3 0 013 3 3 3 0 011.5 5.6A3 3 0 0117 17a3 3 0 01-3 3V4z" />
-    </svg>
-  );
-}
-
-function IconMoon({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M20 14.5A8.5 8.5 0 019.5 4a8.5 8.5 0 1010.5 10.5z" />
-    </svg>
-  );
-}
-
 function SquiggleUnderline({ className }: IconProps) {
   return (
     <svg viewBox="0 0 200 14" fill="none" preserveAspectRatio="none" className={className}>
@@ -205,12 +171,6 @@ function SquiggleUnderline({ className }: IconProps) {
 
 // Ikony i kolory stałe — kolejność odpowiada STRINGS[lang].benefits / .reasons.
 
-const REASON_ICONS = [
-  { Icon: IconPencil, color: 'text-orange-soft' },
-  { Icon: IconBrain, color: 'text-orange-soft' },
-  { Icon: IconMoon, color: 'text-orange-soft' },
-  { Icon: IconHeart, color: 'text-orange-soft' },
-];
 
 export default function HomePage({
   lang,
@@ -282,26 +242,22 @@ export default function HomePage({
             </ul>
           </div>
 
-          {/* Granatowa „witryna” za wachlarzem: okładki stoją na ciemnym tle
-              jak w oknie księgarni. Światło z góry daje głębię. */}
+          {/* Ciepły łuk za wachlarzem — jak okno księgarni. Okładki stoją na nim
+              i lekko wystają poza krawędź, co daje głębię bez ciężkiego bloku. */}
           <div className="relative mx-auto w-full max-w-sm sm:max-w-md lg:mx-0 lg:max-w-[34rem] lg:justify-self-end">
-            <div className="relative isolate rounded-[28px] bg-navy px-12 pb-6 pt-12 shadow-cover-lg sm:px-16 sm:pt-14">
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 -z-10 rounded-[28px] bg-[radial-gradient(90%_60%_at_50%_8%,rgba(255,255,255,0.14),transparent_70%)]"
-              />
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-3 -z-10 rounded-[20px] ring-1 ring-white/10"
-              />
-              {/* „podłoga”, na której stoją książki */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[32%] rounded-b-[28px] bg-navy-deep/60"
-              />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-[6%] bottom-[54px] top-[-8%] rounded-t-full bg-[#EACFBC]"
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-[6%] bottom-[54px] top-[-8%] rounded-t-full bg-[radial-gradient(70%_45%_at_50%_28%,rgba(255,255,255,0.35),transparent_75%)]"
+            />
+            {/* cienka linia „parapetu”, na którym stoją książki */}
+            <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-[54px] h-px bg-ink/15" />
+            <div className="relative px-6 pt-10 sm:px-10">
               <HeroFan
                 lang={lang}
-                dark
                 books={heroBooks.map(({ slug, title, subtitle, coverImage }) => ({ slug, title, subtitle, coverImage }))}
               />
             </div>
@@ -343,30 +299,33 @@ export default function HomePage({
         </section>
       )}
 
-      <section className="relative bg-navy px-4 py-20 text-paper sm:px-6 sm:py-28">
-        <div className="mx-auto max-w-6xl">
-          <div>
-            <h2 className="font-display text-3xl font-700 leading-snug text-paper sm:text-4xl">
+      {/* Jasna, ciepła sekcja z numerami zamiast ikon. Ciemny blok przed
+          stopką był za ciężki. */}
+      <section className="relative overflow-hidden bg-orange-light px-4 py-20 sm:px-6 sm:py-28">
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <div className="lg:sticky lg:top-24 lg:self-start">
+            <h2 className="font-display text-4xl font-700 leading-[1.1] text-navy sm:text-5xl">
               {t.whyLine}{' '}
               {t.whyPrefix && `${t.whyPrefix} `}
-              <span className="italic text-orange-soft">{t.whyAccent}</span>
+              <span className="italic text-orange">{t.whyAccent}</span>
             </h2>
           </div>
 
-          <div className="mt-12 grid gap-x-10 gap-y-10 border-t border-white/10 pt-12 sm:grid-cols-2 lg:grid-cols-4">
-            {t.reasons.map((reason, index) => {
-              const { Icon, color } = REASON_ICONS[index];
-              return (
-                <div key={reason.title}>
-                  <Icon className={`h-7 w-7 ${color}`} />
-                  <h3 className="mt-4 font-display text-xl font-700 text-paper">{reason.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-paper/70">{reason.text}</p>
-                </div>
-              );
-            })}
-          </div>
+          <ol className="grid gap-x-12 sm:grid-cols-2">
+            {t.reasons.map((reason, index) => (
+              <li key={reason.title} className="border-t border-navy/15 pb-10 pt-6">
+                <span
+                  aria-hidden="true"
+                  className="font-display text-5xl italic leading-none text-orange/80"
+                >
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className="mt-5 font-display text-2xl font-700 text-navy">{reason.title}</h3>
+                <p className="mt-2 leading-relaxed text-ink/70">{reason.text}</p>
+              </li>
+            ))}
+          </ol>
         </div>
-
       </section>
     </>
   );

@@ -51,7 +51,7 @@ const LANGS: { lang: SiteLang; label: string }[] = [
 export default function SiteFooter({ lang }: { lang: SiteLang }) {
   const t = TEXT[lang];
   return (
-    <footer className="border-t border-ink/10 bg-paper-dark">
+    <footer className="border-t border-ink/10 bg-paper">
       <div className="mx-auto max-w-6xl px-4 pb-10 pt-14 sm:px-6">
         <div className="grid gap-10 sm:grid-cols-[1.6fr_1fr_1fr]">
           <div>
