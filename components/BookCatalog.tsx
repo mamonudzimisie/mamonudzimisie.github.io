@@ -14,6 +14,7 @@ import {
   type BookLang,
 } from '@/data/books';
 import { CATALOG_STRINGS, type SiteLang } from '@/lib/catalog-i18n';
+import { SERIES } from '@/data/series';
 
 export default function BookCatalog({
   books,
@@ -309,10 +310,29 @@ export default function BookCatalog({
           {t.empty}
         </p>
       ) : (
-        <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-12 sm:mt-12 sm:grid-cols-3 sm:gap-x-8 sm:gap-y-16 lg:grid-cols-4">
-          {filteredBooks.map((book) => (
-            <BookCard key={book.slug} book={book} siteLang={siteLang} />
-          ))}
+        // Książki pogrupowane w serie (data/series.ts); serie bez książek po
+        // filtrowaniu znikają. Kotwica #<seria> pozwala linkować do sekcji.
+        <div className="mt-6 space-y-16 sm:space-y-20">
+          {SERIES.map(({ id, text }) => {
+            const inSeries = filteredBooks.filter((book) => book.series === id);
+            if (inSeries.length === 0) return null;
+            return (
+              <section key={id} id={id} className="scroll-mt-8 border-t border-ink/10 pt-8 sm:pt-10">
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8">
+                  <h2 className="font-display text-2xl font-700 text-navy sm:text-3xl">{text[siteLang].name}</h2>
+                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-ink/70">
+                    {t.seriesCount(inSeries.length)}
+                  </p>
+                </div>
+                <p className="mt-2 max-w-2xl text-ink/70">{text[siteLang].description}</p>
+                <div className="mt-8 grid grid-cols-2 gap-x-5 gap-y-12 sm:mt-10 sm:grid-cols-3 sm:gap-x-8 sm:gap-y-16 lg:grid-cols-4">
+                  {inSeries.map((book) => (
+                    <BookCard key={book.slug} book={book} siteLang={siteLang} />
+                  ))}
+                </div>
+              </section>
+            );
+          })}
         </div>
       )}
     </div>

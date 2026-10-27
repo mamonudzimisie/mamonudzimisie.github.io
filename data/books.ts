@@ -1,3 +1,5 @@
+import type { BookSeries } from '@/data/series';
+
 export type BookCategory =
   | 'wykreslanki'
   | 'sudoku'
@@ -23,6 +25,7 @@ export type Book = {
   detailSubtitle?: string;
   ageRange: string; // "5–6 lat"
   category: BookCategory;
+  series: BookSeries; // seria (data/series.ts) — katalog grupuje według niej
   audience: BookAudience;
   lang: BookLang; // język treści książki
   description: string;
@@ -101,6 +104,7 @@ export const books: Book[] = [
     subtitle: 'Poziom najłatwiejszy',
     ageRange: '5–6 lat',
     category: 'wykreslanki',
+    series: 'znajdz-slowko',
     audience: 'dzieci',
     lang: 'pl',
     description:
@@ -132,6 +136,7 @@ export const books: Book[] = [
     detailSubtitle: '100 wykreślanek dla dzieci 6–7 lat · Poziom łatwy',
     ageRange: '6–7 lat',
     category: 'wykreslanki',
+    series: 'znajdz-slowko',
     audience: 'dzieci',
     lang: 'pl',
     description:
@@ -178,6 +183,7 @@ export const books: Book[] = [
     subtitle: 'Poziom średni',
     ageRange: '7–9 lat',
     category: 'wykreslanki',
+    series: 'znajdz-slowko',
     audience: 'dzieci',
     lang: 'pl',
     description:
@@ -208,6 +214,7 @@ export const books: Book[] = [
     subtitle: 'Poziom trudny',
     ageRange: '10+',
     category: 'wykreslanki',
+    series: 'znajdz-slowko',
     audience: 'dzieci',
     lang: 'pl',
     description:
@@ -238,6 +245,7 @@ export const books: Book[] = [
     subtitle: 'Poziom ekspert',
     ageRange: '13+',
     category: 'wykreslanki',
+    series: 'znajdz-slowko',
     audience: 'dzieci',
     lang: 'pl',
     description:
@@ -268,6 +276,7 @@ export const books: Book[] = [
     detailSubtitle: '40 świątecznych wykreślanek dla dzieci w wieku 6–9 lat, z ciekawostkami o Bożym Narodzeniu',
     ageRange: '6–9 lat',
     category: 'wykreslanki',
+    series: 'znajdz-slowko',
     audience: 'dzieci',
     lang: 'pl',
     description:
@@ -297,6 +306,7 @@ export const books: Book[] = [
     subtitle: '75 wykreślanek z nazwami szczytów odznak turystycznych Polski i okolic',
     ageRange: 'Dorośli',
     category: 'wykreslanki',
+    series: 'wykreslanki-tematyczne',
     audience: 'dorosli',
     lang: 'pl',
     description:
@@ -327,6 +337,7 @@ export const books: Book[] = [
     subtitle: '120 łamigłówek, poziom łatwy–średni',
     ageRange: 'Dorośli',
     category: 'sudoku',
+    series: 'sudoku-duzy-druk',
     audience: 'duzy-druk',
     lang: 'pl',
     description:
@@ -355,6 +366,7 @@ export const books: Book[] = [
     subtitle: '300 zagadek od łatwych do bardzo trudnych',
     ageRange: 'Dorośli',
     category: 'sudoku',
+    series: 'lamiglowki-logiczne',
     audience: 'dorosli',
     lang: 'pl',
     description:
@@ -384,6 +396,7 @@ export const books: Book[] = [
     subtitle: '120 łamigłówek, poziom trudny i bardzo trudny',
     ageRange: 'Dorośli',
     category: 'sudoku',
+    series: 'sudoku-duzy-druk',
     audience: 'duzy-druk',
     lang: 'pl',
     description:
@@ -414,6 +427,7 @@ export const books: Book[] = [
     subtitle: '150 łamigłówek dla początkujących, rozgrzewka i poziom łatwy',
     ageRange: 'Dorośli',
     category: 'sudoku',
+    series: 'sudoku-duzy-druk',
     audience: 'duzy-druk',
     lang: 'pl',
     description:
@@ -443,6 +457,7 @@ export const books: Book[] = [
     subtitle: '150 łatwych zagadek dla początkujących',
     ageRange: 'Dorośli',
     category: 'sudoku',
+    series: 'lamiglowki-logiczne',
     audience: 'dorosli',
     lang: 'pl',
     description:
@@ -473,6 +488,7 @@ export const books: Book[] = [
     subtitle: 'Stufe 1: 5–6 Jahre',
     ageRange: '5–6 lat',
     category: 'wykreslanki',
+    series: 'meine-ersten-wortsuchratsel',
     audience: 'dzieci',
     lang: 'de',
     description:
@@ -503,6 +519,7 @@ export const books: Book[] = [
     subtitle: 'Stufe 2: 6–7 Jahre',
     ageRange: '6–7 lat',
     category: 'wykreslanki',
+    series: 'meine-ersten-wortsuchratsel',
     audience: 'dzieci',
     lang: 'de',
     description:
@@ -532,6 +549,7 @@ export const books: Book[] = [
     subtitle: '120 Rätsel, leicht und mittel',
     ageRange: 'Dorośli',
     category: 'sudoku',
+    series: 'sudoku-duzy-druk',
     audience: 'duzy-druk',
     lang: 'de',
     description:
@@ -563,6 +581,7 @@ export const books: Book[] = [
     detailSubtitle: '150 Rätsel, leicht, mittel und schwer, mit Lösungen — im Hardcover',
     ageRange: 'Dorośli',
     category: 'sudoku',
+    series: 'sudoku-duzy-druk',
     audience: 'duzy-druk',
     lang: 'de',
     description:
@@ -594,6 +613,7 @@ export const books: Book[] = [
     subtitle: '120 puzzles, easy and medium',
     ageRange: 'Dorośli',
     category: 'sudoku',
+    series: 'sudoku-duzy-druk',
     audience: 'duzy-druk',
     lang: 'en',
     description:
@@ -624,6 +644,7 @@ export const books: Book[] = [
     subtitle: '120 puzzles, hard and very hard',
     ageRange: 'Dorośli',
     category: 'sudoku',
+    series: 'sudoku-duzy-druk',
     audience: 'duzy-druk',
     lang: 'en',
     description:
@@ -654,6 +675,7 @@ export const books: Book[] = [
     subtitle: '150 puzzles for beginners, warm-up and easy',
     ageRange: 'Dorośli',
     category: 'sudoku',
+    series: 'sudoku-duzy-druk',
     audience: 'duzy-druk',
     lang: 'en',
     description:
@@ -685,6 +707,7 @@ export const books: Book[] = [
     detailSubtitle: '150 puzzles, easy, medium and hard, with solutions — in hardcover',
     ageRange: 'Dorośli',
     category: 'sudoku',
+    series: 'sudoku-duzy-druk',
     audience: 'duzy-druk',
     lang: 'en',
     description:
@@ -715,6 +738,7 @@ export const books: Book[] = [
     subtitle: '300 puzzles from easy to very hard',
     ageRange: 'Dorośli',
     category: 'sudoku',
+    series: 'lamiglowki-logiczne',
     audience: 'dorosli',
     lang: 'en',
     description:
@@ -745,6 +769,7 @@ export const books: Book[] = [
     subtitle: '150 easy puzzles for beginners',
     ageRange: 'Dorośli',
     category: 'sudoku',
+    series: 'lamiglowki-logiczne',
     audience: 'dorosli',
     lang: 'en',
     description:
@@ -777,6 +802,7 @@ export const books: Book[] = [
       '192 cross-sum puzzles from super easy to normal — with a step-by-step solving tutorial and complete answer key',
     ageRange: 'Dorośli',
     category: 'inne',
+    series: 'lamiglowki-logiczne',
     audience: 'dorosli',
     lang: 'en',
     description:
@@ -809,6 +835,7 @@ export const books: Book[] = [
       'Angielski – czasowniki nieregularne · Wykreślanki i zdania z lukami. Ćwiczenia dla młodzieży i dorosłych',
     ageRange: '13+',
     category: 'nauka-jezykow',
+    series: 'wykreslanki-jezykowe',
     audience: 'dorosli',
     lang: 'pl',
     description:
@@ -850,6 +877,7 @@ export const books: Book[] = [
       'Niemiecki – słownictwo biznesowe · Wykreślanki i zdania z lukami. Poziom C1–C2',
     ageRange: 'Dorośli',
     category: 'nauka-jezykow',
+    series: 'wykreslanki-jezykowe',
     audience: 'dorosli',
     lang: 'pl',
     description:

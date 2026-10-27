@@ -24,6 +24,8 @@ export type CatalogStrings = {
   categoryLabels: Record<BookCategory, string>;
   audienceLabels: Record<BookAudience, string>;
   langNames: Record<BookLang, string>;
+  seriesCount: (n: number) => string;
+  seriesLabel: string;
   card: {
     coverAlt: (title: string) => string;
     comingSoon: string;
@@ -82,6 +84,8 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       de: 'niemiecki',
       en: 'angielski',
     },
+    seriesCount: (n) => `${n} ${n === 1 ? 'książka' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 'książki' : 'książek'}`,
+    seriesLabel: 'Seria',
     card: {
       coverAlt: (title) => `Okładka książki ${title}`,
       comingSoon: 'Wkrótce',
@@ -147,6 +151,8 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       de: 'Deutsch',
       en: 'Englisch',
     },
+    seriesCount: (n) => `${n} ${n === 1 ? 'Buch' : 'Bücher'}`,
+    seriesLabel: 'Reihe',
     card: {
       coverAlt: (title) => `Buchcover ${title}`,
       comingSoon: 'Bald',
@@ -212,6 +218,8 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       de: 'German',
       en: 'English',
     },
+    seriesCount: (n) => `${n} ${n === 1 ? 'book' : 'books'}`,
+    seriesLabel: 'Series',
     card: {
       coverAlt: (title) => `Book cover: ${title}`,
       comingSoon: 'Soon',
