@@ -34,9 +34,11 @@ export type CatalogStrings = {
     language: string;
     format: string;
     formatNote: string;
+    formatNoteHardcover: string;
     volume: string;
     pages: (count: number) => string;
     binding: string;
+    bindingHardcover: string;
     comingSoon: string;
     lookInside: string;
     samplePage: (n: number, total: number) => string;
@@ -90,9 +92,11 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       language: 'Język',
       format: 'Format',
       formatNote: 'zbliżony do A4',
+      formatNoteHardcover: 'zbliżony do A4',
       volume: 'Objętość',
       pages: (count) => `${count} stron`,
       binding: 'Miękka oprawa',
+      bindingHardcover: 'Twarda oprawa',
       comingSoon: 'Ta książka wkrótce się pojawi',
       lookInside: 'Zajrzyj do środka',
       samplePage: (n, total) => `Strona ${n} z ${total}`,
@@ -153,9 +157,11 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       language: 'Sprache',
       format: 'Format',
       formatNote: 'ähnlich A4',
+      formatNoteHardcover: 'ähnlich A4',
       volume: 'Umfang',
       pages: (count) => `${count} Seiten`,
       binding: 'Softcover',
+      bindingHardcover: 'Hardcover',
       comingSoon: 'Dieses Buch erscheint bald',
       lookInside: 'Blick ins Buch',
       samplePage: (n, total) => `Seite ${n} von ${total}`,
@@ -216,9 +222,11 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       language: 'Language',
       format: 'Format',
       formatNote: 'US Letter, close to A4',
+      formatNoteHardcover: 'close to A4',
       volume: 'Length',
       pages: (count) => `${count} pages`,
       binding: 'Paperback',
+      bindingHardcover: 'Hardcover',
       comingSoon: 'This book is coming soon',
       lookInside: 'Look inside',
       samplePage: (n, total) => `Page ${n} of ${total}`,

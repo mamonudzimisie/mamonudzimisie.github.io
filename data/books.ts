@@ -32,6 +32,7 @@ export type Book = {
   featured: boolean;
   comingSoon?: boolean;
   formatInches: string; // np. '8,5 × 11 cala'
+  hardcover?: boolean; // twarda oprawa (wydania prezentowe) — inny format, oprawa i schema.org
   pageCount: number;
   isbn?: string; // ISBN wydania drukowanego (ze strony redakcyjnej PDF-a)
   // Przykładowe strony do podglądu „Zajrzyj do środka” (WebP w /public/samples/<slug>/).
@@ -261,8 +262,6 @@ export const books: Book[] = [
     },
   },
   {
-    // Wydanie świąteczne — czeka na publikację w KDP. Gdy będzie link (amazon.pl):
-    // wpisać amazonUrl, usunąć comingSoon, dodać samplePages.
     slug: 'znajdz-slowko-swieta',
     title: 'Znajdź słówko! Święta',
     subtitle: '40 świątecznych wykreślanek, 6–9 lat',
@@ -280,12 +279,12 @@ export const books: Book[] = [
       'Duże litery na liście słów i rozwiązania na końcu książki',
     ],
     coverImage: '/covers/znajdz-slowko-swieta.webp',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.pl/dp/8398390115',
     featured: false,
-    comingSoon: true,
     formatInches: '8,5 × 11 cala',
-    pageCount: 62,
+    pageCount: 64,
     isbn: '978-83-983901-1-8',
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/znajdz-slowko-swieta/${n}.webp`),
     seo: {
       title: 'Znajdź słówko! Święta – świąteczne wykreślanki dla dzieci 6–9 lat',
       description:
@@ -557,6 +556,38 @@ export const books: Book[] = [
     },
   },
   {
+    slug: 'sudoku-grossdruck-103',
+    title: 'Sudoku Großdruck. Geschenkausgabe',
+    cardTitle: 'Sudoku Großdruck – Geschenkausgabe',
+    subtitle: '150 Rätsel, leicht, mittel und schwer',
+    detailSubtitle: '150 Rätsel, leicht, mittel und schwer, mit Lösungen — im Hardcover',
+    ageRange: 'Dorośli',
+    category: 'sudoku',
+    audience: 'duzy-druk',
+    lang: 'de',
+    description:
+      'Ein Geschenk für alle, die gern knobeln: 150 Sudoku-Rätsel in großer, gut lesbarer Schrift, in einem festen Hardcover. Nur zwei Rätsel pro Seite – jedes Gitter ist 11 cm breit, die Kästchen messen 1,2 cm, so bleibt viel Platz für Notizen mit dem Bleistift. Gleich auf der ersten Seite ist Platz für eine persönliche Widmung mit den Zeilen „Für“ und „Von“. Drei Stufen mit je 50 Rätseln, von leicht bis schwer, und eine bebilderte Anleitung, die die Lösungsmethoden Schritt für Schritt erklärt – bis hin zu Paaren, Dreiergruppen und X-Wing.',
+    features: [
+      '150 Sudoku-Rätsel in drei Stufen: je 50 leichte, mittlere und schwere',
+      'Großdruck: Gitter 11 cm breit, zwei Rätsel pro Seite',
+      'Festes Hardcover mit Widmungsseite',
+      'Bebilderte Anleitung und alle Lösungen am Ende des Buches',
+    ],
+    coverImage: '/covers/sudoku-grossdruck-103.webp',
+    amazonUrl: 'https://www.amazon.de/dp/839839014X',
+    featured: false,
+    formatInches: '8,25 × 11 cala',
+    hardcover: true,
+    pageCount: 122,
+    isbn: '978-83-983901-4-9',
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/sudoku-grossdruck-103/${n}.webp`),
+    seo: {
+      title: 'Sudoku Großdruck Geschenkausgabe – 150 Rätsel im Hardcover',
+      description:
+        '150 Sudoku-Rätsel in großer Schrift, leicht bis schwer, im festen Hardcover mit Widmungsseite. Bebilderte Anleitung und alle Lösungen. Ein Geschenk für Oma und Opa.',
+    },
+  },
+  {
     slug: 'large-print-sudoku-100',
     title: 'Large Print Sudoku',
     cardTitle: 'Large Print Sudoku – Easy & Medium',
@@ -647,6 +678,38 @@ export const books: Book[] = [
     },
   },
   {
+    slug: 'large-print-sudoku-103',
+    title: 'Large Print Sudoku. Gift Edition',
+    cardTitle: 'Large Print Sudoku – Gift Edition',
+    subtitle: '150 puzzles, easy, medium and hard',
+    detailSubtitle: '150 puzzles, easy, medium and hard, with solutions — in hardcover',
+    ageRange: 'Dorośli',
+    category: 'sudoku',
+    audience: 'duzy-druk',
+    lang: 'en',
+    description:
+      'A gift for anyone who loves a good puzzle: 150 Sudoku puzzles printed in large, easy-to-read digits, in a sturdy hardcover. The cells are a fifth larger than in a typical Sudoku, so writing in them is comfortable — no magnifying glass, no squinting. The first page is left for your dedication: fill in “For” and “From”, and the book becomes a personal gift. Three levels of 50 puzzles each, from easy to hard, and an illustrated introduction that explains the methods step by step.',
+    features: [
+      '150 unique Sudoku puzzles in three levels: 50 easy, 50 medium, 50 hard',
+      'Large print: 11 cm (4.3 in) grids, two per page',
+      'Sturdy hardcover with a dedication page at the front',
+      'Illustrated introduction to the methods; complete solutions at the back',
+    ],
+    coverImage: '/covers/large-print-sudoku-103.webp',
+    amazonUrl: 'https://www.amazon.com/dp/8398390158',
+    featured: true,
+    formatInches: '8.25 × 11 in',
+    hardcover: true,
+    pageCount: 122,
+    isbn: '978-83-983901-5-6',
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/large-print-sudoku-103/${n}.webp`),
+    seo: {
+      title: 'Large Print Sudoku Gift Edition – 150 Puzzles in Hardcover',
+      description:
+        '150 large print Sudoku puzzles, easy, medium and hard, in a sturdy hardcover with a dedication page. Illustrated introduction and full solutions. A gift for Grandma or Grandpa.',
+    },
+  },
+  {
     slug: 'sudoku-300-puzzles-200',
     title: 'Sudoku',
     subtitle: '300 puzzles from easy to very hard',
@@ -703,6 +766,38 @@ export const books: Book[] = [
       title: 'Killer Sudoku – 150 Easy Puzzles for Beginners',
       description:
         '150 easy Killer Sudoku puzzles with starting digits. A starter guide with the rule of 45, cage-sum tables and full solutions. A gentle way into a new puzzle.',
+    },
+  },
+  {
+    slug: 'kakuro-puzzle-book-for-beginners',
+    title: 'Kakuro Puzzle Book for Beginners',
+    cardTitle: 'Kakuro for Beginners',
+    subtitle: '192 cross-sum puzzles, super easy to normal',
+    detailSubtitle:
+      '192 cross-sum puzzles from super easy to normal — with a step-by-step solving tutorial and complete answer key',
+    ageRange: 'Dorośli',
+    category: 'inne',
+    audience: 'dorosli',
+    lang: 'en',
+    description:
+      'Never solved a Kakuro? Start here. Kakuro is a number-logic puzzle, a little like a crossword made of sums: every white cell holds a digit from 1 to 9, the clues tell you what each run adds up to, and no digit may repeat within a run. A step-by-step tutorial solves a complete example puzzle with you before puzzle 1, and a reference table lists the sums that have only one possible set of digits. Then 192 puzzles take you gently from Super Easy to Normal, with the grids growing as you go: 4×4, then 5×5, then 6×6.',
+    features: [
+      '192 puzzles: 32 Super Easy, 64 Easy and 96 Normal',
+      'Step-by-step tutorial with a fully solved example puzzle',
+      'Four puzzles per page, each grid 3 in wide, with room to write',
+      'One solution per puzzle, solvable by logic alone; full answer key at the back',
+    ],
+    coverImage: '/covers/kakuro-puzzle-book-for-beginners.webp',
+    amazonUrl: 'https://www.amazon.com/dp/8398144181',
+    featured: false,
+    formatInches: '8.5 × 11 in',
+    pageCount: 108,
+    isbn: '978-83-981441-8-6',
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/kakuro-puzzle-book-for-beginners/${n}.webp`),
+    seo: {
+      title: 'Kakuro Puzzle Book for Beginners – 192 Cross-Sum Puzzles',
+      description:
+        '192 Kakuro puzzles for beginners, from super easy to normal, with a step-by-step tutorial, a table of unique sums and a full answer key. Solvable by logic alone.',
     },
   },
   {

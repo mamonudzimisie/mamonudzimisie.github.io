@@ -28,7 +28,7 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
     description: book.seo?.description ?? book.description,
     url: `${SITE_URL}${canonicalBookHref(book)}`,
     inLanguage: book.lang,
-    bookFormat: 'https://schema.org/Paperback',
+    bookFormat: `https://schema.org/${book.hardcover ? 'Hardcover' : 'Paperback'}`,
     numberOfPages: book.pageCount,
     ...(book.isbn ? { isbn: book.isbn } : {}),
     image: `${SITE_URL}${book.coverImage}`,
@@ -106,9 +106,12 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
               <dt className="text-[11px] font-semibold uppercase tracking-[0.04em] text-navy/[0.62]">
                 {t.detail.format}
               </dt>
-              <dd className="mt-[6px] text-[18px] font-bold text-navy">21,6 × 27,9 cm</dd>
+              <dd className="mt-[6px] text-[18px] font-bold text-navy">
+                {book.hardcover ? '21 × 27,9 cm' : '21,6 × 27,9 cm'}
+              </dd>
               <p className="mt-[5px] text-[12.5px] text-ink/[0.58]">
-                {book.formatInches} · {t.detail.formatNote}
+                {book.formatInches} ·{' '}
+                {book.hardcover ? t.detail.formatNoteHardcover : t.detail.formatNote}
               </p>
             </div>
             <div className="px-5 py-[15px]">
@@ -118,7 +121,9 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
               <dd className="mt-[6px] text-[18px] font-bold text-navy">
                 {t.detail.pages(book.pageCount)}
               </dd>
-              <p className="mt-[5px] text-[12.5px] text-ink/[0.58]">{t.detail.binding}</p>
+              <p className="mt-[5px] text-[12.5px] text-ink/[0.58]">
+                {book.hardcover ? t.detail.bindingHardcover : t.detail.binding}
+              </p>
             </div>
             {book.isbn && (
               <div className="px-5 py-[15px] sm:col-span-2 sm:border-t sm:border-navy/[0.08]">

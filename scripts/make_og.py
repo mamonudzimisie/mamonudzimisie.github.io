@@ -236,11 +236,15 @@ def book_image(book):
     x, max_w = 590, 560
     brand(img, x, 64)
     d = ImageDraw.Draw(img)
-    title_font = display(72)
+    # Mniejsza czcionka, gdy najdłuższe słowo (np. „Geschenkausgabe.”) nie mieści się w linii.
+    size = 72
+    while size > 48 and max(d.textlength(w, font=display(size)) for w in book['title'].split()) > max_w:
+        size -= 4
+    title_font = display(size)
     y = 210
     for line in wrap(book['title'], title_font, max_w, d):
         d.text((x, y), line, font=title_font, fill=NAVY, anchor='ls')
-        y += 74
+        y += size + 2
     sub_font = body(32, 'Bold')
     y += 6
     for line in wrap(book.get('detailSubtitle') or book['subtitle'], sub_font, max_w, d):
