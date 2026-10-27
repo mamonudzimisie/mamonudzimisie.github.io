@@ -23,8 +23,11 @@ const RELATED_TITLE: Record<SiteLang, string> = {
 // Trzy inne książki dla tej samej grupy: najpierw w języku strony, potem
 // w języku tej książki, na końcu pozostałe. Bez zapowiedzi i bez tej samej.
 function relatedBooks(book: Book, siteLang: SiteLang): Book[] {
-  const pool = books.filter((b) => b.slug !== book.slug && b.audience === book.audience && !b.comingSoon);
-  const rank = (b: Book) => (b.lang === siteLang ? 0 : b.lang === book.lang ? 1 : 2);
+  const pool = books.filter((b) => b.slug !== book.slug && !b.comingSoon);
+  // Najpierw ten sam język strony i ta sama grupa, potem ten sam język i inna
+  // grupa, dopiero na końcu inne języki — polecenia w obcym języku myliły.
+  const rank = (b: Book) =>
+    (b.lang === siteLang ? 0 : b.lang === book.lang ? 2 : 4) + (b.audience === book.audience ? 0 : 1);
   return [...pool].sort((a, b) => rank(a) - rank(b)).slice(0, 3);
 }
 
@@ -104,6 +107,9 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
         <div>
           <div className="flex flex-wrap items-center gap-2">
             <p className="inline-block rounded border border-navy/25 px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-wider text-navy">
+              {t.categoryLabels[book.category]}
+            </p>
+            <p className="inline-block rounded border border-navy/25 px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-wider text-navy">
               {t.ageLabels[book.ageRange as keyof typeof t.ageLabels] ?? book.ageRange}
             </p>
             <p className="inline-block rounded border border-navy/25 px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-wider text-navy">
@@ -116,9 +122,17 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
           <p lang={book.lang} className="mt-1 text-lg text-ink/70">
             {book.detailSubtitle ?? book.subtitle}
           </p>
-          <p className="mt-2 text-sm font-semibold text-orange-ink">
-            {t.categoryLabels[book.category]}
-          </p>
+          {/* Na telefonie przycisk zakupu od razu pod tytułem — główny jest ~1400 px niżej. */}
+          {!book.comingSoon && (
+            <a
+              href={book.amazonUrl}
+              target="_blank"
+              rel="noopener noreferrer sponsored"
+              className="mt-5 inline-block rounded-md bg-orange px-6 py-3 text-base font-semibold text-white transition hover:bg-orange/90 sm:hidden"
+            >
+              {t.card.buy}
+            </a>
+          )}
           {/* Opisu i tytułu nie tłumaczymy — czytelnik ma wiedzieć, w jakim
               języku są zagadki. Zamiast tego wyraźna adnotacja. */}
           {book.lang !== siteLang && (

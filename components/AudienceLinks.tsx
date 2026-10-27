@@ -53,7 +53,9 @@ const DOWNLOADS: Partial<Record<SiteLang, Text & { href: string; pages: string[]
 // Trzy okładki z danej grupy: najpierw w języku strony, potem pozostałe.
 function coversFor(audience: BookAudience, lang: SiteLang): string[] {
   const group = books.filter((book) => book.audience === audience && !book.comingSoon);
-  const sorted = [...group.filter((b) => b.lang === lang), ...group.filter((b) => b.lang !== lang)];
+  const own = group.filter((b) => b.lang === lang);
+  // Dwie okładki w języku strony wystarczą na stos — bez obcych okładek.
+  const sorted = own.length >= 2 ? own : [...own, ...group.filter((b) => b.lang !== lang)];
   return sorted.slice(0, 3).map((book) => book.coverImage);
 }
 

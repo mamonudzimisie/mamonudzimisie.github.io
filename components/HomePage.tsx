@@ -4,7 +4,7 @@ import AudienceLinks from '@/components/AudienceLinks';
 import BookCard from '@/components/BookCard';
 import HeroFan from '@/components/HeroFan';
 import OpenBook from '@/components/OpenBook';
-import { getBookBySlug } from '@/data/books';
+import { books, getBookBySlug, type BookAudience } from '@/data/books';
 import type { Book } from '@/data/books';
 import type { SiteLang } from '@/lib/catalog-i18n';
 
@@ -12,6 +12,8 @@ import type { SiteLang } from '@/lib/catalog-i18n';
 // trafia od razu do /pl, /de i /en — w STRINGS różnią się tylko teksty.
 
 type IconProps = { className?: string };
+
+type Shelf = { title: string; lead: string; link: string };
 
 type Strings = {
   badge: string;
@@ -30,6 +32,9 @@ type Strings = {
   audiencesTitle: string;
   audiencesLead: string;
   featuredTitle: string;
+  // Dwie półki zamiast jednej listy wyróżnionych: kolorowe okładki dziecięce
+  // i stonowane dla dorosłych nie mieszają się ze sobą.
+  shelves: { kids: Shelf; adults: Shelf };
   // Sekcja z otwartą książką (strony przykładowe zamiast zdjęcia produktu).
   inside: { eyebrow: string; title: string; text: string; link: string; slug: string };
   whyLine: string;
@@ -56,6 +61,10 @@ const STRINGS: Record<SiteLang, Strings> = {
     audiencesTitle: 'Znajdź coś dla siebie',
     audiencesLead: 'Łamigłówki na każdą okazję — dla dzieci, dorosłych i całej rodziny.',
     featuredTitle: 'Wyróżnione książki',
+    shelves: {
+      kids: { title: 'Dla dzieci', lead: 'Wykreślanki, które uczą czytać przez zabawę — od 5 do 13 lat.', link: 'Wszystkie książki dla dzieci' },
+      adults: { title: 'Dla dorosłych', lead: 'Sudoku, Killer Sudoku i wykreślanki — także dużym drukiem.', link: 'Wszystkie książki dla dorosłych' },
+    },
     inside: {
       eyebrow: 'Zajrzyj do środka',
       title: 'Duży druk, który naprawdę widać',
@@ -101,6 +110,10 @@ const STRINGS: Record<SiteLang, Strings> = {
     audiencesTitle: 'Finde etwas für dich',
     audiencesLead: 'Rätsel für jede Gelegenheit — für Kinder, Erwachsene und die ganze Familie.',
     featuredTitle: 'Empfohlene Bücher',
+    shelves: {
+      kids: { title: 'Für Kinder', lead: 'Suchrätsel, mit denen Lesenlernen Spaß macht.', link: 'Alle Kinderbücher' },
+      adults: { title: 'Für Erwachsene', lead: 'Sudoku im Großdruck und mehr — für ruhige Rätselstunden.', link: 'Alle Bücher für Erwachsene' },
+    },
     inside: {
       eyebrow: 'Ein Blick hinein',
       title: 'Großdruck, den man wirklich lesen kann',
@@ -147,6 +160,10 @@ const STRINGS: Record<SiteLang, Strings> = {
     audiencesTitle: 'Find something for you',
     audiencesLead: 'Puzzles for every occasion — for kids, adults and the whole family.',
     featuredTitle: 'Featured books',
+    shelves: {
+      kids: { title: 'For kids', lead: 'Word searches that make reading practice fun.', link: 'All books for kids' },
+      adults: { title: 'For adults', lead: 'Sudoku, Killer Sudoku and Kakuro — also in large print.', link: 'All books for adults' },
+    },
     inside: {
       eyebrow: 'Look inside',
       title: 'Large print you can actually read',
@@ -195,15 +212,25 @@ function SquiggleUnderline({ className }: IconProps) {
 // Ikony i kolory stałe — kolejność odpowiada STRINGS[lang].benefits / .reasons.
 
 
+// Cztery książki na półkę: najpierw w języku strony (wyróżnione na początku),
+// potem — jeśli brakuje — z innych języków.
+function shelfBooks(audiences: BookAudience[], lang: SiteLang): Book[] {
+  const pool = books.filter((b) => audiences.includes(b.audience) && !b.comingSoon);
+  const rank = (b: Book) => (b.lang === lang ? 0 : 2) + (b.featured ? 0 : 1);
+  return [...pool].sort((a, b) => rank(a) - rank(b)).slice(0, 4);
+}
+
+const SHELF_BG = { kids: '#F8EFDC', adults: '#EDF1EF' };
+
 export default function HomePage({
   lang,
   heroBooks,
-  featuredBooks,
 }: {
   lang: SiteLang;
   // Kolejność w wachlarzu: pierwsza z przodu, druga po prawej, ostatnia po lewej.
   heroBooks: Book[];
-  featuredBooks: Book[];
+  // Dawna lista wyróżnionych — strona główna ma teraz dwie półki (shelfBooks).
+  featuredBooks?: Book[];
 }) {
   const t = STRINGS[lang];
 
@@ -255,7 +282,7 @@ export default function HomePage({
               {t.note && <span className="text-sm font-semibold text-ink/70">{t.note}</span>}
             </div>
 
-            <ul className="animate-fade-up mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 border-t border-ink/10 pt-6 text-sm text-ink/70 lg:justify-start [animation-delay:350ms]">
+            <ul className="animate-fade-up mt-10 hidden flex-wrap justify-center sm:flex gap-x-6 gap-y-2 border-t border-ink/10 pt-6 text-sm text-ink/70 lg:justify-start [animation-delay:350ms]">
               {t.benefits.map(([first, second]) => (
                 <li key={first} className="flex items-center gap-2">
                   <span className="h-1 w-1 rounded-full bg-orange" aria-hidden="true" />
@@ -301,26 +328,39 @@ export default function HomePage({
         </div>
       </section>
 
-      {featuredBooks.length > 0 && (
-        <section className="border-y border-ink/[0.06] bg-[#F4F1EB] px-4 py-20 sm:px-6 sm:py-24">
-          <div className="mx-auto max-w-6xl">
-            <div className="flex items-end justify-between gap-4">
-              <h2 className="font-display text-3xl font-700 text-navy sm:text-4xl">{t.featuredTitle}</h2>
-              <Link
-                href={`/${lang}/books`}
-                className="hidden shrink-0 text-sm font-medium text-navy transition-colors hover:text-orange-ink sm:inline"
-              >
-                {t.cta} <span aria-hidden="true">→</span>
-              </Link>
+      {(
+        [
+          ['kids', ['dzieci']],
+          ['adults', ['dorosli', 'duzy-druk']],
+        ] as const
+      ).map(([key, audiences]) => {
+        const shelf = t.shelves[key];
+        const list = shelfBooks([...audiences], lang);
+        if (list.length === 0) return null;
+        return (
+          <section key={key} className="px-4 py-20 sm:px-6 sm:py-24" style={{ backgroundColor: SHELF_BG[key] }}>
+            <div className="mx-auto max-w-6xl">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <h2 className="font-display text-3xl font-700 text-navy sm:text-4xl">{shelf.title}</h2>
+                  <p className="mt-2 max-w-lg text-base text-ink/70">{shelf.lead}</p>
+                </div>
+                <Link
+                  href={`/${lang}/books?grupa=${encodeURIComponent(audiences[0])}`}
+                  className="shrink-0 text-sm font-medium text-navy transition-colors hover:text-orange-ink"
+                >
+                  {shelf.link} <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+              <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-12 sm:mt-12 sm:gap-x-8 lg:grid-cols-4">
+                {list.map((book) => (
+                  <BookCard key={book.slug} book={book} siteLang={lang} />
+                ))}
+              </div>
             </div>
-            <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-12 sm:mt-12 sm:grid-cols-3 sm:gap-x-10 sm:gap-y-16">
-              {featuredBooks.map((book) => (
-                <BookCard key={book.slug} book={book} siteLang={lang} />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+          </section>
+        );
+      })}
 
       {(() => {
         const insideBook = getBookBySlug(t.inside.slug);

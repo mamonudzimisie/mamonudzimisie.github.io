@@ -27,19 +27,19 @@ export default function BookCard({
 
   return (
     <article className="group flex flex-col text-center">
-      <Link href={href} className="relative flex aspect-[5/6] items-end justify-center px-[9%]">
+      <Link href={href} className="relative flex h-[12.5rem] items-end justify-center sm:h-[15rem] lg:h-[17rem]">
         {book.comingSoon && (
           <span className="absolute left-1/2 top-0 z-10 -translate-x-1/2 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-orange-ink">
             {t.card.comingSoon}
           </span>
         )}
-        <span className="relative block w-full max-w-[13.5rem] transition duration-300 ease-out group-hover:-translate-y-1.5">
+        <span className="relative block h-full max-w-full transition duration-300 ease-out group-hover:-translate-y-1.5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={book.coverImage}
             alt={t.card.coverAlt(title)}
             loading="lazy"
-            className="block h-auto w-full rounded-[1px_4px_4px_1px] shadow-[0_1px_2px_rgba(31,42,72,0.12),0_14px_26px_-10px_rgba(31,42,72,0.32)] transition-shadow duration-300 group-hover:shadow-[0_1px_2px_rgba(31,42,72,0.12),0_22px_34px_-12px_rgba(31,42,72,0.38)]"
+            className="block h-full w-auto max-w-full object-contain rounded-[1px_4px_4px_1px] shadow-[0_1px_2px_rgba(31,42,72,0.12),0_14px_26px_-10px_rgba(31,42,72,0.32)] transition-shadow duration-300 group-hover:shadow-[0_1px_2px_rgba(31,42,72,0.12),0_22px_34px_-12px_rgba(31,42,72,0.38)]"
           />
           {/* grzbiet: cień i odblask przy lewej krawędzi */}
           <span
@@ -67,7 +67,7 @@ export default function BookCard({
               href={book.amazonUrl}
               target="_blank"
               rel="noopener noreferrer sponsored"
-              className="text-orange-ink underline decoration-orange-ink/30 underline-offset-4 transition hover:decoration-orange-ink"
+              className="hidden text-orange-ink underline decoration-orange-ink/30 underline-offset-4 transition hover:decoration-orange-ink sm:inline"
             >
               {t.card.buy}
             </a>

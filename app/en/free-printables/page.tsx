@@ -36,7 +36,7 @@ export default function FreePrintablesPage() {
           {downloadSetsEn.map((set) => (
             <article
               key={set.slug}
-              className="grid gap-6 rounded-lg bg-paper-soft p-5 sm:grid-cols-[9rem_1fr] sm:p-6 lg:grid-cols-[11rem_1fr] lg:gap-8"
+              className="grid gap-6 rounded-lg bg-paper-soft p-5 sm:grid-cols-[10rem_1fr] sm:p-7 lg:grid-cols-[13rem_1fr] lg:gap-10"
             >
               {downloadPreview(set) && (
                 <div className="mx-auto w-32 sm:mx-0 sm:w-full" aria-hidden="true">
@@ -61,14 +61,14 @@ export default function FreePrintablesPage() {
               <p className="mt-1 max-w-2xl text-sm leading-relaxed text-ink/75">{set.description}</p>
 
               <ul className="mt-4 divide-y divide-navy/10 border-t border-navy/10">
-                {set.variants.map((variant) => {
+                {set.variants.map((variant, variantIndex) => {
                   const book = variant.bookSlug ? getBookBySlug(variant.bookSlug) : undefined;
                   return (
                     <li
                       key={variant.pdf}
                       className="flex flex-wrap items-center gap-x-4 gap-y-2 py-3"
                     >
-                      <span className="shrink-0 rounded bg-navy px-2.5 py-1 text-center text-[0.7rem] font-semibold uppercase tracking-wider text-white">
+                      <span className="shrink-0 rounded border border-navy/25 px-2.5 py-1 text-center text-[0.7rem] font-semibold uppercase tracking-wider text-navy">
                         {variant.level}
                       </span>
                       <span className="min-w-0 flex-1 basis-56 text-sm text-ink/80">
@@ -89,10 +89,14 @@ export default function FreePrintablesPage() {
                         href={variant.pdf}
                         download
                         aria-label={`Download PDF: ${set.title}, ${variant.level}`}
-                        className="inline-flex items-baseline gap-2 rounded-md bg-orange px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-orange/90"
+                        className={`inline-flex items-baseline gap-2 rounded-md px-5 py-2.5 text-sm font-semibold transition ${
+                          variantIndex === 0
+                            ? 'bg-orange text-white hover:bg-orange/90'
+                            : 'border border-navy/25 text-navy hover:border-navy hover:bg-navy hover:text-white'
+                        }`}
                       >
                         Download PDF
-                        <span className="text-xs font-semibold text-white/80">
+                        <span className="text-xs font-semibold opacity-80">
                           {variant.pages} pages
                         </span>
                       </a>
