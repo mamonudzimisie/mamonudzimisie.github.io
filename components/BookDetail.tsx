@@ -6,6 +6,7 @@ import { SITE_URL } from '@/lib/site';
 import SamplePreview, { IconEye } from '@/components/SamplePreview';
 import BookCard from '@/components/BookCard';
 import { COVER_TINTS } from '@/data/coverTints';
+import { seriesText } from '@/data/series';
 
 // Linia zaufania pod przyciskiem zakupu (bez opinii — tylko fakty o zakupie).
 const TRUST: Record<SiteLang, string> = {
@@ -24,10 +25,12 @@ const RELATED_TITLE: Record<SiteLang, string> = {
 // w języku tej książki, na końcu pozostałe. Bez zapowiedzi i bez tej samej.
 function relatedBooks(book: Book, siteLang: SiteLang): Book[] {
   const pool = books.filter((b) => b.slug !== book.slug && !b.comingSoon);
-  // Najpierw ten sam język strony i ta sama grupa, potem ten sam język i inna
+  // Najpierw ten sam język strony i ta sama seria lub grupa, potem ten sam język i inna
   // grupa, dopiero na końcu inne języki — polecenia w obcym języku myliły.
+  // Ta sama seria w języku strony na samym początku.
   const rank = (b: Book) =>
-    (b.lang === siteLang ? 0 : b.lang === book.lang ? 2 : 4) + (b.audience === book.audience ? 0 : 1);
+    (b.lang === siteLang ? 0 : b.lang === book.lang ? 3 : 6) +
+    (b.series === book.series ? 0 : b.audience === book.audience ? 1 : 2);
   return [...pool].sort((a, b) => rank(a) - rank(b)).slice(0, 3);
 }
 
@@ -116,7 +119,13 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
               {t.detail.language}: {t.langNames[book.lang]} ({LANG_LABELS[book.lang]})
             </p>
           </div>
-          <h1 lang={book.lang} className="mt-4 font-display text-3xl font-800 text-navy sm:text-4xl">
+          <Link
+            href={`/${siteLang}/books#${book.series}`}
+            className="mt-5 inline-block text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-orange-ink transition-colors hover:text-navy"
+          >
+            {t.seriesLabel}: {seriesText(book.series, siteLang).name} →
+          </Link>
+          <h1 lang={book.lang} className="mt-2 font-display text-3xl font-800 text-navy sm:text-4xl">
             {book.title}
           </h1>
           <p lang={book.lang} className="mt-1 text-lg text-ink/70">
