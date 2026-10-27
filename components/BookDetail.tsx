@@ -111,7 +111,7 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
             ))}
           </ul>
 
-          <dl className="relative mt-6 grid grid-cols-1 divide-y divide-navy/[0.08] rounded-md bg-white/[0.32] sm:grid-cols-2 sm:divide-y-0">
+          <dl className="relative mt-6 grid grid-cols-1 divide-y divide-navy/[0.08] rounded-md bg-paper-soft sm:grid-cols-2 sm:divide-y-0">
             <div className="px-5 py-[15px]">
               <dt className="text-[11px] font-semibold uppercase tracking-[0.04em] text-navy/[0.62]">
                 {t.detail.format}
@@ -232,7 +232,7 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
                 <Link
                   key={other.slug}
                   href={`/${siteLang}/books/${other.slug}`}
-                  className="group flex items-center gap-4 rounded-md bg-white/70 p-3 transition hover:bg-white"
+                  className="group flex items-center gap-4 rounded-md bg-paper-soft p-3 transition hover:bg-paper-soft-hover"
                 >
                   <div className="relative aspect-[3/4] w-16 shrink-0 overflow-hidden rounded border-2 border-white shadow-cover">
                     <Image

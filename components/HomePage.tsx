@@ -245,7 +245,7 @@ export default function HomePage({
           <div className="relative mx-auto w-full max-w-sm sm:max-w-md lg:mx-0 lg:max-w-[34rem] lg:justify-self-end">
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-x-0 bottom-[54px] top-[-8%] rounded-t-full bg-[#EACFBC]"
+              className="pointer-events-none absolute inset-x-0 bottom-[54px] top-[-8%] rounded-t-full bg-[#F3DDB0]"
             />
             <div
               aria-hidden="true"
@@ -277,7 +277,7 @@ export default function HomePage({
       </section>
 
       {featuredBooks.length > 0 && (
-        <section className="paper-grain border-y border-ink/10 bg-[#EFE6D8] px-4 py-20 sm:px-6 sm:py-24">
+        <section className="border-y border-ink/[0.06] bg-[#F4F1EB] px-4 py-20 sm:px-6 sm:py-24">
           <div className="mx-auto max-w-6xl">
             <div className="flex items-end justify-between gap-4">
               <h2 className="font-display text-3xl font-700 text-navy sm:text-4xl">{t.featuredTitle}</h2>
@@ -299,7 +299,7 @@ export default function HomePage({
 
       {/* Jasna, ciepła sekcja z numerami zamiast ikon. Ciemny blok przed
           stopką był za ciężki. */}
-      <section className="relative overflow-hidden bg-[#F1DDCF] px-4 py-20 sm:px-6 sm:py-28">
+      <section className="relative overflow-hidden bg-[#F6E6DC] px-4 py-20 sm:px-6 sm:py-28">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <div className="lg:sticky lg:top-24 lg:self-start">
             <h2 className="font-display text-4xl font-700 leading-[1.1] text-navy sm:text-5xl">

@@ -11,8 +11,12 @@ const config: Config = {
       colors: {
         // Paleta „premium”: chłodniejszy papier, głęboki atrament i granat,
         // jeden akcent (terakota, nazwa `orange` zostaje dla zgodności klas).
+        // Tło strony to ciepła biel; beż został tylko w małych powierzchniach
+        // (soft: kafelki, pudełka), żeby kolorowe okładki miały od czego się odbić.
         paper: {
-          DEFAULT: '#F6F1E9',
+          DEFAULT: '#FFFDF9',
+          soft: '#F6F2EC',
+          'soft-hover': '#F0EAE1',
           dark: '#EDE6DA',
           light: '#FDFBF7',
         },

@@ -101,7 +101,7 @@ export default function AudienceLinks({ lang = 'pl' }: { lang?: SiteLang }) {
         <Link
           key={card.href}
           href={card.href}
-          className="group flex flex-col rounded-lg bg-[#EFE6D8] px-3 pb-4 pt-5 transition-colors hover:bg-[#EADFCE] sm:px-5 sm:pb-5 sm:pt-6"
+          className="group flex flex-col rounded-lg bg-paper-soft px-3 pb-4 pt-5 transition-colors hover:bg-paper-soft-hover sm:px-5 sm:pb-5 sm:pt-6"
         >
           <CoverStack images={card.images} pages={card.pages} />
           <div className="mt-4 flex items-end justify-between gap-2 sm:mt-5 sm:gap-3">

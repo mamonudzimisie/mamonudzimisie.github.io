@@ -35,7 +35,7 @@ export default function MaterialyPage() {
 
         <div className="mt-10 space-y-6">
           {downloadSets.map((set) => (
-            <article key={set.slug} className="rounded-lg bg-white/70 p-5 sm:p-6">
+            <article key={set.slug} className="rounded-lg bg-paper-soft p-5 sm:p-6">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                 <h2 className="font-display text-2xl font-800 text-navy">{set.title}</h2>
                 {set.isNew && (

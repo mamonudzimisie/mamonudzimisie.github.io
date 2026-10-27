@@ -29,7 +29,7 @@ export default function BookCard({
     <article className="group flex flex-col">
       <Link
         href={href}
-        className="relative block overflow-hidden rounded-lg bg-[radial-gradient(120%_90%_at_50%_0%,#FBF5EC_0%,#EFE2D2_100%)] px-4 pb-6 pt-7 sm:px-8 sm:pb-9 sm:pt-10"
+        className="relative block overflow-hidden rounded-lg bg-white px-4 shadow-[inset_0_0_0_1px_#EFE8DE,0_8px_20px_-14px_rgba(30,28,25,0.25)] transition-shadow duration-300 hover:shadow-[inset_0_0_0_1px_#E6DCCD,0_14px_28px_-16px_rgba(30,28,25,0.3)] pb-6 pt-7 sm:px-8 sm:pb-9 sm:pt-10"
       >
         {/* miękki cień „półki” pod okładką */}
         <span
