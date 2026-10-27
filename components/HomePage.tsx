@@ -3,7 +3,6 @@ import Link from 'next/link';
 import AudienceLinks from '@/components/AudienceLinks';
 import BookCard from '@/components/BookCard';
 import HeroFan from '@/components/HeroFan';
-import VacuumWord from '@/components/VacuumWord';
 import type { Book } from '@/data/books';
 import type { SiteLang } from '@/lib/catalog-i18n';
 
@@ -19,8 +18,7 @@ type Strings = {
   // Kolejne linie nagłówka przed wyróżnioną końcówką (łamane tylko na dużych ekranach).
   titleLines: string[];
   titlePrefix: string;
-  // Litery wyróżnionego słowa są wciągane pod falkę i wyskakują z powrotem
-  // (raz, po wejściu na stronę) — we wszystkich językach.
+  // Wyróżnione słowo; pod nim rysuje się falka (raz, po wejściu na stronę).
   titleAccent: string;
   lead: string;
   cta: string;
@@ -155,64 +153,13 @@ const STRINGS: Record<SiteLang, Strings> = {
   },
 };
 
-function IconPencil({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M4 20l1-4.5L15.5 5 19 8.5 8.5 19 4 20z" />
-      <path d="M13 7l3.5 3.5" />
-    </svg>
-  );
-}
-
-function IconHeart({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M12 20s-7-4.4-9.5-9C0.8 7.4 2.6 4 6 4c2 0 3.5 1.2 4 2.5.5-1.3 2-2.5 4-2.5 3.4 0 5.2 3.4 3.5 7-2.5 4.6-9.5 9-9.5 9z" />
-    </svg>
-  );
-}
-
-function IconBrain({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M9 4a3 3 0 00-3 3 3 3 0 00-1.5 5.6A3 3 0 007 17a3 3 0 003 3V4z" />
-      <path d="M15 4a3 3 0 013 3 3 3 0 011.5 5.6A3 3 0 0117 17a3 3 0 01-3 3V4z" />
-    </svg>
-  );
-}
-
-function IconLeaf({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M5 19c-1-8 4-14 15-14 0 10-5 15-13 14" />
-      <path d="M4 21c2-6 6-10 11-12" />
-    </svg>
-  );
-}
-
-function IconMoon({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M20 14.5A8.5 8.5 0 019.5 4a8.5 8.5 0 1010.5 10.5z" />
-    </svg>
-  );
-}
-
-function DoodleSparkle({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className={className}>
-      <path d="M12 2v5M12 17v5M2 12h5M17 12h5M5 5l3.5 3.5M15.5 15.5L19 19M19 5l-3.5 3.5M8.5 15.5L5 19" />
-    </svg>
-  );
-}
-
 function SquiggleUnderline({ className }: IconProps) {
   return (
     <svg viewBox="0 0 200 14" fill="none" preserveAspectRatio="none" className={className}>
       <path
         d="M2 9c20-9 30 4 50-2s30-8 50-2 30 6 50 0 30-6 46 1"
         stroke="currentColor"
-        strokeWidth="4"
+        strokeWidth="3"
         strokeLinecap="round"
         fill="none"
       />
@@ -220,36 +167,8 @@ function SquiggleUnderline({ className }: IconProps) {
   );
 }
 
-// Falista krawędź na dole sekcji — kolor (text-*) to tło sekcji poniżej.
-function WaveEdge({ className }: IconProps) {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 1440 60"
-      preserveAspectRatio="none"
-      className={`pointer-events-none absolute inset-x-0 bottom-0 h-10 w-full sm:h-14 ${className}`}
-    >
-      <path
-        d="M0 30c120 20 240 20 360 0s240-20 360 0 240 20 360 0 240-20 360 0v30H0V30z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
-
 // Ikony i kolory stałe — kolejność odpowiada STRINGS[lang].benefits / .reasons.
-const BENEFIT_ICONS = [
-  { Icon: IconBrain, color: 'text-orange' },
-  { Icon: IconLeaf, color: 'text-green' },
-  { Icon: IconHeart, color: 'text-sky-600' },
-];
 
-const REASON_ICONS = [
-  { Icon: IconPencil, color: 'bg-yellow-100 text-yellow-600' },
-  { Icon: IconBrain, color: 'bg-green-light text-green' },
-  { Icon: IconMoon, color: 'bg-sky-100 text-sky-600' },
-  { Icon: IconHeart, color: 'bg-rose-100 text-rose-500' },
-];
 
 export default function HomePage({
   lang,
@@ -265,20 +184,18 @@ export default function HomePage({
 
   return (
     <>
-      <section className="notebook-grid relative overflow-hidden px-4 pb-24 pt-12 sm:px-6 sm:pb-32 sm:pt-20">
+      <section className="relative overflow-hidden px-4 pb-12 pt-12 sm:px-6 sm:pb-16 sm:pt-20">
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
           <div className="text-center lg:text-left">
-            <span className="relative inline-block animate-fade-up">
-              <DoodleSparkle className="absolute -left-5 -top-5 h-6 w-6 text-orange/70" />
-              <span className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2 text-sm font-700 text-navy shadow-cover">
-                {t.badge}
-              </span>
+            <span className="inline-flex animate-fade-up items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] text-ink/70">
+              <span className="h-px w-8 bg-orange" aria-hidden="true" />
+              {t.badge}
             </span>
 
             <h1 className="animate-fade-up relative z-[35] mt-6 font-display text-5xl font-800 leading-[1.05] text-navy sm:text-6xl lg:text-7xl [animation-delay:150ms]">
               {/* „Uwaga,” to tylko zapowiedź — mniejsza od zdania, które niesie treść. */}
               {t.titleShout && (
-                <span className="mb-1 block text-2xl text-navy/70 sm:text-3xl lg:text-4xl">{t.titleShout}</span>
+                <span className="mb-2 block text-2xl font-600 italic text-navy/60 sm:text-3xl lg:text-4xl">{t.titleShout}</span>
               )}
               {t.titleLines.map((line, index) => (
                 <Fragment key={line}>
@@ -293,8 +210,8 @@ export default function HomePage({
               <br />
               {t.titlePrefix && <>{t.titlePrefix} </>}
               <span className="relative inline-block text-orange">
-                <VacuumWord word={t.titleAccent} />
-                <SquiggleUnderline className="vacuum-squiggle absolute -bottom-2 left-0 h-3 w-full text-orange" />
+                {t.titleAccent}
+                <SquiggleUnderline className="squiggle-draw absolute -bottom-2 left-0 h-3 w-full text-orange" />
               </span>
             </h1>
 
@@ -305,7 +222,7 @@ export default function HomePage({
             <div className="animate-fade-up mt-8 flex flex-col items-center gap-4 lg:items-start [animation-delay:300ms]">
               <Link
                 href={`/${lang}/books`}
-                className="inline-flex items-center gap-3 rounded-full bg-orange px-9 py-4 text-lg font-bold text-white shadow-cover transition hover:bg-orange/90"
+                className="inline-flex items-center gap-3 rounded-md bg-orange px-8 py-4 text-base font-semibold text-white transition hover:bg-orange/90 sm:text-lg"
               >
                 {t.cta}
                 <span aria-hidden="true">→</span>
@@ -313,45 +230,46 @@ export default function HomePage({
               {t.note && <span className="text-sm font-semibold text-ink/70">{t.note}</span>}
             </div>
 
-            <ul className="animate-fade-up mt-10 flex flex-wrap justify-center gap-x-8 gap-y-4 text-left text-sm font-semibold leading-snug text-ink/80 lg:justify-start [animation-delay:350ms]">
-              {t.benefits.map(([first, second], index) => {
-                const { Icon, color } = BENEFIT_ICONS[index];
-                return (
-                  <li key={first} className="flex items-center gap-3">
-                    <Icon className={`h-9 w-9 shrink-0 ${color}`} />
-                    <span>
-                      {first}
-                      <br />
-                      {second}
-                    </span>
-                  </li>
-                );
-              })}
+            <ul className="animate-fade-up mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 border-t border-ink/10 pt-6 text-sm text-ink/70 lg:justify-start [animation-delay:350ms]">
+              {t.benefits.map(([first, second]) => (
+                <li key={first} className="flex items-center gap-2">
+                  <span className="h-1 w-1 rounded-full bg-orange" aria-hidden="true" />
+                  {first} {second}
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div className="relative mx-auto w-full max-w-xs sm:max-w-sm lg:mx-0 lg:max-w-md lg:justify-self-end">
-            {/* miękki cień na "podłodze" */}
-            <div className="absolute inset-x-8 -bottom-3 h-8 rounded-full bg-ink/15 blur-2xl" aria-hidden="true" />
-
-            <HeroFan
-              lang={lang}
-              books={heroBooks.map(({ slug, title, subtitle, coverImage }) => ({ slug, title, subtitle, coverImage }))}
+          {/* Ciepły łuk za wachlarzem — jak okno księgarni. Okładki stoją na nim
+              i lekko wystają poza krawędź, co daje głębię bez ciężkiego bloku. */}
+          <div className="relative mx-auto w-full max-w-sm sm:max-w-md lg:mx-0 lg:max-w-[34rem] lg:justify-self-end">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 bottom-[54px] top-[-8%] rounded-t-full bg-[#F3DDB0]"
             />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 bottom-[54px] top-[-8%] rounded-t-full bg-[radial-gradient(70%_45%_at_50%_28%,rgba(255,255,255,0.35),transparent_75%)]"
+            />
+            {/* cienka linia „parapetu”, na którym stoją książki */}
+            <div aria-hidden="true" className="pointer-events-none absolute inset-x-[4%] bottom-[54px] h-px bg-ink/20" />
+            <div className="relative px-10 pt-10 sm:px-14">
+              <HeroFan
+                lang={lang}
+                books={heroBooks.map(({ slug, title, subtitle, coverImage }) => ({ slug, title, subtitle, coverImage }))}
+              />
+            </div>
           </div>
         </div>
 
-        <WaveEdge className="text-paper" />
       </section>
 
-      <section className="relative px-4 pb-16 pt-10 sm:px-6 sm:pb-20 sm:pt-12">
+      <section className="relative px-4 pb-16 pt-12 sm:px-6 sm:pb-24 sm:pt-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-center font-display text-3xl font-800 text-navy sm:text-4xl">
-            {t.audiencesTitle}
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-center text-base text-ink/70 sm:text-lg">
-            {t.audiencesLead}
-          </p>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <h2 className="font-display text-3xl font-700 text-navy sm:text-4xl">{t.audiencesTitle}</h2>
+            <p className="max-w-md text-base text-ink/65 sm:text-right">{t.audiencesLead}</p>
+          </div>
           <div className="mt-10">
             <AudienceLinks lang={lang} />
           </div>
@@ -359,12 +277,18 @@ export default function HomePage({
       </section>
 
       {featuredBooks.length > 0 && (
-        <section className="border-y border-ink/10 bg-paper-dark px-4 py-16 sm:px-6 sm:py-20">
-          <div className="mx-auto max-w-5xl">
-            <h2 className="text-center font-display text-2xl font-700 text-navy sm:text-3xl">
-              {t.featuredTitle}
-            </h2>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="border-y border-ink/[0.06] bg-[#F4F1EB] px-4 py-20 sm:px-6 sm:py-24">
+          <div className="mx-auto max-w-6xl">
+            <div className="flex items-end justify-between gap-4">
+              <h2 className="font-display text-3xl font-700 text-navy sm:text-4xl">{t.featuredTitle}</h2>
+              <Link
+                href={`/${lang}/books`}
+                className="hidden shrink-0 text-sm font-medium text-navy transition-colors hover:text-orange-ink sm:inline"
+              >
+                {t.cta} <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+            <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 sm:mt-12 sm:gap-x-8 sm:gap-y-14 lg:grid-cols-3">
               {featuredBooks.map((book) => (
                 <BookCard key={book.slug} book={book} siteLang={lang} />
               ))}
@@ -373,41 +297,33 @@ export default function HomePage({
         </section>
       )}
 
-      <section className="relative bg-white px-4 py-16 sm:px-6 sm:py-20">
-        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[280px_1fr] lg:items-start lg:gap-16">
-          <div className="text-center lg:text-left">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-yellow-100 text-2xl lg:mx-0">
-              <span aria-hidden="true">🙂</span>
-            </div>
-            <h2 className="mt-4 font-display text-2xl font-700 leading-snug text-navy sm:text-3xl">
+      {/* Jasna, ciepła sekcja z numerami zamiast ikon. Ciemny blok przed
+          stopką był za ciężki. */}
+      <section className="relative overflow-hidden bg-[#F6E6DC] px-4 py-20 sm:px-6 sm:py-28">
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <div className="lg:sticky lg:top-24 lg:self-start">
+            <h2 className="font-display text-4xl font-700 leading-[1.1] text-navy sm:text-5xl">
               {t.whyLine}{' '}
-              <br />
               {t.whyPrefix && `${t.whyPrefix} `}
-              <span className="relative inline-block">
-                {t.whyAccent}
-                <SquiggleUnderline className="absolute -bottom-2 left-0 h-2.5 w-full text-green" />
-              </span>
+              <span className="italic text-orange">{t.whyAccent}</span>
             </h2>
           </div>
 
-          <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-            {t.reasons.map((reason, index) => {
-              const { Icon, color } = REASON_ICONS[index];
-              return (
-                <div key={reason.title}>
-                  <div className={`flex h-12 w-12 items-center justify-center rounded-full ${color}`}>
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-3 font-display text-base font-700 text-navy">{reason.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-ink/70">{reason.text}</p>
-                </div>
-              );
-            })}
-          </div>
+          <ol className="grid gap-x-12 sm:grid-cols-2">
+            {t.reasons.map((reason, index) => (
+              <li key={reason.title} className="border-t border-navy/15 pb-10 pt-6">
+                <span
+                  aria-hidden="true"
+                  className="font-display text-5xl italic leading-none text-orange/80"
+                >
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className="mt-5 font-display text-2xl font-700 text-navy">{reason.title}</h3>
+                <p className="mt-2 leading-relaxed text-ink/70">{reason.text}</p>
+              </li>
+            ))}
+          </ol>
         </div>
-
-        {/* przejście do stopki */}
-        <WaveEdge className="text-paper-dark" />
       </section>
     </>
   );

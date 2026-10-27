@@ -15,7 +15,7 @@ export default function BlogPost({ post }: { post: Post }) {
   return (
     <article className="px-4 py-16 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-2xl">
-        <Link href={`/${post.lang}/blog`} className="text-sm font-semibold text-navy hover:text-orange">
+        <Link href={`/${post.lang}/blog`} className="text-sm font-semibold text-navy hover:text-orange-ink">
           {BACK[post.lang]}
         </Link>
         <h1 className="mt-4 font-display text-3xl font-800 text-navy sm:text-4xl">{post.title}</h1>

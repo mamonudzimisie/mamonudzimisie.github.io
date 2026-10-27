@@ -14,6 +14,9 @@ export type Post = {
   title: string;
   excerpt: string;
   date: string; // YYYY-MM-DD
+  // Obrazek na liście wpisów: `image` z nagłówka, inaczej pierwszy obrazek
+  // z treści, inaczej okładka pierwszej książki ze znacznika {{ksiazki}}.
+  image?: string;
   html: string;
   // Wykreślanki ze znaczników {{wykreslanka …}}; w html zostaje po nich
   // <div data-puzzle="N"></div>, które BlogPost podmienia na komponent.
@@ -80,6 +83,14 @@ function renderMarkdown(content: string, lang: PostLang): { html: string; puzzle
   return { html: marked.parse(withPuzzles) as string, puzzles };
 }
 
+function findPostImage(data: Record<string, unknown>, content: string): string | undefined {
+  if (typeof data.image === 'string') return data.image;
+  const markdownImage = content.match(/!\[[^\]]*\]\(([^)\s]+)/);
+  if (markdownImage) return markdownImage[1];
+  const books = content.match(/^\{\{ksiazki[ \t]+([^}\s]+)/m);
+  return books ? getBookBySlug(books[1])?.coverImage : undefined;
+}
+
 function toDateString(value: unknown): string {
   return value instanceof Date ? value.toISOString().slice(0, 10) : String(value);
 }
@@ -100,6 +111,7 @@ export function getPosts(lang: PostLang): Post[] {
         title: String(data.title),
         excerpt: String(data.excerpt ?? ''),
         date: toDateString(data.date),
+        image: findPostImage(data, content),
         ...renderMarkdown(content, lang),
       };
     })

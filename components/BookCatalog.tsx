@@ -138,7 +138,7 @@ export default function BookCatalog({
 
   return (
     <div>
-      <div className="rounded-2xl border border-ink/10 bg-paper-dark p-4 sm:p-5">
+      <div className="border-b border-ink/10 pb-6">
         <span className="text-xs font-bold uppercase tracking-wide text-navy/70">{t.audienceHeading}</span>
         <div className="mt-3 flex flex-wrap items-center gap-2.5">
           <button
@@ -147,10 +147,10 @@ export default function BookCatalog({
               setSelectedAge('');
               setSelectedCategory('');
             }}
-            className={`rounded-full px-5 py-2.5 text-base font-bold transition ${
+            className={`rounded-md border px-4 py-2 text-[0.95rem] font-semibold transition ${
               selectedAudience === ''
-                ? 'bg-navy text-white shadow-cover'
-                : 'bg-white text-ink/80 hover:bg-white/80'
+                ? 'border-navy bg-navy text-white'
+                : 'border-ink/15 text-ink/80 hover:border-ink/40'
             }`}
           >
             {t.all}
@@ -165,10 +165,10 @@ export default function BookCatalog({
                 }
                 setSelectedCategory('');
               }}
-              className={`rounded-full px-5 py-2.5 text-base font-bold transition ${
+              className={`rounded-md border px-4 py-2 text-[0.95rem] font-semibold transition ${
                 selectedAudience === audience
-                  ? 'bg-navy text-white shadow-cover'
-                  : 'bg-white text-ink/80 hover:bg-white/80'
+                  ? 'bg-navy text-white'
+                  : 'bg-white text-ink/80 ring-1 ring-ink/10 hover:ring-ink/25'
               }`}
             >
               {t.audienceLabels[audience]}
@@ -191,8 +191,8 @@ export default function BookCatalog({
             <span className="text-sm font-semibold text-ink/70">{t.age}</span>
             <button
               onClick={() => setSelectedAge('')}
-              className={`rounded-full px-3 py-1 text-sm font-semibold transition ${
-                selectedAge === '' ? 'bg-navy text-white' : 'bg-white/60 text-ink/70'
+              className={`rounded-md border px-3 py-1 text-sm font-medium transition ${
+                selectedAge === '' ? 'border-navy bg-navy text-white' : 'border-ink/15 text-ink/80 hover:border-ink/40'
               }`}
             >
               {t.all}
@@ -201,8 +201,8 @@ export default function BookCatalog({
               <button
                 key={age}
                 onClick={() => setSelectedAge(age)}
-                className={`rounded-full px-3 py-1 text-sm font-semibold transition ${
-                  selectedAge === age ? 'bg-navy text-white' : 'bg-white/60 text-ink/70'
+                className={`rounded-md border px-3 py-1 text-sm font-medium transition ${
+                  selectedAge === age ? 'border-navy bg-navy text-white' : 'border-ink/15 text-ink/80 hover:border-ink/40'
                 }`}
               >
                 {t.ageLabels[age]}
@@ -223,8 +223,8 @@ export default function BookCatalog({
             <span className="text-sm font-semibold text-ink/70">{t.category}</span>
             <button
               onClick={() => setSelectedCategory('')}
-              className={`rounded-full px-3 py-1 text-sm font-semibold transition ${
-                selectedCategory === '' ? 'bg-orange text-white' : 'bg-white/60 text-ink/70'
+              className={`rounded-md border px-3 py-1 text-sm font-medium transition ${
+                selectedCategory === '' ? 'border-navy bg-navy text-white' : 'border-ink/15 text-ink/80 hover:border-ink/40'
               }`}
             >
               {t.all}
@@ -233,8 +233,8 @@ export default function BookCatalog({
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`rounded-full px-3 py-1 text-sm font-semibold transition ${
-                  selectedCategory === category ? 'bg-orange text-white' : 'bg-white/60 text-ink/70'
+                className={`rounded-md border px-3 py-1 text-sm font-medium transition ${
+                  selectedCategory === category ? 'border-navy bg-navy text-white' : 'border-ink/15 text-ink/80 hover:border-ink/40'
                 }`}
               >
                 {t.categoryLabels[category]}
@@ -244,7 +244,7 @@ export default function BookCatalog({
         </div>
       </div>
 
-      <div className="mt-5 flex items-center gap-2 text-xs text-ink/50">
+      <div className="mt-5 flex items-center gap-2 text-xs text-ink/70">
         <span>{t.bookLanguage}</span>
         <div className="relative" ref={langMenuRef}>
           <button
@@ -252,7 +252,7 @@ export default function BookCatalog({
             aria-haspopup="true"
             aria-expanded={langMenuOpen}
             onClick={() => setLangMenuOpen((open) => !open)}
-            className="flex items-center gap-1.5 rounded-full border border-ink/15 px-2.5 py-0.5 font-semibold tracking-wide text-ink/60 transition hover:border-ink/30 hover:text-ink/80"
+            className="flex items-center gap-1.5 rounded-md border border-ink/15 px-2.5 py-0.5 font-semibold tracking-wide text-ink/80 transition hover:border-ink/40"
           >
             {selectedLangs
               .slice()
@@ -309,7 +309,7 @@ export default function BookCatalog({
           {t.empty}
         </p>
       ) : (
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 sm:mt-12 sm:gap-x-8 sm:gap-y-14 lg:grid-cols-3">
           {filteredBooks.map((book) => (
             <BookCard key={book.slug} book={book} siteLang={siteLang} />
           ))}

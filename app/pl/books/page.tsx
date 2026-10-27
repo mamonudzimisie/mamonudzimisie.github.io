@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function KsiazkiPage() {
   return (
     <section className="px-4 py-12 sm:px-6 sm:py-16">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         <h1 className="font-display text-3xl font-800 text-navy sm:text-4xl">
           Katalog książek
         </h1>
