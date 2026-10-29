@@ -28,6 +28,10 @@ export type Book = {
   series: BookSeries; // seria (data/series.ts) — katalog grupuje według niej
   audience: BookAudience;
   lang: BookLang; // język treści książki
+  // Wspólny klucz wydań tej samej książki w różnych językach (te same zagadki,
+  // inny język), np. 'sudoku-100'. Strony wydań wskazują się nawzajem przez
+  // hreflang, żeby Google pokazał Niemcowi wydanie DE, a nie PL.
+  edition?: string;
   description: string;
   features: string[]; // np. ["100 wykreślanek", "Duża czcionka", ...]
   coverImage: string; // /public/covers/<slug>.webp — nazwa pliku równa slugowi
@@ -370,6 +374,7 @@ export const books: Book[] = [
     series: 'sudoku-duzy-druk',
     audience: 'duzy-druk',
     lang: 'pl',
+    edition: 'sudoku-100',
     description:
       '120 łamigłówek sudoku wydrukowanych naprawdę dużą czcionką. Dwie zagadki na stronę, wyraźne kratki i mnóstwo miejsca na notatki. Ta książka powstała z myślą o osobach, które lubią codzienną porcję logicznego myślenia, ale mają dość drobnego druku w klasycznych wydaniach — tu możesz skupić się na zadaniu, nie nadwyrężając oczu. Rozwiązywanie sudoku to spokojne ćwiczenie koncentracji i pamięci, świetna alternatywa dla telewizora czy telefonu. Idealny prezent dla mamy, taty, babci lub dziadka — na urodziny, święta albo bez okazji.',
     features: [
@@ -399,6 +404,7 @@ export const books: Book[] = [
     series: 'lamiglowki-logiczne',
     audience: 'dorosli',
     lang: 'pl',
+    edition: 'sudoku-200',
     description:
       'Jedna plansza, dziewięć cyfr i chwila tylko dla siebie. Ten tom zawiera 300 zagadek sudoku ułożonych od najłatwiejszych do najtrudniejszych — zaczniesz od prostych, a skończysz na takich, przy których posiedzisz znacznie dłużej. Każda zagadka ma dokładnie jedno rozwiązanie i da się ją rozwiązać samą logiką, bez zgadywania. Świetnie sprawdza się w podróży, przy porannej kawie, w poczekalni albo wieczorem zamiast ekranu. Dobry pomysł na prezent dla kogoś, kto lubi łamigłówki — i dla siebie.',
     features: [
@@ -429,6 +435,7 @@ export const books: Book[] = [
     series: 'sudoku-duzy-druk',
     audience: 'duzy-druk',
     lang: 'pl',
+    edition: 'sudoku-101',
     description:
       '120 wymagających sudoku wydrukowanych naprawdę dużą czcionką. Dwie zagadki na stronę, wyraźne kratki i mnóstwo miejsca na notatki. Ten zbiór zaczyna się tam, gdzie inne się kończą — nie ma w nim ani jednej planszy dla początkującego, tylko 60 zagadek trudnych i 60 bardzo trudnych. Wstęp objaśnia zaawansowane metody, które przydadzą się po drodze: pary, X-Wing, Swordfish i XY-Wing.',
     features: [
@@ -460,6 +467,7 @@ export const books: Book[] = [
     series: 'sudoku-duzy-druk',
     audience: 'duzy-druk',
     lang: 'pl',
+    edition: 'sudoku-102',
     description:
       '150 sudoku dla początkujących, wydrukowanych naprawdę dużą czcionką. Dwie zagadki na stronę, wyraźne kratki i mnóstwo miejsca na notatki. Łagodny start: najpierw rozgrzewka, przy której wystarczy uważne patrzenie, potem poziom łatwy. Wstęp krok po kroku pokazuje dwie proste metody i podpowiada, co zrobić, gdy utkniesz — dobra pierwsza książka z sudoku i spokojny codzienny nawyk dla umysłu.',
     features: [
@@ -490,6 +498,7 @@ export const books: Book[] = [
     series: 'lamiglowki-logiczne',
     audience: 'dorosli',
     lang: 'pl',
+    edition: 'killer-sudoku-400',
     description:
       'Lubisz sudoku i masz ochotę spróbować czegoś nowego? Killer Sudoku łączy klasyczne zasady z odrobiną prostej arytmetyki: oprócz wypełniania wierszy, kolumn i bloków cyframi od 1 do 9 trzeba pilnować, by cyfry w każdej klatce sumowały się do podanej liczby. 150 zagadek ułożonych od najłatwiejszej do najtrudniejszej, z cyframi startowymi na dobry początek — świetny trening logiki i liczenia w pamięci, bez frustracji.',
     features: [
@@ -582,6 +591,7 @@ export const books: Book[] = [
     series: 'sudoku-duzy-druk',
     audience: 'duzy-druk',
     lang: 'de',
+    edition: 'sudoku-100',
     description:
       '120 Sudoku-Rätsel, gedruckt in wirklich großer Schrift. Zwei Rätsel pro Seite und große, übersichtliche Felder. Dieses Buch ist für alle, die gern täglich ein wenig logisch denken, aber genug von der winzigen Schrift in Zeitungsrätseln haben. Es beginnt mit leichten Rätseln zum Aufwärmen, danach steigt die Schwierigkeit allmählich – ohne Frust und ohne Langeweile. Sudoku ist eine entspannende Übung für Konzentration und Gedächtnis und eine schöne Alternative zu Fernseher und Handy. Ein ideales Geschenk für Mama, Papa, Oma oder Opa – zum Geburtstag, zu Weihnachten oder einfach so.',
     features: [
@@ -614,6 +624,7 @@ export const books: Book[] = [
     series: 'sudoku-duzy-druk',
     audience: 'duzy-druk',
     lang: 'de',
+    edition: 'sudoku-103',
     description:
       'Ein Geschenk für alle, die gern knobeln: 150 Sudoku-Rätsel in großer, gut lesbarer Schrift, in einem festen Hardcover. Nur zwei Rätsel pro Seite – jedes Gitter ist 11 cm breit, die Kästchen messen 1,2 cm, so bleibt viel Platz für Notizen mit dem Bleistift. Gleich auf der ersten Seite ist Platz für eine persönliche Widmung mit den Zeilen „Für“ und „Von“. Drei Stufen mit je 50 Rätseln, von leicht bis schwer, und eine bebilderte Anleitung, die die Lösungsmethoden Schritt für Schritt erklärt – bis hin zu Paaren, Dreiergruppen und X-Wing.',
     features: [
@@ -646,6 +657,7 @@ export const books: Book[] = [
     series: 'sudoku-duzy-druk',
     audience: 'duzy-druk',
     lang: 'en',
+    edition: 'sudoku-100',
     description:
       '120 Sudoku puzzles printed in a really large font. Two puzzles per page, clear grids, and plenty of space for notes. This book was created for people who enjoy a daily dose of logical thinking but are tired of the tiny print found in newspaper puzzle books. You’ll start with simple puzzles to warm up, and the difficulty gradually increases, so there’s no frustration and no boredom. Solving Sudoku is a relaxing way to exercise your concentration and memory — a great alternative to watching TV or spending time on your phone. An ideal gift for Mom, Dad, Grandma, or Grandpa — for a birthday, the holidays, or simply as a thoughtful gift for no particular occasion.',
     features: [
@@ -677,6 +689,7 @@ export const books: Book[] = [
     series: 'sudoku-duzy-druk',
     audience: 'duzy-druk',
     lang: 'en',
+    edition: 'sudoku-101',
     description:
       '120 challenging Sudoku puzzles printed in a really large font. Two puzzles per page, clear grids, and plenty of space for notes. This book is for those who have outgrown easy grids and want a real challenge for the mind — without squinting at tiny print. The puzzles are arranged in two levels, hard and then very hard, and the introduction explains the advanced methods you will need along the way: pairs, X-Wing, Swordfish and XY-Wing.',
     features: [
@@ -708,6 +721,7 @@ export const books: Book[] = [
     series: 'sudoku-duzy-druk',
     audience: 'duzy-druk',
     lang: 'en',
+    edition: 'sudoku-102',
     description:
       '150 Sudoku puzzles for beginners, printed in a really large font. Two puzzles per page, clear grids, and plenty of space for notes. A gentle start: first a warm-up, where careful looking is enough, then the easy level. The step-by-step introduction shows two simple methods and what to do when you get stuck — a good first Sudoku book, and a calm daily habit for the mind.',
     features: [
@@ -740,6 +754,7 @@ export const books: Book[] = [
     series: 'sudoku-duzy-druk',
     audience: 'duzy-druk',
     lang: 'en',
+    edition: 'sudoku-103',
     description:
       'A gift for anyone who loves a good puzzle: 150 Sudoku puzzles printed in large, easy-to-read digits, in a sturdy hardcover. The cells are a fifth larger than in a typical Sudoku, so writing in them is comfortable — no magnifying glass, no squinting. The first page is left for your dedication: fill in “For” and “From”, and the book becomes a personal gift. Three levels of 50 puzzles each, from easy to hard, and an illustrated introduction that explains the methods step by step.',
     features: [
@@ -771,6 +786,7 @@ export const books: Book[] = [
     series: 'lamiglowki-logiczne',
     audience: 'dorosli',
     lang: 'en',
+    edition: 'sudoku-200',
     description:
       'One grid, nine digits and a moment just for you. This book contains 300 Sudoku puzzles arranged from the easiest to the hardest — you’ll start with simple ones and finish with grids that will keep you busy much longer. Every puzzle has exactly one solution and can be solved by logic alone, with no guessing. Perfect for travel, a morning coffee, a waiting room or an evening away from screens. A great gift for anyone who loves puzzles — and for yourself.',
     features: [
@@ -802,6 +818,7 @@ export const books: Book[] = [
     series: 'lamiglowki-logiczne',
     audience: 'dorosli',
     lang: 'en',
+    edition: 'killer-sudoku-400',
     description:
       'Enjoy Sudoku and fancy trying something new? Killer Sudoku keeps the classic rules and adds a little simple arithmetic: besides filling every row, column and box with the digits 1 to 9, the digits in each cage must add up to the number shown. 150 puzzles arranged from the easiest to the hardest, with starting digits to get you going — great practice for logic and mental arithmetic, without the frustration.',
     features: [
@@ -944,6 +961,16 @@ export const books: Book[] = [
 
 export function getBookBySlug(slug: string): Book | undefined {
   return books.find((book) => book.slug === slug);
+}
+
+// Wszystkie wydania językowe książki, łącznie z nią samą; pusta lista, gdy
+// książka ma tylko jedno wydanie (hreflang z jednym językiem nic nie wnosi).
+export function getEditions(book: Book): Book[] {
+  if (!book.edition) {
+    return [];
+  }
+  const editions = books.filter((other) => other.edition === book.edition);
+  return editions.length > 1 ? editions : [];
 }
 
 // Sekcja „Wyróżnione książki” na stronie głównej mieści dwa rzędy po trzy kafelki.

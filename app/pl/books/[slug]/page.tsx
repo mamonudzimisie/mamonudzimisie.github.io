@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import BookDetail from '@/components/BookDetail';
-import { books, getBookBySlug } from '@/data/books';
+import { books, getBookBySlug, getEditions } from '@/data/books';
 import { canonicalBookHref, shouldIndexDetail } from '@/lib/catalog-i18n';
 import { SITE_URL } from '@/lib/site';
 
@@ -24,11 +24,17 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const indexable = shouldIndexDetail(book, SECTION);
   // Poziomy obrazek 1200×630 ze scripts/make_og.py — pionowa okładka źle się przycina.
   const ogImage = `/og/books/${book.slug}.jpg`;
+  // hreflang tylko na stronie indeksowanej: kopie w innych sekcjach mają
+  // canonical do niej, więc i tak nie trafiają do wyników.
+  const editions = indexable ? getEditions(book) : [];
+  const languages = editions.length
+    ? Object.fromEntries(editions.map((edition) => [edition.lang, `${SITE_URL}${canonicalBookHref(edition)}`]))
+    : undefined;
   return {
     title,
     description,
     keywords: book.seo?.keywords,
-    alternates: { canonical: `${SITE_URL}${canonicalBookHref(book)}` },
+    alternates: { canonical: `${SITE_URL}${canonicalBookHref(book)}`, languages },
     robots: indexable ? undefined : { index: false, follow: true },
     openGraph: {
       title,
