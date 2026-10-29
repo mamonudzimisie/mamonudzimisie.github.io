@@ -5,7 +5,13 @@ import type { SiteLang } from '@/lib/catalog-i18n';
 type Text = { label: string; description: string };
 
 // Wygląd kafelków jest wspólny dla wszystkich języków — tu zmieniamy tylko teksty.
-const AUDIENCES: { audience: BookAudience; text: Record<SiteLang, Text> }[] = [
+// `landing`: strona docelowa grupy w danym języku (data/landings.ts) — kafelek
+// prowadzi na nią zamiast do katalogu z filtrem ?grupa=, którego Google nie indeksuje.
+const AUDIENCES: {
+  audience: BookAudience;
+  text: Record<SiteLang, Text>;
+  landing?: Partial<Record<SiteLang, string>>;
+}[] = [
   {
     audience: 'dzieci',
     text: {
@@ -13,6 +19,7 @@ const AUDIENCES: { audience: BookAudience; text: Record<SiteLang, Text> }[] = [
       de: { label: 'Für Kinder', description: 'Spielen und Lernen in einem' },
       en: { label: 'For kids', description: 'Fun and learning in one' },
     },
+    landing: { pl: '/pl/wykreslanki-dla-dzieci' },
   },
   {
     audience: 'dorosli',
@@ -29,6 +36,7 @@ const AUDIENCES: { audience: BookAudience; text: Record<SiteLang, Text> }[] = [
       de: { label: 'Großdruck', description: 'Angenehme, gut lesbare Schrift' },
       en: { label: 'Large print', description: 'Comfortable, easy-to-read type' },
     },
+    landing: { pl: '/pl/sudoku-dla-seniorow', de: '/de/raetsel-grossdruck', en: '/en/large-print-sudoku' },
   },
 ];
 
@@ -92,8 +100,8 @@ function CoverStack({ images, pages }: { images: string[]; pages?: boolean }) {
 export default function AudienceLinks({ lang = 'pl' }: { lang?: SiteLang }) {
   const downloads = DOWNLOADS[lang];
   const cards = [
-    ...AUDIENCES.map(({ audience, text }) => ({
-      href: `/${lang}/books?grupa=${encodeURIComponent(audience)}`,
+    ...AUDIENCES.map(({ audience, text, landing }) => ({
+      href: landing?.[lang] ?? `/${lang}/books?grupa=${encodeURIComponent(audience)}`,
       images: coversFor(audience, lang),
       pages: false,
       ...text[lang],

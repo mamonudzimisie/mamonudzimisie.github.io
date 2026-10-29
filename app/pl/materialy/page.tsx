@@ -26,7 +26,7 @@ export default function MaterialyPage() {
     <section className="px-4 py-16 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-6xl">
         <h1 className="font-display text-3xl font-800 text-navy sm:text-4xl">
-          Materiały do pobrania
+          Wykreślanki do druku dla dzieci
         </h1>
         <p className="mt-3 max-w-2xl leading-relaxed text-ink/70">
           Masz ochotę sprawdzić, czy wykreślanki spodobają się dziecku? Pobierz darmowe

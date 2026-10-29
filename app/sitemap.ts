@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { books } from '@/data/books';
+import { landings } from '@/data/landings';
 import { getAllPosts, getPosts } from '@/data/posts';
 import { canonicalBookHref } from '@/lib/catalog-i18n';
 import { SITE_URL } from '@/lib/site';
@@ -15,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/en',
     '/en/books',
     '/en/free-printables',
+    ...landings.map((landing) => `/${landing.lang}/${landing.slug}`),
     // Pusty blog to „thin content” — lista trafia do sitemapy dopiero z pierwszym wpisem.
     ...(['pl', 'de', 'en'] as const).filter((lang) => getPosts(lang).length > 0).map((lang) => `/${lang}/blog`),
   ].map((route) => ({ url: `${SITE_URL}${route}` }));
