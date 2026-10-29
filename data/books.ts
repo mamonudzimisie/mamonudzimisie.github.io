@@ -331,6 +331,36 @@ export const books: Book[] = [
     },
   },
   {
+    slug: 'weihnachts-wortsuchratsel',
+    title: 'Weihnachts-Wortsuchrätsel',
+    subtitle: '80 Rätsel im Großdruck, mit Lösungen',
+    ageRange: 'Dorośli',
+    category: 'wykreslanki',
+    series: 'wykreslanki-tematyczne',
+    audience: 'duzy-druk',
+    lang: 'de',
+    description:
+      'Gemütliche Rätselstunden im Advent – in großer, gut lesbarer Schrift. 80 weihnachtliche Wortsuchrätsel für ruhige Stunden bei Kerzenschein und Plätzchenduft. Ein Rätsel pro Seite mit je 10 gesuchten Wörtern, die Buchstaben sind groß und kräftig gedruckt, die Wortliste steht deutlich unter jedem Rätsel. 20 Themen von der Adventszeit über den Weihnachtsmarkt bis zur Weihnachtspost. Die Wörter verlaufen nur waagerecht, senkrecht oder diagonal – niemals rückwärts. Ein schönes Geschenk für Oma und Opa, für die Eltern oder zum Nikolaus.',
+    features: [
+      '80 Wortsuchrätsel im Großdruck, ein Rätsel pro Seite',
+      '20 weihnachtliche Themen, je 10 Wörter pro Rätsel',
+      'Nur drei Richtungen, niemals rückwärts',
+      'Alle Lösungen am Ende des Buches',
+    ],
+    coverImage: '/covers/weihnachts-wortsuchratsel.webp',
+    amazonUrl: 'https://www.amazon.de/dp/8398390166',
+    featured: false,
+    formatInches: '8,5 × 11 Zoll',
+    pageCount: 104,
+    isbn: '978-83-983901-6-3',
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/weihnachts-wortsuchratsel/${n}.webp`),
+    seo: {
+      title: 'Weihnachts-Wortsuchrätsel – 80 Rätsel im Großdruck',
+      description:
+        '80 weihnachtliche Wortsuchrätsel in großer Schrift, 20 Themen, nur drei Richtungen, alle Lösungen. Ein Geschenk für Oma und Opa zum Advent.',
+    },
+  },
+  {
     slug: 'sudoku-duzym-drukiem-100',
     title: 'Sudoku dużym drukiem',
     cardTitle: 'Sudoku dużym drukiem – łatwe i średnie',

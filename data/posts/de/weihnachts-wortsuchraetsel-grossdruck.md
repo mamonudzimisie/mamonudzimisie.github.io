@@ -53,7 +53,7 @@ Am Ende des Buches stehen die Lösungen aller 80 Rätsel, vier pro Seite. Die ge
 - Als **Nikolaus- oder Wichtelgeschenk**: Es passt in jedes Päckchen und hält länger als Schokolade.
 - Für alle, die sich im Advent eine **Pause ohne Bildschirm** gönnen wollen, allein oder zusammen mit den Enkeln am Küchentisch.
 
-Das Buch erscheint in Kürze bei Amazon.de.
+{{ksiazki weihnachts-wortsuchratsel}}
 
 ## Lieber Zahlen als Buchstaben?
 

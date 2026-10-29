@@ -41,9 +41,9 @@ export const SERIES: { id: BookSeries; text: Record<SiteLang, SeriesText> }[] = 
   {
     id: 'wykreslanki-tematyczne',
     text: {
-      pl: { name: 'Wykreślanki tematyczne', description: 'Wykreślanki dla dorosłych wokół jednego tematu — na początek polskie góry.' },
-      de: { name: 'Themen-Suchrätsel', description: 'Suchrätsel für Erwachsene rund um ein Thema (auf Polnisch).' },
-      en: { name: 'Themed word searches', description: 'Word searches for adults built around one theme (in Polish).' },
+      pl: { name: 'Wykreślanki tematyczne', description: 'Wykreślanki dla dorosłych wokół jednego tematu — polskie góry, a po niemiecku Boże Narodzenie dużym drukiem.' },
+      de: { name: 'Themen-Suchrätsel', description: 'Suchrätsel für Erwachsene rund um ein Thema — Weihnachten im Großdruck und die polnischen Berge (auf Polnisch).' },
+      en: { name: 'Themed word searches', description: 'Word searches for adults built around one theme — Christmas in large print (German) and the Polish mountains (Polish).' },
     },
   },
   {

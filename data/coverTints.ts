@@ -17,6 +17,7 @@ export const COVER_TINTS: Record<string, string> = {
   '/covers/sudoku-duzym-drukiem-102.webp': '#E8ECF0',
   '/covers/sudoku-grossdruck-100.webp': '#F1EEE7',
   '/covers/sudoku-grossdruck-103.webp': '#E8F0ED',
+  '/covers/weihnachts-wortsuchratsel.webp': '#E6F1EC',
   '/covers/zdobywca-szczytow.webp': '#E4EDF3',
   '/covers/znajdz-slowko-poziom-ekspert-13.webp': '#E5E5F3',
   '/covers/znajdz-slowko-poziom-latwy-6-7.webp': '#F5F1E2',
