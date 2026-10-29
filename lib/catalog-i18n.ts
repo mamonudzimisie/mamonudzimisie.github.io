@@ -255,7 +255,8 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
 // Sekcje, w których istnieją strony szczegółów książek. Każda książka ma
 // stronę w obu sekcjach — interfejs nigdy nie „przeskakuje" na inny język niż
 // ten, w którym użytkownik przegląda katalog. Za duplikaty w wyszukiwarce
-// odpowiada canonicalSection() + noindex, patrz shouldIndexDetail().
+// odpowiada sam canonical do canonicalSection(), bez noindex — Google radzi
+// nie łączyć obu sygnałów na jednej stronie.
 const DETAIL_SECTIONS: SiteLang[] = ['pl', 'de', 'en'];
 const FALLBACK_SECTION: SiteLang = 'pl';
 
@@ -277,8 +278,8 @@ export function canonicalBookHref(book: Book): string {
   return `/${canonicalSection(book)}/books/${book.slug}`;
 }
 
-// Pozostałe sekcje istnieją dla użytkownika, ale nie dla robota — inaczej ten
-// sam opis konkurowałby sam ze sobą pod dwoma adresami.
+// Pozostałe sekcje istnieją dla użytkownika, a robota odsyła z nich canonical —
+// inaczej ten sam opis konkurowałby sam ze sobą pod dwoma adresami.
 export function shouldIndexDetail(book: Book, siteLang: SiteLang): boolean {
   return canonicalSection(book) === siteLang;
 }

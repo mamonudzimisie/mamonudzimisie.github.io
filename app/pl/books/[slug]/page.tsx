@@ -35,7 +35,6 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     description,
     keywords: book.seo?.keywords,
     alternates: { canonical: `${SITE_URL}${canonicalBookHref(book)}`, languages },
-    robots: indexable ? undefined : { index: false, follow: true },
     openGraph: {
       title,
       description,
