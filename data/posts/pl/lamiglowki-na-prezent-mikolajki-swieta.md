@@ -1,6 +1,6 @@
 ---
 title: Łamigłówki na prezent na Mikołajki i pod choinkę – coś dla każdego w rodzinie
-excerpt: Wykreślanki dla dzieci od 5 lat, sudoku dużym drukiem dla babci i dziadka, Killer Sudoku dla fana łamigłówek i słówka dla tych, którzy się uczą. Podpowiadamy, którą książkę wybrać dla kogo.
+excerpt: Wykreślanki dla dzieci od 5 lat, sudoku dużym drukiem dla babci i dziadka i Killer Sudoku dla fana łamigłówek. Podpowiadamy, którą książkę wybrać dla kogo.
 date: 2026-10-29
 ---
 
@@ -61,15 +61,6 @@ Killer Sudoku to dobry prezent właśnie dla kogoś, kto „ma już wszystkie su
 
 {{ksiazki zdobywca-szczytow}}
 
-## Dla tych, którzy się uczą: Znajdź, zakreśl, zapamiętaj
-
-Seria dla nastolatków i dorosłych, w której wykreślanka jest sposobem na naukę słówek. Na każdej rozkładówce po lewej jest plansza, a po prawej zadania i zdania z lukami.
-
-- **Angielski – czasowniki nieregularne** – 184 czasowniki, od wyszukiwania form po zdania w Past Simple i Present Perfect. Dobre dla ucznia, który ma je „wreszcie umieć”.
-- **Niemiecki – słownictwo biznesowe C1–C2** – dla kogoś, kto zna niemiecki dobrze i chce mówić jak w niemieckim biurze. Zdania z życia firmy z polskimi tłumaczeniami.
-
-{{ksiazki znajdz-zakresl-zapamietaj-angielski-czasowniki znajdz-zakresl-zapamietaj-niemiecki-biznesowy}}
-
 ## Ściągawka: co dla kogo?
 
 - **Dziecko 5–6 lat** → Znajdź słówko! 5–6 lat
@@ -79,7 +70,6 @@ Seria dla nastolatków i dorosłych, w której wykreślanka jest sposobem na nau
 - **Babcia, dziadek, ktoś ze słabszym wzrokiem** → Sudoku dużym drukiem (na początek nr 102 albo 100)
 - **Fan sudoku** → Sudoku 300 zagadek albo Killer Sudoku
 - **Miłośnik gór** → Zdobywca Szczytów
-- **Uczeń angielskiego albo niemieckiego** → Znajdź, zakreśl, zapamiętaj
 
 Każdą książkę możesz obejrzeć od środka na jej stronie – pokazujemy kilka przykładowych stron, żeby łatwiej było trafić z poziomem.
 
