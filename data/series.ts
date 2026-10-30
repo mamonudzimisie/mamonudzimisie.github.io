@@ -57,9 +57,9 @@ export const SERIES: { id: BookSeries; text: Record<SiteLang, SeriesText> }[] = 
   {
     id: 'lamiglowki-logiczne',
     text: {
-      pl: { name: 'Łamigłówki logiczne', description: 'Klasyczne sudoku, Killer Sudoku i kakuro dla tych, którzy lubią policzyć.' },
-      de: { name: 'Logikrätsel', description: 'Klassisches Sudoku, Killer-Sudoku und Kakuro für alle, die gern rechnen.' },
-      en: { name: 'Logic puzzles', description: 'Classic sudoku, Killer Sudoku and Kakuro for those who like numbers.' },
+      pl: { name: 'Sudoku i warianty', description: 'Klasyczne sudoku, Killer Sudoku i inne łamigłówki liczbowe dla tych, którzy lubią policzyć.' },
+      de: { name: 'Sudoku & Varianten', description: 'Klassisches Sudoku, Killer-Sudoku und andere Zahlenrätsel für alle, die gern rechnen.' },
+      en: { name: 'Sudoku & variants', description: 'Classic sudoku, Killer Sudoku, Kakuro and other number puzzles for those who like numbers.' },
     },
   },
 ];
