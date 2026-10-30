@@ -2,7 +2,6 @@ import {
   AGE_GROUPS,
   type Book,
   CATEGORY_LABELS,
-  type BookAudience,
   type BookCategory,
   type BookLang,
 } from '@/data/books';
@@ -14,16 +13,12 @@ export type SiteLang = 'pl' | 'de' | 'en';
 type AgeGroup = (typeof AGE_GROUPS)[number];
 
 export type CatalogStrings = {
-  audienceHeading: string;
-  all: string;
-  age: string;
-  category: string;
-  bookLanguage: string;
-  empty: string;
   ageLabels: Record<AgeGroup, string>;
   categoryLabels: Record<BookCategory, string>;
-  audienceLabels: Record<BookAudience, string>;
   langNames: Record<BookLang, string>;
+  // Stopka katalogu: linki do katalogów w pozostałych językach.
+  otherLangs: string;
+  otherLangLinks: Record<BookLang, string>;
   seriesCount: (n: number) => string;
   seriesLabel: string;
   card: {
@@ -58,12 +53,6 @@ export type CatalogStrings = {
 
 export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
   pl: {
-    audienceHeading: 'Dla kogo:',
-    all: 'Wszystkie',
-    age: 'Wiek:',
-    category: 'Kategoria:',
-    bookLanguage: 'Język książek:',
-    empty: 'Nie znaleźliśmy jeszcze książek w tej kategorii — zajrzyj tu niedługo!',
     ageLabels: {
       '3–4 lata': '3–4 lata',
       '5–6 lat': '5–6 lat',
@@ -74,16 +63,13 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       'Dorośli': 'Dorośli',
     },
     categoryLabels: CATEGORY_LABELS,
-    audienceLabels: {
-      dzieci: 'Dla dzieci',
-      dorosli: 'Dla dorosłych',
-      'duzy-druk': 'Duży druk',
-    },
     langNames: {
       pl: 'polski',
       de: 'niemiecki',
       en: 'angielski',
     },
+    otherLangs: 'Mamy też książki w innych językach:',
+    otherLangLinks: { pl: 'po polsku', de: 'po niemiecku', en: 'po angielsku' },
     seriesCount: (n) => `${n} ${n === 1 ? 'książka' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 'książki' : 'książek'}`,
     seriesLabel: 'Seria',
     card: {
@@ -117,12 +103,6 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
     },
   },
   de: {
-    audienceHeading: 'Für wen:',
-    all: 'Alle',
-    age: 'Alter:',
-    category: 'Kategorie:',
-    bookLanguage: 'Sprache der Bücher:',
-    empty: 'In dieser Kategorie haben wir noch keine Bücher — schau bald wieder vorbei!',
     ageLabels: {
       '3–4 lata': '3–4 Jahre',
       '5–6 lat': '5–6 Jahre',
@@ -141,16 +121,13 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       'nauka-jezykow': 'Sprachen lernen',
       inne: 'Sonstige',
     },
-    audienceLabels: {
-      dzieci: 'Für Kinder',
-      dorosli: 'Für Erwachsene',
-      'duzy-druk': 'Großdruck',
-    },
     langNames: {
       pl: 'Polnisch',
       de: 'Deutsch',
       en: 'Englisch',
     },
+    otherLangs: 'Wir haben auch Bücher in anderen Sprachen:',
+    otherLangLinks: { pl: 'auf Polnisch', de: 'auf Deutsch', en: 'auf Englisch' },
     seriesCount: (n) => `${n} ${n === 1 ? 'Buch' : 'Bücher'}`,
     seriesLabel: 'Reihe',
     card: {
@@ -184,12 +161,6 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
     },
   },
   en: {
-    audienceHeading: 'For whom:',
-    all: 'All',
-    age: 'Age:',
-    category: 'Category:',
-    bookLanguage: 'Book language:',
-    empty: "We don't have any books in this category yet — check back soon!",
     ageLabels: {
       '3–4 lata': '3–4 years',
       '5–6 lat': '5–6 years',
@@ -208,16 +179,13 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       'nauka-jezykow': 'Language learning',
       inne: 'Other',
     },
-    audienceLabels: {
-      dzieci: 'For kids',
-      dorosli: 'For adults',
-      'duzy-druk': 'Large print',
-    },
     langNames: {
       pl: 'Polish',
       de: 'German',
       en: 'English',
     },
+    otherLangs: 'We also have books in other languages:',
+    otherLangLinks: { pl: 'in Polish', de: 'in German', en: 'in English' },
     seriesCount: (n) => `${n} ${n === 1 ? 'book' : 'books'}`,
     seriesLabel: 'Series',
     card: {

@@ -6,7 +6,7 @@ import { SITE_URL } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Bücher',
   description:
-    'Alle unsere Rätselbücher an einem Ort. Filtere nach Zielgruppe, Kategorie und Sprache.',
+    'Alle unsere deutschen Rätselbücher an einem Ort: Suchrätsel für Kinder, Sudoku im Großdruck und Weihnachts-Wortsuchrätsel.',
   alternates: {
     canonical: `${SITE_URL}/de/books`,
     languages: {
@@ -23,9 +23,7 @@ export default function BooksDe() {
       <div className="mx-auto max-w-6xl">
         <h1 className="font-display text-3xl font-800 text-navy sm:text-4xl">Bücher</h1>
         <p className="mt-3 max-w-2xl text-ink/70">
-          Wähle Zielgruppe, Kategorie und Schwierigkeitsgrad — wir finden das Passende.
-          Unsere deutschen Titel sind in Arbeit; über die Sprachauswahl siehst du auch
-          unsere polnischen Bücher.
+          Alle unsere deutschen Bücher an einem Ort, nach Reihen geordnet.
         </p>
         <div className="mt-10">
           <BookCatalog books={books} siteLang="de" />

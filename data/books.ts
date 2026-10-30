@@ -74,14 +74,7 @@ export const CATEGORY_LABELS: Record<BookCategory, string> = {
   inne: 'Inne',
 };
 
-// Grupy odbiorców do filtrowania w katalogu — etykiety po polsku.
-export const AUDIENCE_LABELS: Record<BookAudience, string> = {
-  dzieci: 'Dla dzieci',
-  dorosli: 'Dla dorosłych',
-  'duzy-druk': 'Duży druk',
-};
-
-// Kolejność języków w subtelnym filtrze katalogu.
+// Kolejność języków (linki do katalogów w innych językach).
 export const BOOK_LANGS: BookLang[] = ['pl', 'de', 'en'];
 
 export const LANG_LABELS: Record<BookLang, string> = {

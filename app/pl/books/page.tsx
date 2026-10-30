@@ -6,7 +6,7 @@ import { SITE_URL } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Katalog książek',
   description:
-    'Wszystkie nasze książki z łamigłówkami w jednym miejscu. Filtruj według grupy, kategorii i poziomu trudności.',
+    'Wszystkie nasze książki z łamigłówkami w jednym miejscu: wykreślanki dla dzieci i dorosłych, sudoku dużym drukiem, Killer Sudoku i wykreślanki językowe.',
   alternates: {
     canonical: `${SITE_URL}/pl/books`,
     languages: {
@@ -25,7 +25,7 @@ export default function KsiazkiPage() {
           Katalog książek
         </h1>
         <p className="mt-3 max-w-2xl text-ink/70">
-          Wybierz grupę, kategorię i poziom trudności, a znajdziemy Ci coś w sam raz.
+          Wszystkie nasze książki w jednym miejscu, pogrupowane w serie.
         </p>
         <div className="mt-10">
           <BookCatalog books={books} />

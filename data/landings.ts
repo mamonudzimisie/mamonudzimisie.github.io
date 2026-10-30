@@ -1,8 +1,8 @@
 import type { SiteLang } from '@/lib/catalog-i18n';
 
 // Strony docelowe pod konkretne frazy („wykreślanki dla dzieci”, „sudoku dla
-// seniorów”…). Katalog filtruje grupy parametrem ?grupa=, którego Google nie
-// traktuje jak osobnej strony — te strony są trwałym adresem pod frazę:
+// seniorów”…) i strony serii, na które prowadzą drzwi ze strony głównej —
+// trwały adres pod frazę:
 // wstęp, książki, „jak wybrać”, FAQ (także jako FAQPage w JSON-LD).
 
 export type LandingSection = {

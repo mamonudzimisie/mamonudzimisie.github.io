@@ -6,7 +6,7 @@ import { SITE_URL } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Books',
   description:
-    'All our puzzle books in one place. Filter by audience, category and language.',
+    'All our English puzzle books in one place: large print sudoku, classic sudoku, Killer Sudoku and Kakuro.',
   alternates: {
     canonical: `${SITE_URL}/en/books`,
     languages: {
