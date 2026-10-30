@@ -24,7 +24,7 @@ export const COVER_TINTS: Record<string, string> = {
   '/covers/znajdz-slowko-poziom-latwy.webp': '#E8F0E8',
   '/covers/znajdz-slowko-poziom-sredni-7-9.webp': '#E3F5EF',
   '/covers/znajdz-slowko-poziom-trudny-10.webp': '#F5E6E2',
-  '/covers/znajdz-slowko-swieta.webp': '#E5F3EF',
+  '/covers/znajdz-slowko-swieta.webp': '#F4EEE4',
   '/covers/znajdz-zakresl-zapamietaj-angielski-czasowniki.webp': '#F5F2E2',
   '/covers/znajdz-zakresl-zapamietaj-niemiecki-biznesowy.webp': '#E8EBF0',
 };
