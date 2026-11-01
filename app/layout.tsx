@@ -72,6 +72,9 @@ export default function RootLayout({
           src="https://static.cloudflareinsights.com/beacon.min.js"
           data-cf-beacon='{"token": "c3d8096a90a94d9a99ae3e0dc9ce1429"}'
         />
+        {/* Google Analytics 4 — ładuje się dopiero po zgodzie (baner z public/consent.js,
+            ten sam plik co na subdomenach; wybór obowiązuje na całym .zalkabooks.com). */}
+        <Script src="/consent.js" strategy="afterInteractive" />
       </body>
     </html>
   );

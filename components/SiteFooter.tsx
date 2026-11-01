@@ -5,13 +5,14 @@ import type { SiteLang } from '@/lib/catalog-i18n';
 // Wspólna stopka dla /pl, /de i /en — różnią się tylko teksty i linki.
 const TEXT: Record<
   SiteLang,
-  { tagline: string; navTitle: string; langTitle: string; rights: string; links: { href: string; label: string }[] }
+  { tagline: string; navTitle: string; langTitle: string; rights: string; cookies: string; links: { href: string; label: string }[] }
 > = {
   pl: {
     tagline: 'Książki z łamigłówkami dla dzieci i dorosłych — trening koncentracji, chwila wyciszenia i dobra zabawa.',
     navTitle: 'Strona',
     langTitle: 'Język',
     rights: 'Wszystkie prawa zastrzeżone.',
+    cookies: 'Ustawienia cookies',
     links: [
       { href: '/pl/books', label: 'Katalog książek' },
       { href: '/pl/blog', label: 'Blog' },
@@ -24,6 +25,7 @@ const TEXT: Record<
     navTitle: 'Seite',
     langTitle: 'Sprache',
     rights: 'Alle Rechte vorbehalten.',
+    cookies: 'Cookie-Einstellungen',
     links: [
       { href: '/de/books', label: 'Bücher' },
       { href: '/de/blog', label: 'Blog' },
@@ -34,6 +36,7 @@ const TEXT: Record<
     navTitle: 'Explore',
     langTitle: 'Language',
     rights: 'All rights reserved.',
+    cookies: 'Cookie settings',
     links: [
       { href: '/en/books', label: 'Books' },
       { href: '/en/blog', label: 'Blog' },
@@ -102,7 +105,10 @@ export default function SiteFooter({ lang }: { lang: SiteLang }) {
           </div>
         </div>
         <p className="mt-12 border-t border-ink/10 pt-6 text-xs text-ink/70">
-          © {new Date().getFullYear()} ZALKA BOOKS. {t.rights}
+          © {new Date().getFullYear()} ZALKA BOOKS. {t.rights} ·{' '}
+          <a href="#" data-cookie-settings className="underline-offset-2 hover:underline">
+            {t.cookies}
+          </a>
         </p>
       </div>
     </footer>
