@@ -850,14 +850,14 @@ export const books: Book[] = [
     features: [
       '192 puzzles: 32 Super Easy, 64 Easy and 96 Normal',
       'Step-by-step tutorial with a fully solved example puzzle',
-      'Four puzzles per page, each grid 3 in wide, with room to write',
+      'Four puzzles per page, each grid 2.6 in wide, with room to write',
       'One solution per puzzle, solvable by logic alone; full answer key at the back',
     ],
     coverImage: '/covers/kakuro-puzzle-book-for-beginners.webp',
     amazonUrl: 'https://www.amazon.com/dp/8398144181',
     featured: false,
     formatInches: '8.5 × 11 in',
-    pageCount: 108,
+    pageCount: 90,
     isbn: '978-83-981441-8-6',
     samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/kakuro-puzzle-book-for-beginners/${n}.webp`),
     seo: {
