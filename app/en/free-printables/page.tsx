@@ -5,9 +5,9 @@ import { getBookBySlug } from '@/data/books';
 import { SITE_URL } from '@/lib/site';
 import { downloadPreview } from '@/lib/downloadPreview';
 
-const TITLE = 'Free Printable Large Print Sudoku – Easy Puzzles to Print';
+const TITLE = 'Free Printable Killer Sudoku and Large Print Sudoku';
 const DESCRIPTION =
-  'Free printable large print sudoku: easy puzzles with big grids and big digits, a short how-to-play guide and full solutions. PDF for home, senior centres and clubs.';
+  'Free printable puzzles: easy Killer Sudoku with a starter guide, and large print sudoku with big grids and big digits. PDFs with full solutions for home, senior centres and clubs.';
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -80,7 +80,7 @@ export default function FreePrintablesPage() {
                               href={`/en/books/${book.slug}`}
                               className="font-semibold text-navy underline underline-offset-4 hover:text-orange-ink"
                             >
-                              the full book for beginners
+                              {variant.bookLabel ?? 'the full book for beginners'}
                             </Link>
                           </>
                         )}

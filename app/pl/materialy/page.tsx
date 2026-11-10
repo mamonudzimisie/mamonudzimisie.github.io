@@ -5,9 +5,9 @@ import { getBookBySlug } from '@/data/books';
 import { SITE_URL } from '@/lib/site';
 import { downloadPreview } from '@/lib/downloadPreview';
 
-const TITLE = 'Wykreślanki do druku dla dzieci – materiały do pobrania';
+const TITLE = 'Wykreślanki dla dzieci i Killer Sudoku do druku – materiały do pobrania';
 const DESCRIPTION =
-  'Darmowe wykreślanki do wydrukowania dla dzieci 5–7 lat. Jesienne i halloweenowe plansze z rozwiązaniami w PDF – do użytku w domu, przedszkolu i szkole.';
+  'Darmowe łamigłówki do wydrukowania: wykreślanki dla dzieci 5–7 lat (jesień, Halloween) i Killer Sudoku dla dorosłych z poradnikiem. PDF z rozwiązaniami – do domu, szkoły i klubu.';
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -26,12 +26,12 @@ export default function MaterialyPage() {
     <section className="px-4 py-16 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-6xl">
         <h1 className="font-display text-3xl font-800 text-navy sm:text-4xl">
-          Wykreślanki do druku dla dzieci
+          Łamigłówki do druku
         </h1>
         <p className="mt-3 max-w-2xl leading-relaxed text-ink/70">
-          Masz ochotę sprawdzić, czy wykreślanki spodobają się dziecku? Pobierz darmowe
-          plansze, wydrukuj i usiądźcie razem z kredkami. Śmiało kopiuj je dla rodzeństwa,
-          przedszkola albo całej klasy.
+          Chcesz sprawdzić, czy nasze łamigłówki są dla Ciebie — albo czy wykreślanki
+          spodobają się dziecku? Pobierz darmowe plansze, wydrukuj i weź ołówek albo kredki.
+          Śmiało kopiuj je dla rodziny, przedszkola, klasy czy klubu.
         </p>
 
         <div className="mt-10 space-y-6">
@@ -82,7 +82,7 @@ export default function MaterialyPage() {
                               href={`/pl/books/${book.slug}`}
                               className="font-semibold text-navy underline underline-offset-4 hover:text-orange-ink"
                             >
-                              książka dla dzieci {variant.level}
+                              {variant.bookLabel ?? `książka dla dzieci ${variant.level}`}
                             </Link>
                           </>
                         )}

@@ -1,6 +1,7 @@
 // Darmowe materiały do pobrania (dział /pl/materialy).
-// PDF-y leżą w /public/materialy/. Składa je skrypt
-// ~/AmazonKDP/word-search/books/PL/_www/assemble.py.
+// PDF-y leżą w /public/materialy/. Wykreślanki składa skrypt
+// ~/AmazonKDP/word-search/books/PL/_www/assemble.py, Killer Sudoku
+// ~/AmazonKDP/word-search/books/Sudoku/_www/assemble_free_killer.py (PL i EN).
 //
 // Materiały są pogrupowane w zestawy tematyczne (np. Halloween), a w każdym
 // zestawie są wersje dla różnych grup wiekowych. Kolejność na liście = kolejność
@@ -12,6 +13,7 @@ export type DownloadVariant = {
   pdf: string;
   pages: number;
   bookSlug?: string; // książka z serii, do której prowadzi materiał
+  bookLabel?: string; // tekst linku do książki (domyślnie „książka dla dzieci N lat” / „the full book for beginners”)
 };
 
 export type DownloadSet = {
@@ -24,11 +26,27 @@ export type DownloadSet = {
 
 export const downloadSets: DownloadSet[] = [
   {
+    slug: 'killer-sudoku-do-druku',
+    title: 'Killer Sudoku do druku',
+    description:
+      'Sudoku z sumami dla dorosłych: zasady na jednej stronie z rysunkiem, trzy techniki na start, 6 łatwych zagadek (żadna nie powtarza się w książce) i pełne rozwiązania.',
+    isNew: true,
+    variants: [
+      {
+        level: 'Łatwe',
+        note: 'Dla początkujących: cyfry startowe i duże plansze, dwie na stronę',
+        pdf: '/materialy/killer-sudoku-do-druku.pdf',
+        pages: 7,
+        bookSlug: 'killer-sudoku-400',
+        bookLabel: 'książka: 150 takich zagadek',
+      },
+    ],
+  },
+  {
     slug: 'wykreslanki-halloween',
     title: 'Wykreślanki na Halloween',
     description:
       '5 plansz bez straszenia: dyniowy wieczór, nocne zwierzęta, przebrania, słodycze i czarodziejski zamek. Rozwiązania w zestawie.',
-    isNew: true,
     variants: [
       {
         level: '5–6 lat',
@@ -75,11 +93,27 @@ export const downloadSets: DownloadSet[] = [
 // (new puzzles - none of them is in any of the books).
 export const downloadSetsEn: DownloadSet[] = [
   {
+    slug: 'free-printable-killer-sudoku',
+    title: 'Killer Sudoku',
+    description:
+      'Sudoku with sums: the rules on one page with a picture, three techniques to get started, 6 easy puzzles (none of them is in the book) and full solutions.',
+    isNew: true,
+    variants: [
+      {
+        level: 'Easy',
+        note: 'For beginners: starting digits and big grids, two per page',
+        pdf: '/free-printables/free-printable-killer-sudoku.pdf',
+        pages: 7,
+        bookSlug: 'killer-sudoku-400-en',
+        bookLabel: 'the book: 150 puzzles like these',
+      },
+    ],
+  },
+  {
     slug: 'large-print-sudoku-easy',
     title: 'Large Print Sudoku',
     description:
       '8 sudoku puzzles in the same large print as our books: big grids and big digits, easy to read. Four warm-up puzzles and four easy ones, a short how-to-play guide and full solutions.',
-    isNew: true,
     variants: [
       {
         level: 'Warm-up & Easy',
