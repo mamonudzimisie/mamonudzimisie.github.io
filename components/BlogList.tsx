@@ -42,10 +42,12 @@ export default function BlogList({ lang }: { lang: PostLang }) {
                         src={post.image}
                         alt=""
                         loading="lazy"
-                        className={`h-full w-full transition duration-500 group-hover:scale-[1.03] ${
+                        // Zawsze cały obrazek (object-contain): ramka 3:2 przycinała
+                        // grafiki o innych proporcjach (szerokie rysunki, kwadraty).
+                        className={`h-full w-full object-contain transition duration-500 group-hover:scale-[1.03] ${
                           post.image.startsWith('/covers/')
-                            ? 'object-contain p-6 drop-shadow-[0_14px_18px_rgba(30,28,25,0.25)]'
-                            : 'object-cover'
+                            ? 'p-6 drop-shadow-[0_14px_18px_rgba(30,28,25,0.25)]'
+                            : ''
                         }`}
                       />
                     ) : null}

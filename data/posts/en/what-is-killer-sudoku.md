@@ -2,6 +2,7 @@
 title: What is Killer Sudoku? The rules, the rule of 45 and how to start
 excerpt: Killer Sudoku is ordinary Sudoku with one extra rule – sums in cages. Here are the rules, three ways to make your first moves, and free puzzles to print.
 date: 2026-11-10
+image: /blog/killer-sudoku-thumb.webp
 ---
 
 > It sounds dangerous, but nobody gets hurt. Except maybe your pencil.

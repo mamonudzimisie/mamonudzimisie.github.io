@@ -2,6 +2,7 @@
 title: Czym jest Killer Sudoku? Zasady, reguła 45 i jak zacząć
 excerpt: Killer Sudoku to zwykłe sudoku z jedną dodatkową zasadą – sumami w klatkach. Wyjaśniamy reguły, trzy sposoby na pierwsze ruchy i dajemy darmowe plansze do wydruku.
 date: 2026-11-10
+image: /blog/killer-sudoku-miniatura.webp
 ---
 
 > Brzmi groźnie, ale nikt tu nie ginie. Najwyżej ołówek.
