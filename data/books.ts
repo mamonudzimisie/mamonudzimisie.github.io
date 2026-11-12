@@ -950,6 +950,107 @@ export const books: Book[] = [
       ],
     },
   },
+  // Spanish Word Search (EN, seria „Learn Spanish the Fun Way”): okładki i podglądy
+  // robi scripts/make_spanish_word_search.py.
+  {
+    slug: 'spanish-word-search-beginner',
+    title: 'Spanish Word Search',
+    cardTitle: 'Spanish Word Search – Beginner',
+    subtitle: 'Volume 1 · Beginner (A1–A2)',
+    detailSubtitle:
+      'Volume 1 · Beginner (A1–A2) — learn Spanish vocabulary with 87 themed puzzles: 1,431 everyday words with English translations',
+    ageRange: '13+',
+    category: 'nauka-jezykow',
+    series: 'spanish-word-search',
+    audience: 'dorosli',
+    lang: 'en',
+    description:
+      'Learn Spanish the fun way. Every page of this book is one everyday topic: the family, the kitchen, the weather, the airport, the market. Under each grid you get the list of words with their English meanings, nouns with their articles – la madre · mother. Find the Spanish word in the grid, circle it, say it out loud. By the end of the page you have read, found and said every word on it. The vocabulary is the Spanish of Spain (el coche, el ordenador, el móvil), with American English translations.',
+    features: [
+      '87 themed word searches, one per page, with big, clear 15 × 15 grids',
+      '1,431 Spanish words for daily life, each with its English translation',
+      'Articles on every noun (el / la), so you learn the gender with the word',
+      'Real Spanish spelling: accents and ñ stay in the grid',
+      'Words run forwards, down and diagonally – never backwards; complete solutions at the back',
+    ],
+    coverImage: '/covers/spanish-word-search-beginner.webp',
+    amazonUrl: 'https://www.amazon.com/dp/B0HPFZ2WB2',
+    featured: false,
+    formatInches: '8.5 × 11 in',
+    pageCount: 108,
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/spanish-word-search-beginner/${n}.webp`),
+    seo: {
+      title: 'Spanish Word Search for Beginners (A1–A2) – 87 Themed Puzzles',
+      description:
+        'Learn Spanish vocabulary with 87 themed word search puzzles: 1,431 everyday words with English translations, articles on every noun and complete solutions. Level A1–A2.',
+    },
+  },
+  {
+    slug: 'spanish-word-search-intermediate',
+    title: 'Spanish Word Search',
+    cardTitle: 'Spanish Word Search – Intermediate',
+    subtitle: 'Volume 2 · Intermediate (A2–B1)',
+    detailSubtitle:
+      'Volume 2 · Intermediate (A2–B1) — 1,461 more Spanish words in 84 themed puzzles: work, health, travel, media and false friends',
+    ageRange: '13+',
+    category: 'nauka-jezykow',
+    series: 'spanish-word-search',
+    audience: 'dorosli',
+    lang: 'en',
+    description:
+      'The next step after the basics: 1,461 new Spanish words. The list under each grid gives the Spanish word with its English meaning, nouns with their article – el éxito · success. Find the word in the grid, circle it and say it out loud. When the page is done, cover the Spanish and test yourself. That small effort is what moves a word from "I\'ve seen it" to "I know it". Spanish of Spain with American English translations.',
+    features: [
+      '84 themed word searches, one per page',
+      '1,461 new words for work and study, health, travel, the news, technology and society',
+      'Tricky words: false friends (embarazada, éxito, constipado), look-alikes and opposites',
+      'Articles on every noun (el / la)',
+      'Words also run diagonally upward; complete solutions at the back',
+    ],
+    coverImage: '/covers/spanish-word-search-intermediate.webp',
+    amazonUrl: 'https://www.amazon.com/dp/B0HPZQS224',
+    featured: false,
+    formatInches: '8.5 × 11 in',
+    pageCount: 104,
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/spanish-word-search-intermediate/${n}.webp`),
+    seo: {
+      title: 'Spanish Word Search – Intermediate (A2–B1), 84 Themed Puzzles',
+      description:
+        'Build an intermediate Spanish vocabulary with 84 themed word search puzzles: 1,461 words for work, health, travel and media, plus false friends. With English translations and solutions.',
+    },
+  },
+  {
+    slug: 'spanish-word-search-verbs',
+    title: 'Spanish Word Search',
+    cardTitle: 'Spanish Word Search – Verbs',
+    subtitle: 'Volume 3 · Verbs (A2–B1)',
+    detailSubtitle:
+      'Volume 3 · Verbs (A2–B1) — master Spanish verb conjugation with 78 puzzles: 1,256 forms in the present, past, future and commands',
+    ageRange: '13+',
+    category: 'nauka-jezykow',
+    series: 'spanish-word-search',
+    audience: 'dorosli',
+    lang: 'en',
+    description:
+      'Spanish verbs stick when you have to find them. The Spanish forms are not printed in the list: the clue gives you the meaning and the verb – we live (vivir) – and the grid hides the form, VIVIMOS. The puzzles go tense by tense, and most work with one group of verbs, so you work the form out from the rule instead of memorizing lists. Spanish of Spain, including vosotros, with American English clues.',
+    features: [
+      '78 word searches with 1,256 verb forms, one puzzle per page',
+      '7 parts: present (regular and irregular), gerunds and participles, preterite, imperfect, future and conditional, commands',
+      'A one-page grammar table at the start of every part',
+      'Stem changers (pienso, duermo, pido), irregular yo forms (tengo, hago) and reflexive commands',
+      'Words run in all 8 directions, backwards too; complete solutions at the back',
+    ],
+    coverImage: '/covers/spanish-word-search-verbs.webp',
+    amazonUrl: 'https://www.amazon.com/dp/B0HPZVMWZ6',
+    featured: false,
+    formatInches: '8.5 × 11 in',
+    pageCount: 104,
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/spanish-word-search-verbs/${n}.webp`),
+    seo: {
+      title: 'Spanish Word Search – Verbs: Conjugation Practice in 78 Puzzles',
+      description:
+        'Practice Spanish verb conjugation with 78 word search puzzles: 1,256 forms in the present, preterite, imperfect, future, conditional and commands. Grammar tables and solutions included.',
+    },
+  },
 ];
 
 export function getBookBySlug(slug: string): Book | undefined {

@@ -10,7 +10,8 @@ export type BookSeries =
   | 'wykreslanki-jezykowe'
   | 'wykreslanki-tematyczne'
   | 'sudoku-duzy-druk'
-  | 'lamiglowki-logiczne';
+  | 'lamiglowki-logiczne'
+  | 'spanish-word-search';
 
 type SeriesText = { name: string; description: string };
 
@@ -45,6 +46,14 @@ export const SERIES: { id: BookSeries; text: Record<SiteLang, SeriesText> }[] = 
       pl: { name: 'Sudoku i warianty', description: 'Klasyczne sudoku, Killer Sudoku i inne łamigłówki liczbowe dla tych, którzy lubią policzyć.' },
       de: { name: 'Sudoku & Varianten', description: 'Klassisches Sudoku, Killer-Sudoku und andere Zahlenrätsel für alle, die gern rechnen.' },
       en: { name: 'Sudoku & variants', description: 'Classic sudoku, Killer Sudoku, Kakuro and other number puzzles for those who like numbers.' },
+    },
+  },
+  {
+    id: 'spanish-word-search',
+    text: {
+      pl: { name: 'Spanish Word Search', description: 'Wykreślanki do nauki hiszpańskiego dla osób anglojęzycznych — słownictwo i czasowniki w trzech tomach.' },
+      de: { name: 'Spanish Word Search', description: 'Suchrätsel zum Spanischlernen für Englischsprachige — Wortschatz und Verben in drei Bänden.' },
+      en: { name: 'Spanish Word Search', description: 'Learn Spanish the fun way: vocabulary and verbs in three volumes, with English translations.' },
     },
   },
   {

@@ -479,6 +479,63 @@ export const landings: Landing[] = [
       { href: '/en/free-printables', label: 'Free printable puzzles' },
     ],
   },
+  {
+    lang: 'en',
+    slug: 'spanish-word-search',
+    seoTitle: 'Spanish Word Search Books – Learn Spanish Vocabulary and Verbs',
+    seoDescription:
+      'Three Spanish word search books for English speakers: beginner vocabulary (A1–A2), intermediate vocabulary (A2–B1) and verb conjugation. How they work and where to start.',
+    eyebrow: 'Learn Spanish the Fun Way',
+    h1: 'Spanish word search books',
+    intro: [
+      'A word search makes you look at a word letter by letter, which is exactly what a new word in a foreign language needs. In these books every puzzle is one topic, and the list under the grid gives each Spanish word with its English meaning. Find it, circle it, say it out loud.',
+      'The series has three volumes: two for vocabulary and one for verbs. All three use the Spanish of Spain with American English translations, keep accents and ñ in the grid, and have complete solutions at the back.',
+    ],
+    booksHeading: 'The three volumes',
+    bookSlugs: ['spanish-word-search-beginner', 'spanish-word-search-intermediate', 'spanish-word-search-verbs'],
+    sections: [
+      {
+        heading: 'How do the volumes differ?',
+        bullets: [
+          'Volume 1, Beginner (A1–A2): 1,431 everyday words in 87 puzzles — people, daily life, nature, food, home and city, free time. Words run forwards, down and diagonally, never backwards.',
+          'Volume 2, Intermediate (A2–B1): 1,461 new words in 84 puzzles — work and study, health, travel, the news, technology — plus false friends and look-alikes. Words also run diagonally upward.',
+          'Volume 3, Verbs (A2–B1): 1,256 verb forms in 78 puzzles, tense by tense. The clue gives the meaning and the verb, and you work out the form you are looking for. Words run in all 8 directions.',
+        ],
+      },
+      {
+        heading: 'Where should I start?',
+        bullets: [
+          'New to Spanish, or coming back after years: Volume 1.',
+          'You know the everyday basics and want a much bigger vocabulary: Volume 2.',
+          'You know the words but the verb endings will not stick: Volume 3. A one-page grammar table opens every part.',
+        ],
+      },
+    ],
+    faqHeading: 'Frequently asked questions',
+    faq: [
+      {
+        q: 'Is it Spanish from Spain or Latin America?',
+        a: 'The Spanish of Spain: el coche, el ordenador, el móvil, and vosotros in the verb volume. The translations are in American English.',
+      },
+      {
+        q: 'Do the grids keep accents and ñ?',
+        a: 'Yes. Words are spelled in the grid as they are written, with accents and ñ, so you see the real spelling every time.',
+      },
+      {
+        q: 'Are nouns given with their articles?',
+        a: 'Yes, in both vocabulary volumes every noun comes with el or la, so you learn the gender together with the word.',
+      },
+      {
+        q: 'Are there solutions?',
+        a: 'Every puzzle has its solution at the back of the book.',
+      },
+    ],
+    linksHeading: 'Read more',
+    links: [
+      { href: '/en/books', label: 'All books in English' },
+      { href: '/en/free-printables', label: 'Free printable puzzles' },
+    ],
+  },
 ];
 
 export function getLanding(lang: SiteLang, slug: string): Landing {

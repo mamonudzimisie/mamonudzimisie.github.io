@@ -72,6 +72,12 @@ const DOORS: Record<SiteLang, Door[]> = {
       description: 'Classic sudoku, Killer Sudoku, Kakuro and more',
       href: '/en/sudoku-variants',
     },
+    {
+      series: ['spanish-word-search'],
+      label: 'Spanish Word Search',
+      description: 'Learn Spanish the fun way — vocabulary and verbs in three volumes',
+      href: '/en/spanish-word-search',
+    },
   ],
 };
 
