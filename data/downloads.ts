@@ -1,7 +1,8 @@
 // Darmowe materiały do pobrania (dział /pl/materialy).
 // PDF-y leżą w /public/materialy/. Wykreślanki składa skrypt
 // ~/AmazonKDP/word-search/books/PL/_www/assemble.py, Killer Sudoku
-// ~/AmazonKDP/word-search/books/Sudoku/_www/assemble_free_killer.py (PL i EN).
+// ~/AmazonKDP/word-search/books/Sudoku/_www/assemble_free_killer.py (PL i EN),
+// Sudoku Jigsaw ~/AmazonKDP/word-search/books/Sudoku/_www/assemble_free_jigsaw.py (PL).
 //
 // Materiały są pogrupowane w zestawy tematyczne (np. Halloween), a w każdym
 // zestawie są wersje dla różnych grup wiekowych. Kolejność na liście = kolejność
@@ -25,6 +26,21 @@ export type DownloadSet = {
 };
 
 export const downloadSets: DownloadSet[] = [
+  {
+    slug: 'sudoku-jigsaw-do-druku',
+    title: 'Sudoku Jigsaw do druku',
+    description:
+      'Sudoku z nieregularnymi obszarami zamiast kwadratów 3×3: zasady na jednej stronie z rysunkiem, trzy sposoby na start, 6 zagadek i pełne rozwiązania. Książka z 200 zagadkami wkrótce.',
+    isNew: true,
+    variants: [
+      {
+        level: 'Łatwe',
+        note: 'Cztery plansze łatwe i dwie średnie na dokładkę, po dwie na stronę',
+        pdf: '/materialy/sudoku-jigsaw-do-druku.pdf',
+        pages: 7,
+      },
+    ],
+  },
   {
     slug: 'killer-sudoku-do-druku',
     title: 'Killer Sudoku do druku',
@@ -97,7 +113,6 @@ export const downloadSetsEn: DownloadSet[] = [
     title: 'Killer Sudoku',
     description:
       'Sudoku with sums: the rules on one page with a picture, three techniques to get started, 6 easy puzzles (none of them is in the book) and full solutions.',
-    isNew: true,
     variants: [
       {
         level: 'Easy',
