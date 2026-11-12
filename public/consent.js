@@ -1,10 +1,13 @@
 /* ==========================================================================
-   Google Analytics 4 + zgoda na ciasteczka — wspólny plik dla stron Zalka Books
+   Google Analytics 4 + Statcounter + zgoda na ciasteczka — wspólny plik dla stron Zalka Books
    (zalkabooks.com, znajdzslowko., puzzles., learnspanish.). Ten sam plik leży
    w każdym repo; zmieniając go, skopiuj do pozostałych.
 
    - GA ładuje się DOPIERO po kliknięciu „Akceptuję” (Consent Mode, tryb
      podstawowy): bez zgody żadne zapytanie do Google nie wychodzi.
+   - Statcounter (projekt zalkabooks.com) ładuje się po tej samej zgodzie i tylko
+     na zalkabooks.com / www — na subdomenach nie, bo projekt liczy jedną witrynę.
+     Przejścia bez przeładowania (Next.js) zgłasza record_pageview().
    - Wybór zapisuje ciasteczko zb_consent na .zalkabooks.com, więc obowiązuje
      na wszystkich subdomenach naraz (na *.netlify.app — tylko na tym hoście).
    - Język banera z <html lang>: pl / de / reszta po angielsku. Teksty jako
@@ -13,20 +16,23 @@
    ========================================================================== */
 (function () {
   var GA_ID = 'G-J9DRJJH1T6';
+  var SC_PROJECT = 13366457;
+  var SC_SECURITY = '8893cf3d';
+  var SC_HOSTS = /^(www\.)?zalkabooks\.com$/;
   var COOKIE = 'zb_consent';
   var MAX_AGE = 60 * 60 * 24 * 180; // 180 dni
 
   var TEXTS = {
     pl: {
-      text: 'U\u017cywamy Google Analytics, \u017ceby wiedzie\u0107, kt\u00f3re strony i ksi\u0105\u017cki Was interesuj\u0105. Ciasteczka analityczne zapiszemy tylko za Twoj\u0105 zgod\u0105.',
+      text: 'U\u017cywamy Google Analytics i Statcounter, \u017ceby wiedzie\u0107, kt\u00f3re strony i ksi\u0105\u017cki Was interesuj\u0105. Ciasteczka analityczne zapiszemy tylko za Twoj\u0105 zgod\u0105.',
       accept: 'Akceptuj\u0119', reject: 'Odrzucam', label: 'Zgoda na ciasteczka',
     },
     de: {
-      text: 'Wir nutzen Google Analytics, um zu sehen, welche Seiten und B\u00fccher Sie interessieren. Analyse-Cookies setzen wir nur mit Ihrer Zustimmung.',
+      text: 'Wir nutzen Google Analytics und Statcounter, um zu sehen, welche Seiten und B\u00fccher Sie interessieren. Analyse-Cookies setzen wir nur mit Ihrer Zustimmung.',
       accept: 'Akzeptieren', reject: 'Ablehnen', label: 'Cookie-Einwilligung',
     },
     en: {
-      text: 'We use Google Analytics to see which pages and books you find useful. Analytics cookies are only set if you agree.',
+      text: 'We use Google Analytics and Statcounter to see which pages and books you find useful. Analytics cookies are only set if you agree.',
       accept: 'Accept', reject: 'Decline', label: 'Cookie consent',
     },
   };
@@ -59,6 +65,37 @@
     s.async = true;
     s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
     document.head.appendChild(s);
+    loadStatcounter();
+  }
+
+  function loadStatcounter() {
+    if (!SC_HOSTS.test(location.hostname)) return;
+    window.sc_project = SC_PROJECT;
+    window.sc_invisible = 1;
+    window.sc_security = SC_SECURITY;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.statcounter.com/counter/counter.js';
+    document.head.appendChild(s);
+
+    // Next.js zmienia strony bez przeładowania — zgłoś każdą kolejną odsłonę.
+    var last = location.pathname + location.search;
+    function pageview() {
+      var now = location.pathname + location.search;
+      if (now === last) return;
+      last = now;
+      var sc = window._statcounter;
+      if (sc && typeof sc.record_pageview === 'function') sc.record_pageview();
+    }
+    ['pushState', 'replaceState'].forEach(function (name) {
+      var orig = history[name];
+      history[name] = function () {
+        var r = orig.apply(this, arguments);
+        setTimeout(pageview, 0);
+        return r;
+      };
+    });
+    window.addEventListener('popstate', function () { setTimeout(pageview, 0); });
   }
 
   function clearGACookies() {
@@ -66,7 +103,7 @@
     var domains = ['', '; domain=' + host, '; domain=.zalkabooks.com'];
     document.cookie.split(';').forEach(function (c) {
       var name = c.split('=')[0].trim();
-      if (name === '_ga' || name.indexOf('_ga_') === 0) {
+      if (name === '_ga' || name.indexOf('_ga_') === 0 || name === 'sc_is_visitor_unique') {
         domains.forEach(function (d) {
           document.cookie = name + '=; max-age=0; path=/' + d;
         });

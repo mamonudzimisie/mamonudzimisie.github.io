@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import HtmlLang from '@/components/HtmlLang';
 import HeaderDe from '@/components/HeaderDe';
 import FooterDe from '@/components/FooterDe';
 
@@ -31,6 +32,7 @@ export const metadata: Metadata = {
 export default function DeLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <HtmlLang lang="de" />
       <HeaderDe />
       <main className="flex-1">{children}</main>
       <FooterDe />

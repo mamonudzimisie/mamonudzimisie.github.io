@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import HtmlLang from '@/components/HtmlLang';
 import HeaderEn from '@/components/HeaderEn';
 import FooterEn from '@/components/FooterEn';
 
@@ -29,6 +30,7 @@ export const metadata: Metadata = {
 export default function EnLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <HtmlLang lang="en" />
       <HeaderEn />
       <main className="flex-1">{children}</main>
       <FooterEn />
