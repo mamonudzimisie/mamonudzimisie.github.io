@@ -17,11 +17,15 @@ export type DownloadVariant = {
   bookLabel?: string; // tekst linku do książki (domyślnie „książka dla dzieci N lat” / „the full book for beginners”)
 };
 
+export type DownloadGroup = 'sudoku' | 'kids';
+
 export type DownloadSet = {
   slug: string;
   title: string;
-  description: string;
-  isNew?: boolean;
+  description: string; // jedno-dwa zdania: kafelek ma być niski
+  group: DownloadGroup; // sekcja na stronie (nagłówki w components/DownloadsGrid.tsx)
+  isNew?: boolean; // tylko najnowszy zestaw
+  post?: { href: string; label: string }; // wpis na blogu z zasadami
   variants: DownloadVariant[];
 };
 
@@ -30,12 +34,14 @@ export const downloadSets: DownloadSet[] = [
     slug: 'sudoku-jigsaw-do-druku',
     title: 'Sudoku Jigsaw do druku',
     description:
-      'Sudoku z nieregularnymi obszarami zamiast kwadratów 3×3: zasady na jednej stronie z rysunkiem, trzy sposoby na start, 6 zagadek i pełne rozwiązania. Książka z 200 zagadkami wkrótce.',
+      'Sudoku z nieregularnymi obszarami zamiast kwadratów 3×3. Zasady z rysunkiem, 6 zagadek i rozwiązania. Książka wkrótce.',
+    group: 'sudoku',
     isNew: true,
+    post: { href: '/pl/blog/sudoku-jigsaw-zasady', label: 'Zasady i sposoby na start' },
     variants: [
       {
-        level: 'Łatwe',
-        note: 'Cztery plansze łatwe i dwie średnie na dokładkę, po dwie na stronę',
+        level: 'Łatwe i średnie',
+        note: 'Cztery plansze łatwe i dwie średnie',
         pdf: '/materialy/sudoku-jigsaw-do-druku.pdf',
         pages: 7,
       },
@@ -45,16 +51,17 @@ export const downloadSets: DownloadSet[] = [
     slug: 'killer-sudoku-do-druku',
     title: 'Killer Sudoku do druku',
     description:
-      'Sudoku z sumami dla dorosłych: zasady na jednej stronie z rysunkiem, trzy techniki na start, 6 łatwych zagadek (żadna nie powtarza się w książce) i pełne rozwiązania.',
-    isNew: true,
+      'Sudoku z sumami w klatkach. Zasady z rysunkiem, trzy techniki na start, 6 zagadek i rozwiązania.',
+    group: 'sudoku',
+    post: { href: '/pl/blog/czym-jest-killer-sudoku', label: 'Zasady i reguła 45' },
     variants: [
       {
         level: 'Łatwe',
-        note: 'Dla początkujących: cyfry startowe i duże plansze, dwie na stronę',
+        note: 'Cyfry startowe i duże plansze',
         pdf: '/materialy/killer-sudoku-do-druku.pdf',
         pages: 7,
         bookSlug: 'killer-sudoku-400',
-        bookLabel: 'książka: 150 takich zagadek',
+        bookLabel: 'książka',
       },
     ],
   },
@@ -62,21 +69,24 @@ export const downloadSets: DownloadSet[] = [
     slug: 'wykreslanki-halloween',
     title: 'Wykreślanki na Halloween',
     description:
-      '5 plansz bez straszenia: dyniowy wieczór, nocne zwierzęta, przebrania, słodycze i czarodziejski zamek. Rozwiązania w zestawie.',
+      '5 plansz bez straszenia: dyniowy wieczór, nocne zwierzęta, przebrania, słodycze i zamek. Z rozwiązaniami.',
+    group: 'kids',
     variants: [
       {
         level: '5–6 lat',
-        note: 'Po 6 krótkich słów, tylko poziomo i pionowo, duże litery',
+        note: 'Po 6 krótkich słów, poziomo i pionowo',
         pdf: '/materialy/wykreslanki-halloween-5-6-lat.pdf',
         pages: 8,
         bookSlug: 'znajdz-slowko-poziom-latwy',
+        bookLabel: 'książka',
       },
       {
         level: '6–7 lat',
-        note: 'Po 7 słów, w tym jedno po skosie',
+        note: 'Po 7 słów, jedno po skosie',
         pdf: '/materialy/wykreslanki-halloween-6-7-lat.pdf',
         pages: 8,
         bookSlug: 'znajdz-slowko-poziom-latwy-6-7',
+        bookLabel: 'książka',
       },
     ],
   },
@@ -84,21 +94,24 @@ export const downloadSets: DownloadSet[] = [
     slug: 'wykreslanki-jesien',
     title: 'Wykreślanki na jesień',
     description:
-      '5 jesiennych plansz: park, las, grzyby, deszczowa pogoda, zapasy na zimę i ciepłe ubrania. Rozwiązania w zestawie.',
+      '5 jesiennych plansz: park, las, grzyby, deszcz, zapasy na zimę i ciepłe ubrania. Z rozwiązaniami.',
+    group: 'kids',
     variants: [
       {
         level: '5–6 lat',
-        note: 'Po 6 krótkich słów, tylko poziomo i pionowo, duże litery',
+        note: 'Po 6 krótkich słów, poziomo i pionowo',
         pdf: '/materialy/wykreslanki-jesien-5-6-lat.pdf',
         pages: 8,
         bookSlug: 'znajdz-slowko-poziom-latwy',
+        bookLabel: 'książka',
       },
       {
         level: '6–7 lat',
-        note: 'Po 7 słów, w tym jedno po skosie',
+        note: 'Po 7 słów, jedno po skosie',
         pdf: '/materialy/wykreslanki-jesien-6-7-lat.pdf',
         pages: 8,
         bookSlug: 'znajdz-slowko-poziom-latwy-6-7',
+        bookLabel: 'książka',
       },
     ],
   },
@@ -112,15 +125,18 @@ export const downloadSetsEn: DownloadSet[] = [
     slug: 'free-printable-killer-sudoku',
     title: 'Killer Sudoku',
     description:
-      'Sudoku with sums: the rules on one page with a picture, three techniques to get started, 6 easy puzzles (none of them is in the book) and full solutions.',
+      'Sudoku with sums in cages. The rules with a picture, three techniques to start, 6 easy puzzles and solutions.',
+    group: 'sudoku',
+    isNew: true,
+    post: { href: '/en/blog/what-is-killer-sudoku', label: 'Rules and the rule of 45' },
     variants: [
       {
         level: 'Easy',
-        note: 'For beginners: starting digits and big grids, two per page',
+        note: 'Starting digits and big grids',
         pdf: '/free-printables/free-printable-killer-sudoku.pdf',
         pages: 7,
         bookSlug: 'killer-sudoku-400-en',
-        bookLabel: 'the book: 150 puzzles like these',
+        bookLabel: 'the book',
       },
     ],
   },
@@ -128,14 +144,17 @@ export const downloadSetsEn: DownloadSet[] = [
     slug: 'large-print-sudoku-easy',
     title: 'Large Print Sudoku',
     description:
-      '8 sudoku puzzles in the same large print as our books: big grids and big digits, easy to read. Four warm-up puzzles and four easy ones, a short how-to-play guide and full solutions.',
+      '8 puzzles in the same large print as our books: big grids, big digits, a short guide and solutions.',
+    group: 'sudoku',
+    post: { href: '/en/blog/large-print-sudoku-for-every-level', label: 'Which level is for you' },
     variants: [
       {
         level: 'Warm-up & Easy',
-        note: 'For beginners: the first four need only one simple method',
+        note: 'The first four need only one simple method',
         pdf: '/free-printables/large-print-sudoku-easy.pdf',
         pages: 9,
         bookSlug: 'large-print-sudoku-102',
+        bookLabel: 'the book',
       },
     ],
   },
