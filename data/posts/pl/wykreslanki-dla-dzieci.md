@@ -2,13 +2,14 @@
 title: Wykreślanki dla dzieci – 6 powodów, dla których warto po nie sięgnąć
 excerpt: Kilka słów o tym, dlaczego warto podarować dziecku właśnie wykreślanki.
 date: 2026-09-15
+image: /blog/wykreslanki-dla-dzieci-miniatura.webp
 ---
 
 > Szukasz zajęcia dla dziecka, które nie wymaga ekranu, a przy okazji czegoś uczy? Jeśli tak, to coś dla Ciebie mamy!
 
 Wykreślanki to jedna z najprostszych łamigłówek: w siatce liter poukrywane są słowa, które trzeba znaleźć i zakreślić. Wystarczy kilka minut, żeby dziecko wciągnęło się w poszukiwania, a korzyści jest znacznie więcej, niż mogłoby się wydawać.
 
-![Pięć książek z serii „Znajdź słówko!” – wykreślanki po polsku dla dzieci od 5 lat do nastolatków](/blog/znajdz-slowko-seria.webp)
+![Wykreślanka „W zoo” w trakcie rozwiązywania – zakreślone słowa TYGRYS, PANDA, ZEBRA i LEW, obok kredki i książki z serii „Znajdź słówko!”](/blog/wykreslanki-dla-dzieci.webp)
 
 ### 1. Utrwalają naukę czytania
 
@@ -49,7 +50,7 @@ Zwróć uwagę na kilka rzeczy:
 - **Tematyka** – im bliższa zainteresowaniom dziecka, tym chętniej po nią sięgnie.
 - **Rozwiązania na końcu** – przydają się, gdy jakieś słówko ukryło się zbyt dobrze.
 
-![Plansze z serii „Znajdź słówko!”: siatka 8×8 dla dzieci 5–6 lat, 13×13 dla 7–9 lat i 17×17 dla nastolatków](/blog/znajdz-slowko-poziomy-trudnosci.webp)
+![Rozwiązane plansze z serii „Znajdź słówko!”: siatka 8×8 dla dzieci 5–6 lat (słowa poziomo i pionowo), 13×13 dla 7–9 lat (także po skosie) i 17×17 dla nastolatków (we wszystkich kierunkach)](/blog/wykreslanki-poziomy-trudnosci.webp)
 
 ## Seria „Znajdź słówko!” – wykreślanki po polsku dla dzieci
 
