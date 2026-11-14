@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import SocialLinks from './SocialLinks';
 import type { SiteLang } from '@/lib/catalog-i18n';
+import { privacyHref, privacyPolicies } from '@/data/privacy';
 
 // Wspólna stopka dla /pl, /de i /en — różnią się tylko teksty i linki.
 const TEXT: Record<
   SiteLang,
-  { tagline: string; navTitle: string; langTitle: string; rights: string; cookies: string; links: { href: string; label: string }[] }
+  { tagline: string; navTitle: string; langTitle: string; rights: string; cookies: string; privacy: string; contact: string; links: { href: string; label: string }[] }
 > = {
   pl: {
     tagline: 'Książki z łamigłówkami dla dzieci i dorosłych — trening koncentracji, chwila wyciszenia i dobra zabawa.',
@@ -13,6 +14,8 @@ const TEXT: Record<
     langTitle: 'Język',
     rights: 'Wszystkie prawa zastrzeżone.',
     cookies: 'Ustawienia cookies',
+    privacy: 'Polityka prywatności',
+    contact: 'Kontakt',
     links: [
       { href: '/pl/books', label: 'Katalog książek' },
       { href: '/pl/blog', label: 'Blog' },
@@ -26,6 +29,8 @@ const TEXT: Record<
     langTitle: 'Sprache',
     rights: 'Alle Rechte vorbehalten.',
     cookies: 'Cookie-Einstellungen',
+    privacy: 'Datenschutz',
+    contact: 'Kontakt',
     links: [
       { href: '/de/books', label: 'Bücher' },
       { href: '/de/blog', label: 'Blog' },
@@ -37,6 +42,8 @@ const TEXT: Record<
     langTitle: 'Language',
     rights: 'All rights reserved.',
     cookies: 'Cookie settings',
+    privacy: 'Privacy policy',
+    contact: 'Contact',
     links: [
       { href: '/en/books', label: 'Books' },
       { href: '/en/blog', label: 'Blog' },
@@ -53,6 +60,7 @@ const LANGS: { lang: SiteLang; label: string }[] = [
 
 export default function SiteFooter({ lang }: { lang: SiteLang }) {
   const t = TEXT[lang];
+  const email = privacyPolicies[lang].email;
   return (
     <footer className="border-t border-ink/10 bg-paper px-4 sm:px-6">
       <div className="mx-auto max-w-6xl pb-10 pt-14">
@@ -108,6 +116,15 @@ export default function SiteFooter({ lang }: { lang: SiteLang }) {
           © {new Date().getFullYear()} ZALKA BOOKS. {t.rights} ·{' '}
           <a href="#" data-cookie-settings className="underline-offset-2 hover:underline">
             {t.cookies}
+          </a>
+          {' · '}
+          <Link href={privacyHref(lang)} className="underline-offset-2 hover:underline">
+            {t.privacy}
+          </Link>
+          {' · '}
+          {t.contact}:{' '}
+          <a href={`mailto:${email}`} className="underline-offset-2 hover:underline">
+            {email}
           </a>
         </p>
       </div>

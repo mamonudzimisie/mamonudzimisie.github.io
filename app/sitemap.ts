@@ -16,6 +16,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/en',
     '/en/books',
     '/en/free-printables',
+    '/pl/prywatnosc',
+    '/de/datenschutz',
+    '/en/privacy',
     ...landings.map((landing) => `/${landing.lang}/${landing.slug}`),
     // Pusty blog to „thin content” — lista trafia do sitemapy dopiero z pierwszym wpisem.
     ...(['pl', 'de', 'en'] as const).filter((lang) => getPosts(lang).length > 0).map((lang) => `/${lang}/blog`),

@@ -13,6 +13,9 @@
    - Język banera z <html lang>: pl / de / reszta po angielsku. Teksty jako
      \uXXXX, żeby plik działał niezależnie od kodowania, z jakim go poda serwer.
    - Link „Ustawienia cookies” w stopce: <a href="#" data-cookie-settings>.
+   - Baner linkuje do polityki prywatności na zalkabooks.com (PRIVACY) — także
+     z subdomen, bo jedna polityka opisuje wszystkie strony. Na subdomenach tekst
+     nie wspomina Statcountera (textSub), bo tam się nie ładuje.
    ========================================================================== */
 (function () {
   var GA_ID = 'G-J9DRJJH1T6';
@@ -21,18 +24,29 @@
   var SC_HOSTS = /^(www\.)?zalkabooks\.com$/;
   var COOKIE = 'zb_consent';
   var MAX_AGE = 60 * 60 * 24 * 180; // 180 dni
+  var PRIVACY = {
+    pl: 'https://zalkabooks.com/pl/prywatnosc',
+    de: 'https://zalkabooks.com/de/datenschutz',
+    en: 'https://zalkabooks.com/en/privacy',
+  };
 
   var TEXTS = {
     pl: {
       text: 'U\u017cywamy Google Analytics i Statcounter, \u017ceby wiedzie\u0107, kt\u00f3re strony i ksi\u0105\u017cki Was interesuj\u0105. Ciasteczka analityczne zapiszemy tylko za Twoj\u0105 zgod\u0105.',
+      textSub: 'U\u017cywamy Google Analytics, \u017ceby wiedzie\u0107, kt\u00f3re strony i ksi\u0105\u017cki Was interesuj\u0105. Ciasteczka analityczne zapiszemy tylko za Twoj\u0105 zgod\u0105.',
+      more: 'Polityka prywatno\u015bci',
       accept: 'Akceptuj\u0119', reject: 'Odrzucam', label: 'Zgoda na ciasteczka',
     },
     de: {
       text: 'Wir nutzen Google Analytics und Statcounter, um zu sehen, welche Seiten und B\u00fccher Sie interessieren. Analyse-Cookies setzen wir nur mit Ihrer Zustimmung.',
+      textSub: 'Wir nutzen Google Analytics, um zu sehen, welche Seiten und B\u00fccher Sie interessieren. Analyse-Cookies setzen wir nur mit Ihrer Zustimmung.',
+      more: 'Datenschutzerkl\u00e4rung',
       accept: 'Akzeptieren', reject: 'Ablehnen', label: 'Cookie-Einwilligung',
     },
     en: {
       text: 'We use Google Analytics and Statcounter to see which pages and books you find useful. Analytics cookies are only set if you agree.',
+      textSub: 'We use Google Analytics to see which pages and books you find useful. Analytics cookies are only set if you agree.',
+      more: 'Privacy policy',
       accept: 'Accept', reject: 'Decline', label: 'Cookie consent',
     },
   };
@@ -115,7 +129,8 @@
   function showBanner() {
     if (banner) return;
     var lang = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
-    var t = TEXTS[lang] || TEXTS.en;
+    if (!TEXTS[lang]) lang = 'en';
+    var t = TEXTS[lang];
 
     var style = document.createElement('style');
     style.textContent =
@@ -123,6 +138,7 @@
       'background:#fff;color:#2a2140;border:1px solid rgba(42,33,64,.14);border-radius:16px;' +
       'box-shadow:0 18px 40px -18px rgba(42,33,64,.45);padding:18px 20px;font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}' +
       '.zb-consent p{margin:0 0 14px}' +
+      '.zb-consent a{color:inherit;text-decoration:underline;text-underline-offset:2px}' +
       '.zb-consent-actions{display:flex;gap:10px;flex-wrap:wrap}' +
       '.zb-consent button{flex:1 1 140px;font:600 15px/1 system-ui,-apple-system,"Segoe UI",sans-serif;padding:12px 16px;' +
       'border-radius:999px;cursor:pointer;border:2px solid #2a2140}' +
@@ -140,7 +156,12 @@
     banner.setAttribute('aria-label', t.label);
     banner.innerHTML = '<p></p><div class="zb-consent-actions">' +
       '<button type="button" class="zb-reject"></button><button type="button" class="zb-accept"></button></div>';
-    banner.querySelector('p').textContent = t.text;
+    var p = banner.querySelector('p');
+    p.textContent = (SC_HOSTS.test(location.hostname) ? t.text : t.textSub) + ' ';
+    var more = document.createElement('a');
+    more.href = PRIVACY[lang];
+    more.textContent = t.more;
+    p.appendChild(more);
     banner.querySelector('.zb-reject').textContent = t.reject;
     banner.querySelector('.zb-accept').textContent = t.accept;
     banner.querySelector('.zb-accept').addEventListener('click', function () { decide('granted'); });
