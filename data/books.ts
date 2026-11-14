@@ -298,6 +298,38 @@ export const books: Book[] = [
     },
   },
   {
+    slug: 'moje-pierwsze-sudoku',
+    title: 'Moje pierwsze sudoku',
+    subtitle: '52 łamigłówki 4×4, 6×6 i 9×9, 5–8 lat',
+    detailSubtitle: 'Pomóż kapibarze Kasi poukładać cyferki! Sudoku dla dzieci 5–8 lat: 52 łamigłówki 4×4, 6×6 i 9×9',
+    ageRange: '5–8 lat',
+    category: 'sudoku',
+    series: 'klub-madrych-kapibar',
+    audience: 'dzieci',
+    lang: 'pl',
+    description:
+      'Kapibara Kasia uwielbia swoje plansze z cyferkami. Każda cyferka ma na nich swoje miejsce: w każdym rzędzie, kolumnie i bloku jest tylko raz. Aż pewnego ranka cyferki pouciekały, a na planszach zostały puste pola. Z tą kolorową książką dziecko uczy się sudoku od zera, krok po kroku, i rośnie razem z nią: od małych plansz 4×4, przez 6×6, aż do prawdziwego sudoku 9×9. Sudoku ćwiczy logiczne myślenie, koncentrację i cierpliwość, a duże, przejrzyste plansze i ciepła historia sprawiają, że to po prostu dobra zabawa.',
+    features: [
+      '52 łamigłówki na trzech rozmiarach plansz: 4×4, 6×6 i 9×9',
+      'Zasady wyjaśnione na obrazkach, pierwsza plansza rozwiązywana razem z Kasią',
+      'Łagodny start przy każdej nowej planszy i podpowiedzi Kasi między zadaniami',
+      'Kolorowe wnętrze, odznaka Mistrza Sudoku i rozwiązania z numerem strony zadania',
+    ],
+    coverImage: '/covers/moje-pierwsze-sudoku.webp',
+    amazonUrl: 'https://www.amazon.pl/dp/8398390174',
+    featured: false,
+    formatInches: '5,71 × 8,07 cala',
+    pageCount: 72,
+    isbn: '978-83-983901-7-0',
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/moje-pierwsze-sudoku/${n}.webp`),
+    seo: {
+      title: 'Moje pierwsze sudoku – sudoku dla dzieci 5–8 lat',
+      description:
+        'Kolorowe sudoku dla dzieci 5–8 lat: 52 łamigłówki 4×4, 6×6 i 9×9 z kapibarą Kasią. Zasady na obrazkach, łagodny start, odznaka Mistrza Sudoku i rozwiązania.',
+      keywords: ['sudoku dla dzieci', 'sudoku dla dzieci 5 lat', 'sudoku 4x4', 'łamigłówki dla przedszkolaka', 'zagadki logiczne dla dzieci'],
+    },
+  },
+  {
     slug: 'zdobywca-szczytow',
     title: 'Zdobywca Szczytów',
     subtitle: '75 wykreślanek z nazwami szczytów odznak turystycznych Polski i okolic',

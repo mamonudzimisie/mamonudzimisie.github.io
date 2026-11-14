@@ -44,6 +44,23 @@ function localizedInches(formatInches: string, siteLang: SiteLang) {
   return `${num(w)} × ${num(h)} ${INCH_UNIT[siteLang]}`;
 }
 
+// Format w centymetrach liczony z cali (8,5 × 11" → 21,6 × 27,9 cm; 8,25" → 21 cm).
+function formatCm(formatInches: string, siteLang: SiteLang) {
+  const [w, h] = (formatInches.match(/\d+(?:[.,]\d+)?/g) ?? []).map((n) => Number(n.replace(',', '.')));
+  if (!w || !h) return '';
+  const cm = (inch: number) => {
+    const text = (Math.round(inch * 25.4) / 10).toFixed(1).replace(/\.0$/, '');
+    return siteLang === 'en' ? text : text.replace('.', ',');
+  };
+  return `${cm(w)} × ${cm(h)} cm`;
+}
+
+// Kieszonkowe formaty (145 × 205 mm) są bliżej A5 niż A4.
+function isSmallFormat(formatInches: string) {
+  const w = Number((formatInches.match(/\d+(?:[.,]\d+)?/) ?? ['0'])[0].replace(',', '.'));
+  return w > 0 && w < 7;
+}
+
 export default function BookDetail({ book, siteLang }: { book: Book; siteLang: SiteLang }) {
   const t = CATALOG_STRINGS[siteLang];
   const levelLinks = book.forWhom
@@ -169,11 +186,15 @@ export default function BookDetail({ book, siteLang }: { book: Book; siteLang: S
                 {t.detail.format}
               </dt>
               <dd className="mt-[6px] text-[18px] font-bold text-navy">
-                {book.hardcover ? '21 × 27,9 cm' : '21,6 × 27,9 cm'}
+                {formatCm(book.formatInches, siteLang)}
               </dd>
               <p className="mt-[5px] text-[12.5px] text-ink/[0.58]">
                 {localizedInches(book.formatInches, siteLang)} ·{' '}
-                {book.hardcover ? t.detail.formatNoteHardcover : t.detail.formatNote}
+                {isSmallFormat(book.formatInches)
+                  ? t.detail.formatNoteSmall
+                  : book.hardcover
+                    ? t.detail.formatNoteHardcover
+                    : t.detail.formatNote}
               </p>
             </div>
             <div className="px-5 py-[15px]">

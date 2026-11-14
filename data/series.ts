@@ -6,6 +6,7 @@ import type { SiteLang } from '@/lib/catalog-i18n';
 // drukiem” obejmuje wydania PL, DE i EN.
 export type BookSeries =
   | 'znajdz-slowko'
+  | 'klub-madrych-kapibar'
   | 'meine-ersten-wortsuchratsel'
   | 'wykreslanki-jezykowe'
   | 'wykreslanki-tematyczne'
@@ -22,6 +23,14 @@ export const SERIES: { id: BookSeries; text: Record<SiteLang, SeriesText> }[] = 
       pl: { name: 'Znajdź słówko!', description: 'Wykreślanki po polsku dla dzieci — pięć poziomów od 5 do 13 lat i wydanie świąteczne.' },
       de: { name: 'Znajdź słówko!', description: 'Polnische Suchrätsel für Kinder — fünf Stufen von 5 bis 13 Jahren.' },
       en: { name: 'Znajdź słówko!', description: 'Polish word searches for kids — five levels from age 5 to 13.' },
+    },
+  },
+  {
+    id: 'klub-madrych-kapibar',
+    text: {
+      pl: { name: 'Klub Mądrych Kapibar', description: 'Kolorowe łamigłówki dla dzieci z kapibarami w roli przewodników — na początek sudoku od 5 lat.' },
+      de: { name: 'Klub Mądrych Kapibar', description: 'Bunte polnische Rätselbücher für Kinder mit Capybaras als Begleitern — zum Start Sudoku ab 5 Jahren.' },
+      en: { name: 'Klub Mądrych Kapibar', description: 'Colourful Polish puzzle books for kids, guided by capybaras — starting with sudoku from age 5.' },
     },
   },
   {

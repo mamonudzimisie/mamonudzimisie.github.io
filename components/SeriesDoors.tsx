@@ -31,6 +31,13 @@ const DOORS: Record<SiteLang, Door[]> = {
       href: '/pl/sudoku-i-warianty',
     },
     {
+      // Na razie jedna książka w serii — drzwi prowadzą prosto do niej.
+      series: ['klub-madrych-kapibar'],
+      label: 'Sudoku dla dzieci',
+      description: 'Moje pierwsze sudoku — kolorowe plansze 4×4, 6×6 i 9×9 z kapibarą Kasią',
+      href: '/pl/books/moje-pierwsze-sudoku',
+    },
+    {
       series: ['wykreslanki-jezykowe'],
       label: 'Wykreślanki językowe',
       description: 'Angielski i niemiecki — słówka i zwroty utrwalane w zdaniach',
@@ -176,7 +183,7 @@ export default function SeriesDoors({ lang }: { lang: SiteLang }) {
     <>
       <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">{doors.slice(0, 2).map((door) => card(door, false))}</div>
       {rest.length > 0 && (
-        <div className={`mt-4 grid gap-4 sm:mt-6 sm:grid-cols-2 sm:gap-6 ${rest.length >= 3 ? 'lg:grid-cols-3' : ''}`}>
+        <div className={`mt-4 grid gap-4 sm:mt-6 sm:grid-cols-2 sm:gap-6 ${rest.length === 3 || rest.length >= 5 ? 'lg:grid-cols-3' : ''}`}>
           {rest.map((door) => card(door, true))}
         </div>
       )}

@@ -32,6 +32,7 @@ export type CatalogStrings = {
     format: string;
     formatNote: string;
     formatNoteHardcover: string;
+    formatNoteSmall: string;
     volume: string;
     pages: (count: number) => string;
     binding: string;
@@ -83,6 +84,7 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       format: 'Format',
       formatNote: 'zbliżony do A4',
       formatNoteHardcover: 'zbliżony do A4',
+      formatNoteSmall: 'zbliżony do A5',
       volume: 'Objętość',
       pages: (count) => `${count} stron`,
       binding: 'Miękka oprawa',
@@ -141,6 +143,7 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       format: 'Format',
       formatNote: 'ähnlich A4',
       formatNoteHardcover: 'ähnlich A4',
+      formatNoteSmall: 'ähnlich A5',
       volume: 'Umfang',
       pages: (count) => `${count} Seiten`,
       binding: 'Softcover',
@@ -199,6 +202,7 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       format: 'Format',
       formatNote: 'US Letter, close to A4',
       formatNoteHardcover: 'close to A4',
+      formatNoteSmall: 'close to A5',
       volume: 'Length',
       pages: (count) => `${count} pages`,
       binding: 'Paperback',
