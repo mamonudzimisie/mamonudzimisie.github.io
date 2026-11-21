@@ -1,6 +1,6 @@
 // Darmowe materiały do pobrania (dział /pl/materialy).
 // PDF-y leżą w /public/materialy/. Wykreślanki składa skrypt
-// ~/AmazonKDP/word-search/books/PL/_www/assemble.py, Killer Sudoku
+// ~/AmazonKDP/word-search/books/Znajdz_Slowko/_www/assemble.py, Killer Sudoku
 // ~/AmazonKDP/word-search/books/Sudoku/_www/assemble_free_killer.py (PL i EN),
 // Sudoku Jigsaw ~/AmazonKDP/word-search/books/Sudoku/_www/assemble_free_jigsaw.py (PL).
 //
@@ -22,7 +22,7 @@ export type DownloadGroup = 'sudoku' | 'kids';
 export type DownloadSet = {
   slug: string;
   title: string;
-  description: string; // jedno-dwa zdania: kafelek ma być niski
+  description: string; // jedna linijka: to, co wspólne dla działu, stoi w jego nagłówku (DownloadsGrid)
   group: DownloadGroup; // sekcja na stronie (nagłówki w components/DownloadsGrid.tsx)
   isNew?: boolean; // tylko najnowszy zestaw
   post?: { href: string; label: string }; // wpis na blogu z zasadami
@@ -34,9 +34,8 @@ export const downloadSets: DownloadSet[] = [
     slug: 'sudoku-jigsaw-do-druku',
     title: 'Sudoku Jigsaw do druku',
     description:
-      'Sudoku z nieregularnymi obszarami zamiast kwadratów 3×3. Zasady z rysunkiem, 6 zagadek i rozwiązania. Książka wkrótce.',
+      'Nieregularne obszary zamiast kwadratów 3×3. Książka wkrótce.',
     group: 'sudoku',
-    isNew: true,
     post: { href: '/pl/blog/sudoku-jigsaw-zasady', label: 'Zasady i sposoby na start' },
     variants: [
       {
@@ -51,7 +50,7 @@ export const downloadSets: DownloadSet[] = [
     slug: 'killer-sudoku-do-druku',
     title: 'Killer Sudoku do druku',
     description:
-      'Sudoku z sumami w klatkach. Zasady z rysunkiem, trzy techniki na start, 6 zagadek i rozwiązania.',
+      'Sumy w klatkach i trzy techniki na start.',
     group: 'sudoku',
     post: { href: '/pl/blog/czym-jest-killer-sudoku', label: 'Zasady i reguła 45' },
     variants: [
@@ -66,10 +65,36 @@ export const downloadSets: DownloadSet[] = [
     ],
   },
   {
+    slug: 'wykreslanki-boze-narodzenie',
+    title: 'Wykreślanki na Boże Narodzenie',
+    description:
+      'Choinka, zima za oknem, Święty Mikołaj, Wigilia i prezenty.',
+    group: 'kids',
+    isNew: true,
+    variants: [
+      {
+        level: '5–6 lat',
+        note: 'Po 6 krótkich słów, poziomo i pionowo',
+        pdf: '/materialy/wykreslanki-boze-narodzenie-5-6-lat.pdf',
+        pages: 8,
+        bookSlug: 'znajdz-slowko-poziom-latwy',
+        bookLabel: 'książka',
+      },
+      {
+        level: '6–7 lat',
+        note: 'Po 7 słów, jedno po skosie',
+        pdf: '/materialy/wykreslanki-boze-narodzenie-6-7-lat.pdf',
+        pages: 8,
+        bookSlug: 'znajdz-slowko-poziom-latwy-6-7',
+        bookLabel: 'książka',
+      },
+    ],
+  },
+  {
     slug: 'wykreslanki-halloween',
     title: 'Wykreślanki na Halloween',
     description:
-      '5 plansz bez straszenia: dyniowy wieczór, nocne zwierzęta, przebrania, słodycze i zamek. Z rozwiązaniami.',
+      'Bez straszenia: dyniowy wieczór, nocne zwierzęta, przebrania, słodycze i zamek.',
     group: 'kids',
     variants: [
       {
@@ -94,7 +119,7 @@ export const downloadSets: DownloadSet[] = [
     slug: 'wykreslanki-jesien',
     title: 'Wykreślanki na jesień',
     description:
-      '5 jesiennych plansz: park, las, grzyby, deszcz, zapasy na zimę i ciepłe ubrania. Z rozwiązaniami.',
+      'Park, las, grzyby, deszcz, zapasy na zimę i ciepłe ubrania.',
     group: 'kids',
     variants: [
       {

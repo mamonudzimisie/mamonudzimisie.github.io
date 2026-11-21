@@ -5,7 +5,7 @@ import DownloadsGrid from '@/components/DownloadsGrid';
 
 const TITLE = 'Sudoku Jigsaw, Killer Sudoku i wykreślanki do druku – materiały do pobrania';
 const DESCRIPTION =
-  'Darmowe łamigłówki do wydrukowania: Sudoku Jigsaw i Killer Sudoku dla dorosłych z poradnikiem oraz wykreślanki dla dzieci 5–7 lat (jesień, Halloween). PDF z rozwiązaniami – do domu, szkoły i klubu.';
+  'Darmowe łamigłówki do wydrukowania: Sudoku Jigsaw i Killer Sudoku dla dorosłych z poradnikiem oraz wykreślanki dla dzieci 5–7 lat (Boże Narodzenie, Halloween, jesień). PDF z rozwiązaniami – do domu, szkoły i klubu.';
 
 export const metadata: Metadata = {
   title: TITLE,
