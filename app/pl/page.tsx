@@ -4,13 +4,12 @@ import { getBookBySlug, getFeaturedBooks } from '@/data/books';
 import { SITE_URL } from '@/lib/site';
 
 // Kolejność w wachlarzu: pierwsza z przodu, druga po prawej, ostatnia po lewej.
+// Trzy tomy jednej serii (Sudoku dużym drukiem): trzy różne książki obok siebie
+// dawały misz-masz (Kate, 2026-11-21). Od lewej widać 100, 101, 102.
 const HERO_SLUGS = [
-  'znajdz-slowko-poziom-latwy',
-  'sudoku-300-zagadek-200',
-  'znajdz-slowko-poziom-latwy-6-7',
-  'znajdz-slowko-poziom-sredni-7-9',
-  'znajdz-slowko-poziom-trudny-10',
-  'zdobywca-szczytow',
+  'sudoku-duzym-drukiem-101',
+  'sudoku-duzym-drukiem-102',
+  'sudoku-duzym-drukiem-100',
 ];
 
 export const metadata: Metadata = {

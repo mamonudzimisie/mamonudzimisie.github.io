@@ -4,13 +4,12 @@ import { getBookBySlug, getFeaturedBooks } from '@/data/books';
 import { SITE_URL } from '@/lib/site';
 
 // Kolejność w wachlarzu: pierwsza z przodu, druga po prawej, ostatnia po lewej.
-// Zaczynamy od tytułów niemieckich, dalej reszta oferty — karty i strony
-// książek i tak oznaczają język treści.
+// Jedna półka „Rätsel in Großdruck” zamiast mieszanki z książkami dla dzieci
+// (Kate, 2026-11-21). Po niemiecku wyszły tylko dwa tomy Sudoku Großdruck (100, 103),
+// trzecia jest Weihnachts-Wortsuchrätsel, też Großdruck. Od lewej: 100, 103, Weihnachts.
 const HERO_SLUGS = [
-  // Same niemieckie wydania — polskie okładki w niemieckim hero myliły.
-  'meine-ersten-wortsuchratsel-stufe-1',
   'sudoku-grossdruck-103',
-  'meine-ersten-wortsuchratsel-stufe-2',
+  'weihnachts-wortsuchratsel',
   'sudoku-grossdruck-100',
 ];
 

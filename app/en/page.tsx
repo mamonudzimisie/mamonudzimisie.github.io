@@ -14,17 +14,13 @@ export const metadata: Metadata = {
   },
 };
 
-// Angielskie tytuły (Large Print Sudoku 100–102, 300 Sudoku Puzzles 200)
-// zajmują widoczne miejsca wachlarza, resztę uzupełnia przekrój polskich i niemieckich (karty
-// mają znacznik języka, strona książki — adnotację).
 // Kolejność w wachlarzu: pierwsza z przodu, druga po prawej, ostatnia po lewej.
+// Trzy tomy jednej serii (Large Print Sudoku): mieszanka serii i języków dawała
+// misz-masz (Kate, 2026-11-21). Od lewej widać 100, 101, 102.
 const HERO_SLUGS = [
-  'large-print-sudoku-100',
   'large-print-sudoku-101',
-  'sudoku-300-puzzles-200',
-  'meine-ersten-wortsuchratsel-stufe-1',
-  'znajdz-slowko-poziom-latwy',
   'large-print-sudoku-102',
+  'large-print-sudoku-100',
 ];
 
 // Układ i teksty strony głównej: components/HomePage.tsx (wspólne dla PL/DE/EN).
