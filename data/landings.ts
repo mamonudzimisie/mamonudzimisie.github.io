@@ -285,7 +285,7 @@ export const landings: Landing[] = [
       'Tu zebraliśmy nasze książki z klasycznym sudoku i jego wariantami. Każda zagadka ma dokładnie jedno rozwiązanie, a rozwiązania są na końcu książki.',
     ],
     booksHeading: 'Nasze książki',
-    bookSlugs: ['sudoku-300-zagadek-200', 'killer-sudoku-400'],
+    bookSlugs: ['sudoku-300-zagadek-200', 'sudoku-mini-600', 'killer-sudoku-400'],
     sections: [
       {
         heading: 'Czym różnią się te łamigłówki?',
@@ -298,6 +298,7 @@ export const landings: Landing[] = [
         heading: 'Od czego zacząć?',
         bullets: [
           'Sudoku – 300 zagadek: jeśli chcesz klasyki na długo. Cztery poziomy, od łatwego po bardzo trudny, i wstęp z metodami od podstaw po X-Wing, Swordfish i XY-Wing.',
+          'Sudoku mini – 120 łatwych zagadek: jeśli chcesz mieć sudoku zawsze przy sobie. Poręczny format 145 × 205 mm, jedna duża plansza na stronę i krótki wstęp z dwiema prostymi metodami.',
           'Killer Sudoku – 150 łatwych zagadek: jeśli znasz sudoku i chcesz spróbować czegoś nowego. Zagadki mają cyfry startowe, a poradnik na początku objaśnia zasady, trzy podstawowe techniki i regułę 45.',
         ],
       },

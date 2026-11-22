@@ -546,6 +546,38 @@ export const books: Book[] = [
     },
   },
   {
+    slug: 'sudoku-mini-600',
+    title: 'Sudoku mini',
+    cardTitle: 'Sudoku mini – kieszonkowe',
+    subtitle: '120 łatwych zagadek w poręcznym formacie',
+    ageRange: 'Dorośli',
+    category: 'sudoku',
+    series: 'lamiglowki-logiczne',
+    audience: 'dorosli',
+    lang: 'pl',
+    description:
+      'Sudoku, które zmieści się w kieszeni. 120 łatwych zagadek w poręcznym formacie, każda na osobnej stronie, z dużą, wyraźną planszą – w sam raz do pociągu, poczekalni albo na kanapę. Zagadki rosną od najłatwiejszej do najtrudniejszej, a krótki wstęp pokazuje dwie proste metody. Każda zagadka ma jedno rozwiązanie i da się ją rozwiązać samą logiką.',
+    features: [
+      '120 łatwych sudoku, od najłatwiejszej do najtrudniejszej',
+      'Jedna duża plansza na stronę, pola na czas i datę',
+      'Poręczny format 145 × 205 mm',
+      'Komplet rozwiązań na końcu książki',
+    ],
+    coverImage: '/covers/sudoku-mini-600.webp',
+    amazonUrl: 'https://www.amazon.pl/dp/8398390182',
+    featured: false,
+    formatInches: '5,71 × 8,07 cala',
+    pageCount: 146,
+    isbn: '978-83-983901-8-7',
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/sudoku-mini-600/${n}.webp`),
+    seo: {
+      title: 'Sudoku mini – 120 łatwych zagadek w kieszonkowym formacie',
+      description:
+        '120 łatwych sudoku w poręcznym formacie 145 × 205 mm. Jedna duża plansza na stronę, dwie metody na start i komplet rozwiązań. Sudoku do pociągu i poczekalni.',
+      keywords: ['sudoku kieszonkowe', 'sudoku mini', 'sudoku łatwe', 'sudoku dla początkujących', 'sudoku w podróży'],
+    },
+  },
+  {
     slug: 'meine-ersten-wortsuchratsel-stufe-1',
     title: 'Meine ersten Wortsuchrätsel',
     cardTitle: 'Meine ersten Wortsuchrätsel – Stufe 1',
