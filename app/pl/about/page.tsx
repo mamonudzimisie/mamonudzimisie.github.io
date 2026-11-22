@@ -16,9 +16,10 @@ export const metadata: Metadata = {
 const TILTS = ['-rotate-2', 'rotate-1', '-rotate-1', 'rotate-2', 'rotate-0', '-rotate-1'];
 
 export default function ONasPage() {
-  // Wszystkie wydane książki we wszystkich językach, każda okładka raz.
-  const published = books.filter((b) => !b.comingSoon);
-  const covers = Array.from(new Set(published.map((b) => b.coverImage)));
+  // Tylko polskie wydania (strona „O nas” jest po polsku), najwyżej dwa rzędy po 8.
+  // Przy ponad 16 książkach trzeba wybrać, które pokazać (np. najnowsze).
+  const published = books.filter((b) => !b.comingSoon && b.lang === 'pl');
+  const covers = Array.from(new Set(published.map((b) => b.coverImage))).slice(0, 16);
   return (
     <section className="px-4 py-16 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-6xl">
@@ -31,7 +32,7 @@ export default function ONasPage() {
               src={src.replace('/covers/', '/covers/thumbs/')}
               alt=""
               loading="lazy"
-              className={`tilt-smooth aspect-[17/22] w-[calc((100%_-_2.25rem)/4)] sm:w-[calc((100%_-_7.5rem)/7)] rounded-[1px_3px_3px_1px] object-cover shadow-[0_1px_2px_rgba(31,42,72,0.12),0_10px_18px_-8px_rgba(31,42,72,0.3)] ${TILTS[i % TILTS.length]}`}
+              className={`tilt-smooth aspect-[17/22] w-[calc((100%_-_2.25rem)/4)] sm:w-[calc((100%_-_8.75rem)/8)] rounded-[1px_3px_3px_1px] object-cover shadow-[0_1px_2px_rgba(31,42,72,0.12),0_10px_18px_-8px_rgba(31,42,72,0.3)] ${TILTS[i % TILTS.length]}`}
             />
           ))}
         </div>
