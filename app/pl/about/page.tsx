@@ -16,14 +16,14 @@ export const metadata: Metadata = {
 const TILTS = ['-rotate-2', 'rotate-1', '-rotate-1', 'rotate-2', 'rotate-0', '-rotate-1'];
 
 export default function ONasPage() {
-  // Tylko polskie wydania (strona „O nas” jest po polsku). 14 okładek = 2 rzędy po 7;
-  // na telefonie (4 kolumny) dwie ostatnie są ukryte, żeby nie zostawić niepełnego rzędu.
-  const published = books.filter((b) => !b.comingSoon && b.lang === 'pl');
-  const covers = Array.from(new Set(published.map((b) => b.coverImage))).slice(0, 14);
+  // Wszystkie wydane książki we wszystkich językach, każda okładka raz.
+  const published = books.filter((b) => !b.comingSoon);
+  const covers = Array.from(new Set(published.map((b) => b.coverImage)));
   return (
     <section className="px-4 py-16 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-6xl">
-        <div className="grid grid-cols-4 gap-3 sm:grid-cols-7 sm:gap-5" aria-hidden="true">
+        {/* flex, nie grid: niepełny ostatni rząd stoi pośrodku */}
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-5" aria-hidden="true">
           {covers.map((src, i) => (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -31,7 +31,7 @@ export default function ONasPage() {
               src={src.replace('/covers/', '/covers/thumbs/')}
               alt=""
               loading="lazy"
-              className={`${i >= 12 ? 'hidden sm:block ' : ''}tilt-smooth aspect-[17/22] w-full rounded-[1px_3px_3px_1px] object-cover shadow-[0_1px_2px_rgba(31,42,72,0.12),0_10px_18px_-8px_rgba(31,42,72,0.3)] ${TILTS[i % TILTS.length]}`}
+              className={`tilt-smooth aspect-[17/22] w-[calc((100%_-_2.25rem)/4)] sm:w-[calc((100%_-_7.5rem)/7)] rounded-[1px_3px_3px_1px] object-cover shadow-[0_1px_2px_rgba(31,42,72,0.12),0_10px_18px_-8px_rgba(31,42,72,0.3)] ${TILTS[i % TILTS.length]}`}
             />
           ))}
         </div>
