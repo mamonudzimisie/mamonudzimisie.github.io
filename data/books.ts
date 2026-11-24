@@ -360,6 +360,37 @@ export const books: Book[] = [
     },
   },
   {
+    slug: 'wielki-polow',
+    title: 'Wielki połów',
+    subtitle: '50 wykreślanek dla wędkarza',
+    ageRange: 'Dorośli',
+    category: 'wykreslanki',
+    series: 'wykreslanki-tematyczne',
+    audience: 'dorosli',
+    lang: 'pl',
+    description:
+      'Dla każdego, kto ma więcej sprzętu niż talentu. Ta książka tego nie zmieni, ale ryb też nie spłoszy! To 50 wykreślanek o wszystkim, co wędkarz kocha: rybach, sprzęcie i łowiskach. W każdej planszy czeka 16 słów, a między planszami 38 ciekawostek „Czy wiesz, że…” o rybach i historii wędkarstwa. Na końcu rozwiązania i dyplom Mistrza Wielkiego Połowu. Prezent dla taty, dziadka i kolegi znad wody.',
+    features: [
+      '50 wykreślanek 15 × 15, 800 słów do znalezienia',
+      '38 ciekawostek „Czy wiesz, że…”',
+      'Duże kratki i lista słów z polem do odhaczenia',
+      'Rozwiązania i dyplom Mistrza Wielkiego Połowu',
+    ],
+    coverImage: '/covers/wielki-polow.webp',
+    amazonUrl: 'https://www.amazon.pl/dp/8398452412',
+    featured: false,
+    formatInches: '5,71 × 8,07 cala',
+    pageCount: 104,
+    isbn: '978-83-984524-1-0',
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/wielki-polow/${n}.webp`),
+    seo: {
+      title: 'Wielki połów – 50 wykreślanek dla wędkarza, prezent dla wędkarza',
+      description:
+        '50 wykreślanek o rybach, sprzęcie i łowiskach, 800 słów, 38 ciekawostek i dyplom Mistrza Wielkiego Połowu. Prezent dla wędkarza na Mikołajki i pod choinkę.',
+      keywords: ['prezent dla wędkarza', 'wykreślanki dla wędkarza', 'krzyżówki dla wędkarza', 'łamigłówki dla dorosłych', 'prezent dla taty'],
+    },
+  },
+  {
     slug: 'weihnachts-wortsuchratsel',
     title: 'Weihnachts-Wortsuchrätsel',
     subtitle: '80 Rätsel im Großdruck, mit Lösungen',
