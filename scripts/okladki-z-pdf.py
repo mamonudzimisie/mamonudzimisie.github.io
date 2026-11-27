@@ -36,6 +36,7 @@ COVERS = {
     'znajdz-slowko-swieta': ('Wykreslanki_Tematyczne/Boze_Narodzenie', LETTER),
     'moje-pierwsze-sudoku': ('Klub_Madrych_Kapibar/PL/MojePierwszeSudoku/Poziom1/pl', MINI),
     'sudoku-mini-600': ('Sudoku/600-Mini-Latwy/pl', MINI),
+    'hiszpanski-w-wykreslankach-a1-a2': ('Nauka_Jezykow/Hiszpanski/Hiszpanski_Wykreslanki', MINI),
     'nonogramy-zakodowane-obrazki-1': ('Nonogramy/1-Latwe/pl', MINI),
     'wielki-polow': ('Wykreslanki_Tematyczne/Wedkarz', MINI),
     'sudoku-grossdruck-103': ('Sudoku/103-DuzyDruk-Prezent/de', 'twarda'),

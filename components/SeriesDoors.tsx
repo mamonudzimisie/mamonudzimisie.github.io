@@ -35,7 +35,7 @@ const DOORS: Record<SiteLang, Door[]> = {
     {
       series: ['wykreslanki-jezykowe'],
       label: 'Nauka języków obcych',
-      description: 'Angielski i niemiecki — słówka i zwroty utrwalane w zdaniach',
+      description: 'Hiszpański, angielski i niemiecki — słówka i zwroty w wykreślankach',
       href: '/pl/wykreslanki-jezykowe',
     },
     {

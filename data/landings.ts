@@ -435,21 +435,22 @@ export const landings: Landing[] = [
   {
     lang: 'pl',
     slug: 'wykreslanki-jezykowe',
-    seoTitle: 'Wykreślanki językowe – angielski i niemiecki w ćwiczeniach',
+    seoTitle: 'Wykreślanki językowe – angielski, niemiecki i hiszpański w ćwiczeniach',
     seoDescription:
-      'Wykreślanki do nauki języków: 184 angielskie czasowniki nieregularne w 40 wykreślankach i niemieckie słownictwo biznesowe C1–C2 w 576 zdaniach z lukami.',
-    eyebrow: 'Znajdź, zakreśl, zapamiętaj',
-    h1: 'Wykreślanki językowe: angielski i niemiecki',
+      'Wykreślanki do nauki języków: hiszpańskie słówka A1–A2 z tłumaczeniem, 184 angielskie czasowniki nieregularne i niemieckie słownictwo biznesowe C1–C2.',
+    eyebrow: 'Nauka języków obcych',
+    h1: 'Wykreślanki językowe: angielski, niemiecki i hiszpański',
     intro: [
-      'Słówko, które trzeba najpierw sobie przypomnieć, a potem wypatrzyć w planszy litera po literze, zostaje w głowie na dłużej niż to przeczytane na liście. Na tym opiera się nasza seria Znajdź, zakreśl, zapamiętaj.',
-      'Każda rozkładówka to plansza po lewej i zadania po prawej: uzupełniasz lukę w zdaniu, a potem szukasz brakującego słowa w planszy. Jeśli je znajdziesz, odpowiedź jest dobra.',
+      'Słówko, które trzeba najpierw sobie przypomnieć, a potem wypatrzyć w planszy litera po literze, zostaje w głowie na dłużej niż to przeczytane na liście. Na tym opierają się wszystkie nasze książki do nauki języków.',
+      'Hiszpański w wykreślankach to same wykreślanki ze słówkami i polskim tłumaczeniem pod planszą — na start. W książkach z serii Znajdź, zakreśl, zapamiętaj każda rozkładówka to plansza po lewej i zadania po prawej: uzupełniasz lukę w zdaniu, a potem szukasz brakującego słowa w planszy. Jeśli je znajdziesz, odpowiedź jest dobra.',
     ],
     booksHeading: 'Nasze książki',
-    bookSlugs: ['znajdz-zakresl-zapamietaj-angielski-czasowniki', 'znajdz-zakresl-zapamietaj-niemiecki-biznesowy'],
+    bookSlugs: ['hiszpanski-w-wykreslankach-a1-a2', 'znajdz-zakresl-zapamietaj-angielski-czasowniki', 'znajdz-zakresl-zapamietaj-niemiecki-biznesowy'],
     sections: [
       {
         heading: 'Którą wybrać?',
         bullets: [
+          'Hiszpański w wykreślankach: dla początkujących (A1–A2) i dla tych, którzy chcą odświeżyć hiszpański sprzed lat. 70 wykreślanek, 1120 słów z polskim tłumaczeniem pod planszą, rzeczowniki z rodzajnikiem, hiszpański z Hiszpanii. Poręczny format na wakacje.',
           'Angielski – czasowniki nieregularne: dla młodzieży i dorosłych. 184 czasowniki (120 podstawowych i 64 zaawansowane) w 40 wykreślankach, 5 poziomów od wyszukiwania form do zdań z lukami w Past Simple i Present Perfect.',
           'Niemiecki – słownictwo biznesowe: dla osób na poziomie C1–C2. 32 wykreślanki i 576 zdań z lukami w pięciu częściach: słownictwo specjalistyczne, Funktionsverbgefüge, korespondencja, umowy i negocjacje, idiomy i fałszywi przyjaciele.',
         ],
@@ -459,11 +460,11 @@ export const landings: Landing[] = [
     faq: [
       {
         q: 'Czy w książkach są rozwiązania?',
-        a: 'Tak, obie książki mają rozwiązania wszystkich wykreślanek.',
+        a: 'Tak, każda książka ma rozwiązania wszystkich wykreślanek.',
       },
       {
         q: 'Jak sprawdzić, czy umiem już materiał?',
-        a: 'W każdej książce są dwa testy „Sprawdź się!”. W książce z angielskim jest też tabela wszystkich form czasowników, a w książce z niemieckim słowniczek Funktionsverbgefüge.',
+        a: 'W książkach z angielskim i niemieckim są dwa testy „Sprawdź się!”. W książce z angielskim jest też tabela wszystkich form czasowników, a w książce z niemieckim słowniczek Funktionsverbgefüge.',
       },
       {
         q: 'Ile czasowników jest w książce z angielskim?',

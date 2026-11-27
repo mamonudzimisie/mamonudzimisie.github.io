@@ -77,7 +77,7 @@ export const SERIES: { id: BookSeries; text: Record<SiteLang, SeriesText> }[] = 
   {
     id: 'wykreslanki-jezykowe',
     text: {
-      pl: { name: 'Znajdź, zakreśl, zapamiętaj', description: 'Wykreślanki językowe: słówka i zwroty z angielskiego i niemieckiego, utrwalane przez zabawę.' },
+      pl: { name: 'Nauka języków obcych', description: 'Wykreślanki językowe: słówka i zwroty z hiszpańskiego, angielskiego i niemieckiego, utrwalane przez zabawę.' },
       de: { name: 'Znajdź, zakreśl, zapamiętaj', description: 'Sprach-Suchrätsel für Polnischsprachige: englische und deutsche Vokabeln spielerisch lernen.' },
       en: { name: 'Znajdź, zakreśl, zapamiętaj', description: 'Language word searches for Polish speakers: English and German vocabulary through play.' },
     },

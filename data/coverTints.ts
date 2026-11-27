@@ -1,6 +1,7 @@
 // Wygenerowane przez scripts/cover-tints.py — nie edytuj ręcznie.
 // Jasne tło pod okładką na stronie książki, w odcieniu jej głównego koloru.
 export const COVER_TINTS: Record<string, string> = {
+  '/covers/hiszpanski-w-wykreslankach-a1-a2.webp': '#F5EFE2',
   '/covers/kakuro-puzzle-book-for-beginners.webp': '#F2EEE6',
   '/covers/killer-sudoku-400-en.webp': '#E8EAF0',
   '/covers/killer-sudoku-400.webp': '#E8EAF0',
