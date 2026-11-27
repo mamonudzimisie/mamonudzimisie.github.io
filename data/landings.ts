@@ -21,6 +21,9 @@ export type Landing = {
   intro: string[];
   booksHeading: string;
   bookSlugs: string[]; // w kolejności od najłatwiejszej
+  // Zamiast jednej siatki: książki w grupach (np. po seriach) — każda grupa ma
+  // nagłówek, krótki opis i opcjonalny link do strony serii. Wtedy bookSlugs = [].
+  bookGroups?: { heading: string; description?: string; href?: string; linkLabel?: string; bookSlugs: string[] }[];
   sections: LandingSection[];
   faqHeading: string;
   faq: { q: string; a: string }[];
@@ -270,6 +273,107 @@ export const landings: Landing[] = [
     links: [
       { href: '/en/free-printables', label: 'Free printable large print sudoku' },
       { href: '/en/blog/large-print-sudoku-for-every-level', label: 'Large Print Sudoku – big, clear puzzles at the right level for you' },
+    ],
+  },
+  {
+    lang: 'pl',
+    slug: 'wykreslanki-tematyczne',
+    seoTitle: 'Wykreślanki tematyczne dla dorosłych – góry, wędkowanie, prezent dla pasjonata',
+    seoDescription:
+      'Wykreślanki dla dorosłych wokół jednej pasji: Zdobywca Szczytów z nazwami szczytów górskich odznak i Wielki połów dla wędkarza. Pomysł na prezent dla pasjonata.',
+    eyebrow: 'Wykreślanki tematyczne',
+    h1: 'Wykreślanki tematyczne dla dorosłych',
+    intro: [
+      'W zwykłej wykreślance słowa są przypadkowe. W naszych tematycznych każda plansza kręci się wokół jednej pasji, więc szukając słów, wraca się myślami do ulubionych szlaków albo łowisk.',
+      'To dobry prezent dla kogoś, kogo trudno czymś zaskoczyć: dla miłośnika gór, który zbiera odznaki, albo dla wędkarza, który ma już cały sprzęt. Rozwiązania są na końcu każdej książki.',
+    ],
+    booksHeading: 'Nasze książki',
+    bookSlugs: ['zdobywca-szczytow', 'wielki-polow'],
+    sections: [
+      {
+        heading: 'Którą wybrać?',
+        bullets: [
+          'Zdobywca Szczytów: 75 wykreślanek z nazwami szczytów polskich odznak turystycznych, od Korony Gór Polski po Koronę Gór Stołowych. Dla miłośników gór i zdobywców odznak.',
+          'Wielki połów: 50 wykreślanek o rybach, sprzęcie i łowiskach, ciekawostki „Czy wiesz, że…” między planszami i dyplom Mistrza Wielkiego Połowu na końcu. Prezent dla taty, dziadka i kolegi znad wody.',
+        ],
+      },
+    ],
+    faqHeading: 'Najczęstsze pytania',
+    faq: [
+      {
+        q: 'Czy to wykreślanki dla dzieci?',
+        a: 'Nie, to książki dla dorosłych: słowa są tematyczne i dłuższe niż w wykreślankach dla dzieci. Dla dzieci mamy serię Znajdź słówko!.',
+      },
+      {
+        q: 'Gdzie kupić te książki?',
+        a: 'Obie są dostępne na Amazon.pl — linki są przy każdej książce powyżej.',
+      },
+    ],
+    linksHeading: 'Przeczytaj też',
+    links: [
+      { href: '/pl/blog/zdobywca-szczytow-wykreslanki-o-gorach', label: 'Jak zdobyć Koronę Gór Polski w kapciach? Poznaj „Zdobywcę Szczytów”' },
+      { href: '/pl/blog/wielki-polow-prezent-dla-wedkarza', label: 'Prezent dla wędkarza, który ma już wszystko? Poznaj „Wielki połów”' },
+      { href: '/pl/blog/lamiglowki-na-prezent-mikolajki-swieta', label: 'Łamigłówki na prezent: co dla kogo w rodzinie' },
+    ],
+  },
+  {
+    lang: 'pl',
+    slug: 'sudoku',
+    seoTitle: 'Sudoku – książki z łamigłówkami dużym drukiem, kieszonkowe i Killer',
+    seoDescription:
+      'Wszystkie nasze książki z sudoku w jednym miejscu: Sudoku dużym drukiem dla seniorów, klasyczne sudoku w czterech poziomach, Sudoku mini do kieszeni i Killer Sudoku.',
+    eyebrow: 'Sudoku',
+    h1: 'Książki z sudoku',
+    intro: [
+      'Sudoku wydajemy w dwóch seriach. Sudoku dużym drukiem to dwie duże plansze na stronę i cyfry, które czyta się bez lupy — dla seniorów, osób ze słabszym wzrokiem i na prezent. Sudoku i warianty to klasyka w zwykłym druku, poręczne sudoku mini i Killer Sudoku z sumami w klatkach.',
+      'W obu seriach każda zagadka ma dokładnie jedno rozwiązanie, do którego dochodzi się samą logiką, a rozwiązania są na końcu książki.',
+    ],
+    booksHeading: 'Nasze serie',
+    bookSlugs: [],
+    bookGroups: [
+      {
+        heading: 'Sudoku dużym drukiem',
+        description: 'Dwie zagadki na stronę, plansza szerokości około 11 cm. Trzy tomy, od rozgrzewki po bardzo trudne.',
+        href: '/pl/sudoku-dla-seniorow',
+        linkLabel: 'Jak wybrać tom',
+        bookSlugs: ['sudoku-duzym-drukiem-102', 'sudoku-duzym-drukiem-100', 'sudoku-duzym-drukiem-101'],
+      },
+      {
+        heading: 'Sudoku i warianty',
+        description: 'Klasyczne sudoku w czterech poziomach, sudoku mini w poręcznym formacie i Killer Sudoku dla początkujących.',
+        href: '/pl/sudoku-i-warianty',
+        linkLabel: 'Czym różnią się warianty',
+        bookSlugs: ['sudoku-300-zagadek-200', 'sudoku-mini-600', 'killer-sudoku-400'],
+      },
+    ],
+    sections: [
+      {
+        heading: 'Którą serię wybrać?',
+        bullets: [
+          'Sudoku dużym drukiem: gdy liczy się wygoda czytania — dla seniorów, przy słabszym wzroku albo na prezent dla babci i dziadka.',
+          'Sudoku i warianty: gdy chcesz więcej zagadek w jednej książce, sudoku do torebki albo coś nowego po klasyce, jak Killer Sudoku.',
+        ],
+      },
+    ],
+    faqHeading: 'Najczęstsze pytania',
+    faq: [
+      {
+        q: 'Od którego tomu zacząć, jeśli nigdy nie rozwiązywałem sudoku?',
+        a: 'Od Sudoku dużym drukiem nr 102 (rozgrzewka i łatwy) albo Sudoku mini — obie książki mają wstęp krok po kroku z prostymi metodami.',
+      },
+      {
+        q: 'Czy zagadki da się rozwiązać bez zgadywania?',
+        a: 'Tak, każda zagadka ma dokładnie jedno rozwiązanie, do którego dochodzi się samą logiką.',
+      },
+      {
+        q: 'Gdzie kupić te książki?',
+        a: 'Wszystkie są dostępne na Amazon.pl — linki są przy każdej książce powyżej.',
+      },
+    ],
+    linksHeading: 'Zobacz też',
+    links: [
+      { href: '/pl/books/moje-pierwsze-sudoku', label: 'Moje pierwsze sudoku – sudoku dla dzieci od 5 lat' },
+      { href: '/pl/blog/lamiglowki-na-prezent-mikolajki-swieta', label: 'Łamigłówki na prezent: co dla kogo w rodzinie' },
     ],
   },
   {

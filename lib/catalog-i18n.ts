@@ -121,6 +121,7 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       kolorowanki: 'Malbücher',
       'laczenie-kropek': 'Punkte verbinden',
       'nauka-jezykow': 'Sprachen lernen',
+      'obrazki-logiczne': 'Nonogramme',
       inne: 'Sonstige',
     },
     langNames: {
@@ -180,6 +181,7 @@ export const CATALOG_STRINGS: Record<SiteLang, CatalogStrings> = {
       kolorowanki: 'Colouring books',
       'laczenie-kropek': 'Dot to dot',
       'nauka-jezykow': 'Language learning',
+      'obrazki-logiczne': 'Nonograms',
       inne: 'Other',
     },
     langNames: {

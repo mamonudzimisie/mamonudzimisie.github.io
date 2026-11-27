@@ -7,6 +7,7 @@ export type BookCategory =
   | 'kolorowanki'
   | 'laczenie-kropek'
   | 'nauka-jezykow'
+  | 'obrazki-logiczne'
   | 'inne';
 
 export type BookAudience = 'dzieci' | 'dorosli' | 'duzy-druk';
@@ -71,6 +72,7 @@ export const CATEGORY_LABELS: Record<BookCategory, string> = {
   kolorowanki: 'Kolorowanki',
   'laczenie-kropek': 'Łączenie kropek',
   'nauka-jezykow': 'Nauka języków',
+  'obrazki-logiczne': 'Obrazki logiczne',
   inne: 'Inne',
 };
 
@@ -606,6 +608,40 @@ export const books: Book[] = [
       description:
         '120 łatwych sudoku w poręcznym formacie 145 × 205 mm. Jedna duża plansza na stronę, dwie metody na start i komplet rozwiązań. Sudoku do pociągu i poczekalni.',
       keywords: ['sudoku kieszonkowe', 'sudoku mini', 'sudoku łatwe', 'sudoku dla początkujących', 'sudoku w podróży'],
+    },
+  },
+  {
+    slug: 'nonogramy-zakodowane-obrazki-1',
+    title: 'Nonogramy. Zakodowane obrazki',
+    cardTitle: 'Nonogramy. Zakodowane obrazki – tom 1',
+    subtitle: '100 zagadek logicznych na dobry początek',
+    detailSubtitle: 'Tom 1 · Łatwe · 100 obrazków logicznych na dobry początek, z rozwiązaniami',
+    ageRange: 'Dorośli',
+    category: 'obrazki-logiczne',
+    series: 'nonogramy',
+    audience: 'dorosli',
+    lang: 'pl',
+    description:
+      'W tych liczbach ukryto 100 obrazków. Nonogram, zwany też obrazkiem logicznym, to łamigłówka, w której liczby przy wierszach i kolumnach mówią, które kratki zamalować. Kratka po kratce z pustej siatki wyłania się rysunek: kot, rakieta, zamek, rekin. Wszystkie zagadki są łatwe, więc poradzi sobie z nimi także ktoś, kto nigdy wcześniej nie rozwiązywał nonogramów, a wprawionym dadzą przyjemny relaks na wieczór, podróż albo przerwę przy kawie.',
+    features: [
+      '100 obrazków logicznych na poziomie łatwym',
+      'Trzy rozmiary siatek: 10×10, 15×15 i 20×20',
+      'Jedna zagadka na stronę, pola na czas i datę',
+      'Zasady, pierwsze sposoby i przykład krok po kroku',
+      'Rozwiązania na końcu, każde podpisane nazwą obrazka',
+    ],
+    coverImage: '/covers/nonogramy-zakodowane-obrazki-1.webp',
+    amazonUrl: 'https://www.amazon.pl/dp/8398390190',
+    featured: false,
+    formatInches: '5,71 × 8,07 cala',
+    pageCount: 124,
+    isbn: '978-83-983901-9-4',
+    samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/nonogramy-zakodowane-obrazki-1/${n}.webp`),
+    seo: {
+      title: 'Nonogramy. Zakodowane obrazki – 100 łatwych obrazków logicznych',
+      description:
+        '100 łatwych nonogramów (obrazków logicznych) w poręcznym formacie 145 × 205 mm: siatki 10×10, 15×15 i 20×20, zasady, przykład krok po kroku i rozwiązania.',
+      keywords: ['nonogramy', 'obrazki logiczne', 'nonogramy dla początkujących', 'łamigłówki logiczne', 'japońskie łamigłówki'],
     },
   },
   {

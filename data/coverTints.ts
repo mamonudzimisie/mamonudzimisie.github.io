@@ -11,6 +11,7 @@ export const COVER_TINTS: Record<string, string> = {
   '/covers/meine-ersten-wortsuchratsel-stufe-1.webp': '#F5EEE2',
   '/covers/meine-ersten-wortsuchratsel-stufe-2.webp': '#F5EDE2',
   '/covers/moje-pierwsze-sudoku.webp': '#F5EFE2',
+  '/covers/nonogramy-zakodowane-obrazki-1.webp': '#ECF3E5',
   '/covers/spanish-word-search-beginner.webp': '#ECE6F2',
   '/covers/spanish-word-search-intermediate.webp': '#E2EEF5',
   '/covers/spanish-word-search-verbs.webp': '#F5F0E2',

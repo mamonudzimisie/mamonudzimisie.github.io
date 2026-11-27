@@ -30,9 +30,9 @@ export function landingMetadata(landing: Landing): Metadata {
 // Strona docelowa pod frazę: wstęp, książki (karty jak w katalogu), „jak
 // wybrać”, FAQ i linki do wpisów. Treść w data/landings.ts.
 export default function LandingPage({ landing }: { landing: Landing }) {
-  const landingBooks = landing.bookSlugs
-    .map((slug) => getBookBySlug(slug))
-    .filter((book): book is Book => Boolean(book && !book.comingSoon));
+  const published = (slugs: string[]) =>
+    slugs.map((slug) => getBookBySlug(slug)).filter((book): book is Book => Boolean(book && !book.comingSoon));
+  const landingBooks = published(landing.bookSlugs);
   const faqJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -58,11 +58,31 @@ export default function LandingPage({ landing }: { landing: Landing }) {
         </div>
 
         <h2 className="mt-14 font-display text-2xl font-800 text-navy sm:text-3xl">{landing.booksHeading}</h2>
-        <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-12 sm:gap-x-8 lg:grid-cols-4">
-          {landingBooks.map((book) => (
-            <BookCard key={book.slug} book={book} siteLang={landing.lang} />
-          ))}
-        </div>
+        {landingBooks.length > 0 && (
+          <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-12 sm:gap-x-8 lg:grid-cols-4">
+            {landingBooks.map((book) => (
+              <BookCard key={book.slug} book={book} siteLang={landing.lang} />
+            ))}
+          </div>
+        )}
+        {landing.bookGroups?.map((group) => (
+          <div key={group.heading} className="mt-12 border-t border-navy/10 pt-10 first-of-type:mt-8">
+            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+              <h3 className="font-display text-xl font-800 text-navy sm:text-2xl">{group.heading}</h3>
+              {group.href && (
+                <Link href={group.href} className="text-sm font-semibold text-navy hover:text-orange-ink">
+                  {group.linkLabel ?? group.heading} <span aria-hidden="true">→</span>
+                </Link>
+              )}
+            </div>
+            {group.description && <p className="mt-2 max-w-3xl leading-relaxed text-ink/70">{group.description}</p>}
+            <div className="mt-8 grid grid-cols-2 gap-x-5 gap-y-12 sm:gap-x-8 lg:grid-cols-4">
+              {published(group.bookSlugs).map((book) => (
+                <BookCard key={book.slug} book={book} siteLang={landing.lang} />
+              ))}
+            </div>
+          </div>
+        ))}
 
         <div className="mt-16 max-w-3xl space-y-12">
           {landing.sections.map((section) => (

@@ -19,37 +19,37 @@ const DOORS: Record<SiteLang, Door[]> = {
       href: '/pl/wykreslanki-dla-dzieci',
     },
     {
-      series: ['sudoku-duzy-druk'],
-      label: 'Sudoku dużym drukiem',
-      description: 'Dla seniorów i na prezent — duże cyfry, wyraźne kratki',
-      href: '/pl/sudoku-dla-seniorow',
-    },
-    {
-      series: ['lamiglowki-logiczne'],
-      label: 'Sudoku i warianty',
-      description: 'Klasyczne sudoku, Killer Sudoku i inne łamigłówki liczbowe',
-      href: '/pl/sudoku-i-warianty',
+      // Obie serie sudoku za jednymi drzwiami; podział na serie dopiero na /pl/sudoku.
+      series: ['sudoku-duzy-druk', 'lamiglowki-logiczne'],
+      label: 'Sudoku',
+      description: 'Duży druk dla seniorów, klasyka w czterech poziomach, sudoku mini i Killer',
+      href: '/pl/sudoku',
     },
     {
       // Na razie jedna książka w serii — drzwi prowadzą prosto do niej.
       series: ['klub-madrych-kapibar'],
-      label: 'Sudoku dla dzieci',
-      description: 'Moje pierwsze sudoku — kolorowe plansze 4×4, 6×6 i 9×9 z kapibarą Kasią',
+      label: 'Klub Mądrych Kapibar',
+      description: 'Kolorowe łamigłówki dla dzieci z kapibarami — na początek Moje pierwsze sudoku',
       href: '/pl/books/moje-pierwsze-sudoku',
     },
     {
       series: ['wykreslanki-jezykowe'],
-      label: 'Wykreślanki językowe',
+      label: 'Nauka języków obcych',
       description: 'Angielski i niemiecki — słówka i zwroty utrwalane w zdaniach',
       href: '/pl/wykreslanki-jezykowe',
     },
     {
-      // Na razie jedna polska książka w serii — drzwi prowadzą prosto do niej.
-      // Własna strona serii, gdy dojdzie druga wykreślanka tematyczna.
       series: ['wykreslanki-tematyczne'],
-      label: 'Wykreślanki o górach',
-      description: 'Zdobywca Szczytów — 75 plansz z nazwami polskich szczytów',
-      href: '/pl/books/zdobywca-szczytow',
+      label: 'Wykreślanki tematyczne',
+      description: 'Wykreślanki dla dorosłych wokół jednej pasji — góry, wędkowanie',
+      href: '/pl/wykreslanki-tematyczne',
+    },
+    {
+      // Na razie jeden tom — drzwi prowadzą prosto do niego; strona serii przy tomie 2.
+      series: ['nonogramy'],
+      label: 'Nonogramy',
+      description: 'Zakodowane obrazki — 100 łatwych obrazków logicznych na dobry początek',
+      href: '/pl/books/nonogramy-zakodowane-obrazki-1',
     },
   ],
   de: [

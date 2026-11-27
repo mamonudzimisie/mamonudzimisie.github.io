@@ -12,6 +12,7 @@ export type BookSeries =
   | 'wykreslanki-tematyczne'
   | 'sudoku-duzy-druk'
   | 'lamiglowki-logiczne'
+  | 'nonogramy'
   | 'spanish-word-search';
 
 type SeriesText = { name: string; description: string };
@@ -55,6 +56,14 @@ export const SERIES: { id: BookSeries; text: Record<SiteLang, SeriesText> }[] = 
       pl: { name: 'Sudoku i warianty', description: 'Klasyczne sudoku, Killer Sudoku i inne łamigłówki liczbowe dla tych, którzy lubią policzyć.' },
       de: { name: 'Sudoku & Varianten', description: 'Klassisches Sudoku, Killer-Sudoku und andere Zahlenrätsel für alle, die gern rechnen.' },
       en: { name: 'Sudoku & variants', description: 'Classic sudoku, Killer Sudoku, Kakuro and other number puzzles for those who like numbers.' },
+    },
+  },
+  {
+    id: 'nonogramy',
+    text: {
+      pl: { name: 'Nonogramy. Zakodowane obrazki', description: 'Obrazki logiczne: liczby przy wierszach i kolumnach mówią, które kratki zamalować, a z siatki wyłania się rysunek.' },
+      de: { name: 'Nonogramy. Zakodowane obrazki', description: 'Polnische Nonogramme (Logicals mit Bildern): Die Zahlen verraten, welche Kästchen auszumalen sind.' },
+      en: { name: 'Nonogramy. Zakodowane obrazki', description: 'Polish nonograms (picture logic puzzles): the numbers tell you which squares to fill in to reveal a picture.' },
     },
   },
   {
