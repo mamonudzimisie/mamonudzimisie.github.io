@@ -3,12 +3,17 @@ import Link from 'next/link';
 import { SOCIALS } from '@/components/SocialLinks';
 import { BOOK_LANGS, books } from '@/data/books';
 import { SITE_URL } from '@/lib/site';
+import { socialMetadata } from '@/lib/og';
+
+const TITLE = 'O nas';
+const DESCRIPTION =
+  'Poznaj naszą historię i podejście do tworzenia książek z łamigłówkami dla dzieci i dorosłych.';
 
 export const metadata: Metadata = {
-  title: 'O nas',
-  description:
-    'Poznaj naszą historię i podejście do tworzenia książek z łamigłówkami dla dzieci i dorosłych.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: `${SITE_URL}/pl/about` },
+  ...socialMetadata({ lang: 'pl', title: `${TITLE} | ZALKA BOOKS`, description: DESCRIPTION, url: `${SITE_URL}/pl/about` }),
 };
 
 // Ściana okładek: każda okładka raz (wydania językowe mają osobne pliki),

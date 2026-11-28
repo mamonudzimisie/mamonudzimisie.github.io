@@ -2,11 +2,15 @@ import type { Metadata } from 'next';
 import BookCatalog from '@/components/BookCatalog';
 import { books } from '@/data/books';
 import { SITE_URL } from '@/lib/site';
+import { socialMetadata } from '@/lib/og';
+
+const TITLE = 'Bücher';
+const DESCRIPTION =
+  'Alle unsere deutschen Rätselbücher an einem Ort: Suchrätsel für Kinder, Sudoku im Großdruck und Weihnachts-Wortsuchrätsel.';
 
 export const metadata: Metadata = {
-  title: 'Bücher',
-  description:
-    'Alle unsere deutschen Rätselbücher an einem Ort: Suchrätsel für Kinder, Sudoku im Großdruck und Weihnachts-Wortsuchrätsel.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: {
     canonical: `${SITE_URL}/de/books`,
     languages: {
@@ -15,6 +19,7 @@ export const metadata: Metadata = {
       en: `${SITE_URL}/en/books`,
     },
   },
+  ...socialMetadata({ lang: 'de', title: `${TITLE} | ZALKA BOOKS`, description: DESCRIPTION, url: `${SITE_URL}/de/books` }),
 };
 
 export default function BooksDe() {

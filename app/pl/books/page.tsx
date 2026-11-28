@@ -2,11 +2,15 @@ import type { Metadata } from 'next';
 import BookCatalog from '@/components/BookCatalog';
 import { books } from '@/data/books';
 import { SITE_URL } from '@/lib/site';
+import { socialMetadata } from '@/lib/og';
+
+const TITLE = 'Katalog książek';
+const DESCRIPTION =
+  'Wszystkie nasze książki z łamigłówkami w jednym miejscu: wykreślanki dla dzieci i dorosłych, sudoku dużym drukiem, Killer Sudoku i wykreślanki językowe.';
 
 export const metadata: Metadata = {
-  title: 'Katalog książek',
-  description:
-    'Wszystkie nasze książki z łamigłówkami w jednym miejscu: wykreślanki dla dzieci i dorosłych, sudoku dużym drukiem, Killer Sudoku i wykreślanki językowe.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: {
     canonical: `${SITE_URL}/pl/books`,
     languages: {
@@ -15,6 +19,7 @@ export const metadata: Metadata = {
       en: `${SITE_URL}/en/books`,
     },
   },
+  ...socialMetadata({ lang: 'pl', title: `${TITLE} | ZALKA BOOKS`, description: DESCRIPTION, url: `${SITE_URL}/pl/books` }),
 };
 
 export default function KsiazkiPage() {

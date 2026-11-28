@@ -17,6 +17,9 @@ export type Post = {
   // Obrazek na liście wpisów: `image` z nagłówka, inaczej pierwszy obrazek
   // z treści, inaczej okładka pierwszej książki ze znacznika {{ksiazki}}.
   image?: string;
+  // Obrazek do udostępniania (og:image): jak `image`, ale zamiast pionowej
+  // okładki poziomy obrazek książki 1200×630 z public/og/books.
+  ogImage?: string;
   html: string;
   // Wykreślanki ze znaczników {{wykreslanka …}}; w html zostaje po nich
   // <div data-puzzle="N"></div>, które BlogPost podmienia na komponent.
@@ -91,6 +94,16 @@ function findPostImage(data: Record<string, unknown>, content: string): string |
   return books ? getBookBySlug(books[1])?.coverImage : undefined;
 }
 
+function findOgImage(data: Record<string, unknown>, content: string): string | undefined {
+  if (typeof data.image === 'string') return data.image;
+  const markdownImage = content.match(/!\[[^\]]*\]\(([^)\s]+)/);
+  if (markdownImage) return markdownImage[1];
+  const books = content.match(/^\{\{ksiazki[ \t]+([^}\s]+)/m);
+  if (!books) return undefined;
+  const ogPath = path.join(process.cwd(), 'public', 'og', 'books', `${books[1]}.jpg`);
+  return fs.existsSync(ogPath) ? `/og/books/${books[1]}.jpg` : getBookBySlug(books[1])?.coverImage;
+}
+
 function toDateString(value: unknown): string {
   return value instanceof Date ? value.toISOString().slice(0, 10) : String(value);
 }
@@ -112,6 +125,7 @@ export function getPosts(lang: PostLang): Post[] {
         excerpt: String(data.excerpt ?? ''),
         date: toDateString(data.date),
         image: findPostImage(data, content),
+        ogImage: findOgImage(data, content),
         ...renderMarkdown(content, lang),
       };
     })

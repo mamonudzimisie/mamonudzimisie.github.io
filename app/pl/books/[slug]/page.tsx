@@ -4,6 +4,7 @@ import BookDetail from '@/components/BookDetail';
 import { books, getBookBySlug, getEditions } from '@/data/books';
 import { canonicalBookHref, shouldIndexDetail } from '@/lib/catalog-i18n';
 import { SITE_URL } from '@/lib/site';
+import { socialMetadata } from '@/lib/og';
 
 const SECTION = 'pl' as const;
 
@@ -35,17 +36,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     description,
     keywords: book.seo?.keywords,
     alternates: { canonical: `${SITE_URL}${canonicalBookHref(book)}`, languages },
-    openGraph: {
-      title,
-      description,
-      images: [{ url: ogImage, width: 1200, height: 630 }],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: [ogImage],
-    },
+    ...socialMetadata({ lang: SECTION, title, description, url: `${SITE_URL}${canonicalBookHref(book)}`, image: ogImage }),
   };
 }
 

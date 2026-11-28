@@ -3,6 +3,7 @@ import Link from 'next/link';
 import HeroFan from '@/components/HeroFan';
 import OpenBook from '@/components/OpenBook';
 import SeriesDoors from '@/components/SeriesDoors';
+import SeasonalStrip from '@/components/SeasonalStrip';
 import { getBookBySlug } from '@/data/books';
 import type { Book } from '@/data/books';
 import type { SiteLang } from '@/lib/catalog-i18n';
@@ -282,6 +283,8 @@ export default function HomePage({
         </div>
 
       </section>
+
+      <SeasonalStrip lang={lang} />
 
       <section className="relative px-4 pb-16 pt-12 sm:px-6 sm:pb-24 sm:pt-16">
         <div className="mx-auto max-w-6xl">

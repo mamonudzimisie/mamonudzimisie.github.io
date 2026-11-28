@@ -2,11 +2,15 @@ import type { Metadata } from 'next';
 import BookCatalog from '@/components/BookCatalog';
 import { books } from '@/data/books';
 import { SITE_URL } from '@/lib/site';
+import { socialMetadata } from '@/lib/og';
+
+const TITLE = 'Books';
+const DESCRIPTION =
+  'All our English puzzle books in one place: large print sudoku, classic sudoku, Killer Sudoku and Kakuro.';
 
 export const metadata: Metadata = {
-  title: 'Books',
-  description:
-    'All our English puzzle books in one place: large print sudoku, classic sudoku, Killer Sudoku and Kakuro.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: {
     canonical: `${SITE_URL}/en/books`,
     languages: {
@@ -15,6 +19,7 @@ export const metadata: Metadata = {
       en: `${SITE_URL}/en/books`,
     },
   },
+  ...socialMetadata({ lang: 'en', title: `${TITLE} | ZALKA BOOKS`, description: DESCRIPTION, url: `${SITE_URL}/en/books` }),
 };
 
 export default function BooksEn() {
