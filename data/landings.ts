@@ -156,6 +156,7 @@ export const landings: Landing[] = [
     links: [
       { href: '/pl/blog/sudoku-duzym-drukiem-dla-seniorow', label: 'Sudoku dużym drukiem dla seniorów i osób niedowidzących – jak wybrać poziom' },
       { href: '/pl/blog/lamiglowki-na-prezent-mikolajki-swieta', label: 'Łamigłówki na prezent: co dla kogo w rodzinie' },
+      { href: '/pl/sudoku', label: 'Wszystkie książki z sudoku' },
     ],
   },
   {
@@ -319,7 +320,7 @@ export const landings: Landing[] = [
   {
     lang: 'pl',
     slug: 'sudoku',
-    seoTitle: 'Sudoku – książki z łamigłówkami dużym drukiem, kieszonkowe i Killer',
+    seoTitle: 'Książki z sudoku – duży druk, sudoku mini i Killer',
     seoDescription:
       'Wszystkie nasze książki z sudoku w jednym miejscu: Sudoku dużym drukiem dla seniorów, klasyczne sudoku w czterech poziomach, Sudoku mini do kieszeni i Killer Sudoku.',
     eyebrow: 'Sudoku',
@@ -379,9 +380,9 @@ export const landings: Landing[] = [
   {
     lang: 'pl',
     slug: 'sudoku-i-warianty',
-    seoTitle: 'Sudoku i warianty – klasyczne sudoku i Killer Sudoku',
+    seoTitle: 'Warianty sudoku – Killer Sudoku, sudoku mini i klasyka',
     seoDescription:
-      'Klasyczne sudoku w czterech poziomach i Killer Sudoku dla początkujących. Czym różnią się warianty sudoku, od którego zacząć i jak wybrać książkę.',
+      'Czym różni się Killer Sudoku od klasycznego? Warianty sudoku w książkach: Killer dla początkujących, sudoku mini do kieszeni i 300 klasycznych zagadek.',
     eyebrow: 'Sudoku i warianty',
     h1: 'Sudoku i jego warianty',
     intro: [
@@ -428,8 +429,10 @@ export const landings: Landing[] = [
     ],
     linksHeading: 'Zobacz też',
     links: [
+      { href: '/pl/blog/czym-jest-killer-sudoku', label: 'Czym jest Killer Sudoku? Zasady, reguła 45 i jak zacząć' },
+      { href: '/pl/blog/sudoku-jigsaw-zasady', label: 'Sudoku Jigsaw – zasady i plansze do druku' },
       { href: '/pl/sudoku-dla-seniorow', label: 'Sudoku dużym drukiem dla seniorów' },
-      { href: '/pl/blog/lamiglowki-na-prezent-mikolajki-swieta', label: 'Łamigłówki na prezent: co dla kogo w rodzinie' },
+      { href: '/pl/sudoku', label: 'Wszystkie książki z sudoku' },
     ],
   },
   {
