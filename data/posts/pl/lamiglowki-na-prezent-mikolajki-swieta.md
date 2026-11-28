@@ -1,76 +1,59 @@
 ---
 title: Łamigłówki na prezent na Mikołajki i pod choinkę – coś dla każdego w rodzinie
-excerpt: Wykreślanki dla dzieci od 5 lat, sudoku dużym drukiem dla babci i dziadka i Killer Sudoku dla fana łamigłówek. Podpowiadamy, którą książkę wybrać dla kogo.
+excerpt: Jaka książka z łamigłówkami dla dziecka, babci, fana sudoku, wędkarza i miłośnika gór? Krótki poradnik, jak trafić z poziomem.
 date: 2026-10-29
 ---
 
-> Szukasz prezentu, który nie skończy w szufladzie i nie potrzebuje ładowarki? Książka z łamigłówkami to kilka tygodni spokojnych wieczorów – trzeba tylko trafić z poziomem.
+> Szukasz prezentu, który nie skończy w szufladzie i nie potrzebuje ładowarki? Książka z łamigłówkami to kilka tygodni spokojnych wieczorów, trzeba tylko trafić z poziomem.
 
-Z prezentami na Mikołajki i pod choinkę zawsze jest ten sam kłopot: zabawek jest za dużo, kolejny kubek nikogo nie ucieszy, a do ekranu i tak wszyscy siedzą za długo. Łamigłówki wypadają tu bardzo dobrze. Są lekkie, mieszczą się w paczce i w mikołajkowym bucie, a przy tym dają zajęcie na długo, nie na jeden wieczór.
+Łamigłówki to dobry prezent na Mikołajki i pod choinkę: są lekkie, mieszczą się w paczce i dają zajęcie na długo. Jedna zasada na wszystko: **jeśli wahasz się między dwoma poziomami, wybierz łatwiejszy.** Za łatwa książka i tak sprawi przyjemność, za trudna wyląduje na półce.
 
-Warunek jest jeden: poziom musi pasować. Za łatwa książka nudzi po trzech stronach, za trudna ląduje na półce. Dlatego poniżej rozpisaliśmy nasze książki według tego, **dla kogo** szukasz prezentu.
+## Dla dziecka 5–8 lat
 
-## Dla dziecka: Znajdź słówko!, pięć poziomów od 5 lat
+Wybierz według tego, co dziecko lubi. Jeśli lubi litery i zaczyna czytać, sięgnij po wykreślanki **Znajdź słówko!**: tom 5–6 lat dla tych, którzy dopiero składają literki, tom 6–7 lat dla zerówki i pierwszej klasy. Jeśli woli liczyć i układać, wybierz **Moje pierwsze sudoku**, które uczy sudoku od zera, z kapibarą Kasią.
 
-Seria **Znajdź słówko!** to wykreślanki po polsku, w których każdy tom ma 100 plansz i rozwiązania na końcu. Tomy różnią się wielkością planszy, liczbą słów i tym, w ilu kierunkach słowa się chowają. Najprościej wybrać według wieku i tego, jak dziecko czyta:
+{{ksiazki znajdz-slowko-poziom-latwy znajdz-slowko-poziom-latwy-6-7 moje-pierwsze-sudoku}}
 
-- **5–6 lat, poziom najłatwiejszy** – dla dziecka, które dopiero oswaja literki. Mała plansza, duże litery i znajome słowa.
-- **6–7 lat, poziom łatwy** – dla zerówki i pierwszej klasy. Słowa biegną tak, jak czytamy, a tylko jedno na planszy idzie po skosie.
-- **7–9 lat, poziom średni** – dla dziecka, które czyta już płynnie. Dłuższe słowa, większa plansza.
-- **10+, poziom trudny** – długie słowa we wszystkich kierunkach, także wspak.
-- **13+, poziom ekspert** – najgęstsze plansze w serii, dla nastolatków (i dorosłych, którzy lubią wyzwanie).
+## Dla starszego dziecka i nastolatka
 
-Jeśli wahasz się między dwoma poziomami, wybierz **łatwiejszy**. Dziecko, które samo rozwiąże pierwsze plansze, chętnie wraca do książki. A to, które od razu utknie, zwykle już do niej nie wraca.
+Dziecko, które czyta płynnie, dostanie od nas dłuższe słowa i większe plansze: tom 7–9 lat, 10+ albo 13+ dla nastolatka. Na Mikołajki pasuje też **Znajdź słówko! Święta** (6–9 lat) z kolędami, piernikami i reniferami.
 
-{{ksiazki znajdz-slowko-poziom-latwy znajdz-slowko-poziom-latwy-6-7 znajdz-slowko-poziom-sredni-7-9 znajdz-slowko-poziom-trudny-10 znajdz-slowko-poziom-ekspert-13}}
+{{ksiazki znajdz-slowko-poziom-sredni-7-9 znajdz-slowko-poziom-trudny-10 znajdz-slowko-poziom-ekspert-13 znajdz-slowko-swieta}}
 
-## Na Mikołajki i święta: Znajdź słówko! Święta
+## Dla babci i dziadka
 
-Jeśli prezent ma pasować do pory roku, mamy też tom świąteczny dla dzieci 6–9 lat. To 40 wykreślanek ze słowami, które pachną piernikiem: kolędy, wigilijne potrawy, Mikołaj i renifery. Co czwarta plansza ma kształt serca, gwiazdy albo kuli, a między zagadkami czekają strony z ciekawostkami o zimie i Bożym Narodzeniu.
-
-Pasuje do mikołajkowej paczki, a potem przydaje się w ferie, gdy za oknem szybko robi się ciemno.
-
-{{ksiazki znajdz-slowko-swieta}}
-
-## Dla babci i dziadka: Sudoku dużym drukiem
-
-Wiele książek z sudoku drukuje się drobno, po cztery albo sześć plansz na stronie. Nasza seria **Sudoku dużym drukiem** ma dwie plansze na stronę, duże cyfry i sporo miejsca na notatki, więc rozwiązuje się ją bez mrużenia oczu. Trzy tomy, trzy poziomy:
-
-- **Nr 102, rozgrzewka i łatwy** – na początek. Ze wstępem krok po kroku, dobry dla kogoś, kto sudoku jeszcze nie zna.
-- **Nr 100, łatwy i średni** – dla kogoś, kto lubi codzienną porcję łamigłówek bez frustracji.
-- **Nr 101, trudny i bardzo trudny** – dla wprawnych. Ani jednej planszy dla początkującego, za to wstęp z metodami zaawansowanymi.
-
-Jeśli nie wiesz, jak dobrze osoba, którą obdarowujesz, radzi sobie z sudoku, wybierz nr 100 – to bezpieczny środek.
+Postaw na duży druk: **Sudoku dużym drukiem** ma dwie plansze na stronę i duże cyfry. Jeśli nie wiesz, jak dobrze ktoś radzi sobie z sudoku, wybierz **nr 100** (łatwy i średni). Kto sudoku nie zna, niech zacznie od **nr 102**, a wprawny gracz ucieszy się z **nr 101**.
 
 {{ksiazki sudoku-duzym-drukiem-102 sudoku-duzym-drukiem-100 sudoku-duzym-drukiem-101}}
 
-## Dla fana sudoku: 300 zagadek i Killer Sudoku
+## Dla fana sudoku
 
-Dla kogoś, kto sudoku rozwiązuje od lat, mamy dwie propozycje:
+Ktoś, kto rozwiązał już setki sudoku, potrzebuje czegoś nowego. **Killer Sudoku** dokłada do zwykłych zasad sumy w klatkach. **Nonogramy** to zupełnie inna łamigłówka: z liczb wyłania się obrazek. Jeśli wolisz klasykę, **Sudoku 300 zagadek** ma cztery poziomy w jednym tomie.
 
-- **Sudoku, 300 zagadek od łatwych do bardzo trudnych** – cztery poziomy w jednym tomie i wstęp z metodami od podstaw po X-Wing i Swordfish. Każda zagadka ma dokładnie jedno rozwiązanie i da się ją rozwiązać samą logiką.
-- **Killer Sudoku, 150 łatwych zagadek dla początkujących** – dla kogoś, kto zna klasyczne sudoku na pamięć i szuka czegoś nowego. Do zwykłych zasad dochodzą klatki, w których cyfry muszą dać podaną sumę. Na start jest poradnik z trzema podstawowymi technikami i tabele sum.
+{{ksiazki killer-sudoku-400 nonogramy-zakodowane-obrazki-1 sudoku-300-zagadek-200}}
 
-Killer Sudoku to dobry prezent właśnie dla kogoś, kto „ma już wszystkie sudoku”, bo to zupełnie nowy sposób myślenia przy tej samej planszy.
+## Mały prezent do paczki
 
-{{ksiazki sudoku-300-zagadek-200 killer-sudoku-400}}
+Szukasz czegoś do mikołajkowego buta albo jako dodatek do większego prezentu? **Sudoku mini** to 120 łatwych zagadek w poręcznym formacie, w sam raz do pociągu i poczekalni.
 
-## Dla miłośnika gór: Zdobywca Szczytów
+{{ksiazki sudoku-mini-600}}
 
-75 wykreślanek z nazwami szczytów z Korony Gór Polski, Diademu Polskich Gór i innych odznak turystycznych – ponad 1500 nazw do znalezienia. Prezent dla kogoś, kto zbiera pieczątki w książeczce odznak i do lata musi jakoś wytrzymać bez szlaku.
+## Dla pasjonata
 
-{{ksiazki zdobywca-szczytow}}
+Najbardziej ucieszy prezent o tym, co ktoś kocha. Dla wędkarza mamy **Wielki połów**, 50 wykreślanek o rybach i łowiskach, z ciekawostkami i dyplomem ([więcej we wpisie](/pl/blog/wielki-polow-prezent-dla-wedkarza)). Dla miłośnika gór, który zbiera odznaki, jest **Zdobywca Szczytów** z nazwami szczytów z Korony Gór Polski.
+
+{{ksiazki wielki-polow zdobywca-szczytow}}
 
 ## Ściągawka: co dla kogo?
 
 - **Dziecko 5–6 lat** → Znajdź słówko! 5–6 lat
-- **Dziecko 6–7 lat, zerówka i 1 klasa** → Znajdź słówko! 6–7 lat
+- **Dziecko 6–7 lat** → Znajdź słówko! 6–7 lat albo Moje pierwsze sudoku
 - **Dziecko 7–9 lat** → Znajdź słówko! 7–9 lat albo Znajdź słówko! Święta
 - **Dziecko 10+ i nastolatek** → Znajdź słówko! 10+ albo 13+
-- **Babcia, dziadek, ktoś ze słabszym wzrokiem** → Sudoku dużym drukiem (na początek nr 102 albo 100)
-- **Fan sudoku** → Sudoku 300 zagadek albo Killer Sudoku
+- **Babcia i dziadek** → Sudoku dużym drukiem, na początek nr 100
+- **Fan sudoku** → Killer Sudoku albo Nonogramy
+- **Do paczki** → Sudoku mini
+- **Wędkarz** → Wielki połów
 - **Miłośnik gór** → Zdobywca Szczytów
 
-Każdą książkę możesz obejrzeć od środka na jej stronie – pokazujemy kilka przykładowych stron, żeby łatwiej było trafić z poziomem.
-
-Zajrzyj też na nasz [Instagram](https://www.instagram.com/zalkabooks_com/) – pokazujemy tam nowe książki, zanim trafią na półki.
+Każdą książkę możesz obejrzeć od środka na jej stronie, żeby łatwiej trafić z poziomem.
