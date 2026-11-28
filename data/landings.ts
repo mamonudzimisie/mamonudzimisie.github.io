@@ -402,7 +402,7 @@ export const landings: Landing[] = [
       {
         heading: 'Od czego zacząć?',
         bullets: [
-          'Sudoku – 300 zagadek: jeśli chcesz klasyki na długo. Cztery poziomy, od łatwego po bardzo trudny, i wstęp z metodami od podstaw po X-Wing, Swordfish i XY-Wing.',
+          'Sudoku – 300 zagadek: jeśli chcesz klasyki na długo. Cztery poziomy, od łatwego po bardzo trudny, i wstęp z metodami od podstaw po pary, trójki i X-Wing.',
           'Sudoku mini – 120 łatwych zagadek: jeśli chcesz mieć sudoku zawsze przy sobie. Poręczny format 145 × 205 mm, jedna duża plansza na stronę i krótki wstęp z dwiema prostymi metodami.',
           'Killer Sudoku – 150 łatwych zagadek: jeśli znasz sudoku i chcesz spróbować czegoś nowego. Zagadki mają cyfry startowe, a poradnik na początku objaśnia zasady, trzy podstawowe techniki i regułę 45.',
         ],
@@ -556,7 +556,7 @@ export const landings: Landing[] = [
       {
         heading: 'Where should I start?',
         bullets: [
-          'Sudoku – 300 Puzzles: if you want classic sudoku for a long time. Four levels from easy to very hard and an introduction from the basics to X-Wing, Swordfish and XY-Wing.',
+          'Sudoku – 300 Puzzles: if you want classic sudoku for a long time. Four levels from easy to very hard and an introduction from the basics to pairs, triples and the X-Wing.',
           'Killer Sudoku – 150 Easy Puzzles: if you know sudoku and want something new. Starting digits to get you going and a starter guide with three basic techniques and the rule of 45.',
           'Kakuro for Beginners: if you have never solved one. A step-by-step tutorial solves a full example with you, then 192 puzzles grow from 4×4 to 6×6.',
         ],

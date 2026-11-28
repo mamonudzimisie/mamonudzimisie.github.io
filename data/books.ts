@@ -457,7 +457,7 @@ export const books: Book[] = [
   {
     slug: 'sudoku-300-zagadek-200',
     title: 'Sudoku',
-    subtitle: '300 zagadek od łatwych do bardzo trudnych',
+    subtitle: '300 łamigłówek od łatwych do bardzo trudnych',
     ageRange: 'Dorośli',
     category: 'sudoku',
     series: 'lamiglowki-logiczne',
@@ -465,12 +465,12 @@ export const books: Book[] = [
     lang: 'pl',
     edition: 'sudoku-200',
     description:
-      'Jedna plansza, dziewięć cyfr i chwila tylko dla siebie. Ten tom zawiera 300 zagadek sudoku ułożonych od najłatwiejszych do najtrudniejszych — zaczniesz od prostych, a skończysz na takich, przy których posiedzisz znacznie dłużej. Każda zagadka ma dokładnie jedno rozwiązanie i da się ją rozwiązać samą logiką, bez zgadywania. Świetnie sprawdza się w podróży, przy porannej kawie, w poczekalni albo wieczorem zamiast ekranu. Dobry pomysł na prezent dla kogoś, kto lubi łamigłówki — i dla siebie.',
+      'Jedna plansza, dziewięć cyfr i chwila tylko dla siebie. W tym tomie jest 300 klasycznych sudoku ułożonych od najłatwiejszego do najtrudniejszego: 60 łatwych, 90 średnich, 90 trudnych i 60 bardzo trudnych. Poziomy odpowiadają tym z popularnych serwisów z sudoku, więc łatwe są naprawdę łatwe, a bardzo trudne dają wprawnym graczom prawdziwe wyzwanie. Wstęp pokazuje metody w tej kolejności, w jakiej zaczynają być potrzebne: najpierw dwie podstawowe, potem wykluczenia i kandydaci, na końcu pary, trójki i X-Wing. Świetnie sprawdza się w podróży, przy porannej kawie albo wieczorem zamiast ekranu. Dobry pomysł na prezent dla kogoś, kto lubi łamigłówki, i dla siebie.',
     features: [
-      '300 sudoku w czterech poziomach: łatwy, średni, trudny i bardzo trudny',
-      'Wstęp z metodami rozwiązywania — od podstaw po X-Wing, Swordfish i XY-Wing',
-      'Wszystkie rozwiązania na końcu książki',
-      'Czytelne plansze z pogrubionymi liniami bloków 3×3',
+      '300 sudoku w czterech poziomach: 60 łatwych, 90 średnich, 90 trudnych i 60 bardzo trudnych',
+      'Wstęp z metodami od podstaw po pary, trójki i X-Wing',
+      'Cztery plansze na stronę, poziom podany nad każdą',
+      'Komplet rozwiązań na końcu książki',
     ],
     coverImage: '/covers/sudoku-300-zagadek-200.webp',
     amazonUrl: 'https://amzn.eu/d/08vEb3Mk',
@@ -480,9 +480,9 @@ export const books: Book[] = [
     pageCount: 132,
     samplePages: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/samples/sudoku-300-zagadek-200/${n}.webp`),
     seo: {
-      title: 'Sudoku – 300 zagadek od łatwych do bardzo trudnych',
+      title: 'Sudoku – 300 łamigłówek od łatwych do bardzo trudnych',
       description:
-        '300 sudoku w czterech poziomach trudności, każde z jednym rozwiązaniem. Wstęp z technikami od podstaw po X-Wing i Swordfish. Rozwiązania w środku.',
+        '300 klasycznych sudoku w czterech poziomach, od łatwego po bardzo trudny. Wstęp z metodami od podstaw po pary, trójki i X-Wing. Komplet rozwiązań na końcu.',
     },
   },
   {
@@ -914,12 +914,12 @@ export const books: Book[] = [
     lang: 'en',
     edition: 'sudoku-200',
     description:
-      'One grid, nine digits and a moment just for you. This book contains 300 Sudoku puzzles arranged from the easiest to the hardest — you’ll start with simple ones and finish with grids that will keep you busy much longer. Every puzzle has exactly one solution and can be solved by logic alone, with no guessing. Perfect for travel, a morning coffee, a waiting room or an evening away from screens. A great gift for anyone who loves puzzles — and for yourself.',
+      'One grid, nine digits and a moment just for you. This book holds 300 classic Sudoku puzzles arranged from the easiest to the hardest: 60 easy, 90 medium, 90 hard and 60 very hard. The levels match those of popular Sudoku websites, so the easy ones really are easy and the very hard ones give experienced solvers a real challenge. The introduction teaches the methods in the order you will need them: two basic ones first, then eliminations and candidates, and finally pairs, triples and the X-Wing. Perfect for travel, a morning coffee or an evening away from screens. A great gift for anyone who loves puzzles, and for yourself.',
     features: [
-      '300 Sudoku puzzles in four levels: easy, medium, hard and very hard',
-      'An introduction to solving methods — from the basics to X-Wing, Swordfish and XY-Wing',
+      '300 Sudoku puzzles in four levels: 60 easy, 90 medium, 90 hard and 60 very hard',
+      'An introduction to solving methods, from the basics to pairs, triples and the X-Wing',
+      'Four puzzles per page, each labelled with its level',
       'Full solutions at the back of the book',
-      'Clear grids with bold 3×3 box lines',
     ],
     coverImage: '/covers/sudoku-300-puzzles-200.webp',
     amazonUrl: 'https://a.co/d/0icV7JLn',
@@ -931,7 +931,7 @@ export const books: Book[] = [
     seo: {
       title: '300 Sudoku Puzzles – From Easy to Very Hard',
       description:
-        '300 Sudoku puzzles in four difficulty levels, each with exactly one solution. An introduction to techniques from the basics to X-Wing and Swordfish. Solutions included.',
+        '300 classic Sudoku puzzles in four levels, from easy to very hard. An introduction to methods from the basics to pairs, triples and the X-Wing. Full solutions included.',
     },
   },
   {
